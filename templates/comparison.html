@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroPulse | Price Comparison</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f1f5f9;
+      color:#1f2933;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      background:#0f172a;
+      padding:15px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:1.6rem;
+      font-weight:bold;
+      color:#22c55e;
+      cursor:pointer;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+    }
+
+    .nav-links span{
+      color:#e5e7eb;
+      cursor:pointer;
+    }
+
+    .nav-links span:hover{
+      color:#22c55e;
+    }
+
+    .active{
+      color:#22c55e;
+      font-weight:bold;
+    }
+
+    /* CONTAINER */
+    .container{
+      max-width:950px;
+      margin:30px auto;
+      background:white;
+      padding:25px;
+      border-radius:14px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .crop-section{
+      text-align:center;
+      margin-bottom:25px;
+    }
+
+    select{
+      padding:10px;
+      border-radius:6px;
+      border:1px solid #cbd5e1;
+      margin-right:8px;
+    }
+
+    .primary-btn{
+      padding:10px 22px;
+      background:#22c55e;
+      color:white;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .primary-btn:hover{
+      background:#16a34a;
+    }
+
+    /* TABLE */
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    thead{
+      background:#22c55e;
+      color:white;
+    }
+
+    th,td{
+      padding:12px;
+      text-align:center;
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    tbody tr:hover{
+      background:#f8fafc;
+    }
+
+    .best-row{
+      background:#dcfce7;
+      color:#166534;
+      font-weight:bold;
+    }
+
+    .badge-best{
+      background:#dcfce7;
+      color:#166534;
+      padding:4px 10px;
+      border-radius:6px;
+      font-size:0.85rem;
+    }
+
+    .action-buttons{
+      margin-top:20px;
+      text-align:center;
+    }
+
+    .secondary-btn{
+      padding:10px 20px;
+      margin:5px;
+      border-radius:10px;
+      border:none;
+      background:#22c55e;
+      color:white;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .secondary-btn:hover{
+      background:#16a34a;
+    }
+
+    footer{
+      background:#020617;
+      color:#94a3b8;
+      text-align:center;
+      padding:20px;
+      margin-top:auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="navigate('/')">AgroPulse</div>
+  <div class="nav-links">
+    <span onclick="navigate('/')">Home</span>
+    <span onclick="navigate('/dashboard')">Dashboard</span>
+    <span class="active">Compare</span>
+    <span onclick="navigate('/prediction')">Prediction</span>
+    <span onclick="navigate('/about')">About</span>
+  </div>
+</nav>
+
+<!-- CROP SELECT -->
+<div class="container crop-section">
+  <label><strong>Select Crop:</strong></label>
+  <select id="compareCrop"></select>
+  <button class="primary-btn" onclick="updateCrop()">Show Prices</button>
+</div>
+
+<!-- TABLE -->
+<div class="container">
+  <table id="priceTable">
+    <thead>
+      <tr>
+        <th>Crop</th>
+        <th>Market</th>
+        <th>Price (₹/quintal)</th>
+        <th>Distance</th>
+        <th>Type</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wheat</td>
+        <td>Dewas</td>
+        <td>₹2250</td>
+        <td>18 km</td>
+        <td>APMC</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wheat</td>
+        <td>Indore</td>
+        <td>₹2100</td>
+        <td>5 km</td>
+        <td>APMC</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wheat</td>
+        <td>Ujjain</td>
+        <td>₹2050</td>
+        <td>32 km</td>
+        <td>FPO</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wheat</td>
+        <td>Bhopal</td>
+        <td>₹2000</td>
+        <td>45 km</td>
+        <td>APMC</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="action-buttons">
+    <button class="secondary-btn" onclick="sortTable(2)">Sort by Price</button>
+    <button class="secondary-btn" onclick="sortTable(3)">Sort by Distance</button>
+  </div>
+</div>
+
+<footer>
+  © 2026 AgroPulse | AI-Powered Decisions for Farmers
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function navigate(page){
+  window.location.assign(page);
+}
+
+const crops = [
+  "Wheat",
+  "Rice",
+  "Maize",
+  "Cotton",
+  "Paddy(Dhan)(Common)",
+  "Mustard",
+  "Bajra(Pearl Millet/Cumbu)",
+  "Bengal Gram(Gram)(Whole)"
+];
+
+function loadCrops(){
+  const select = document.getElementById("compareCrop");
+  select.innerHTML = `<option disabled selected>Select Crop</option>`;
+  crops.forEach(crop=>{
+    const opt = document.createElement("option");
+    opt.value = crop;
+    opt.textContent = crop;
+    select.appendChild(opt);
+  });
+}
+
+function updateCrop(){
+  const crop = document.getElementById("compareCrop").value;
+  if(!crop){
+    alert("Please select a crop");
+    return;
+  }
+
+  document.querySelectorAll("#priceTable tbody tr")
+    .forEach(row => row.cells[0].innerText = crop);
+
+  highlightBest();
+}
+
+function sortTable(col){
+  const tbody = document.querySelector("#priceTable tbody");
+  const rows = Array.from(tbody.rows);
+
+  rows.sort((a,b)=>{
+    const A = Number(a.cells[col].innerText.replace(/[^0-9]/g,""));
+    const B = Number(b.cells[col].innerText.replace(/[^0-9]/g,""));
+    return A - B;
+  });
+
+  rows.forEach(r=>tbody.appendChild(r));
+  highlightBest();
+}
+
+function highlightBest(){
+  const rows = document.querySelectorAll("#priceTable tbody tr");
+  rows.forEach(r=>{
+    r.classList.remove("best-row");
+    r.cells[5].innerHTML="";
+  });
+
+  let best = rows[0];
+  let max = Number(rows[0].cells[2].innerText.replace(/[^0-9]/g,""));
+
+  rows.forEach(r=>{
+    const price = Number(r.cells[2].innerText.replace(/[^0-9]/g,""));
+    if(price>max){
+      max=price;
+      best=r;
+    }
+  });
+
+  best.classList.add("best-row");
+  best.cells[5].innerHTML = "<span class='badge-best'>Best</span>";
+}
+
+window.onload = function(){
+  loadCrops();
+  highlightBest();
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3450 @@
+State,District,Crops,Modal Price
+Rajasthan,Chittorgarh,Wheat,2250
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2050
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2040
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2060
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2040
+Andhra Pradesh,Guntur,Black Gram (Urd Beans)(Whole),8200
+Andhra Pradesh,Kurnool,Jowar(Sorghum),3060
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Andhra Pradesh,Kurnool,Bengal Gram(Gram)(Whole),5335
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Chattisgarh,Balodabazar,Paddy(Dhan)(Common),1355
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1500
+Chattisgarh,Dhamtari,Maize,2000
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1500
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1550
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1800
+Chattisgarh,Kabirdham,Wheat,2200
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Paddy(Dhan)(Common),2000
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Paddy(Dhan)(Common),2000
+Chattisgarh,Kanker,Paddy(Dhan)(Common),2000
+Chattisgarh,Kanker,Paddy(Dhan)(Common),1500
+Chattisgarh,Koria,Maize,1965
+Chattisgarh,Koria,Wheat,2130
+Chattisgarh,Mungeli,Paddy(Dhan)(Common),1820
+Chattisgarh,Mungeli,Paddy(Dhan)(Common),1770
+Chattisgarh,Raipur,Paddy(Dhan)(Common),2100
+Chattisgarh,Surajpur,Maize,2000
+Chattisgarh,Surajpur,Maize,1965
+Gujarat,Amreli,Arhar (Tur/Red Gram)(Whole),8250
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4900
+Gujarat,Amreli,Cotton,6895
+Gujarat,Amreli,Green Gram (Moong)(Whole),7500
+Gujarat,Amreli,Jowar(Sorghum),4375
+Gujarat,Amreli,Wheat,2555
+Gujarat,Amreli,Wheat,2480
+Gujarat,Amreli,Cotton,7175
+Gujarat,Amreli,Arhar (Tur/Red Gram)(Whole),8525
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4585
+Gujarat,Amreli,Cotton,5850
+Gujarat,Amreli,Jowar(Sorghum),3360
+Gujarat,Amreli,Bajra(Pearl Millet/Cumbu),2003
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4593
+Gujarat,Amreli,Cotton,6903
+Gujarat,Amreli,Jowar(Sorghum),3600
+Gujarat,Amreli,Wheat,2503
+Gujarat,Amreli,Wheat,2460
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2225
+Gujarat,Banaskanth,Mustard,5305
+Gujarat,Banaskanth,Wheat,2175
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2250
+Gujarat,Banaskanth,Wheat,2200
+Gujarat,Banaskanth,Gram Raw(Chholia),8525
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2185
+Gujarat,Banaskanth,Mustard,5260
+Gujarat,Banaskanth,Wheat,2030
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2005
+Gujarat,Banaskanth,Mustard,5255
+Gujarat,Banaskanth,Wheat,2232
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),1967.5
+Gujarat,Banaskanth,Mustard,5182.5
+Gujarat,Banaskanth,Wheat,2250
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7600
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2400
+Gujarat,Bharuch,Cotton,5800
+Gujarat,Bharuch,Jowar(Sorghum),2800
+Gujarat,Bharuch,Maize,2200
+Gujarat,Bharuch,Wheat,3200
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7600
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2200
+Gujarat,Bharuch,Cotton,5600
+Gujarat,Bharuch,Jowar(Sorghum),2600
+Gujarat,Bharuch,Maize,2000
+Gujarat,Botad,Cotton,6955
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),7800
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),8000
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5075
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5200
+Gujarat,Dahod,Black Gram (Urd Beans)(Whole),7700
+Gujarat,Dahod,Green Gram (Moong)(Whole),7800
+Gujarat,Dahod,Maize,2600
+Gujarat,Dahod,Maize,2200
+Gujarat,Dahod,Paddy(Dhan)(Common),1885
+Gujarat,Dahod,Paddy(Dhan)(Common),2100
+Gujarat,Dahod,Wheat,2700
+Gujarat,Dahod,Wheat,2550
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2290
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),1950
+Gujarat,Gandhinagar,Wheat,2312
+Gujarat,Jamnagar,Bajra(Pearl Millet/Cumbu),1950
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4525
+Gujarat,Jamnagar,Cotton,6015
+Gujarat,Jamnagar,Jowar(Sorghum),4225
+Gujarat,Jamnagar,Wheat,2380
+Gujarat,Junagarh,Bajra(Pearl Millet/Cumbu),2125
+Gujarat,Junagarh,Black Gram (Urd Beans)(Whole),8600
+Gujarat,Junagarh,Wheat,2475
+Gujarat,Junagarh,Arhar (Tur/Red Gram)(Whole),8690
+Gujarat,Junagarh,Green Gram (Moong)(Whole),7315
+Gujarat,Junagarh,Kulthi(Horse Gram),4745
+Gujarat,Junagarh,Wheat,2425
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2250
+Gujarat,Mehsana,Mustard,5290
+Gujarat,Mehsana,Paddy(Dhan)(Common),2200
+Gujarat,Mehsana,Wheat,2450
+Gujarat,Morbi,Wheat,2350
+Gujarat,Patan,Wheat,2125
+Gujarat,Patan,Bajra(Pearl Millet/Cumbu),1940
+Gujarat,Patan,Jowar(Sorghum),5577
+Gujarat,Patan,Mustard,5327
+Gujarat,Patan,Wheat,2367
+Gujarat,Porbandar,Bajra(Pearl Millet/Cumbu),2205
+Gujarat,Porbandar,Green Gram (Moong)(Whole),8315
+Gujarat,Porbandar,Kulthi(Horse Gram),4350
+Gujarat,Porbandar,Wheat,1990
+Gujarat,Porbandar,Wheat,2280
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),9305
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4980
+Gujarat,Rajkot,Wheat,2465
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),7000
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),1940
+Gujarat,Rajkot,Cotton,7075
+Gujarat,Rajkot,Green Gram (Moong)(Whole),6750
+Gujarat,Rajkot,Jowar(Sorghum),4250
+Gujarat,Rajkot,Maize,2605
+Gujarat,Rajkot,Mustard,4900
+Gujarat,Rajkot,Wheat,2175
+Gujarat,Rajkot,Wheat,2225
+Gujarat,Rajkot,Cotton,6960
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2265
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4305
+Gujarat,Rajkot,Cotton,6000
+Gujarat,Rajkot,Jowar(Sorghum),3520
+Gujarat,Rajkot,Wheat,2330
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),8250
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2075
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4900
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),11750
+Gujarat,Rajkot,Black Gram (Urd Beans)(Whole),7680
+Gujarat,Rajkot,Cotton,7200
+Gujarat,Rajkot,Green Gram (Moong)(Whole),8125
+Gujarat,Rajkot,Jowar(Sorghum),4750
+Gujarat,Rajkot,Mustard,5100
+Gujarat,Rajkot,Wheat,2335
+Gujarat,Rajkot,Wheat,2450
+Gujarat,Sabarkantha,Wheat,2350
+Gujarat,Surat,Pegeon Pea (Arhar Fali),12500
+Gujarat,Surendranagar,Cotton,7000
+Gujarat,Surendranagar,Wheat,2400
+Gujarat,Surendranagar,Cotton,7025
+Gujarat,Surendranagar,Mustard,6900
+Gujarat,Surendranagar,Wheat,2450
+Karnataka,Haveri,Maize,2050
+Karnataka,Kolar,Paddy(Dhan)(Common),2080
+Karnataka,Raichur,Paddy(Dhan)(Common),3005
+Karnataka,Shimoga,Arhar Dal(Tur Dal),11750
+Karnataka,Shimoga,Bengal Gram Dal (Chana Dal),6750
+Karnataka,Shimoga,Bengal Gram(Gram)(Whole),5850
+Karnataka,Shimoga,Black Gram Dal (Urd Dal),11900
+Karnataka,Shimoga,Green Gram (Moong)(Whole),11000
+Karnataka,Shimoga,Green Gram Dal (Moong Dal),12000
+Karnataka,Shimoga,Jowar(Sorghum),3750
+Karnataka,Shimoga,Kulthi(Horse Gram),6500
+Karnataka,Shimoga,Maize,2100
+Karnataka,Shimoga,Mustard,7500
+Karnataka,Shimoga,Wheat,5250
+Madhya Pradesh,Ashoknagar,Wheat,2125
+Madhya Pradesh,Bhopal,Green Gram (Moong)(Whole),5615
+Madhya Pradesh,Dewas,Arhar (Tur/Red Gram)(Whole),8000
+Madhya Pradesh,Dewas,Green Gram (Moong)(Whole),7100
+Madhya Pradesh,Dewas,Wheat,2361
+Madhya Pradesh,Jhabua,Wheat,2115
+Madhya Pradesh,Panna,Bengal Gram(Gram)(Whole),5030
+Madhya Pradesh,Panna,Lentil (Masur)(Whole),5325
+Madhya Pradesh,Panna,Wheat,2120
+Madhya Pradesh,Panna,Wheat,2025
+Madhya Pradesh,Rajgarh,Bengal Gram(Gram)(Whole),4335
+Madhya Pradesh,Rajgarh,Lentil (Masur)(Whole),5700
+Madhya Pradesh,Rajgarh,Mustard,5100
+Madhya Pradesh,Rajgarh,Wheat,2305
+Madhya Pradesh,Ratlam,Wheat,2500
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),4250
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),5485
+Madhya Pradesh,Shajapur,Lentil (Masur)(Whole),5490
+Madhya Pradesh,Shajapur,Mustard,5090
+Madhya Pradesh,Shajapur,Wheat,2290
+Madhya Pradesh,Shajapur,Wheat,2090
+Madhya Pradesh,Shajapur,Wheat,2780
+Madhya Pradesh,Sheopur,Mustard,5210
+Madhya Pradesh,Sidhi,Lentil (Masur)(Whole),5000
+Maharashtra,Amarawati,Wheat,2300
+Maharashtra,Aurangabad,Arhar (Tur/Red Gram)(Whole),6400
+Maharashtra,Aurangabad,Bajra(Pearl Millet/Cumbu),2335
+Maharashtra,Aurangabad,Jowar(Sorghum),4000
+Maharashtra,Aurangabad,Wheat,2361
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2800
+Maharashtra,Jalana,Bengal Gram(Gram)(Whole),4230
+Maharashtra,Jalana,Jowar(Sorghum),3656
+Maharashtra,Jalana,Wheat,2225
+Maharashtra,Mumbai,Arhar Dal(Tur Dal),12500
+Maharashtra,Mumbai,Bajra(Pearl Millet/Cumbu),3600
+Maharashtra,Mumbai,Bengal Gram Dal (Chana Dal),6200
+Maharashtra,Mumbai,Bengal Gram(Gram)(Whole),6000
+Maharashtra,Mumbai,Black Gram (Urd Beans)(Whole),10200
+Maharashtra,Mumbai,Black Gram Dal (Urd Dal),10500
+Maharashtra,Mumbai,Green Gram (Moong)(Whole),10500
+Maharashtra,Mumbai,Green Gram Dal (Moong Dal),11500
+Maharashtra,Mumbai,Jowar(Sorghum),4800
+Maharashtra,Mumbai,Lentil (Masur)(Whole),7400
+Maharashtra,Mumbai,Maize,3800
+Maharashtra,Mumbai,Wheat,4300
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2535
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),4735
+Maharashtra,Nashik,Maize,2125
+Maharashtra,Parbhani,Arhar (Tur/Red Gram)(Whole),9850
+Maharashtra,Parbhani,Bengal Gram(Gram)(Whole),4450
+Maharashtra,Pune,Jowar(Sorghum),5250
+Maharashtra,Pune,Wheat,4500
+Maharashtra,Raigad,Paddy(Dhan)(Common),2216
+Maharashtra,Thane,Bajra(Pearl Millet/Cumbu),2650
+Maharashtra,Thane,Black Gram (Urd Beans)(Whole),9400
+Maharashtra,Thane,Jowar(Sorghum),4750
+Maharashtra,Thane,Wheat,2650
+Maharashtra,Thane,Wheat,3500
+Maharashtra,Thane,Wheat,3460
+Nagaland,Longleng,Maize,7700
+Odisha,Bargarh,Paddy(Dhan)(Common),2040
+Odisha,Bargarh,Paddy(Dhan)(Common),2040
+Odisha,Bhadrak,Paddy(Dhan)(Common),2040
+Odisha,Bhadrak,Paddy(Dhan)(Common),2040
+Odisha,Nowarangpur,Maize,1500
+Pondicherry,Karaikal,Paddy(Dhan)(Common),2560
+Punjab,Hoshiarpur,Maize,1100
+Punjab,Sangrur,Maize,1675
+Rajasthan,Ajmer,Barley (Jau),1615
+Rajasthan,Ajmer,Bengal Gram(Gram)(Whole),4682
+Rajasthan,Ajmer,Maize,2450
+Rajasthan,Ajmer,Mustard,4875
+Rajasthan,Ajmer,Barley (Jau),1635
+Rajasthan,Ajmer,Maize,2450
+Rajasthan,Ajmer,Wheat,2215
+Rajasthan,Chittorgarh,Maize,1970
+Rajasthan,Chittorgarh,Wheat,2200
+Rajasthan,Chittorgarh,Wheat,2250
+Rajasthan,Churu,Bajra(Pearl Millet/Cumbu),1750
+Rajasthan,Dausa,Bajra(Pearl Millet/Cumbu),2011
+Rajasthan,Dausa,Bengal Gram(Gram)(Whole),4800
+Rajasthan,Dausa,Mustard,5350
+Rajasthan,Dausa,Wheat,2224
+Rajasthan,Dausa,Barley (Jau),1515
+Rajasthan,Dausa,Bengal Gram(Gram)(Whole),4840
+Rajasthan,Dausa,Mustard,5400
+Rajasthan,Dausa,Wheat,2255
+Rajasthan,Ganganagar,Barley (Jau),1700
+Rajasthan,Hanumangarh,Mustard,5171
+Rajasthan,Hanumangarh,Barley (Jau),1650
+Rajasthan,Hanumangarh,Bengal Gram(Gram)(Whole),4651
+Rajasthan,Hanumangarh,Mustard,5060
+Rajasthan,Hanumangarh,Wheat,2151
+Rajasthan,Jaipur,Bajra(Pearl Millet/Cumbu),2027
+Rajasthan,Jaipur,Barley (Jau),1615
+Rajasthan,Jaipur,Bengal Gram(Gram)(Whole),4687
+Rajasthan,Jaipur,Mustard,5055
+Rajasthan,Jaipur,Wheat,2281
+Rajasthan,Jodhpur,Bajra(Pearl Millet/Cumbu),2500
+Rajasthan,Jodhpur,Mustard,4850
+Rajasthan,Jodhpur,Green Gram (Moong)(Whole),6900
+Rajasthan,Jodhpur,Jowar(Sorghum),3550
+Rajasthan,Kota,Barley (Jau),1725
+Rajasthan,Kota,Bengal Gram(Gram)(Whole),4750
+Rajasthan,Kota,Black Gram (Urd Beans)(Whole),6500
+Rajasthan,Kota,Green Gram (Moong)(Whole),6800
+Rajasthan,Kota,Jowar(Sorghum),2000
+Rajasthan,Kota,Maize,1900
+Rajasthan,Kota,Mustard,5200
+Rajasthan,Kota,Paddy(Dhan)(Common),3800
+Rajasthan,Kota,Wheat,2300
+Rajasthan,Sikar,Barley (Jau),1500
+Rajasthan,Tonk,Barley (Jau),1560
+Rajasthan,Tonk,Bengal Gram(Gram)(Whole),4925
+Rajasthan,Tonk,Green Gram (Moong)(Whole),6300
+Rajasthan,Tonk,Maize,2570
+Rajasthan,Tonk,Mustard,5400
+Rajasthan,Tonk,Wheat,2210
+Tamil Nadu,Ariyalur,Black Gram Dal (Urd Dal),7500
+Tamil Nadu,Ariyalur,Maize,2235
+Tamil Nadu,Ariyalur,Paddy(Dhan)(Common),2050
+Tamil Nadu,Coimbatore,Maize,2200
+Tamil Nadu,Coimbatore,Paddy(Dhan)(Common),2050
+Tamil Nadu,Coimbatore,Maize,2250
+Tamil Nadu,Cuddalore,Paddy(Dhan)(Common),1828
+Tamil Nadu,Cuddalore,Paddy(Dhan)(Common),1572
+Tamil Nadu,Erode,Maize,2350
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2046
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2123
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2585
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2816
+Tamil Nadu,Madurai,Cotton,5200
+Tamil Nadu,Madurai,Cotton,5850
+Tamil Nadu,Madurai,Jowar(Sorghum),3950
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1900
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2050
+Tamil Nadu,Namakkal,Maize,2307
+Tamil Nadu,Salem,Cotton,6200
+Tamil Nadu,Thanjavur,Paddy(Dhan)(Common),1900
+Tamil Nadu,Theni,Cotton,7600
+Tamil Nadu,Theni,Paddy(Dhan)(Common),1760
+Tamil Nadu,Theni,Paddy(Dhan)(Common),1770
+Tamil Nadu,Theni,Bajra(Pearl Millet/Cumbu),2535
+Tamil Nadu,Theni,Cotton,5500
+Tamil Nadu,Theni,Jowar(Sorghum),4030
+Tamil Nadu,Theni,Maize,2305
+Tamil Nadu,Theni,Paddy(Dhan)(Common),1695
+Tamil Nadu,Thiruvannamalai,Paddy(Dhan)(Common),1728
+Tamil Nadu,Villupuram,Maize,2038
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),6453
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1573
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1364
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),8160
+Tamil Nadu,Villupuram,Maize,2190
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1759
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1713
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1767
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1760
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),7389
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1725
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1787
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1881
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),2445
+Telangana,Adilabad,Cotton,6900
+Telangana,Adilabad,Jowar(Sorghum),3000
+Telangana,Adilabad,Cotton,7450
+Telangana,Adilabad,Cotton,7320
+Telangana,Adilabad,Cotton,7450
+Telangana,Jagityal,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Maize,2050
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2203
+Telangana,Karimnagar,Paddy(Dhan)(Common),2100
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2203
+Telangana,Karimnagar,Cotton,6380
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Cotton,6380
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Cotton,6800
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2050
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2040
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Arhar (Tur/Red Gram)(Whole),6600
+Telangana,Nalgonda,Paddy(Dhan)(Basmati),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Cotton,6380
+Telangana,Nalgonda,Maize,1930
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2203
+Telangana,Nalgonda,Cotton,7150
+Telangana,Nizamabad,Maize,1962
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Maize,1962
+Telangana,Ranga Reddy,Maize,1962
+Telangana,Ranga Reddy,Paddy(Dhan)(Common),2060
+Telangana,Ranga Reddy,Paddy(Dhan)(Common),2000
+Telangana,Warangal,Cotton,6200
+Telangana,Warangal,Cotton,6600
+Uttar Pradesh,Agra,Wheat,2270
+Uttar Pradesh,Aligarh,Arhar (Tur/Red Gram)(Whole),8300
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),2140
+Uttar Pradesh,Aligarh,Barley (Jau),2230
+Uttar Pradesh,Aligarh,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Aligarh,Green Gram (Moong)(Whole),7760
+Uttar Pradesh,Aligarh,Lentil (Masur)(Whole),6960
+Uttar Pradesh,Aligarh,Maize,2000
+Uttar Pradesh,Aligarh,Mustard,5450
+Uttar Pradesh,Aligarh,Mustard Oil,12800
+Uttar Pradesh,Aligarh,Paddy(Dhan)(Basmati),3050
+Uttar Pradesh,Aligarh,Wheat,2240
+Uttar Pradesh,Aligarh,Maize,1700
+Uttar Pradesh,Aligarh,Wheat,2150
+Uttar Pradesh,Aligarh,Arhar Dal(Tur Dal),12500
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),2140
+Uttar Pradesh,Aligarh,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Aligarh,Maize,2000
+Uttar Pradesh,Aligarh,Mustard,5450
+Uttar Pradesh,Aligarh,Mustard Oil,12800
+Uttar Pradesh,Aligarh,Wheat,2230
+Uttar Pradesh,Allahabad,Wheat,2240
+Uttar Pradesh,Allahabad,Bengal Gram(Gram)(Whole),5365
+Uttar Pradesh,Allahabad,Mustard,5460
+Uttar Pradesh,Allahabad,Mustard Oil,12500
+Uttar Pradesh,Allahabad,Wheat,2285
+Uttar Pradesh,Auraiya,Arhar (Tur/Red Gram)(Whole),9200
+Uttar Pradesh,Auraiya,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Auraiya,Bengal Gram Dal (Chana Dal),6200
+Uttar Pradesh,Auraiya,Bengal Gram(Gram)(Whole),5380
+Uttar Pradesh,Auraiya,Green Gram (Moong)(Whole),7300
+Uttar Pradesh,Auraiya,Mustard,5270
+Uttar Pradesh,Auraiya,Mustard Oil,12450
+Uttar Pradesh,Auraiya,Wheat,2240
+Uttar Pradesh,Auraiya,Maize,1765
+Uttar Pradesh,Auraiya,Wheat,2250
+Uttar Pradesh,Badaun,Bengal Gram(Gram)(Whole),5840
+Uttar Pradesh,Badaun,Black Gram (Urd Beans)(Whole),7590
+Uttar Pradesh,Badaun,Green Gram (Moong)(Whole),7890
+Uttar Pradesh,Badaun,Lentil (Masur)(Whole),6880
+Uttar Pradesh,Badaun,Maize,1750
+Uttar Pradesh,Badaun,Wheat,2320
+Uttar Pradesh,Badaun,Maize,1550
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Bahraich,Wheat,2290
+Uttar Pradesh,Ballia,Barley (Jau),2220
+Uttar Pradesh,Ballia,Bengal Gram(Gram)(Whole),5725
+Uttar Pradesh,Ballia,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Ballia,Mustard,5510
+Uttar Pradesh,Ballia,Wheat,2260
+Uttar Pradesh,Ballia,Arhar Dal(Tur Dal),13230
+Uttar Pradesh,Ballia,Barley (Jau),2210
+Uttar Pradesh,Ballia,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Ballia,Bengal Gram(Gram)(Whole),5720
+Uttar Pradesh,Ballia,Green Gram (Moong)(Whole),8520
+Uttar Pradesh,Ballia,Lentil (Masur)(Whole),6820
+Uttar Pradesh,Ballia,Mustard,5520
+Uttar Pradesh,Ballia,Wheat,2260
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Balrampur,Bengal Gram(Gram)(Whole),5625
+Uttar Pradesh,Balrampur,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Balrampur,Mustard,5485
+Uttar Pradesh,Balrampur,Paddy(Dhan)(Common),1850
+Uttar Pradesh,Balrampur,Wheat,2300
+Uttar Pradesh,Banda,Bengal Gram(Gram)(Whole),4950
+Uttar Pradesh,Banda,Lentil (Masur)(Whole),5560
+Uttar Pradesh,Banda,Wheat,2190
+Uttar Pradesh,Barabanki,Arhar Dal(Tur Dal),13240
+Uttar Pradesh,Barabanki,Bengal Gram Dal (Chana Dal),6220
+Uttar Pradesh,Barabanki,Black Gram (Urd Beans)(Whole),8150
+Uttar Pradesh,Barabanki,Lentil (Masur)(Whole),6830
+Uttar Pradesh,Barabanki,Wheat,2320
+Uttar Pradesh,Bareilly,Arhar Dal(Tur Dal),9975
+Uttar Pradesh,Bareilly,Bengal Gram(Gram)(Whole),5875
+Uttar Pradesh,Bareilly,Mustard,5450
+Uttar Pradesh,Bareilly,Wheat,2350
+Uttar Pradesh,Basti,Arhar Dal(Tur Dal),13200
+Uttar Pradesh,Basti,Bengal Gram Dal (Chana Dal),6420
+Uttar Pradesh,Basti,Bengal Gram(Gram)(Whole),5730
+Uttar Pradesh,Basti,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Basti,Lentil (Masur)(Whole),6840
+Uttar Pradesh,Basti,Mustard,5525
+Uttar Pradesh,Basti,Paddy(Dhan)(Common),1920
+Uttar Pradesh,Basti,Wheat,2270
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),2800
+Uttar Pradesh,Bulandshahar,Bajra(Pearl Millet/Cumbu),1850
+Uttar Pradesh,Bulandshahar,Barley (Jau),1750
+Uttar Pradesh,Bulandshahar,Maize,1700
+Uttar Pradesh,Bulandshahar,Mustard,5450
+Uttar Pradesh,Bulandshahar,Wheat,2150
+Uttar Pradesh,Bulandshahar,Maize,2100
+Uttar Pradesh,Bulandshahar,Mustard,5480
+Uttar Pradesh,Bulandshahar,Mustard Oil,12150
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3000
+Uttar Pradesh,Bulandshahar,Wheat,2215
+Uttar Pradesh,Bulandshahar,Maize,1560
+Uttar Pradesh,Bulandshahar,Wheat,2320
+Uttar Pradesh,Chandauli,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Chandauli,Mustard,5470
+Uttar Pradesh,Chandauli,Wheat,2310
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),1920
+Uttar Pradesh,Etah,Maize,1620
+Uttar Pradesh,Etah,Arhar (Tur/Red Gram)(Whole),8380
+Uttar Pradesh,Etah,Wheat,2250
+Uttar Pradesh,Etah,Maize,2000
+Uttar Pradesh,Etah,Mustard,5450
+Uttar Pradesh,Etah,Arhar (Tur/Red Gram)(Whole),6850
+Uttar Pradesh,Etah,Arhar Dal(Tur Dal),10010
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),2200
+Uttar Pradesh,Etah,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Etah,Black Gram Dal (Urd Dal),9450
+Uttar Pradesh,Etah,Maize,1840
+Uttar Pradesh,Etah,Wheat,2260
+Uttar Pradesh,Etawah,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Etawah,Bengal Gram Dal (Chana Dal),6250
+Uttar Pradesh,Etawah,Bengal Gram(Gram)(Whole),5460
+Uttar Pradesh,Etawah,Maize,1750
+Uttar Pradesh,Etawah,Mustard,5450
+Uttar Pradesh,Etawah,Mustard Oil,12700
+Uttar Pradesh,Etawah,Wheat,2240
+Uttar Pradesh,Faizabad,Bengal Gram(Gram)(Whole),5670
+Uttar Pradesh,Faizabad,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Faizabad,Maize,2070
+Uttar Pradesh,Faizabad,Paddy(Dhan)(Common),1975
+Uttar Pradesh,Faizabad,Wheat,2270
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5465
+Uttar Pradesh,Farukhabad,Maize,1700
+Uttar Pradesh,Farukhabad,Mustard,5450
+Uttar Pradesh,Farukhabad,Wheat,2275
+Uttar Pradesh,Farukhabad,Maize,1810
+Uttar Pradesh,Farukhabad,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Farukhabad,Bengal Gram Dal (Chana Dal),6175
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Farukhabad,Black Gram Dal (Urd Dal),8600
+Uttar Pradesh,Farukhabad,Green Gram Dal (Moong Dal),8825
+Uttar Pradesh,Farukhabad,Maize,1780
+Uttar Pradesh,Farukhabad,Mustard,5450
+Uttar Pradesh,Farukhabad,Mustard Oil,12375
+Uttar Pradesh,Farukhabad,Wheat,2280
+Uttar Pradesh,Farukhabad,Maize,1800
+Uttar Pradesh,Farukhabad,Wheat,2290
+Uttar Pradesh,Fatehpur,Arhar (Tur/Red Gram)(Whole),8840
+Uttar Pradesh,Fatehpur,Arhar Dal(Tur Dal),12930
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5360
+Uttar Pradesh,Fatehpur,Green Gram (Moong)(Whole),7500
+Uttar Pradesh,Fatehpur,Green Gram Dal (Moong Dal),8860
+Uttar Pradesh,Fatehpur,Mustard,5455
+Uttar Pradesh,Fatehpur,Mustard Oil,12380
+Uttar Pradesh,Fatehpur,Paddy(Dhan)(Common),2150
+Uttar Pradesh,Fatehpur,Wheat,2250
+Uttar Pradesh,Fatehpur,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Fatehpur,Bengal Gram Dal (Chana Dal),6055
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Fatehpur,Black Gram Dal (Urd Dal),8600
+Uttar Pradesh,Fatehpur,Green Gram Dal (Moong Dal),8860
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),6350
+Uttar Pradesh,Fatehpur,Mustard,5450
+Uttar Pradesh,Fatehpur,Mustard Oil,12500
+Uttar Pradesh,Fatehpur,Wheat,2250
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),4900
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),5400
+Uttar Pradesh,Fatehpur,Wheat,2200
+Uttar Pradesh,Firozabad,Arhar (Tur/Red Gram)(Whole),8780
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1920
+Uttar Pradesh,Firozabad,Barley (Jau),2180
+Uttar Pradesh,Firozabad,Jowar(Sorghum),3050
+Uttar Pradesh,Firozabad,Maize,2015
+Uttar Pradesh,Firozabad,Wheat,2270
+Uttar Pradesh,Ghaziabad,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Ghaziabad,Bengal Gram Dal (Chana Dal),6500
+Uttar Pradesh,Ghaziabad,Bengal Gram(Gram)(Whole),5800
+Uttar Pradesh,Ghaziabad,Black Gram Dal (Urd Dal),9600
+Uttar Pradesh,Ghaziabad,Green Gram Dal (Moong Dal),9600
+Uttar Pradesh,Ghaziabad,Mustard,5450
+Uttar Pradesh,Ghaziabad,Mustard Oil,12100
+Uttar Pradesh,Ghaziabad,Wheat,2250
+Uttar Pradesh,Ghazipur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Ghazipur,Barley (Jau),2170
+Uttar Pradesh,Ghazipur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Ghazipur,Bengal Gram(Gram)(Whole),5710
+Uttar Pradesh,Ghazipur,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Ghazipur,Lentil (Masur)(Whole),6810
+Uttar Pradesh,Ghazipur,Mustard,5470
+Uttar Pradesh,Ghazipur,Mustard Oil,13140
+Uttar Pradesh,Ghazipur,Wheat,2280
+Uttar Pradesh,Gonda,Paddy(Dhan)(Common),1850
+Uttar Pradesh,Gonda,Wheat,2300
+Uttar Pradesh,Hardoi,Wheat,2050
+Uttar Pradesh,Hardoi,Arhar Dal(Tur Dal),12500
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Hardoi,Maize,2040
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Hardoi,Wheat,2280
+Uttar Pradesh,Hathras,Bajra(Pearl Millet/Cumbu),2130
+Uttar Pradesh,Hathras,Maize,2070
+Uttar Pradesh,Hathras,Mustard,5440
+Uttar Pradesh,Hathras,Wheat,2240
+Uttar Pradesh,Jalaun (Orai),Wheat,2170
+Uttar Pradesh,Jaunpur,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Jaunpur,Green Gram (Moong)(Whole),9600
+Uttar Pradesh,Jaunpur,Green Gram Dal (Moong Dal),9600
+Uttar Pradesh,Jaunpur,Wheat,2300
+Uttar Pradesh,Jaunpur,Bengal Gram Dal (Chana Dal),6360
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Jaunpur,Lentil (Masur)(Whole),6810
+Uttar Pradesh,Jaunpur,Mustard,5500
+Uttar Pradesh,Jaunpur,Wheat,2300
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Jhansi,Lentil (Masur)(Whole),5550
+Uttar Pradesh,Jhansi,Wheat,2230
+Uttar Pradesh,Jhansi,Wheat,2250
+Uttar Pradesh,Kannuj,Maize,1800
+Uttar Pradesh,Kannuj,Mustard Oil,12450
+Uttar Pradesh,Kannuj,Wheat,2280
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8750
+Uttar Pradesh,Kanpur,Bajra(Pearl Millet/Cumbu),2335
+Uttar Pradesh,Kanpur,Barley (Jau),2160
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5380
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7625
+Uttar Pradesh,Kanpur,Maize,1790
+Uttar Pradesh,Kanpur,Mustard,5420
+Uttar Pradesh,Kanpur,Wheat,2350
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8700
+Uttar Pradesh,Kanpur,Barley (Jau),2130
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7560
+Uttar Pradesh,Kanpur,Maize,1760
+Uttar Pradesh,Kanpur,Mustard,5450
+Uttar Pradesh,Kanpur,Wheat,2245
+Uttar Pradesh,Khiri (Lakhimpur),Arhar Dal(Tur Dal),12450
+Uttar Pradesh,Khiri (Lakhimpur),Black Gram Dal (Urd Dal),9020
+Uttar Pradesh,Khiri (Lakhimpur),Mustard Oil,14400
+Uttar Pradesh,Khiri (Lakhimpur),Paddy(Dhan)(Common),1950
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2200
+Uttar Pradesh,Khiri (Lakhimpur),Arhar Dal(Tur Dal),12575
+Uttar Pradesh,Khiri (Lakhimpur),Black Gram Dal (Urd Dal),9030
+Uttar Pradesh,Khiri (Lakhimpur),Mustard Oil,14570
+Uttar Pradesh,Khiri (Lakhimpur),Paddy(Dhan)(Common),1980
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2285
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2250
+Uttar Pradesh,Lakhimpur,Bengal Gram(Gram)(Whole),5650
+Uttar Pradesh,Lakhimpur,Lentil (Masur)(Whole),6790
+Uttar Pradesh,Lakhimpur,Maize,2050
+Uttar Pradesh,Lakhimpur,Mustard,5500
+Uttar Pradesh,Lakhimpur,Paddy(Dhan)(Common),1990
+Uttar Pradesh,Lakhimpur,Wheat,2275
+Uttar Pradesh,Lalitpur,Barley (Jau),2000
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Lalitpur,Lentil (Masur)(Whole),6100
+Uttar Pradesh,Lalitpur,Wheat,2200
+Uttar Pradesh,Lucknow,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Lucknow,Bengal Gram Dal (Chana Dal),6200
+Uttar Pradesh,Lucknow,Bengal Gram(Gram)(Whole),5680
+Uttar Pradesh,Lucknow,Black Gram (Urd Beans)(Whole),7910
+Uttar Pradesh,Lucknow,Black Gram Dal (Urd Dal),9050
+Uttar Pradesh,Lucknow,Green Gram (Moong)(Whole),8050
+Uttar Pradesh,Lucknow,Mustard,5500
+Uttar Pradesh,Lucknow,Wheat,2310
+Uttar Pradesh,Maharajganj,Paddy(Dhan)(Common),2450
+Uttar Pradesh,Maharajganj,Wheat,2200
+Uttar Pradesh,Mahoba,Barley (Jau),1800
+Uttar Pradesh,Mahoba,Bengal Gram(Gram)(Whole),5150
+Uttar Pradesh,Mahoba,Lentil (Masur)(Whole),5520
+Uttar Pradesh,Mahoba,Wheat,2200
+Uttar Pradesh,Mainpuri,Maize,1730
+Uttar Pradesh,Mainpuri,Wheat,2210
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Mainpuri,Maize,1975
+Uttar Pradesh,Mainpuri,Wheat,2200
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8650
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Mainpuri,Black Gram Dal (Urd Dal),9550
+Uttar Pradesh,Mainpuri,Maize,2000
+Uttar Pradesh,Mainpuri,Mustard,5455
+Uttar Pradesh,Mainpuri,Wheat,2201
+Uttar Pradesh,Mirzapur,Arhar (Tur/Red Gram)(Whole),7485
+Uttar Pradesh,Mirzapur,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Mirzapur,Bengal Gram Dal (Chana Dal),6315
+Uttar Pradesh,Mirzapur,Bengal Gram(Gram)(Whole),5700
+Uttar Pradesh,Mirzapur,Black Gram Dal (Urd Dal),9485
+Uttar Pradesh,Mirzapur,Lentil (Masur)(Whole),6515
+Uttar Pradesh,Mirzapur,Mustard,5525
+Uttar Pradesh,Mirzapur,Mustard Oil,12975
+Uttar Pradesh,Mirzapur,Wheat,2285
+Uttar Pradesh,Muradabad,Wheat,2350
+Uttar Pradesh,Muzaffarnagar,Arhar (Tur/Red Gram)(Whole),8450
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2260
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6580
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5780
+Uttar Pradesh,Muzaffarnagar,Black Gram (Urd Beans)(Whole),8725
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9565
+Uttar Pradesh,Muzaffarnagar,Green Gram (Moong)(Whole),8600
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Muzaffarnagar,Lentil (Masur)(Whole),6530
+Uttar Pradesh,Muzaffarnagar,Maize,2125
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12150
+Uttar Pradesh,Muzaffarnagar,Wheat,2260
+Uttar Pradesh,Pillibhit,Arhar Dal(Tur Dal),10000
+Uttar Pradesh,Pillibhit,Black Gram Dal (Urd Dal),9260
+Uttar Pradesh,Pillibhit,Wheat,2380
+Uttar Pradesh,Pratapgarh,Arhar Dal(Tur Dal),13120
+Uttar Pradesh,Pratapgarh,Bengal Gram Dal (Chana Dal),6120
+Uttar Pradesh,Pratapgarh,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Pratapgarh,Mustard Oil,14550
+Uttar Pradesh,Pratapgarh,Wheat,2300
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2080
+Uttar Pradesh,Raebarelli,Wheat,2285
+Uttar Pradesh,Raebarelli,Arhar Dal(Tur Dal),12400
+Uttar Pradesh,Raebarelli,Bengal Gram Dal (Chana Dal),5850
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2250
+Uttar Pradesh,Raebarelli,Wheat,2200
+Uttar Pradesh,Raebarelli,Arhar Dal(Tur Dal),12615
+Uttar Pradesh,Raebarelli,Barley (Jau),2240
+Uttar Pradesh,Raebarelli,Bengal Gram(Gram)(Whole),5475
+Uttar Pradesh,Raebarelli,Black Gram (Urd Beans)(Whole),7920
+Uttar Pradesh,Raebarelli,Mustard,5480
+Uttar Pradesh,Raebarelli,Mustard Oil,14600
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2075
+Uttar Pradesh,Raebarelli,Wheat,2205
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2110
+Uttar Pradesh,Raebarelli,Wheat,2305
+Uttar Pradesh,Rampur,Bengal Gram(Gram)(Whole),5840
+Uttar Pradesh,Rampur,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Rampur,Wheat,2340
+Uttar Pradesh,Rampur,Wheat,2150
+Uttar Pradesh,Shahjahanpur,Wheat,2320
+Uttar Pradesh,Siddharth Nagar,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Siddharth Nagar,Mustard,5535
+Uttar Pradesh,Siddharth Nagar,Paddy(Dhan)(Common),1910
+Uttar Pradesh,Siddharth Nagar,Wheat,2250
+Uttar Pradesh,Siddharth Nagar,Arhar Dal(Tur Dal),13200
+Uttar Pradesh,Siddharth Nagar,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Siddharth Nagar,Lentil (Masur)(Whole),6840
+Uttar Pradesh,Siddharth Nagar,Mustard,5530
+Uttar Pradesh,Siddharth Nagar,Paddy(Dhan)(Common),1915
+Uttar Pradesh,Siddharth Nagar,Wheat,2270
+Uttar Pradesh,Sitapur,Wheat,2210
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12400
+Uttar Pradesh,Sitapur,Bengal Gram(Gram)(Whole),5645
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9025
+Uttar Pradesh,Sitapur,Lentil (Masur)(Whole),6785
+Uttar Pradesh,Sitapur,Mustard,5450
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),2030
+Uttar Pradesh,Sitapur,Wheat,2270
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12350
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9060
+Uttar Pradesh,Sitapur,Mustard Oil,14525
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),1980
+Uttar Pradesh,Sitapur,Wheat,2240
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5580
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6990
+Uttar Pradesh,Sultanpur,Mustard,5480
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1860
+Uttar Pradesh,Sultanpur,Wheat,2280
+Uttar Pradesh,Sultanpur,Arhar Dal(Tur Dal),12750
+Uttar Pradesh,Sultanpur,Bengal Gram Dal (Chana Dal),6200
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Sultanpur,Black Gram (Urd Beans)(Whole),8560
+Uttar Pradesh,Sultanpur,Black Gram Dal (Urd Dal),9535
+Uttar Pradesh,Sultanpur,Green Gram (Moong)(Whole),8545
+Uttar Pradesh,Sultanpur,Green Gram Dal (Moong Dal),9585
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6980
+Uttar Pradesh,Sultanpur,Mustard,5475
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1900
+Uttar Pradesh,Sultanpur,Wheat,2260
+Uttar Pradesh,Unnao,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Unnao,Bengal Gram Dal (Chana Dal),6085
+Uttar Pradesh,Unnao,Bengal Gram(Gram)(Whole),5630
+Uttar Pradesh,Unnao,Black Gram Dal (Urd Dal),8930
+Uttar Pradesh,Unnao,Mustard,5450
+Uttar Pradesh,Unnao,Wheat,2295
+Uttrakhand,UdhamSinghNagar,Paddy(Dhan)(Common),1800
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Wheat,2800
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Paddy(Dhan)(Common),2050
+West Bengal,Bankura,Wheat,2800
+West Bengal,Burdwan,Arhar (Tur/Red Gram)(Whole),7650
+West Bengal,Burdwan,Black Gram Dal (Urd Dal),8700
+West Bengal,Burdwan,Green Gram Dal (Moong Dal),10500
+West Bengal,Burdwan,Lentil (Masur)(Whole),9600
+West Bengal,Burdwan,Mustard,5900
+West Bengal,Burdwan,Wheat,2850
+West Bengal,Burdwan,Lentil (Masur)(Whole),9700
+West Bengal,Burdwan,Mustard,6100
+West Bengal,Burdwan,Mustard Oil,12000
+West Bengal,Burdwan,Wheat,2950
+West Bengal,Burdwan,Wheat,2700
+West Bengal,Darjeeling,Arhar Dal(Tur Dal),12800
+West Bengal,Darjeeling,Black Gram Dal (Urd Dal),11800
+West Bengal,Darjeeling,Green Gram Dal (Moong Dal),9800
+West Bengal,Malda,Green Gram Dal (Moong Dal),9800
+West Bengal,Malda,Lentil (Masur)(Whole),9500
+West Bengal,Medinipur(W),Paddy(Dhan)(Common),2040
+West Bengal,Medinipur(W),Mustard,5750
+West Bengal,Medinipur(W),Paddy(Dhan)(Common),2150
+West Bengal,Nadia,Mustard,6100
+West Bengal,Nadia,Wheat,2350
+West Bengal,Nadia,Mustard,5600
+West Bengal,Uttar Dinajpur,Wheat,2350
+West Bengal,Uttar Dinajpur,Wheat,2350
+Andhra Pradesh,Guntur,Black Gram (Urd Beans)(Whole),8200
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Chattisgarh,Mungeli,Paddy(Dhan)(Common),1800
+Chattisgarh,Raigarh,Wheat,1950
+Chattisgarh,Raipur,Paddy(Dhan)(Common),1950
+Chattisgarh,Surajpur,Paddy(Dhan)(Common),3001
+Chattisgarh,Surajpur,Paddy(Dhan)(Common),2040
+Gujarat,Banaskanth,Mustard,5300
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2200
+Gujarat,Banaskanth,Mustard,5350
+Gujarat,Banaskanth,Wheat,2250
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2200
+Gujarat,Banaskanth,Gram Raw(Chholia),8550
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2100
+Gujarat,Banaskanth,Mustard,5220
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),1777.5
+Gujarat,Banaskanth,Mustard,5212.5
+Gujarat,Banaskanth,Wheat,2250
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2105
+Gujarat,Banaskanth,Jowar(Sorghum),4867.5
+Gujarat,Banaskanth,Mustard,5282.5
+Gujarat,Banaskanth,Wheat,2350
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2005
+Gujarat,Banaskanth,Mustard,5302.5
+Gujarat,Banaskanth,Wheat,2047.5
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2272
+Gujarat,Banaskanth,Mustard,5500
+Gujarat,Banaskanth,Mustard,5270
+Gujarat,Bhavnagar,Bajra(Pearl Millet/Cumbu),2360
+Gujarat,Bhavnagar,Bengal Gram(Gram)(Whole),4710
+Gujarat,Bhavnagar,Cotton,7005
+Gujarat,Bhavnagar,Wheat,2425
+Gujarat,Dahod,Paddy(Dhan)(Common),1370
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2270
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),1925
+Gujarat,Gandhinagar,Wheat,2315
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2150
+Gujarat,Gandhinagar,Jowar(Sorghum),4500
+Gujarat,Gandhinagar,Mustard,5300
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),2150
+Gujarat,Gandhinagar,Wheat,2300
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),1900
+Gujarat,Gandhinagar,Jowar(Sorghum),4725
+Gujarat,Gandhinagar,Mustard,5315
+Gujarat,Gandhinagar,Wheat,2270
+Gujarat,Jamnagar,Bajra(Pearl Millet/Cumbu),1875
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4570
+Gujarat,Jamnagar,Cotton,6130
+Gujarat,Jamnagar,Wheat,2110
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4500
+Gujarat,Jamnagar,Wheat,2175
+Gujarat,Junagarh,Arhar (Tur/Red Gram)(Whole),8690
+Gujarat,Junagarh,Black Gram (Urd Beans)(Whole),7315
+Gujarat,Junagarh,Green Gram (Moong)(Whole),7515
+Gujarat,Junagarh,Kulthi(Horse Gram),4740
+Gujarat,Junagarh,Wheat,2430
+Gujarat,Kachchh,Mustard,4968
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2300
+Gujarat,Mehsana,Kulthi(Horse Gram),4500
+Gujarat,Mehsana,Paddy(Dhan)(Common),2250
+Gujarat,Mehsana,Wheat,2450
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2105
+Gujarat,Mehsana,Mustard,5300
+Gujarat,Mehsana,Wheat,2300
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),1970
+Gujarat,Mehsana,Wheat,2250
+Gujarat,Mehsana,Mustard,5625
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),1900
+Gujarat,Mehsana,Mustard,5147
+Gujarat,Mehsana,Wheat,2285
+Gujarat,Navsari,Pegeon Pea (Arhar Fali),10500
+Gujarat,Porbandar,Bajra(Pearl Millet/Cumbu),1725
+Gujarat,Porbandar,Black Gram (Urd Beans)(Whole),8125
+Gujarat,Porbandar,Green Gram (Moong)(Whole),8350
+Gujarat,Porbandar,Kulthi(Horse Gram),3850
+Gujarat,Porbandar,Wheat,2065
+Gujarat,Porbandar,Wheat,2325
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),9030
+Gujarat,Rajkot,Wheat,2445
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4400
+Gujarat,Rajkot,Cotton,6190
+Gujarat,Rajkot,Wheat,2435
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),8605
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2125
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4860
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),11250
+Gujarat,Rajkot,Black Gram (Urd Beans)(Whole),7350
+Gujarat,Rajkot,Cotton,7260
+Gujarat,Rajkot,Green Gram (Moong)(Whole),8250
+Gujarat,Rajkot,Jowar(Sorghum),4700
+Gujarat,Rajkot,Mustard,5150
+Gujarat,Rajkot,Wheat,2420
+Gujarat,Rajkot,Wheat,2450
+Gujarat,Sabarkantha,Bajra(Pearl Millet/Cumbu),2000
+Gujarat,Sabarkantha,Wheat,2340
+Gujarat,Surat,Paddy(Dhan)(Common),2035
+Gujarat,Surat,Paddy(Dhan)(Common),2035
+Gujarat,Surendranagar,Cotton,7000
+Gujarat,Surendranagar,Wheat,2400
+Gujarat,Surendranagar,Mustard,6800
+Gujarat,Surendranagar,Wheat,2425
+Haryana,Bhiwani,Cotton,6900
+Haryana,Fatehabad,Mustard,5084
+Haryana,Hissar,Mustard,4700
+Haryana,Kurukshetra,Maize,1400
+Haryana,Mahendragarh-Narnaul,Mustard,4700
+Haryana,Sirsa,Bengal Gram(Gram)(Whole),4990
+Haryana,Sirsa,Cotton,7048
+Haryana,Sirsa,Mustard,5260
+Haryana,Sirsa,Mustard,5000
+Haryana,Sirsa,Cotton,7000
+Haryana,Sirsa,Mustard,5000
+Kerala,Kasargod,Arhar (Tur/Red Gram)(Whole),12600
+Kerala,Kasargod,Black Gram (Urd Beans)(Whole),15200
+Kerala,Malappuram,Bengal Gram(Gram)(Whole),6250
+Kerala,Malappuram,Green Gram (Moong)(Whole),10550
+Kerala,Wayanad,Paddy(Dhan)(Common),2160
+Madhya Pradesh,Bhind,Wheat,2250
+Madhya Pradesh,Burhanpur,Arhar (Tur/Red Gram)(Whole),7000
+Madhya Pradesh,Dewas,Wheat,2350
+Madhya Pradesh,Panna,Wheat,2038
+Madhya Pradesh,Rajgarh,Wheat,2320
+Madhya Pradesh,Ratlam,Wheat,2290
+Madhya Pradesh,Sagar,Wheat,2121
+Madhya Pradesh,Sagar,Wheat,2180
+Madhya Pradesh,Shajapur,Wheat,2125
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),4275
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),5320
+Madhya Pradesh,Shajapur,Lentil (Masur)(Whole),5460
+Madhya Pradesh,Shajapur,Mustard,5070
+Madhya Pradesh,Shajapur,Wheat,2240
+Madhya Pradesh,Shajapur,Wheat,2055
+Madhya Pradesh,Shajapur,Wheat,2710
+Madhya Pradesh,Shajapur,Wheat,2250
+Maharashtra,Ahmednagar,Paddy(Dhan)(Common),2300
+Maharashtra,Ahmednagar,Bengal Gram(Gram)(Whole),4000
+Maharashtra,Ahmednagar,Wheat,2450
+Maharashtra,Aurangabad,Bajra(Pearl Millet/Cumbu),2351
+Maharashtra,Aurangabad,Bengal Gram(Gram)(Whole),4600
+Maharashtra,Aurangabad,Jowar(Sorghum),3580
+Maharashtra,Aurangabad,Wheat,2352
+Maharashtra,Jalana,Bajra(Pearl Millet/Cumbu),2200
+Maharashtra,Jalana,Maize,2100
+Maharashtra,Jalana,Wheat,2100
+Maharashtra,Jalgaon,Cotton,6380
+Maharashtra,Jalgaon,Maize,1530
+Maharashtra,Jalgaon,Wheat,2650
+Maharashtra,Nagpur,Arhar (Tur/Red Gram)(Whole),9575
+Maharashtra,Nagpur,Bengal Gram(Gram)(Whole),4834
+Maharashtra,Nagpur,Maize,1950
+Maharashtra,Nagpur,Wheat,2390
+Maharashtra,Nagpur,Wheat,3150
+Maharashtra,Nagpur,Arhar (Tur/Red Gram)(Whole),9810
+Maharashtra,Nagpur,Cotton,6900
+Maharashtra,Nagpur,Wheat,2325
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2699
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),5555
+Maharashtra,Nashik,Maize,2375
+Maharashtra,Nashik,Wheat,2440
+Maharashtra,Pune,Bajra(Pearl Millet/Cumbu),3150
+Maharashtra,Pune,Bengal Gram(Gram)(Whole),5800
+Maharashtra,Pune,Black Gram (Urd Beans)(Whole),9100
+Maharashtra,Pune,Green Gram (Moong)(Whole),9200
+Maharashtra,Pune,Jowar(Sorghum),5150
+Maharashtra,Pune,Lentil (Masur)(Whole),7350
+Maharashtra,Pune,Maize,2550
+Maharashtra,Pune,Wheat,4400
+Maharashtra,Satara,Jowar(Sorghum),4500
+Maharashtra,Satara,Maize,2200
+Maharashtra,Satara,Wheat,2300
+Nagaland,Kohima,Maize,9500
+Nagaland,Longleng,Maize,8000
+Nagaland,Tuensang,Maize,8300
+Odisha,Bhadrak,Paddy(Dhan)(Common),2040
+Odisha,Keonjhar,Paddy(Dhan)(Common),2040
+Odisha,Sundergarh,Black Gram (Urd Beans)(Whole),8000
+Odisha,Sundergarh,Black Gram (Urd Beans)(Whole),8000
+Odisha,Sundergarh,Paddy(Dhan)(Common),2040
+Odisha,Sundergarh,Wheat,2125
+Odisha,Sundergarh,Wheat Atta,4400
+Punjab,Mansa,Green Gram (Moong)(Whole),6500
+Rajasthan,Baran,Bengal Gram(Gram)(Whole),4700
+Rajasthan,Baran,Black Gram (Urd Beans)(Whole),6200
+Rajasthan,Baran,Green Gram (Moong)(Whole),6800
+Rajasthan,Baran,Maize,1700
+Rajasthan,Baran,Mustard,5226
+Rajasthan,Baran,Paddy(Dhan)(Common),2600
+Rajasthan,Baran,Wheat,2330
+Rajasthan,Hanumangarh,Cotton,7211
+Rajasthan,Hanumangarh,Mustard,5135
+Rajasthan,Hanumangarh,Wheat,2260
+Rajasthan,Jalore,Bajra(Pearl Millet/Cumbu),1750
+Rajasthan,Jalore,Mustard,5000
+Rajasthan,Jhalawar,Mustard,5250
+Rajasthan,Jhalawar,Wheat,2363
+Rajasthan,Jodhpur,Bajra(Pearl Millet/Cumbu),2200
+Rajasthan,Jodhpur,Bengal Gram(Gram)(Whole),4850
+Rajasthan,Jodhpur,Mustard,5800
+Rajasthan,Sikar,Mustard,4850
+Rajasthan,Swai Madhopur,Bajra(Pearl Millet/Cumbu),1885
+Rajasthan,Swai Madhopur,Bengal Gram(Gram)(Whole),4935
+Rajasthan,Swai Madhopur,Mustard,5280
+Rajasthan,Swai Madhopur,Wheat,2220
+Rajasthan,Tonk,Bajra(Pearl Millet/Cumbu),1905
+Rajasthan,Tonk,Barley (Jau),1545
+Rajasthan,Tonk,Bengal Gram(Gram)(Whole),4950
+Rajasthan,Tonk,Jowar(Sorghum),4100
+Rajasthan,Tonk,Maize,2560
+Rajasthan,Tonk,Mustard,5350
+Rajasthan,Tonk,Wheat,2240
+Rajasthan,Tonk,Barley (Jau),1680
+Rajasthan,Tonk,Mustard,5495
+Rajasthan,Tonk,Wheat,2207
+Rajasthan,Tonk,Mustard,5308
+Rajasthan,Tonk,Wheat,2219
+Tamil Nadu,Coimbatore,Paddy(Dhan)(Common),2050
+Tamil Nadu,Erode,Maize,2361
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2046
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2123
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2585
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2816
+Tamil Nadu,Madurai,Cotton,5200
+Tamil Nadu,Madurai,Cotton,5850
+Tamil Nadu,Madurai,Jowar(Sorghum),3950
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1900
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2050
+Tamil Nadu,Salem,Maize,2330
+Tamil Nadu,Salem,Cotton,6500
+Tamil Nadu,Salem,Cotton,7000
+Tamil Nadu,Salem,Paddy(Dhan)(Common),2000
+Telangana,Adilabad,Paddy(Dhan)(Common),2040
+Telangana,Adilabad,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Arhar (Tur/Red Gram)(Whole),8973
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Warangal,Paddy(Dhan)(Common),206
+Telangana,Warangal,Cotton,6200
+Uttar Pradesh,Aligarh,Maize,1700
+Uttar Pradesh,Aligarh,Wheat,2150
+Uttar Pradesh,Aligarh,Arhar Dal(Tur Dal),12500
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),2120
+Uttar Pradesh,Aligarh,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Aligarh,Maize,1980
+Uttar Pradesh,Aligarh,Mustard,5450
+Uttar Pradesh,Aligarh,Mustard Oil,12800
+Uttar Pradesh,Aligarh,Wheat,2240
+Uttar Pradesh,Allahabad,Wheat,2275
+Uttar Pradesh,Auraiya,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Auraiya,Bajra(Pearl Millet/Cumbu),2350
+Uttar Pradesh,Auraiya,Bengal Gram(Gram)(Whole),5450
+Uttar Pradesh,Auraiya,Maize,1740
+Uttar Pradesh,Auraiya,Mustard,5450
+Uttar Pradesh,Auraiya,Mustard Oil,12400
+Uttar Pradesh,Auraiya,Wheat,2250
+Uttar Pradesh,Badaun,Maize,1765
+Uttar Pradesh,Badaun,Wheat,2270
+Uttar Pradesh,Badaun,Maize,1760
+Uttar Pradesh,Badaun,Wheat,2260
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Bahraich,Bengal Gram Dal (Chana Dal),6150
+Uttar Pradesh,Bahraich,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Bahraich,Black Gram (Urd Beans)(Whole),8750
+Uttar Pradesh,Bahraich,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Bahraich,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Bahraich,Maize,2000
+Uttar Pradesh,Bahraich,Mustard Oil,14250
+Uttar Pradesh,Bahraich,Wheat,2290
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Balrampur,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Balrampur,Black Gram (Urd Beans)(Whole),8750
+Uttar Pradesh,Balrampur,Lentil (Masur)(Whole),7020
+Uttar Pradesh,Balrampur,Maize,2015
+Uttar Pradesh,Balrampur,Mustard,5500
+Uttar Pradesh,Balrampur,Wheat,2300
+Uttar Pradesh,Barabanki,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Barabanki,Maize,4400
+Uttar Pradesh,Barabanki,Mustard,5490
+Uttar Pradesh,Barabanki,Wheat,2280
+Uttar Pradesh,Barabanki,Arhar Dal(Tur Dal),13250
+Uttar Pradesh,Barabanki,Bengal Gram Dal (Chana Dal),6250
+Uttar Pradesh,Barabanki,Black Gram (Urd Beans)(Whole),8150
+Uttar Pradesh,Barabanki,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Barabanki,Wheat,2250
+Uttar Pradesh,Bareilly,Bengal Gram Dal (Chana Dal),6870
+Uttar Pradesh,Bareilly,Wheat,2340
+Uttar Pradesh,Bulandshahar,Maize,2100
+Uttar Pradesh,Bulandshahar,Mustard,5475
+Uttar Pradesh,Bulandshahar,Mustard Oil,12100
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3011
+Uttar Pradesh,Bulandshahar,Wheat,2220
+Uttar Pradesh,Bulandshahar,Arhar Dal(Tur Dal),12550
+Uttar Pradesh,Bulandshahar,Bengal Gram Dal (Chana Dal),6540
+Uttar Pradesh,Bulandshahar,Bengal Gram(Gram)(Whole),5730
+Uttar Pradesh,Bulandshahar,Black Gram Dal (Urd Dal),9530
+Uttar Pradesh,Bulandshahar,Green Gram Dal (Moong Dal),9540
+Uttar Pradesh,Bulandshahar,Maize,2101
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3101
+Uttar Pradesh,Bulandshahar,Wheat,2245
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),1905
+Uttar Pradesh,Etah,Maize,1650
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5345
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),6360
+Uttar Pradesh,Fatehpur,Mustard,5455
+Uttar Pradesh,Fatehpur,Wheat,2250
+Uttar Pradesh,Fatehpur,Green Gram (Moong)(Whole),7630
+Uttar Pradesh,Fatehpur,Mustard,5225
+Uttar Pradesh,Fatehpur,Wheat,2260
+Uttar Pradesh,Gautam Budh Nagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Gautam Budh Nagar,Bengal Gram Dal (Chana Dal),6550
+Uttar Pradesh,Gautam Budh Nagar,Bengal Gram(Gram)(Whole),5780
+Uttar Pradesh,Gautam Budh Nagar,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Gautam Budh Nagar,Green Gram Dal (Moong Dal),9500
+Uttar Pradesh,Gautam Budh Nagar,Maize,2120
+Uttar Pradesh,Gautam Budh Nagar,Mustard,5480
+Uttar Pradesh,Gautam Budh Nagar,Mustard Oil,12200
+Uttar Pradesh,Gautam Budh Nagar,Wheat,2251
+Uttar Pradesh,Ghaziabad,Arhar (Tur/Red Gram)(Whole),9500
+Uttar Pradesh,Ghaziabad,Arhar Dal(Tur Dal),13500
+Uttar Pradesh,Ghaziabad,Barley (Jau),2250
+Uttar Pradesh,Ghaziabad,Bengal Gram(Gram)(Whole),6000
+Uttar Pradesh,Ghaziabad,Black Gram (Urd Beans)(Whole),8800
+Uttar Pradesh,Ghaziabad,Black Gram Dal (Urd Dal),9600
+Uttar Pradesh,Ghaziabad,Green Gram Dal (Moong Dal),9600
+Uttar Pradesh,Ghaziabad,Maize,2130
+Uttar Pradesh,Ghaziabad,Mustard,5450
+Uttar Pradesh,Ghaziabad,Mustard Oil,12100
+Uttar Pradesh,Ghaziabad,Wheat,2260
+Uttar Pradesh,Hamirpur,Wheat,2100
+Uttar Pradesh,Hathras,Bajra(Pearl Millet/Cumbu),1540
+Uttar Pradesh,Hathras,Maize,1545
+Uttar Pradesh,Hathras,Wheat,2155
+Uttar Pradesh,Jaunpur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Jaunpur,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Jaunpur,Mustard,5560
+Uttar Pradesh,Jaunpur,Wheat,2310
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8010
+Uttar Pradesh,Kanpur,Arhar Dal(Tur Dal),12400
+Uttar Pradesh,Kanpur,Bengal Gram Dal (Chana Dal),6150
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5355
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7500
+Uttar Pradesh,Kanpur,Mustard,5460
+Uttar Pradesh,Kanpur,Wheat,2175
+Uttar Pradesh,Lalitpur,Barley (Jau),2000
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Lalitpur,Lentil (Masur)(Whole),6100
+Uttar Pradesh,Lalitpur,Wheat,2200
+Uttar Pradesh,Maharajganj,Wheat,2260
+Uttar Pradesh,Mainpuri,Maize,1740
+Uttar Pradesh,Mainpuri,Wheat,2220
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2250
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6570
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5760
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12150
+Uttar Pradesh,Muzaffarnagar,Wheat,2260
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5575
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6980
+Uttar Pradesh,Sultanpur,Mustard,5480
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1880
+Uttar Pradesh,Sultanpur,Wheat,2270
+Uttrakhand,UdhamSinghNagar,Maize,2800
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Wheat,2800
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Paddy(Dhan)(Common),2050
+West Bengal,Bankura,Wheat,2800
+West Bengal,Burdwan,Mustard,5500
+West Bengal,Burdwan,Paddy(Dhan)(Common),2183
+West Bengal,Burdwan,Paddy(Dhan)(Common),2203
+West Bengal,Burdwan,Mustard,5500
+West Bengal,Burdwan,Mustard Oil,13700
+West Bengal,Burdwan,Paddy(Dhan)(Common),2183
+West Bengal,Burdwan,Paddy(Dhan)(Common),2203
+West Bengal,Darjeeling,Arhar Dal(Tur Dal),12800
+West Bengal,Darjeeling,Black Gram Dal (Urd Dal),11800
+West Bengal,Darjeeling,Green Gram Dal (Moong Dal),9800
+West Bengal,Hooghly,Paddy(Dhan)(Common),2183
+West Bengal,Hooghly,Paddy(Dhan)(Common),2200
+West Bengal,Malda,Green Gram Dal (Moong Dal),10000
+West Bengal,Malda,Lentil (Masur)(Whole),9600
+West Bengal,Murshidabad,Mustard,5500
+West Bengal,Puruliya,Mustard Oil,12480
+Karnataka,Koppal,Kulthi(Horse Gram),7650
+Madhya Pradesh,Dewas,Wheat,2300
+Madhya Pradesh,Mandsaur,Wheat,2115
+NCT of Delhi,Delhi,Wheat,2303
+Rajasthan,Sikar,Mustard,4900
+Rajasthan,Tonk,Jowar(Sorghum),4050
+Rajasthan,Tonk,Maize,2585
+Rajasthan,Tonk,Mustard,5450
+Rajasthan,Tonk,Wheat,2235
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2100
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Cotton,6380
+Telangana,Nalgonda,Maize,1930
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Warangal,Cotton,6200
+Telangana,Warangal,Cotton,6600
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2030
+Uttar Pradesh,Agra,Barley (Jau),2240
+Uttar Pradesh,Badaun,Maize,1680
+Uttar Pradesh,Bulandshahar,Bajra(Pearl Millet/Cumbu),1850
+Uttar Pradesh,Bulandshahar,Barley (Jau),1750
+Uttar Pradesh,Bulandshahar,Maize,1700
+Uttar Pradesh,Bulandshahar,Mustard,5500
+Uttar Pradesh,Bulandshahar,Wheat,2150
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),1925
+Uttar Pradesh,Etah,Wheat,2160
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),2190
+Uttar Pradesh,Etah,Maize,1850
+Uttar Pradesh,Etah,Wheat,2260
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1900
+Uttar Pradesh,Firozabad,Maize,1700
+Uttar Pradesh,Gonda,Paddy(Dhan)(Common),1850
+Uttar Pradesh,Gonda,Wheat,2300
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5650
+Uttar Pradesh,Hardoi,Lentil (Masur)(Whole),6780
+Uttar Pradesh,Hardoi,Maize,2030
+Uttar Pradesh,Hardoi,Mustard,5480
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2050
+Uttar Pradesh,Hardoi,Wheat,2265
+Uttar Pradesh,Hardoi,Arhar Dal(Tur Dal),12620
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5650
+Uttar Pradesh,Hardoi,Maize,2020
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Hardoi,Wheat,2270
+Uttar Pradesh,Jalaun (Orai),Mustard,5200
+Uttar Pradesh,Jalaun (Orai),Wheat,2185
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Jhansi,Wheat,2230
+Uttar Pradesh,Lalitpur,Barley (Jau),2000
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Lalitpur,Lentil (Masur)(Whole),6100
+Uttar Pradesh,Lalitpur,Wheat,2200
+Uttar Pradesh,Mahoba,Arhar (Tur/Red Gram)(Whole),8620
+Uttar Pradesh,Mahoba,Barley (Jau),1800
+Uttar Pradesh,Mahoba,Bengal Gram(Gram)(Whole),5120
+Uttar Pradesh,Mahoba,Black Gram (Urd Beans)(Whole),7510
+Uttar Pradesh,Mahoba,Lentil (Masur)(Whole),5550
+Uttar Pradesh,Mahoba,Wheat,2215
+Uttar Pradesh,Mainpuri,Maize,1745
+Uttar Pradesh,Mainpuri,Wheat,2210
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8450
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5575
+Uttar Pradesh,Mainpuri,Maize,1985
+Uttar Pradesh,Siddharth Nagar,Bengal Gram(Gram)(Whole),5730
+Uttar Pradesh,Siddharth Nagar,Mustard,5520
+Uttar Pradesh,Siddharth Nagar,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Siddharth Nagar,Wheat,2250
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5580
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Sultanpur,Mustard,5500
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1890
+Uttar Pradesh,Sultanpur,Wheat,2280
+Uttrakhand,Haridwar,Wheat,2130
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Wheat,2800
+West Bengal,Bankura,Mustard,5700
+West Bengal,Bankura,Paddy(Dhan)(Common),2050
+West Bengal,Bankura,Wheat,2800
+West Bengal,Murshidabad,Mustard,5500
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2050
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2050
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2040
+Andhra Pradesh,Guntur,Black Gram (Urd Beans)(Whole),8200
+Andhra Pradesh,Kurnool,Jowar(Sorghum),3060
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Andhra Pradesh,Kurnool,Bengal Gram(Gram)(Whole),5335
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Chattisgarh,Balodabazar,Paddy(Dhan)(Common),1355
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1745
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1745
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1745
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1745
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),2130
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1800
+Chattisgarh,Janjgir,Paddy(Dhan)(Common),1500
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Koria,Maize,2025
+Chattisgarh,Mahasamund,Paddy(Dhan)(Common),2200
+Chattisgarh,Mahasamund,Paddy(Dhan)(Common),1900
+Chattisgarh,Mahasamund,Paddy(Dhan)(Common),1990
+Chattisgarh,Raigarh,Maize,1750
+Gujarat,Amreli,Arhar (Tur/Red Gram)(Whole),8000
+Gujarat,Amreli,Bajra(Pearl Millet/Cumbu),2195
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4955
+Gujarat,Amreli,Cotton,6895
+Gujarat,Amreli,Green Gram (Moong)(Whole),8230
+Gujarat,Amreli,Wheat,2545
+Gujarat,Amreli,Wheat,2485
+Gujarat,Amreli,Cotton,7280
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4610
+Gujarat,Amreli,Cotton,5700
+Gujarat,Amreli,Wheat,2200
+Gujarat,Anand,Bajra(Pearl Millet/Cumbu),2140
+Gujarat,Anand,Wheat,2150
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2225
+Gujarat,Banaskanth,Mustard,5275
+Gujarat,Banaskanth,Wheat,2225
+Gujarat,Banaskanth,Gram Raw(Chholia),8500
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),2030
+Gujarat,Banaskanth,Mustard,5212
+Gujarat,Banaskanth,Wheat,2295
+Gujarat,Banaskanth,Bajra(Pearl Millet/Cumbu),1937.5
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7500
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2400
+Gujarat,Bharuch,Cotton,5800
+Gujarat,Bharuch,Jowar(Sorghum),2800
+Gujarat,Bharuch,Maize,2000
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7600
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2300
+Gujarat,Bharuch,Cotton,5600
+Gujarat,Bharuch,Jowar(Sorghum),2600
+Gujarat,Bharuch,Maize,2200
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),7800
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),8300
+Gujarat,Dahod,Bajra(Pearl Millet/Cumbu),2200
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5125
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5250
+Gujarat,Dahod,Black Gram (Urd Beans)(Whole),7500
+Gujarat,Dahod,Green Gram (Moong)(Whole),7800
+Gujarat,Dahod,Maize,2600
+Gujarat,Dahod,Maize,2200
+Gujarat,Dahod,Paddy(Dhan)(Common),1830
+Gujarat,Dahod,Paddy(Dhan)(Common),2050
+Gujarat,Dahod,Wheat,2700
+Gujarat,Dahod,Wheat,2550
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2272
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),1900
+Gujarat,Gandhinagar,Wheat,2332
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),1755
+Gujarat,Gandhinagar,Jowar(Sorghum),4650
+Gujarat,Gandhinagar,Mustard,5340
+Gujarat,Gandhinagar,Wheat,2285
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4160
+Gujarat,Jamnagar,Cotton,6240
+Gujarat,Jamnagar,Jowar(Sorghum),4280
+Gujarat,Jamnagar,Wheat,2150
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4500
+Gujarat,Jamnagar,Green Gram (Moong)(Whole),8500
+Gujarat,Jamnagar,Wheat,2125
+Gujarat,Junagarh,Arhar (Tur/Red Gram)(Whole),8765
+Gujarat,Junagarh,Bajra(Pearl Millet/Cumbu),1740
+Gujarat,Junagarh,Kulthi(Horse Gram),4750
+Gujarat,Junagarh,Maize,2500
+Gujarat,Junagarh,Mustard,5365
+Gujarat,Junagarh,Wheat,2475
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),1911
+Gujarat,Morbi,Jowar(Sorghum),4150
+Gujarat,Morbi,Mustard,6350
+Gujarat,Morbi,Wheat,2380
+Gujarat,Panchmahals,Bajra(Pearl Millet/Cumbu),1950
+Gujarat,Panchmahals,Maize,2175
+Gujarat,Panchmahals,Paddy(Dhan)(Common),1700
+Gujarat,Panchmahals,Wheat,2075
+Gujarat,Patan,Bajra(Pearl Millet/Cumbu),2187
+Gujarat,Patan,Jowar(Sorghum),6340
+Gujarat,Patan,Mustard,5370
+Gujarat,Patan,Wheat,2430
+Gujarat,Porbandar,Green Gram (Moong)(Whole),8400
+Gujarat,Porbandar,Wheat,2040
+Gujarat,Porbandar,Wheat,2205
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),8905
+Gujarat,Rajkot,Black Gram (Urd Beans)(Whole),9230
+Gujarat,Rajkot,Cotton,5530
+Gujarat,Rajkot,Wheat,2465
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),8000
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2055
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4860
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),11500
+Gujarat,Rajkot,Black Gram (Urd Beans)(Whole),7500
+Gujarat,Rajkot,Cotton,7275
+Gujarat,Rajkot,Green Gram (Moong)(Whole),8100
+Gujarat,Rajkot,Jowar(Sorghum),4600
+Gujarat,Rajkot,Mustard,5150
+Gujarat,Rajkot,Wheat,2370
+Gujarat,Rajkot,Wheat,2460
+Gujarat,Sabarkantha,Bajra(Pearl Millet/Cumbu),1975
+Gujarat,Sabarkantha,Wheat,2400
+Gujarat,Surat,Pegeon Pea (Arhar Fali),11500
+Gujarat,Surendranagar,Mustard,6005
+Gujarat,Surendranagar,Bengal Gram(Gram)(Whole),4625
+Gujarat,Surendranagar,Cotton,7150
+Gujarat,Surendranagar,Mustard,6750
+Gujarat,Surendranagar,Wheat,2425
+Karnataka,Raichur,Wheat,2520
+Kerala,Malappuram,Bengal Gram(Gram)(Whole),6250
+Kerala,Malappuram,Green Gram (Moong)(Whole),10550
+Kerala,Palakad,Arhar (Tur/Red Gram)(Whole),14300
+Kerala,Palakad,Bengal Gram(Gram)(Whole),7600
+Kerala,Palakad,Black Gram (Urd Beans)(Whole),11100
+Kerala,Palakad,Black Gram (Urd Beans)(Whole),12600
+Kerala,Palakad,Green Gram (Moong)(Whole),12600
+Kerala,Palakad,Green Gram (Moong)(Whole),13600
+Kerala,Wayanad,Paddy(Dhan)(Common),2260
+Madhya Pradesh,Ashoknagar,Bengal Gram(Gram)(Whole),4990
+Madhya Pradesh,Ashoknagar,Black Gram (Urd Beans)(Whole),5050
+Madhya Pradesh,Ashoknagar,Lentil (Masur)(Whole),5535
+Madhya Pradesh,Dewas,Wheat,2230
+Madhya Pradesh,Dhar,Maize,2092
+Madhya Pradesh,Dhar,Wheat,2480
+Madhya Pradesh,Jhabua,Wheat,2050
+Madhya Pradesh,Panna,Bengal Gram(Gram)(Whole),5030
+Madhya Pradesh,Panna,Lentil (Masur)(Whole),5250
+Madhya Pradesh,Panna,Wheat,2125
+Madhya Pradesh,Rewa,Lentil (Masur)(Whole),5250
+Madhya Pradesh,Rewa,Wheat,2200
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),4380
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),5640
+Madhya Pradesh,Shajapur,Lentil (Masur)(Whole),5570
+Madhya Pradesh,Shajapur,Mustard,4975
+Madhya Pradesh,Shajapur,Wheat,2285
+Madhya Pradesh,Shajapur,Wheat,2095
+Madhya Pradesh,Shajapur,Wheat,2780
+Maharashtra,Beed,Bengal Gram(Gram)(Whole),4352
+Maharashtra,Beed,Jowar(Sorghum),5300
+Maharashtra,Beed,Jowar(Sorghum),3900
+Maharashtra,Beed,Wheat,2825
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2600
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2780
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2200
+Maharashtra,Gadchiroli,Paddy(Dhan)(Common),2780
+Maharashtra,Gadchiroli,Paddy(Dhan)(Common),2291
+Maharashtra,Jalgaon,Bengal Gram(Gram)(Whole),7100
+Maharashtra,Jalgaon,Wheat,2350
+Maharashtra,Sholapur,Arhar (Tur/Red Gram)(Whole),9800
+Maharashtra,Sholapur,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Sholapur,Black Gram (Urd Beans)(Whole),7500
+Maharashtra,Sholapur,Green Gram (Moong)(Whole),6000
+Maharashtra,Sholapur,Jowar(Sorghum),4400
+Maharashtra,Sholapur,Wheat,2600
+Maharashtra,Thane,Wheat,2825
+Nagaland,Longleng,Maize,8000
+Odisha,Bargarh,Paddy(Dhan)(Common),2040
+Odisha,Bhadrak,Paddy(Dhan)(Common),2040
+Odisha,Keonjhar,Paddy(Dhan)(Common),2040
+Odisha,Nowarangpur,Maize,1500
+Pondicherry,Karaikal,Paddy(Dhan)(Common),2320
+Rajasthan,Ajmer,Barley (Jau),1615
+Rajasthan,Ajmer,Maize,2485
+Rajasthan,Ajmer,Mustard,5105
+Rajasthan,Ajmer,Wheat,2250
+Rajasthan,Chittorgarh,Wheat,2300
+Rajasthan,Churu,Bajra(Pearl Millet/Cumbu),1750
+Rajasthan,Hanumangarh,Barley (Jau),1612
+Rajasthan,Hanumangarh,Mustard,5180
+Rajasthan,Hanumangarh,Wheat,2207
+Rajasthan,Jodhpur,Bajra(Pearl Millet/Cumbu),2175
+Rajasthan,Jodhpur,Green Gram (Moong)(Whole),6900
+Rajasthan,Jodhpur,Jowar(Sorghum),3450
+Rajasthan,Kota,Bengal Gram(Gram)(Whole),4700
+Rajasthan,Kota,Black Gram (Urd Beans)(Whole),7200
+Rajasthan,Kota,Jowar(Sorghum),2402
+Rajasthan,Kota,Maize,1875
+Rajasthan,Kota,Mustard,5250
+Rajasthan,Kota,Paddy(Dhan)(Common),3800
+Rajasthan,Kota,Wheat,2250
+Rajasthan,Sikar,Mustard,4895
+Rajasthan,Tonk,Bajra(Pearl Millet/Cumbu),1810
+Rajasthan,Tonk,Mustard,4938
+Rajasthan,Tonk,Wheat,2255
+Rajasthan,Tonk,Bajra(Pearl Millet/Cumbu),1930
+Rajasthan,Tonk,Barley (Jau),1550
+Rajasthan,Tonk,Bengal Gram(Gram)(Whole),5015
+Rajasthan,Tonk,Jowar(Sorghum),4100
+Rajasthan,Tonk,Mustard,5650
+Rajasthan,Tonk,Wheat,2240
+Tamil Nadu,Coimbatore,Paddy(Dhan)(Common),2050
+Tamil Nadu,Coimbatore,Maize,2270
+Tamil Nadu,Cuddalore,Paddy(Dhan)(Common),1808
+Tamil Nadu,Cuddalore,Cotton,6978
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1970
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2123
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2508
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2816
+Tamil Nadu,Madurai,Cotton,4550
+Tamil Nadu,Madurai,Cotton,4450
+Tamil Nadu,Madurai,Cotton,4350
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1750
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1800
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2100
+Tamil Nadu,Salem,Paddy(Dhan)(Common),2000
+Tamil Nadu,Salem,Cotton,6200
+Tamil Nadu,Thiruvannamalai,Maize,2055
+Tamil Nadu,Thiruvannamalai,Paddy(Dhan)(Common),1804
+Tamil Nadu,Thiruvannamalai,Paddy(Dhan)(Common),2359
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),8249
+Tamil Nadu,Villupuram,Maize,2163
+Tamil Nadu,Villupuram,Maize,2239
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1918
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1705
+Tamil Nadu,Villupuram,Maize,2269
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),2088
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1824
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),7600
+Tamil Nadu,Villupuram,Maize,2119
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1707
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1912
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),2379
+Telangana,Adilabad,Jowar(Sorghum),3000
+Telangana,Adilabad,Maize,2050
+Telangana,Jagityal,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Maize,2223
+Telangana,Karimnagar,Paddy(Dhan)(Common),2061
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Cotton,7100
+Telangana,Karimnagar,Cotton,6231
+Telangana,Karimnagar,Paddy(Dhan)(Common),2203
+Telangana,Karimnagar,Paddy(Dhan)(Common),2100
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2203
+Telangana,Karimnagar,Cotton,6867
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Cotton,6380
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Cotton,6700
+Telangana,Khammam,Cotton,6900
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2040
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2040
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2060
+Telangana,Mahbubnagar,Maize,1962
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2040
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2059
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2040
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Medak,Maize,2066
+Telangana,Medak,Paddy(Dhan)(Basmati),2060
+Telangana,Nalgonda,Arhar (Tur/Red Gram)(Whole),6600
+Telangana,Nalgonda,Paddy(Dhan)(Basmati),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2203
+Telangana,Nalgonda,Paddy(Dhan)(Common),2180
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Maize,1962
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Maize,1962
+Telangana,Nizamabad,Maize,1962
+Telangana,Nizamabad,Cotton,6850
+Telangana,Ranga Reddy,Paddy(Dhan)(Common),2000
+Telangana,Warangal,Paddy(Dhan)(Common),2060
+Telangana,Warangal,Paddy(Dhan)(Common),206
+Telangana,Warangal,Cotton,6200
+Telangana,Warangal,Cotton,6600
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2000
+Uttar Pradesh,Agra,Barley (Jau),2200
+Uttar Pradesh,Agra,Mustard,5450
+Uttar Pradesh,Agra,Wheat,2260
+Uttar Pradesh,Agra,Arhar (Tur/Red Gram)(Whole),8850
+Uttar Pradesh,Agra,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2080
+Uttar Pradesh,Agra,Barley (Jau),2230
+Uttar Pradesh,Agra,Bengal Gram Dal (Chana Dal),6520
+Uttar Pradesh,Agra,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Agra,Black Gram (Urd Beans)(Whole),8040
+Uttar Pradesh,Agra,Black Gram Dal (Urd Dal),9550
+Uttar Pradesh,Agra,Mustard,5500
+Uttar Pradesh,Agra,Wheat,2290
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2350
+Uttar Pradesh,Agra,Mustard,5450
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2000
+Uttar Pradesh,Aligarh,Arhar (Tur/Red Gram)(Whole),8600
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),2100
+Uttar Pradesh,Aligarh,Barley (Jau),2230
+Uttar Pradesh,Aligarh,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Aligarh,Green Gram (Moong)(Whole),7760
+Uttar Pradesh,Aligarh,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Aligarh,Maize,1980
+Uttar Pradesh,Aligarh,Mustard,5450
+Uttar Pradesh,Aligarh,Mustard Oil,12850
+Uttar Pradesh,Aligarh,Paddy(Dhan)(Basmati),3020
+Uttar Pradesh,Aligarh,Wheat,2235
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),1600
+Uttar Pradesh,Aligarh,Maize,1700
+Uttar Pradesh,Aligarh,Wheat,2150
+Uttar Pradesh,Aligarh,Arhar Dal(Tur Dal),12500
+Uttar Pradesh,Aligarh,Bajra(Pearl Millet/Cumbu),2100
+Uttar Pradesh,Aligarh,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Aligarh,Maize,1970
+Uttar Pradesh,Aligarh,Mustard,5450
+Uttar Pradesh,Aligarh,Mustard Oil,12800
+Uttar Pradesh,Aligarh,Wheat,2230
+Uttar Pradesh,Allahabad,Wheat,2250
+Uttar Pradesh,Allahabad,Bengal Gram(Gram)(Whole),5360
+Uttar Pradesh,Allahabad,Mustard,5460
+Uttar Pradesh,Allahabad,Wheat,2360
+Uttar Pradesh,Ambedkarnagar,Arhar Dal(Tur Dal),12850
+Uttar Pradesh,Ambedkarnagar,Bengal Gram Dal (Chana Dal),6050
+Uttar Pradesh,Ambedkarnagar,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Ambedkarnagar,Lentil (Masur)(Whole),6880
+Uttar Pradesh,Ambedkarnagar,Mustard,5480
+Uttar Pradesh,Ambedkarnagar,Mustard Oil,14500
+Uttar Pradesh,Ambedkarnagar,Wheat,2270
+Uttar Pradesh,Auraiya,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Auraiya,Bajra(Pearl Millet/Cumbu),2350
+Uttar Pradesh,Auraiya,Bengal Gram(Gram)(Whole),5450
+Uttar Pradesh,Auraiya,Maize,1750
+Uttar Pradesh,Auraiya,Mustard,5450
+Uttar Pradesh,Auraiya,Mustard Oil,12400
+Uttar Pradesh,Auraiya,Wheat,2250
+Uttar Pradesh,Badaun,Wheat,2290
+Uttar Pradesh,Badaun,Bengal Gram(Gram)(Whole),5840
+Uttar Pradesh,Badaun,Lentil (Masur)(Whole),6885
+Uttar Pradesh,Badaun,Maize,1760
+Uttar Pradesh,Badaun,Wheat,2320
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Bahraich,Bengal Gram(Gram)(Whole),5615
+Uttar Pradesh,Bahraich,Black Gram (Urd Beans)(Whole),8720
+Uttar Pradesh,Bahraich,Green Gram (Moong)(Whole),8470
+Uttar Pradesh,Bahraich,Lentil (Masur)(Whole),7020
+Uttar Pradesh,Bahraich,Maize,2000
+Uttar Pradesh,Bahraich,Mustard,5475
+Uttar Pradesh,Bahraich,Mustard Oil,14250
+Uttar Pradesh,Bahraich,Wheat,2295
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Bahraich,Bengal Gram Dal (Chana Dal),6100
+Uttar Pradesh,Bahraich,Bengal Gram(Gram)(Whole),5620
+Uttar Pradesh,Bahraich,Black Gram (Urd Beans)(Whole),8720
+Uttar Pradesh,Bahraich,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Bahraich,Lentil (Masur)(Whole),7020
+Uttar Pradesh,Bahraich,Maize,2000
+Uttar Pradesh,Bahraich,Mustard Oil,14250
+Uttar Pradesh,Bahraich,Wheat,2290
+Uttar Pradesh,Bahraich,Maize,2010
+Uttar Pradesh,Bahraich,Paddy(Dhan)(Common),1840
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Balrampur,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Balrampur,Black Gram (Urd Beans)(Whole),8700
+Uttar Pradesh,Balrampur,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Balrampur,Maize,2010
+Uttar Pradesh,Balrampur,Mustard,5500
+Uttar Pradesh,Balrampur,Wheat,2280
+Uttar Pradesh,Banda,Bengal Gram(Gram)(Whole),5030
+Uttar Pradesh,Banda,Lentil (Masur)(Whole),5500
+Uttar Pradesh,Barabanki,Arhar Dal(Tur Dal),13150
+Uttar Pradesh,Barabanki,Bengal Gram Dal (Chana Dal),6000
+Uttar Pradesh,Barabanki,Black Gram (Urd Beans)(Whole),8150
+Uttar Pradesh,Barabanki,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Bareilly,Arhar Dal(Tur Dal),9975
+Uttar Pradesh,Bareilly,Black Gram Dal (Urd Dal),9300
+Uttar Pradesh,Bareilly,Mustard,5450
+Uttar Pradesh,Bareilly,Wheat,2350
+Uttar Pradesh,Bareilly,Paddy(Dhan)(Common),2465
+Uttar Pradesh,Bulandshahar,Bajra(Pearl Millet/Cumbu),1850
+Uttar Pradesh,Bulandshahar,Barley (Jau),1740
+Uttar Pradesh,Bulandshahar,Maize,1700
+Uttar Pradesh,Bulandshahar,Wheat,2200
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3000
+Uttar Pradesh,Bulandshahar,Maize,1560
+Uttar Pradesh,Bulandshahar,Wheat,2280
+Uttar Pradesh,Chitrakut,Barley (Jau),1780
+Uttar Pradesh,Chitrakut,Bengal Gram(Gram)(Whole),5020
+Uttar Pradesh,Chitrakut,Wheat,2200
+Uttar Pradesh,Etah,Arhar (Tur/Red Gram)(Whole),8390
+Uttar Pradesh,Etah,Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),2120
+Uttar Pradesh,Etah,Bengal Gram(Gram)(Whole),5540
+Uttar Pradesh,Etah,Maize,1970
+Uttar Pradesh,Etah,Mustard,5450
+Uttar Pradesh,Etah,Wheat,2150
+Uttar Pradesh,Etawah,Maize,1750
+Uttar Pradesh,Faizabad,Bengal Gram(Gram)(Whole),5660
+Uttar Pradesh,Faizabad,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Faizabad,Maize,2050
+Uttar Pradesh,Faizabad,Mustard,5575
+Uttar Pradesh,Faizabad,Paddy(Dhan)(Common),1960
+Uttar Pradesh,Faizabad,Wheat,2275
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5465
+Uttar Pradesh,Farukhabad,Maize,1685
+Uttar Pradesh,Farukhabad,Mustard,5450
+Uttar Pradesh,Farukhabad,Wheat,2300
+Uttar Pradesh,Farukhabad,Maize,1810
+Uttar Pradesh,Farukhabad,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Farukhabad,Bengal Gram Dal (Chana Dal),6150
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Farukhabad,Black Gram Dal (Urd Dal),8650
+Uttar Pradesh,Farukhabad,Green Gram Dal (Moong Dal),8800
+Uttar Pradesh,Farukhabad,Maize,1750
+Uttar Pradesh,Farukhabad,Mustard,5450
+Uttar Pradesh,Farukhabad,Mustard Oil,12375
+Uttar Pradesh,Farukhabad,Wheat,2270
+Uttar Pradesh,Farukhabad,Maize,1700
+Uttar Pradesh,Farukhabad,Wheat,2280
+Uttar Pradesh,Fatehpur,Arhar Dal(Tur Dal),12955
+Uttar Pradesh,Fatehpur,Bengal Gram Dal (Chana Dal),6055
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5345
+Uttar Pradesh,Fatehpur,Black Gram Dal (Urd Dal),8625
+Uttar Pradesh,Fatehpur,Green Gram Dal (Moong Dal),8860
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),6370
+Uttar Pradesh,Fatehpur,Mustard,5455
+Uttar Pradesh,Fatehpur,Mustard Oil,12515
+Uttar Pradesh,Fatehpur,Wheat,2250
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),5400
+Uttar Pradesh,Fatehpur,Wheat,2200
+Uttar Pradesh,Firozabad,Arhar (Tur/Red Gram)(Whole),8900
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1875
+Uttar Pradesh,Firozabad,Barley (Jau),2180
+Uttar Pradesh,Firozabad,Maize,2000
+Uttar Pradesh,Firozabad,Wheat,2270
+Uttar Pradesh,Firozabad,Maize,1700
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1900
+Uttar Pradesh,Firozabad,Maize,2025
+Uttar Pradesh,Firozabad,Wheat,2285
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1695
+Uttar Pradesh,Firozabad,Barley (Jau),2100
+Uttar Pradesh,Firozabad,Mustard,5100
+Uttar Pradesh,Firozabad,Wheat,2240
+Uttar Pradesh,Ghaziabad,Arhar (Tur/Red Gram)(Whole),9500
+Uttar Pradesh,Ghaziabad,Arhar Dal(Tur Dal),13500
+Uttar Pradesh,Ghaziabad,Barley (Jau),2250
+Uttar Pradesh,Ghaziabad,Bengal Gram(Gram)(Whole),6000
+Uttar Pradesh,Ghaziabad,Black Gram (Urd Beans)(Whole),8800
+Uttar Pradesh,Ghaziabad,Black Gram Dal (Urd Dal),9600
+Uttar Pradesh,Ghaziabad,Green Gram Dal (Moong Dal),9600
+Uttar Pradesh,Ghaziabad,Maize,2130
+Uttar Pradesh,Ghaziabad,Mustard,5450
+Uttar Pradesh,Ghaziabad,Mustard Oil,12100
+Uttar Pradesh,Ghaziabad,Wheat,2260
+Uttar Pradesh,Ghaziabad,Bengal Gram Dal (Chana Dal),6570
+Uttar Pradesh,Ghaziabad,Black Gram Dal (Urd Dal),9550
+Uttar Pradesh,Ghazipur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Ghazipur,Barley (Jau),2170
+Uttar Pradesh,Ghazipur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Ghazipur,Bengal Gram(Gram)(Whole),5710
+Uttar Pradesh,Ghazipur,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Ghazipur,Lentil (Masur)(Whole),6810
+Uttar Pradesh,Ghazipur,Mustard,5470
+Uttar Pradesh,Ghazipur,Mustard Oil,13150
+Uttar Pradesh,Ghazipur,Wheat,2280
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Hardoi,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Hardoi,Maize,2025
+Uttar Pradesh,Hardoi,Mustard,5470
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Hardoi,Wheat,2270
+Uttar Pradesh,Hardoi,Arhar Dal(Tur Dal),12600
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Hardoi,Maize,2020
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2020
+Uttar Pradesh,Hardoi,Wheat,2280
+Uttar Pradesh,Hathras,Bajra(Pearl Millet/Cumbu),1575
+Uttar Pradesh,Hathras,Maize,1490
+Uttar Pradesh,Hathras,Wheat,2150
+Uttar Pradesh,Jaunpur,Arhar Dal(Tur Dal),13125
+Uttar Pradesh,Jaunpur,Bengal Gram Dal (Chana Dal),6360
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5700
+Uttar Pradesh,Jaunpur,Black Gram (Urd Beans)(Whole),8550
+Uttar Pradesh,Jaunpur,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Jaunpur,Green Gram (Moong)(Whole),8550
+Uttar Pradesh,Jaunpur,Green Gram Dal (Moong Dal),9600
+Uttar Pradesh,Jaunpur,Lentil (Masur)(Whole),6750
+Uttar Pradesh,Jaunpur,Maize,2185
+Uttar Pradesh,Jaunpur,Mustard,5500
+Uttar Pradesh,Jaunpur,Wheat,2310
+Uttar Pradesh,Jaunpur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Jaunpur,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Jaunpur,Mustard,5555
+Uttar Pradesh,Jaunpur,Wheat,2300
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Jhansi,Lentil (Masur)(Whole),5540
+Uttar Pradesh,Jhansi,Wheat,2210
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8730
+Uttar Pradesh,Kanpur,Barley (Jau),2140
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5360
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7515
+Uttar Pradesh,Kanpur,Maize,1750
+Uttar Pradesh,Kanpur,Mustard,5455
+Uttar Pradesh,Kanpur,Wheat,2240
+Uttar Pradesh,Lakhimpur,Wheat,2250
+Uttar Pradesh,Lalitpur,Barley (Jau),2000
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Lalitpur,Lentil (Masur)(Whole),6100
+Uttar Pradesh,Lalitpur,Wheat,2200
+Uttar Pradesh,Maharajganj,Paddy(Dhan)(Common),2450
+Uttar Pradesh,Maharajganj,Wheat,2200
+Uttar Pradesh,Mahoba,Arhar (Tur/Red Gram)(Whole),8650
+Uttar Pradesh,Mahoba,Barley (Jau),1810
+Uttar Pradesh,Mahoba,Bengal Gram(Gram)(Whole),5100
+Uttar Pradesh,Mahoba,Black Gram (Urd Beans)(Whole),7450
+Uttar Pradesh,Mahoba,Lentil (Masur)(Whole),5520
+Uttar Pradesh,Mahoba,Wheat,2250
+Uttar Pradesh,Mainpuri,Maize,1760
+Uttar Pradesh,Mainpuri,Wheat,2210
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8460
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5565
+Uttar Pradesh,Mainpuri,Maize,2000
+Uttar Pradesh,Mainpuri,Wheat,2205
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8700
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12760
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5565
+Uttar Pradesh,Mainpuri,Black Gram Dal (Urd Dal),9545
+Uttar Pradesh,Mainpuri,Maize,1990
+Uttar Pradesh,Mainpuri,Mustard,5455
+Uttar Pradesh,Mainpuri,Wheat,2211
+Uttar Pradesh,Mathura,Arhar (Tur/Red Gram)(Whole),8700
+Uttar Pradesh,Mathura,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Mathura,Bajra(Pearl Millet/Cumbu),1960
+Uttar Pradesh,Mathura,Barley (Jau),2140
+Uttar Pradesh,Mathura,Bengal Gram(Gram)(Whole),5540
+Uttar Pradesh,Mathura,Black Gram (Urd Beans)(Whole),7860
+Uttar Pradesh,Mathura,Black Gram Dal (Urd Dal),9600
+Uttar Pradesh,Mathura,Green Gram (Moong)(Whole),7920
+Uttar Pradesh,Mathura,Mustard,5450
+Uttar Pradesh,Mathura,Wheat,2270
+Uttar Pradesh,Mirzapur,Arhar (Tur/Red Gram)(Whole),7500
+Uttar Pradesh,Mirzapur,Arhar Dal(Tur Dal),13135
+Uttar Pradesh,Mirzapur,Bengal Gram Dal (Chana Dal),6345
+Uttar Pradesh,Mirzapur,Bengal Gram(Gram)(Whole),5715
+Uttar Pradesh,Mirzapur,Black Gram Dal (Urd Dal),9460
+Uttar Pradesh,Mirzapur,Mustard,5525
+Uttar Pradesh,Mirzapur,Wheat,2310
+Uttar Pradesh,Muradabad,Maize,1800
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2250
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6580
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5785
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12150
+Uttar Pradesh,Muzaffarnagar,Wheat,2270
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2250
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6580
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5780
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9555
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9550
+Uttar Pradesh,Muzaffarnagar,Maize,2125
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12150
+Uttar Pradesh,Muzaffarnagar,Wheat,2270
+Uttar Pradesh,Pillibhit,Bengal Gram(Gram)(Whole),5855
+Uttar Pradesh,Pillibhit,Mustard Oil,14795
+Uttar Pradesh,Pillibhit,Wheat,2395
+Uttar Pradesh,Pillibhit,Bengal Gram(Gram)(Whole),5850
+Uttar Pradesh,Pillibhit,Mustard Oil,14790
+Uttar Pradesh,Pillibhit,Wheat,2390
+Uttar Pradesh,Pillibhit,Black Gram Dal (Urd Dal),9300
+Uttar Pradesh,Pillibhit,Wheat,2340
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2050
+Uttar Pradesh,Raebarelli,Wheat,2260
+Uttar Pradesh,Raebarelli,Arhar Dal(Tur Dal),12350
+Uttar Pradesh,Raebarelli,Bengal Gram Dal (Chana Dal),5875
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2250
+Uttar Pradesh,Raebarelli,Wheat,2250
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),1985
+Uttar Pradesh,Raebarelli,Wheat,2260
+Uttar Pradesh,Rampur,Bengal Gram(Gram)(Whole),5850
+Uttar Pradesh,Rampur,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Rampur,Wheat,2350
+Uttar Pradesh,Saharanpur,Arhar (Tur/Red Gram)(Whole),8350
+Uttar Pradesh,Saharanpur,Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Saharanpur,Barley (Jau),2240
+Uttar Pradesh,Saharanpur,Bengal Gram Dal (Chana Dal),6575
+Uttar Pradesh,Saharanpur,Bengal Gram(Gram)(Whole),5780
+Uttar Pradesh,Saharanpur,Black Gram (Urd Beans)(Whole),8730
+Uttar Pradesh,Saharanpur,Black Gram Dal (Urd Dal),9550
+Uttar Pradesh,Saharanpur,Green Gram (Moong)(Whole),8600
+Uttar Pradesh,Saharanpur,Green Gram Dal (Moong Dal),9550
+Uttar Pradesh,Saharanpur,Lentil (Masur)(Whole),6530
+Uttar Pradesh,Saharanpur,Maize,2130
+Uttar Pradesh,Saharanpur,Mustard,5470
+Uttar Pradesh,Saharanpur,Mustard Oil,12200
+Uttar Pradesh,Saharanpur,Wheat,2270
+Uttar Pradesh,Shahjahanpur,Wheat,2300
+Uttar Pradesh,Shahjahanpur,Wheat,2340
+Uttar Pradesh,Siddharth Nagar,Bengal Gram(Gram)(Whole),5730
+Uttar Pradesh,Sitapur,Wheat,2210
+Uttar Pradesh,Sitapur,Wheat,2120
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12300
+Uttar Pradesh,Sitapur,Bengal Gram(Gram)(Whole),5650
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9020
+Uttar Pradesh,Sitapur,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Sitapur,Mustard,5450
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),2010
+Uttar Pradesh,Sitapur,Wheat,2270
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12350
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9070
+Uttar Pradesh,Sitapur,Mustard Oil,14550
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),1985
+Uttar Pradesh,Sitapur,Wheat,2240
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5580
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),7010
+Uttar Pradesh,Sultanpur,Mustard,5490
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1885
+Uttar Pradesh,Sultanpur,Wheat,2275
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Sultanpur,Black Gram (Urd Beans)(Whole),8560
+Uttar Pradesh,Sultanpur,Green Gram (Moong)(Whole),8550
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6985
+Uttar Pradesh,Sultanpur,Mustard,5470
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1915
+Uttar Pradesh,Sultanpur,Wheat,2250
+Uttar Pradesh,Unnao,Wheat,2285
+Uttrakhand,Haridwar,Wheat,2130
+Uttrakhand,Nanital,Bengal Gram(Gram)(Whole),11000
+Uttrakhand,Nanital,Green Gram (Moong)(Whole),9400
+Uttrakhand,Nanital,Wheat,2300
+Uttrakhand,UdhamSinghNagar,Paddy(Dhan)(Common),2025
+Uttrakhand,UdhamSinghNagar,Paddy(Dhan)(Common),2100
+West Bengal,Burdwan,Arhar (Tur/Red Gram)(Whole),7700
+West Bengal,Burdwan,Black Gram Dal (Urd Dal),8800
+West Bengal,Burdwan,Green Gram Dal (Moong Dal),10800
+West Bengal,Burdwan,Lentil (Masur)(Whole),10200
+West Bengal,Burdwan,Mustard,5900
+West Bengal,Burdwan,Wheat,2900
+West Bengal,Burdwan,Lentil (Masur)(Whole),10000
+West Bengal,Burdwan,Mustard,5900
+West Bengal,Burdwan,Mustard Oil,12500
+West Bengal,Burdwan,Wheat,2900
+West Bengal,Burdwan,Wheat,2750
+West Bengal,Hooghly,Paddy(Dhan)(Common),2183
+West Bengal,Hooghly,Paddy(Dhan)(Common),2200
+West Bengal,Malda,Green Gram Dal (Moong Dal),10000
+West Bengal,Malda,Lentil (Masur)(Whole),9600
+West Bengal,Murshidabad,Mustard,5580
+West Bengal,Murshidabad,Paddy(Dhan)(Common),2190
+West Bengal,Murshidabad,Mustard,5620
+West Bengal,Murshidabad,Paddy(Dhan)(Common),2170
+West Bengal,Murshidabad,Wheat,2260
+West Bengal,Nadia,Mustard,6100
+West Bengal,Nadia,Wheat,2500
+West Bengal,Nadia,Mustard,5700
+West Bengal,Uttar Dinajpur,Wheat,2350
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2045
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2050
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2040
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2060
+Andhra Pradesh,East Godavari,Paddy(Dhan)(Common),2040
+Andhra Pradesh,Guntur,Black Gram (Urd Beans)(Whole),8200
+Andhra Pradesh,Kurnool,Cotton,7050
+Andhra Pradesh,Kurnool,Jowar(Sorghum),3080
+Andhra Pradesh,Kurnool,Bengal Gram(Gram)(Whole),4800
+Andhra Pradesh,Kurnool,Jowar(Sorghum),3600
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2100
+Andhra Pradesh,Kurnool,Arhar (Tur/Red Gram)(Whole),8600
+Andhra Pradesh,Kurnool,Bengal Gram(Gram)(Whole),5009
+Andhra Pradesh,Kurnool,Black Gram (Urd Beans)(Whole),7861
+Andhra Pradesh,Kurnool,Maize,2009
+Andhra Pradesh,Kurnool,Bengal Gram(Gram)(Whole),5335
+Andhra Pradesh,Kurnool,Maize,1962
+Andhra Pradesh,Kurnool,Paddy(Dhan)(Common),2040
+Bihar,Sheikhpura,Wheat,2500
+Bihar,Sheikhpura,Wheat,2500
+Chattisgarh,Balodabazar,Paddy(Dhan)(Common),1700
+Chattisgarh,Balodabazar,Paddy(Dhan)(Common),1700
+Chattisgarh,Balrampur,Wheat,2200
+Chattisgarh,Balrampur,Maize,1970
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1750
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1750
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1755
+Chattisgarh,Dhamtari,Paddy(Dhan)(Common),1825
+Chattisgarh,Gariyaband,Paddy(Dhan)(Common),1600
+Chattisgarh,Janjgir,Paddy(Dhan)(Common),1700
+Chattisgarh,Janjgir,Paddy(Dhan)(Common),1500
+Chattisgarh,Janjgir,Paddy(Dhan)(Common),1700
+Chattisgarh,Janjgir,Paddy(Dhan)(Common),1550
+Chattisgarh,Kabirdham,Bengal Gram(Gram)(Whole),5100
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Paddy(Dhan)(Common),1500
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Kanker,Paddy(Dhan)(Common),1500
+Chattisgarh,Kanker,Paddy(Dhan)(Common),1500
+Chattisgarh,Kanker,Maize,1550
+Chattisgarh,Mahasamund,Paddy(Dhan)(Common),2100
+Chattisgarh,Raipur,Paddy(Dhan)(Common),1900
+Chattisgarh,Raipur,Paddy(Dhan)(Common),1799
+Chattisgarh,Rajnandgaon,Maize,1750
+Gujarat,Amreli,Cotton,7275
+Gujarat,Amreli,Arhar (Tur/Red Gram)(Whole),8275
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4500
+Gujarat,Amreli,Wheat,2365
+Gujarat,Amreli,Arhar (Tur/Red Gram)(Whole),7415
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4315
+Gujarat,Amreli,Cotton,6250
+Gujarat,Amreli,Green Gram (Moong)(Whole),6065
+Gujarat,Amreli,Bajra(Pearl Millet/Cumbu),2080
+Gujarat,Amreli,Bengal Gram(Gram)(Whole),4708
+Gujarat,Amreli,Cotton,6078
+Gujarat,Amreli,Jowar(Sorghum),3750
+Gujarat,Amreli,Wheat,2463
+Gujarat,Amreli,Wheat,2455
+Gujarat,Anand,Bajra(Pearl Millet/Cumbu),2150
+Gujarat,Anand,Wheat,2175
+Gujarat,Anand,Bajra(Pearl Millet/Cumbu),2250
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7400
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2600
+Gujarat,Bharuch,Cotton,5600
+Gujarat,Bharuch,Jowar(Sorghum),2800
+Gujarat,Bharuch,Maize,2000
+Gujarat,Bharuch,Wheat,3300
+Gujarat,Bharuch,Arhar (Tur/Red Gram)(Whole),7500
+Gujarat,Bharuch,Bajra(Pearl Millet/Cumbu),2400
+Gujarat,Bharuch,Cotton,5800
+Gujarat,Bharuch,Jowar(Sorghum),2600
+Gujarat,Bharuch,Maize,2200
+Gujarat,Bhavnagar,Bengal Gram(Gram)(Whole),4825
+Gujarat,Bhavnagar,Cotton,6675
+Gujarat,Bhavnagar,Jowar(Sorghum),3900
+Gujarat,Bhavnagar,Wheat,2460
+Gujarat,Bhavnagar,Bajra(Pearl Millet/Cumbu),2245
+Gujarat,Bhavnagar,Green Gram (Moong)(Whole),8045
+Gujarat,Bhavnagar,Jowar(Sorghum),4200
+Gujarat,Bhavnagar,Wheat,2295
+Gujarat,Bhavnagar,Arhar (Tur/Red Gram)(Whole),5505
+Gujarat,Bhavnagar,Bajra(Pearl Millet/Cumbu),2115
+Gujarat,Bhavnagar,Bengal Gram(Gram)(Whole),4680
+Gujarat,Bhavnagar,Cotton,6625
+Gujarat,Botad,Bengal Gram(Gram)(Whole),4510
+Gujarat,Botad,Jowar(Sorghum),4010
+Gujarat,Botad,Wheat,2520
+Gujarat,Botad,Cotton,7075
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),7800
+Gujarat,Dahod,Arhar (Tur/Red Gram)(Whole),8200
+Gujarat,Dahod,Bajra(Pearl Millet/Cumbu),2000
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5100
+Gujarat,Dahod,Bengal Gram(Gram)(Whole),5270
+Gujarat,Dahod,Black Gram (Urd Beans)(Whole),7000
+Gujarat,Dahod,Green Gram (Moong)(Whole),7500
+Gujarat,Dahod,Maize,2300
+Gujarat,Dahod,Maize,2100
+Gujarat,Dahod,Paddy(Dhan)(Common),1830
+Gujarat,Dahod,Paddy(Dhan)(Common),2050
+Gujarat,Dahod,Wheat,2700
+Gujarat,Dahod,Wheat,2550
+Gujarat,Dahod,Paddy(Dhan)(Common),1370
+Gujarat,Dahod,Maize,1940
+Gujarat,Dahod,Paddy(Dhan)(Common),1670
+Gujarat,Dahod,Wheat,2170
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2300
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),1925
+Gujarat,Gandhinagar,Wheat,2307
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),1950
+Gujarat,Gandhinagar,Jowar(Sorghum),5250
+Gujarat,Gandhinagar,Mustard,5260
+Gujarat,Gandhinagar,Paddy(Dhan)(Common),2225
+Gujarat,Gandhinagar,Wheat,2450
+Gujarat,Gandhinagar,Bajra(Pearl Millet/Cumbu),2125
+Gujarat,Gandhinagar,Jowar(Sorghum),4350
+Gujarat,Gandhinagar,Wheat,2345
+Gujarat,Jamnagar,Bajra(Pearl Millet/Cumbu),2015
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4510
+Gujarat,Jamnagar,Cotton,6240
+Gujarat,Jamnagar,Mustard,4370
+Gujarat,Jamnagar,Wheat,2335
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),4500
+Gujarat,Jamnagar,Green Gram (Moong)(Whole),8250
+Gujarat,Jamnagar,Wheat,2150
+Gujarat,Jamnagar,Arhar (Tur/Red Gram)(Whole),7950
+Gujarat,Jamnagar,Bajra(Pearl Millet/Cumbu),2355
+Gujarat,Jamnagar,Bengal Gram(Gram)(Whole),5335
+Gujarat,Jamnagar,Cotton,6450
+Gujarat,Jamnagar,Jowar(Sorghum),3650
+Gujarat,Jamnagar,Mustard,5450
+Gujarat,Jamnagar,Wheat,2525
+Gujarat,Junagarh,Bajra(Pearl Millet/Cumbu),2200
+Gujarat,Junagarh,Black Gram (Urd Beans)(Whole),8450
+Gujarat,Junagarh,Wheat,2525
+Gujarat,Junagarh,Bengal Gram(Gram)(Whole),4630
+Gujarat,Junagarh,Black Gram (Urd Beans)(Whole),8200
+Gujarat,Junagarh,Green Gram (Moong)(Whole),7975
+Gujarat,Junagarh,Wheat,2290
+Gujarat,Junagarh,Arhar (Tur/Red Gram)(Whole),8465
+Gujarat,Junagarh,Jowar(Sorghum),4415
+Gujarat,Junagarh,Kulthi(Horse Gram),4715
+Gujarat,Junagarh,Wheat,2485
+Gujarat,Kheda,Wheat,2150
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2250
+Gujarat,Mehsana,Mustard,5225
+Gujarat,Mehsana,Paddy(Dhan)(Common),2100
+Gujarat,Mehsana,Wheat,2400
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2075
+Gujarat,Mehsana,Mustard,5375
+Gujarat,Mehsana,Wheat,2300
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),2000
+Gujarat,Mehsana,Mustard,5205
+Gujarat,Mehsana,Wheat,2175
+Gujarat,Mehsana,Mustard,5450
+Gujarat,Mehsana,Jowar(Sorghum),4400
+Gujarat,Mehsana,Wheat,2375
+Gujarat,Mehsana,Bajra(Pearl Millet/Cumbu),1935
+Gujarat,Mehsana,Mustard,5382
+Gujarat,Mehsana,Wheat,2312
+Gujarat,Navsari,Pegeon Pea (Arhar Fali),10500
+Gujarat,Panchmahals,Bajra(Pearl Millet/Cumbu),1950
+Gujarat,Panchmahals,Maize,2175
+Gujarat,Panchmahals,Paddy(Dhan)(Common),1700
+Gujarat,Patan,Wheat,2000
+Gujarat,Patan,Bajra(Pearl Millet/Cumbu),2032
+Gujarat,Patan,Jowar(Sorghum),5382
+Gujarat,Patan,Mustard,5300
+Gujarat,Patan,Wheat,2310
+Gujarat,Porbandar,Kulthi(Horse Gram),3775
+Gujarat,Porbandar,Wheat,2330
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2055
+Gujarat,Rajkot,Jowar(Sorghum),4380
+Gujarat,Rajkot,Wheat,2435
+Gujarat,Rajkot,Cotton,7140
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4325
+Gujarat,Rajkot,Green Gram (Moong)(Whole),7660
+Gujarat,Rajkot,Jowar(Sorghum),4440
+Gujarat,Rajkot,Wheat,2430
+Gujarat,Rajkot,Arhar (Tur/Red Gram)(Whole),8400
+Gujarat,Rajkot,Bajra(Pearl Millet/Cumbu),2105
+Gujarat,Rajkot,Bengal Gram(Gram)(Whole),4875
+Gujarat,Rajkot,Black Gram (Urd Beans)(Whole),7375
+Gujarat,Rajkot,Cotton,7250
+Gujarat,Rajkot,Green Gram (Moong)(Whole),7750
+Gujarat,Rajkot,Jowar(Sorghum),4550
+Gujarat,Rajkot,Jowar(Sorghum),2800
+Gujarat,Rajkot,Mustard,5200
+Gujarat,Rajkot,Wheat,2360
+Gujarat,Rajkot,Wheat,2450
+Gujarat,Sabarkantha,Maize,2175
+Gujarat,Sabarkantha,Wheat,2420
+Gujarat,Sabarkantha,Bajra(Pearl Millet/Cumbu),2010
+Gujarat,Sabarkantha,Bengal Gram(Gram)(Whole),4725
+Gujarat,Sabarkantha,Maize,1953
+Gujarat,Sabarkantha,Wheat,2533
+Gujarat,Sabarkantha,Bajra(Pearl Millet/Cumbu),2230
+Gujarat,Sabarkantha,Wheat,2323
+Gujarat,Surat,Paddy(Dhan)(Common),1725
+Gujarat,Surat,Pegeon Pea (Arhar Fali),10500
+Gujarat,Surat,Bengal Gram(Gram)(Whole),4415
+Gujarat,Surat,Paddy(Dhan)(Common),2050
+Gujarat,Surendranagar,Cotton,7000
+Gujarat,Surendranagar,Wheat,2400
+Gujarat,Surendranagar,Mustard,6625
+Gujarat,Surendranagar,Wheat,2500
+Haryana,Bhiwani,Cotton,6550
+Haryana,Bhiwani,Maize,2100
+Haryana,Jhajar,Maize,1100
+Haryana,Jind,Mustard,5451
+Haryana,Mahendragarh-Narnaul,Mustard,5000
+Haryana,Mahendragarh-Narnaul,Mustard,4930
+Haryana,Sirsa,Bengal Gram(Gram)(Whole),4976
+Haryana,Sirsa,Cotton,7050
+Haryana,Sirsa,Mustard,5200
+Haryana,Sirsa,Cotton,7030
+Haryana,Sirsa,Mustard,5000
+Karnataka,Bagalkot,Maize,2279
+Karnataka,Bellary,Bajra(Pearl Millet/Cumbu),2610
+Karnataka,Bellary,Bengal Gram(Gram)(Whole),4409
+Karnataka,Bellary,Jowar(Sorghum),2712
+Karnataka,Bellary,Maize,2386
+Karnataka,Bidar,Arhar (Tur/Red Gram)(Whole),10050
+Karnataka,Bidar,Bengal Gram(Gram)(Whole),5000
+Karnataka,Bidar,Jowar(Sorghum),3680
+Karnataka,Bidar,Wheat,2800
+Karnataka,Bidar,Wheat,2300
+Karnataka,Bidar,Arhar (Tur/Red Gram)(Whole),9999
+Karnataka,Bidar,Bengal Gram(Gram)(Whole),5019
+Karnataka,Bidar,Jowar(Sorghum),4000
+Karnataka,Bidar,Wheat,3000
+Karnataka,Bijapur,Cotton,7236
+Karnataka,Chitradurga,Cotton,7143
+Karnataka,Dharwad,Bengal Gram(Gram)(Whole),4746
+Karnataka,Dharwad,Black Gram (Urd Beans)(Whole),6511
+Karnataka,Dharwad,Green Gram (Moong)(Whole),5893
+Karnataka,Dharwad,Jowar(Sorghum),4527
+Karnataka,Dharwad,Maize,2109
+Karnataka,Gadag,Bengal Gram(Gram)(Whole),4650
+Karnataka,Gadag,Green Gram (Moong)(Whole),5904
+Karnataka,Gulbarga,Arhar (Tur/Red Gram)(Whole),10021
+Karnataka,Gulbarga,Bengal Gram(Gram)(Whole),5252
+Karnataka,Gulbarga,Black Gram (Urd Beans)(Whole),6800
+Karnataka,Gulbarga,Green Gram (Moong)(Whole),7300
+Karnataka,Gulbarga,Jowar(Sorghum),4500
+Karnataka,Hassan,Black Gram Dal (Urd Dal),11300
+Karnataka,Hassan,Wheat,3325
+Karnataka,Kolar,Paddy(Dhan)(Common),2400
+Karnataka,Raichur,Arhar (Tur/Red Gram)(Whole),10044
+Karnataka,Raichur,Cotton,7050
+Karnataka,Raichur,Paddy(Dhan)(Common),2129
+Karnataka,Shimoga,Arhar Dal(Tur Dal),11750
+Karnataka,Shimoga,Bengal Gram Dal (Chana Dal),6800
+Karnataka,Shimoga,Bengal Gram(Gram)(Whole),5800
+Karnataka,Shimoga,Black Gram Dal (Urd Dal),11900
+Karnataka,Shimoga,Green Gram (Moong)(Whole),11000
+Karnataka,Shimoga,Green Gram Dal (Moong Dal),12000
+Karnataka,Shimoga,Kulthi(Horse Gram),6500
+Karnataka,Shimoga,Maize,2100
+Karnataka,Shimoga,Mustard,7500
+Karnataka,Shimoga,Wheat,4700
+Karnataka,Tumkur,Maize,2050
+Kerala,Kasargod,Arhar (Tur/Red Gram)(Whole),12600
+Kerala,Kasargod,Black Gram (Urd Beans)(Whole),15200
+Kerala,Kottayam,Bengal Gram(Gram)(Whole),6400
+Kerala,Kottayam,Black Gram (Urd Beans)(Whole),11000
+Kerala,Malappuram,Bengal Gram(Gram)(Whole),6250
+Kerala,Malappuram,Green Gram (Moong)(Whole),10550
+Kerala,Palakad,Arhar (Tur/Red Gram)(Whole),14300
+Kerala,Palakad,Bengal Gram(Gram)(Whole),8300
+Kerala,Palakad,Black Gram (Urd Beans)(Whole),11600
+Kerala,Palakad,Black Gram (Urd Beans)(Whole),12600
+Kerala,Palakad,Green Gram (Moong)(Whole),13600
+Kerala,Palakad,Green Gram (Moong)(Whole),14600
+Madhya Pradesh,Anupur,Wheat,2210
+Madhya Pradesh,Ashoknagar,Bengal Gram(Gram)(Whole),4790
+Madhya Pradesh,Ashoknagar,Wheat,2305
+Madhya Pradesh,Badwani,Cotton,7250
+Madhya Pradesh,Badwani,Maize,1975
+Madhya Pradesh,Badwani,Cotton,6400
+Madhya Pradesh,Balaghat,Paddy(Dhan)(Common),1875
+Madhya Pradesh,Bhind,Mustard,5300
+Madhya Pradesh,Bhind,Wheat,2260
+Madhya Pradesh,Damoh,Bengal Gram(Gram)(Whole),4925
+Madhya Pradesh,Damoh,Green Gram (Moong)(Whole),7370
+Madhya Pradesh,Damoh,Lentil (Masur)(Whole),5550
+Madhya Pradesh,Damoh,Wheat,2315
+Madhya Pradesh,Dewas,Green Gram (Moong)(Whole),6000
+Madhya Pradesh,Dewas,Wheat,2250
+Madhya Pradesh,Dhar,Wheat,2535
+Madhya Pradesh,Harda,Bengal Gram(Gram)(Whole),4680
+Madhya Pradesh,Harda,Green Gram (Moong)(Whole),7230
+Madhya Pradesh,Harda,Maize,2010
+Madhya Pradesh,Harda,Mustard,2601
+Madhya Pradesh,Harda,Wheat,2390
+Madhya Pradesh,Hoshangabad,Wheat,2050
+Madhya Pradesh,Jhabua,Wheat,2130
+Madhya Pradesh,Katni,Gram Raw(Chholia),1000
+Madhya Pradesh,Katni,Maize,1000
+Madhya Pradesh,Khargone,Maize,1900
+Madhya Pradesh,Khargone,Wheat,2410
+Madhya Pradesh,Khargone,Maize,1980
+Madhya Pradesh,Khargone,Wheat,2470
+Madhya Pradesh,Khargone,Bengal Gram(Gram)(Whole),4800
+Madhya Pradesh,Khargone,Green Gram (Moong)(Whole),7395
+Madhya Pradesh,Khargone,Wheat,2475
+Madhya Pradesh,Mandsaur,Black Gram (Urd Beans)(Whole),6575
+Madhya Pradesh,Mandsaur,Lentil (Masur)(Whole),5270
+Madhya Pradesh,Mandsaur,Maize,2065
+Madhya Pradesh,Mandsaur,Mustard,5195
+Madhya Pradesh,Mandsaur,Wheat,2450
+Madhya Pradesh,Mandsaur,Wheat,2125
+Madhya Pradesh,Panna,Alasande Gram,5050
+Madhya Pradesh,Panna,Arhar (Tur/Red Gram)(Whole),8700
+Madhya Pradesh,Panna,Wheat,2160
+Madhya Pradesh,Panna,Wheat,2100
+Madhya Pradesh,Panna,Wheat,2020
+Madhya Pradesh,Raisen,Bengal Gram(Gram)(Whole),4875
+Madhya Pradesh,Raisen,Green Gram (Moong)(Whole),7100
+Madhya Pradesh,Raisen,Lentil (Masur)(Whole),5400
+Madhya Pradesh,Raisen,Mustard,5500
+Madhya Pradesh,Raisen,Wheat,2250
+Madhya Pradesh,Rajgarh,Bengal Gram(Gram)(Whole),4465
+Madhya Pradesh,Rajgarh,Lentil (Masur)(Whole),5550
+Madhya Pradesh,Rajgarh,Mustard,4850
+Madhya Pradesh,Rajgarh,Wheat,2295
+Madhya Pradesh,Sagar,Arhar (Tur/Red Gram)(Whole),7705
+Madhya Pradesh,Sagar,Bengal Gram(Gram)(Whole),5000
+Madhya Pradesh,Sagar,Black Gram (Urd Beans)(Whole),5805
+Madhya Pradesh,Sagar,Green Gram (Moong)(Whole),7000
+Madhya Pradesh,Sagar,Lentil (Masur)(Whole),5500
+Madhya Pradesh,Sagar,Mustard,4900
+Madhya Pradesh,Sagar,Wheat,2400
+Madhya Pradesh,Sehore,Arhar (Tur/Red Gram)(Whole),4400
+Madhya Pradesh,Sehore,Green Gram (Moong)(Whole),7280
+Madhya Pradesh,Sehore,Wheat,2450
+Madhya Pradesh,Seoni,Paddy(Dhan)(Common),2045
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),4500
+Madhya Pradesh,Shajapur,Lentil (Masur)(Whole),5700
+Madhya Pradesh,Shajapur,Mustard,5200
+Madhya Pradesh,Shajapur,Wheat,2350
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),4315
+Madhya Pradesh,Shajapur,Bengal Gram(Gram)(Whole),5720
+Madhya Pradesh,Shajapur,Lentil (Masur)(Whole),5535
+Madhya Pradesh,Shajapur,Mustard,4970
+Madhya Pradesh,Shajapur,Wheat,2230
+Madhya Pradesh,Shajapur,Wheat,2070
+Madhya Pradesh,Shajapur,Wheat,2740
+Madhya Pradesh,Shajapur,Wheat,2300
+Madhya Pradesh,Shivpuri,Lentil (Masur)(Whole),5390
+Madhya Pradesh,Shivpuri,Mustard,5050
+Madhya Pradesh,Shivpuri,Wheat,2910
+Madhya Pradesh,Shivpuri,Bengal Gram(Gram)(Whole),4795
+Madhya Pradesh,Shivpuri,Lentil (Masur)(Whole),5550
+Madhya Pradesh,Shivpuri,Mustard,5350
+Madhya Pradesh,Shivpuri,Wheat,2340
+Madhya Pradesh,Ujjain,Bengal Gram(Gram)(Whole),5080
+Madhya Pradesh,Ujjain,Wheat,2594
+Madhya Pradesh,Ujjain,Wheat,2414
+Madhya Pradesh,Vidisha,Bengal Gram(Gram)(Whole),5000
+Madhya Pradesh,Vidisha,Lentil (Masur)(Whole),5560
+Madhya Pradesh,Vidisha,Mustard,5055
+Madhya Pradesh,Vidisha,Wheat,2340
+Maharashtra,Ahmednagar,Bengal Gram(Gram)(Whole),4250
+Maharashtra,Ahmednagar,Jowar(Sorghum),4600
+Maharashtra,Ahmednagar,Wheat,2250
+Maharashtra,Ahmednagar,Paddy(Dhan)(Common),2300
+Maharashtra,Ahmednagar,Bajra(Pearl Millet/Cumbu),2561
+Maharashtra,Ahmednagar,Bengal Gram(Gram)(Whole),4790
+Maharashtra,Ahmednagar,Maize,2150
+Maharashtra,Ahmednagar,Wheat,2405
+Maharashtra,Ahmednagar,Maize,2100
+Maharashtra,Ahmednagar,Wheat,2466
+Maharashtra,Ahmednagar,Bajra(Pearl Millet/Cumbu),2000
+Maharashtra,Ahmednagar,Bengal Gram(Gram)(Whole),4200
+Maharashtra,Ahmednagar,Jowar(Sorghum),1850
+Maharashtra,Ahmednagar,Maize,1600
+Maharashtra,Ahmednagar,Wheat,2350
+Maharashtra,Ahmednagar,Bajra(Pearl Millet/Cumbu),2000
+Maharashtra,Ahmednagar,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Ahmednagar,Black Gram (Urd Beans)(Whole),6800
+Maharashtra,Ahmednagar,Wheat,2400
+Maharashtra,Ahmednagar,Arhar (Tur/Red Gram)(Whole),9000
+Maharashtra,Ahmednagar,Bajra(Pearl Millet/Cumbu),2400
+Maharashtra,Ahmednagar,Wheat,2500
+Maharashtra,Akola,Arhar (Tur/Red Gram)(Whole),9700
+Maharashtra,Akola,Bengal Gram(Gram)(Whole),4500
+Maharashtra,Akola,Black Gram (Urd Beans)(Whole),4105
+Maharashtra,Akola,Green Gram (Moong)(Whole),7110
+Maharashtra,Akola,Jowar(Sorghum),2845
+Maharashtra,Akola,Wheat,2300
+Maharashtra,Akola,Arhar (Tur/Red Gram)(Whole),9750
+Maharashtra,Akola,Arhar (Tur/Red Gram)(Whole),9940
+Maharashtra,Akola,Bengal Gram(Gram)(Whole),5090
+Maharashtra,Akola,Jowar(Sorghum),2850
+Maharashtra,Akola,Wheat,2270
+Maharashtra,Amarawati,Arhar (Tur/Red Gram)(Whole),9975
+Maharashtra,Amarawati,Bajra(Pearl Millet/Cumbu),2400
+Maharashtra,Amarawati,Bengal Gram(Gram)(Whole),4975
+Maharashtra,Amarawati,Black Gram (Urd Beans)(Whole),6150
+Maharashtra,Amarawati,Green Gram (Moong)(Whole),6475
+Maharashtra,Amarawati,Jowar(Sorghum),2375
+Maharashtra,Amarawati,Maize,2032
+Maharashtra,Amarawati,Wheat,2525
+Maharashtra,Amarawati,Jowar(Sorghum),2300
+Maharashtra,Amarawati,Wheat,2300
+Maharashtra,Aurangabad,Jowar(Sorghum),3520
+Maharashtra,Aurangabad,Maize,2000
+Maharashtra,Aurangabad,Wheat,2361
+Maharashtra,Aurangabad,Arhar (Tur/Red Gram)(Whole),9500
+Maharashtra,Aurangabad,Bajra(Pearl Millet/Cumbu),2350
+Maharashtra,Aurangabad,Bengal Gram(Gram)(Whole),4100
+Maharashtra,Aurangabad,Jowar(Sorghum),3100
+Maharashtra,Aurangabad,Wheat,2440
+Maharashtra,Aurangabad,Bajra(Pearl Millet/Cumbu),2250
+Maharashtra,Aurangabad,Maize,2100
+Maharashtra,Aurangabad,Wheat,2300
+Maharashtra,Aurangabad,Arhar (Tur/Red Gram)(Whole),9005
+Maharashtra,Aurangabad,Bajra(Pearl Millet/Cumbu),2360
+Maharashtra,Aurangabad,Bengal Gram(Gram)(Whole),6700
+Maharashtra,Aurangabad,Bengal Gram(Gram)(Whole),4750
+Maharashtra,Aurangabad,Green Gram (Moong)(Whole),6505
+Maharashtra,Aurangabad,Jowar(Sorghum),3905
+Maharashtra,Aurangabad,Maize,2050
+Maharashtra,Aurangabad,Wheat,2455
+Maharashtra,Beed,Arhar (Tur/Red Gram)(Whole),9350
+Maharashtra,Beed,Arhar (Tur/Red Gram)(Whole),9011
+Maharashtra,Beed,Bajra(Pearl Millet/Cumbu),2578
+Maharashtra,Beed,Bengal Gram(Gram)(Whole),4051
+Maharashtra,Beed,Jowar(Sorghum),3445
+Maharashtra,Beed,Maize,2221
+Maharashtra,Beed,Wheat,2330
+Maharashtra,Beed,Arhar (Tur/Red Gram)(Whole),9700
+Maharashtra,Beed,Bajra(Pearl Millet/Cumbu),2500
+Maharashtra,Beed,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Beed,Jowar(Sorghum),3800
+Maharashtra,Beed,Wheat,2500
+Maharashtra,Bhandara,Bengal Gram(Gram)(Whole),4700
+Maharashtra,Bhandara,Wheat,2350
+Maharashtra,Buldhana,Maize,2000
+Maharashtra,Buldhana,Bajra(Pearl Millet/Cumbu),2225
+Maharashtra,Buldhana,Bengal Gram(Gram)(Whole),2700
+Maharashtra,Buldhana,Jowar(Sorghum),3000
+Maharashtra,Buldhana,Wheat,2550
+Maharashtra,Buldhana,Arhar (Tur/Red Gram)(Whole),9705
+Maharashtra,Buldhana,Bengal Gram(Gram)(Whole),4600
+Maharashtra,Buldhana,Jowar(Sorghum),2940
+Maharashtra,Buldhana,Maize,2050
+Maharashtra,Buldhana,Wheat,2450
+Maharashtra,Buldhana,Arhar (Tur/Red Gram)(Whole),9500
+Maharashtra,Buldhana,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Buldhana,Wheat,2500
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2800
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2770
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),3075
+Maharashtra,Chandrapur,Paddy(Dhan)(Common),2800
+Maharashtra,Dhule,Wheat,2181
+Maharashtra,Gadchiroli,Paddy(Dhan)(Common),2690
+Maharashtra,Gadchiroli,Paddy(Dhan)(Common),2780
+Maharashtra,Hingoli,Arhar (Tur/Red Gram)(Whole),9600
+Maharashtra,Hingoli,Bengal Gram(Gram)(Whole),4850
+Maharashtra,Jalana,Maize,2150
+Maharashtra,Jalana,Wheat,2150
+Maharashtra,Jalana,Arhar (Tur/Red Gram)(Whole),9100
+Maharashtra,Jalana,Bajra(Pearl Millet/Cumbu),2400
+Maharashtra,Jalana,Bengal Gram(Gram)(Whole),9193
+Maharashtra,Jalana,Bengal Gram(Gram)(Whole),4850
+Maharashtra,Jalana,Jowar(Sorghum),3600
+Maharashtra,Jalana,Maize,2125
+Maharashtra,Jalana,Mustard,5700
+Maharashtra,Jalana,Wheat,2400
+Maharashtra,Jalana,Jowar(Sorghum),2130
+Maharashtra,Jalana,Wheat,2100
+Maharashtra,Jalgaon,Arhar (Tur/Red Gram)(Whole),9000
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2375
+Maharashtra,Jalgaon,Bengal Gram(Gram)(Whole),4700
+Maharashtra,Jalgaon,Maize,2150
+Maharashtra,Jalgaon,Wheat,2557
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2100
+Maharashtra,Jalgaon,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Jalgaon,Jowar(Sorghum),2681
+Maharashtra,Jalgaon,Maize,2061
+Maharashtra,Jalgaon,Wheat,2300
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2351
+Maharashtra,Jalgaon,Green Gram (Moong)(Whole),7392
+Maharashtra,Jalgaon,Jowar(Sorghum),3700
+Maharashtra,Jalgaon,Wheat,2518
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2271
+Maharashtra,Jalgaon,Jowar(Sorghum),3500
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2321
+Maharashtra,Jalgaon,Jowar(Sorghum),2821
+Maharashtra,Jalgaon,Jowar(Sorghum),3200
+Maharashtra,Jalgaon,Maize,2051
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2330
+Maharashtra,Jalgaon,Bengal Gram(Gram)(Whole),7790
+Maharashtra,Jalgaon,Jowar(Sorghum),2890
+Maharashtra,Jalgaon,Wheat,2568
+Maharashtra,Jalgaon,Wheat,2100
+Maharashtra,Jalgaon,Bajra(Pearl Millet/Cumbu),2450
+Maharashtra,Jalgaon,Maize,1530
+Maharashtra,Jalgaon,Wheat,2650
+Maharashtra,Latur,Arhar (Tur/Red Gram)(Whole),9843
+Maharashtra,Latur,Bengal Gram(Gram)(Whole),4763
+Maharashtra,Latur,Wheat,2315
+Maharashtra,Latur,Bengal Gram(Gram)(Whole),4794
+Maharashtra,Latur,Jowar(Sorghum),3359
+Maharashtra,Latur,Arhar (Tur/Red Gram)(Whole),9916
+Maharashtra,Latur,Bengal Gram(Gram)(Whole),4366
+Maharashtra,Latur,Bengal Gram(Gram)(Whole),4700
+Maharashtra,Latur,Jowar(Sorghum),4000
+Maharashtra,Mumbai,Arhar Dal(Tur Dal),12500
+Maharashtra,Mumbai,Bajra(Pearl Millet/Cumbu),3600
+Maharashtra,Mumbai,Bengal Gram Dal (Chana Dal),6200
+Maharashtra,Mumbai,Bengal Gram(Gram)(Whole),6000
+Maharashtra,Mumbai,Black Gram (Urd Beans)(Whole),10200
+Maharashtra,Mumbai,Black Gram Dal (Urd Dal),10500
+Maharashtra,Mumbai,Green Gram (Moong)(Whole),10500
+Maharashtra,Mumbai,Green Gram Dal (Moong Dal),11500
+Maharashtra,Mumbai,Jowar(Sorghum),4800
+Maharashtra,Mumbai,Lentil (Masur)(Whole),7400
+Maharashtra,Mumbai,Maize,3800
+Maharashtra,Mumbai,Mustard,7000
+Maharashtra,Mumbai,Wheat,4300
+Maharashtra,Nagpur,Arhar (Tur/Red Gram)(Whole),9550
+Maharashtra,Nagpur,Bengal Gram(Gram)(Whole),4450
+Maharashtra,Nagpur,Cotton,7000
+Maharashtra,Nagpur,Wheat,2300
+Maharashtra,Nagpur,Arhar (Tur/Red Gram)(Whole),9858
+Maharashtra,Nagpur,Bengal Gram(Gram)(Whole),5026
+Maharashtra,Nagpur,Maize,2150
+Maharashtra,Nagpur,Wheat,2468
+Maharashtra,Nagpur,Wheat,3150
+Maharashtra,Nagpur,Arhar (Tur/Red Gram)(Whole),9720
+Maharashtra,Nagpur,Cotton,6900
+Maharashtra,Nagpur,Wheat,1850
+Maharashtra,Nanded,Arhar (Tur/Red Gram)(Whole),8634
+Maharashtra,Nanded,Bengal Gram(Gram)(Whole),4512
+Maharashtra,Nanded,Jowar(Sorghum),2484
+Maharashtra,Nanded,Wheat,2075
+Maharashtra,Nandurbar,Bengal Gram(Gram)(Whole),4500
+Maharashtra,Nandurbar,Wheat,2483
+Maharashtra,Nashik,Arhar (Tur/Red Gram)(Whole),6105
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2675
+Maharashtra,Nashik,Maize,2145
+Maharashtra,Nashik,Wheat,2225
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2100
+Maharashtra,Nashik,Maize,2000
+Maharashtra,Nashik,Wheat,2251
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),4752
+Maharashtra,Nashik,Maize,2357
+Maharashtra,Nashik,Wheat,2475
+Maharashtra,Nashik,Arhar (Tur/Red Gram)(Whole),8341
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2550
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),4300
+Maharashtra,Nashik,Jowar(Sorghum),2800
+Maharashtra,Nashik,Maize,2001
+Maharashtra,Nashik,Wheat,2500
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2450
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),4550
+Maharashtra,Nashik,Wheat,2450
+Maharashtra,Nashik,Bajra(Pearl Millet/Cumbu),2546
+Maharashtra,Nashik,Bengal Gram(Gram)(Whole),4575
+Maharashtra,Nashik,Wheat,2400
+Maharashtra,Osmanabad,Arhar (Tur/Red Gram)(Whole),9599
+Maharashtra,Osmanabad,Jowar(Sorghum),3786
+Maharashtra,Osmanabad,Wheat,2601
+Maharashtra,Osmanabad,Jowar(Sorghum),3500
+Maharashtra,Osmanabad,Wheat,2300
+Maharashtra,Osmanabad,Bengal Gram(Gram)(Whole),4900
+Maharashtra,Osmanabad,Jowar(Sorghum),4450
+Maharashtra,Pune,Cotton,5500
+Maharashtra,Pune,Bajra(Pearl Millet/Cumbu),3200
+Maharashtra,Pune,Bengal Gram(Gram)(Whole),5900
+Maharashtra,Pune,Black Gram (Urd Beans)(Whole),9300
+Maharashtra,Pune,Green Gram (Moong)(Whole),9400
+Maharashtra,Pune,Jowar(Sorghum),5200
+Maharashtra,Pune,Lentil (Masur)(Whole),7500
+Maharashtra,Pune,Maize,2650
+Maharashtra,Pune,Wheat,4600
+Maharashtra,Raigad,Paddy(Dhan)(Common),2216
+Maharashtra,Sangli,Bajra(Pearl Millet/Cumbu),2700
+Maharashtra,Sangli,Black Gram (Urd Beans)(Whole),7500
+Maharashtra,Sangli,Lentil (Masur)(Whole),6750
+Maharashtra,Sangli,Wheat,3450
+Maharashtra,Sangli,Jowar(Sorghum),3270
+Maharashtra,Sangli,Maize,2170
+Maharashtra,Sangli,Wheat,2650
+Maharashtra,Sholapur,Arhar (Tur/Red Gram)(Whole),10000
+Maharashtra,Sholapur,Jowar(Sorghum),4200
+Maharashtra,Sholapur,Bengal Gram(Gram)(Whole),4300
+Maharashtra,Sholapur,Black Gram (Urd Beans)(Whole),6300
+Maharashtra,Sholapur,Jowar(Sorghum),4751
+Maharashtra,Sholapur,Maize,1870
+Maharashtra,Sholapur,Wheat,2405
+Maharashtra,Sholapur,Bengal Gram(Gram)(Whole),4700
+Maharashtra,Sholapur,Jowar(Sorghum),4450
+Maharashtra,Sholapur,Maize,2200
+Maharashtra,Sholapur,Wheat,2850
+Maharashtra,Sholapur,Jowar(Sorghum),4280
+Maharashtra,Sholapur,Wheat,2645
+Maharashtra,Thane,Black Gram (Urd Beans)(Whole),9300
+Maharashtra,Thane,Jowar(Sorghum),4800
+Maharashtra,Thane,Wheat,2600
+Maharashtra,Thane,Wheat,2955
+Maharashtra,Vashim,Arhar (Tur/Red Gram)(Whole),9800
+Maharashtra,Vashim,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Vashim,Wheat,2440
+Maharashtra,Vashim,Bengal Gram(Gram)(Whole),4400
+Maharashtra,Vashim,Arhar (Tur/Red Gram)(Whole),8541
+Maharashtra,Vashim,Bengal Gram(Gram)(Whole),4639
+Maharashtra,Vashim,Jowar(Sorghum),2175
+Maharashtra,Vashim,Wheat,2464
+Maharashtra,Vashim,Arhar (Tur/Red Gram)(Whole),9200
+Maharashtra,Vashim,Bengal Gram(Gram)(Whole),4800
+Maharashtra,Vashim,Black Gram (Urd Beans)(Whole),7000
+Maharashtra,Vashim,Wheat,2200
+Maharashtra,Vashim,Arhar (Tur/Red Gram)(Whole),9500
+Maharashtra,Vashim,Bengal Gram(Gram)(Whole),4900
+Maharashtra,Vashim,Jowar(Sorghum),2850
+Maharashtra,Vashim,Wheat,2300
+Maharashtra,Wardha,Arhar (Tur/Red Gram)(Whole),9500
+Maharashtra,Wardha,Bengal Gram(Gram)(Whole),4750
+Maharashtra,Wardha,Arhar (Tur/Red Gram)(Whole),9600
+Maharashtra,Wardha,Bengal Gram(Gram)(Whole),4300
+Maharashtra,Wardha,Cotton,6900
+Maharashtra,Wardha,Wheat,2300
+Maharashtra,Yavatmal,Arhar (Tur/Red Gram)(Whole),9595
+Maharashtra,Yavatmal,Bengal Gram(Gram)(Whole),4545
+Maharashtra,Yavatmal,Arhar (Tur/Red Gram)(Whole),9940
+Maharashtra,Yavatmal,Bengal Gram(Gram)(Whole),4750
+Maharashtra,Yavatmal,Green Gram (Moong)(Whole),6830
+Maharashtra,Yavatmal,Jowar(Sorghum),2691
+Maharashtra,Yavatmal,Wheat,2571
+Maharashtra,Yavatmal,Arhar (Tur/Red Gram)(Whole),9600
+Maharashtra,Yavatmal,Green Gram (Moong)(Whole),6500
+Maharashtra,Yavatmal,Arhar (Tur/Red Gram)(Whole),9545
+Maharashtra,Yavatmal,Bengal Gram(Gram)(Whole),4825
+Odisha,Bargarh,Paddy(Dhan)(Common),2040
+Odisha,Bargarh,Paddy(Dhan)(Common),2040
+Odisha,Bhadrak,Paddy(Dhan)(Common),2040
+Odisha,Mayurbhanja,Paddy(Dhan)(Common),1940
+Odisha,Nowarangpur,Maize,1500
+Odisha,Sundergarh,Black Gram (Urd Beans)(Whole),12000
+Odisha,Sundergarh,Black Gram (Urd Beans)(Whole),12000
+Odisha,Sundergarh,Paddy(Dhan)(Common),2040
+Odisha,Sundergarh,Wheat,3000
+Odisha,Sundergarh,Wheat Atta,4400
+Pondicherry,Karaikal,Paddy(Dhan)(Common),2320
+Pondicherry,Pondicherry,Paddy(Dhan)(Common),1774
+Pondicherry,Pondicherry,Paddy(Dhan)(Common),1760
+Punjab,Jalandhar,Maize,1485
+Rajasthan,Ajmer,Barley (Jau),1625
+Rajasthan,Ajmer,Bengal Gram(Gram)(Whole),4782
+Rajasthan,Ajmer,Maize,2325
+Rajasthan,Ajmer,Mustard,5120
+Rajasthan,Ajmer,Wheat,2350
+Rajasthan,Baran,Mustard,5043
+Rajasthan,Baran,Wheat,2263
+Rajasthan,Baran,Bengal Gram(Gram)(Whole),4830
+Rajasthan,Baran,Black Gram (Urd Beans)(Whole),6300
+Rajasthan,Baran,Green Gram (Moong)(Whole),6600
+Rajasthan,Baran,Mustard,5350
+Rajasthan,Baran,Paddy(Dhan)(Common),2600
+Rajasthan,Baran,Wheat,2440
+Rajasthan,Baran,Mustard,5300
+Rajasthan,Baran,Wheat,2480
+Rajasthan,Bundi,Barley (Jau),1600
+Rajasthan,Bundi,Bengal Gram(Gram)(Whole),4610
+Rajasthan,Bundi,Black Gram (Urd Beans)(Whole),5694
+Rajasthan,Bundi,Green Gram (Moong)(Whole),6520
+Rajasthan,Bundi,Maize,1826
+Rajasthan,Bundi,Mustard,5123
+Rajasthan,Bundi,Paddy(Dhan)(Common),3363
+Rajasthan,Bundi,Wheat,2297
+Rajasthan,Bundi,Barley (Jau),1725
+Rajasthan,Bundi,Black Gram (Urd Beans)(Whole),6801
+Rajasthan,Bundi,Lentil (Masur)(Whole),6175
+Rajasthan,Bundi,Mustard,5252
+Rajasthan,Bundi,Wheat,2350
+Rajasthan,Chittorgarh,Wheat,2150
+Rajasthan,Chittorgarh,Barley (Jau),1742
+Rajasthan,Chittorgarh,Maize,231.3
+Rajasthan,Chittorgarh,Mustard,5275
+Rajasthan,Chittorgarh,Wheat,2500
+Rajasthan,Chittorgarh,Arhar (Tur/Red Gram)(Whole),4525
+Rajasthan,Chittorgarh,Lentil (Masur)(Whole),4941
+Rajasthan,Chittorgarh,Maize,1995
+Rajasthan,Chittorgarh,Mustard,5156
+Rajasthan,Chittorgarh,Wheat,2439
+Rajasthan,Churu,Bajra(Pearl Millet/Cumbu),1800
+Rajasthan,Dausa,Bajra(Pearl Millet/Cumbu),1998
+Rajasthan,Dausa,Barley (Jau),1578
+Rajasthan,Dausa,Bengal Gram(Gram)(Whole),4700
+Rajasthan,Dausa,Mustard,5068
+Rajasthan,Dausa,Wheat,2275
+Rajasthan,Dausa,Barley (Jau),1525
+Rajasthan,Dausa,Bengal Gram(Gram)(Whole),4700
+Rajasthan,Dausa,Mustard,5313
+Rajasthan,Dausa,Wheat,2300
+Rajasthan,Dausa,Bengal Gram(Gram)(Whole),4875
+Rajasthan,Dausa,Mustard,5490
+Rajasthan,Dausa,Wheat,2275
+Rajasthan,Hanumangarh,Barley (Jau),1632
+Rajasthan,Hanumangarh,Bengal Gram(Gram)(Whole),4967
+Rajasthan,Hanumangarh,Mustard,5235
+Rajasthan,Hanumangarh,Wheat,2100
+Rajasthan,Hanumangarh,Barley (Jau),1617
+Rajasthan,Hanumangarh,Mustard,5148
+Rajasthan,Hanumangarh,Wheat,2225
+Rajasthan,Jaipur,Bajra(Pearl Millet/Cumbu),1875
+Rajasthan,Jaipur,Barley (Jau),1584
+Rajasthan,Jaipur,Bengal Gram(Gram)(Whole),4745
+Rajasthan,Jaipur,Mustard,5056
+Rajasthan,Jaipur,Wheat,2240
+Rajasthan,Jalore,Mustard,5250
+Rajasthan,Jhalawar,Bengal Gram(Gram)(Whole),6500
+Rajasthan,Jhalawar,Mustard,5195
+Rajasthan,Jhalawar,Wheat,2330
+Rajasthan,Jodhpur,Mustard,4850
+Rajasthan,Kota,Bajra(Pearl Millet/Cumbu),2025
+Rajasthan,Kota,Barley (Jau),1770
+Rajasthan,Kota,Bengal Gram(Gram)(Whole),4550
+Rajasthan,Kota,Black Gram (Urd Beans)(Whole),7200
+Rajasthan,Kota,Green Gram (Moong)(Whole),7050
+Rajasthan,Kota,Jowar(Sorghum),2611
+Rajasthan,Kota,Maize,1900
+Rajasthan,Kota,Mustard,5400
+Rajasthan,Kota,Paddy(Dhan)(Common),3900
+Rajasthan,Kota,Wheat,2350
+Rajasthan,Nagaur,Bajra(Pearl Millet/Cumbu),1850
+Rajasthan,Sikar,Barley (Jau),1500
+Rajasthan,Sikar,Mustard,4900
+Rajasthan,Swai Madhopur,Barley (Jau),1575
+Rajasthan,Swai Madhopur,Bengal Gram(Gram)(Whole),4745
+Rajasthan,Swai Madhopur,Black Gram (Urd Beans)(Whole),6190
+Rajasthan,Swai Madhopur,Mustard,5320
+Rajasthan,Swai Madhopur,Wheat,2255
+Rajasthan,Tonk,Bengal Gram(Gram)(Whole),4750
+Rajasthan,Tonk,Mustard,5415
+Rajasthan,Tonk,Wheat,2232
+Rajasthan,Tonk,Mustard,5330
+Rajasthan,Tonk,Wheat,2250
+Rajasthan,Udaipur,Bengal Gram(Gram)(Whole),4400
+Rajasthan,Udaipur,Maize,2300
+Rajasthan,Udaipur,Maize,2050
+Rajasthan,Udaipur,Wheat,2450
+Rajasthan,Udaipur,Wheat,2050
+Tamil Nadu,Ariyalur,Maize,2237
+Tamil Nadu,Coimbatore,Paddy(Dhan)(Common),2050
+Tamil Nadu,Coimbatore,Maize,2280
+Tamil Nadu,Cuddalore,Paddy(Dhan)(Common),1705
+Tamil Nadu,Cuddalore,Paddy(Dhan)(Common),1752
+Tamil Nadu,Dindigul,Cotton,6800
+Tamil Nadu,Erode,Maize,2350
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1970
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2123
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2508
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2816
+Tamil Nadu,Madurai,Cotton,5250
+Tamil Nadu,Madurai,Cotton,5850
+Tamil Nadu,Madurai,Jowar(Sorghum),3970
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),1700
+Tamil Nadu,Madurai,Paddy(Dhan)(Common),2100
+Tamil Nadu,Namakkal,Maize,2313
+Tamil Nadu,Namakkal,Paddy(Dhan)(Common),1800
+Tamil Nadu,Salem,Maize,2270
+Tamil Nadu,Salem,Cotton,7010
+Tamil Nadu,Salem,Cotton,6200
+Tamil Nadu,Salem,Maize,2250
+Tamil Nadu,Theni,Bajra(Pearl Millet/Cumbu),2490
+Tamil Nadu,Theni,Cotton,5600
+Tamil Nadu,Theni,Jowar(Sorghum),4020
+Tamil Nadu,Theni,Maize,2290
+Tamil Nadu,Theni,Paddy(Dhan)(Common),1690
+Tamil Nadu,Thiruvannamalai,Paddy(Dhan)(Common),1781
+Tamil Nadu,Thiruvannamalai,Paddy(Dhan)(Common),2335
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1844
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1905
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),2078
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1753
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1760
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1959
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1688
+Tamil Nadu,Vellore,Black Gram (Urd Beans)(Whole),6938
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1750
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),2500
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),1650
+Tamil Nadu,Vellore,Paddy(Dhan)(Common),2520
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1825
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1840
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),2300
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),2767
+Tamil Nadu,Villupuram,Maize,2229
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),7200
+Tamil Nadu,Villupuram,Maize,2247
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1671
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1749
+Tamil Nadu,Villupuram,Maize,2286
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1852
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),8230
+Tamil Nadu,Villupuram,Maize,2240
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1867
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1786
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1981
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1804
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1670
+Tamil Nadu,Villupuram,Black Gram (Urd Beans)(Whole),8549
+Tamil Nadu,Villupuram,Maize,2089
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1269
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1787
+Tamil Nadu,Villupuram,Paddy(Dhan)(Common),1269
+Telangana,Adilabad,Cotton,6900
+Telangana,Adilabad,Arhar (Tur/Red Gram)(Whole),8529
+Telangana,Adilabad,Jowar(Sorghum),2767
+Telangana,Adilabad,Maize,2101
+Telangana,Adilabad,Jowar(Sorghum),3000
+Telangana,Adilabad,Cotton,7450
+Telangana,Adilabad,Maize,2000
+Telangana,Adilabad,Cotton,6500
+Telangana,Adilabad,Cotton,7450
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Maize,2050
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2040
+Telangana,Karimnagar,Cotton,6380
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Karimnagar,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2060
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Paddy(Dhan)(Common),2040
+Telangana,Khammam,Cotton,6500
+Telangana,Khammam,Arhar (Tur/Red Gram)(Whole),9000
+Telangana,Khammam,Cotton,6950
+Telangana,Khammam,Green Gram (Moong)(Whole),6550
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2060
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2100
+Telangana,Mahbubnagar,Paddy(Dhan)(Common),2055
+Telangana,Medak,Paddy(Dhan)(Common),2060
+Telangana,Medak,Maize,1962
+Telangana,Medak,Cotton,7000
+Telangana,Nalgonda,Arhar (Tur/Red Gram)(Whole),6600
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Cotton,6080
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2040
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Cotton,6380
+Telangana,Nalgonda,Maize,1930
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2203
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Arhar (Tur/Red Gram)(Whole),8996
+Telangana,Nalgonda,Green Gram (Moong)(Whole),8011
+Telangana,Nalgonda,Paddy(Dhan)(Common),2992
+Telangana,Nalgonda,Paddy(Dhan)(Common),2109
+Telangana,Nalgonda,Paddy(Dhan)(Common),2089
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nalgonda,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Paddy(Dhan)(Common),2060
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Nizamabad,Maize,1962
+Telangana,Nizamabad,Paddy(Dhan)(Common),2040
+Telangana,Ranga Reddy,Maize,1962
+Telangana,Ranga Reddy,Paddy(Dhan)(Common),2060
+Telangana,Ranga Reddy,Maize,2000
+Telangana,Ranga Reddy,Arhar (Tur/Red Gram)(Whole),1900
+Telangana,Ranga Reddy,Arhar (Tur/Red Gram)(Whole),10025
+Telangana,Warangal,Paddy(Dhan)(Common),206
+Telangana,Warangal,Arhar (Tur/Red Gram)(Whole),8863
+Telangana,Warangal,Cotton,6900
+Telangana,Warangal,Maize,1881
+Uttar Pradesh,Agra,Arhar (Tur/Red Gram)(Whole),8800
+Uttar Pradesh,Agra,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),2060
+Uttar Pradesh,Agra,Barley (Jau),2240
+Uttar Pradesh,Agra,Bengal Gram Dal (Chana Dal),6500
+Uttar Pradesh,Agra,Bengal Gram(Gram)(Whole),5550
+Uttar Pradesh,Agra,Black Gram (Urd Beans)(Whole),8000
+Uttar Pradesh,Agra,Black Gram Dal (Urd Dal),9540
+Uttar Pradesh,Agra,Mustard,5480
+Uttar Pradesh,Agra,Wheat,2270
+Uttar Pradesh,Agra,Barley (Jau),2230
+Uttar Pradesh,Agra,Wheat,2250
+Uttar Pradesh,Agra,Bajra(Pearl Millet/Cumbu),1975
+Uttar Pradesh,Agra,Mustard,5125
+Uttar Pradesh,Agra,Wheat,2175
+Uttar Pradesh,Aligarh,Maize,1700
+Uttar Pradesh,Aligarh,Wheat,2150
+Uttar Pradesh,Allahabad,Wheat,2250
+Uttar Pradesh,Allahabad,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Allahabad,Mustard,5460
+Uttar Pradesh,Allahabad,Mustard Oil,12500
+Uttar Pradesh,Allahabad,Wheat,2390
+Uttar Pradesh,Ambedkarnagar,Arhar Dal(Tur Dal),12850
+Uttar Pradesh,Ambedkarnagar,Bengal Gram Dal (Chana Dal),6050
+Uttar Pradesh,Ambedkarnagar,Bengal Gram(Gram)(Whole),5570
+Uttar Pradesh,Ambedkarnagar,Lentil (Masur)(Whole),6880
+Uttar Pradesh,Ambedkarnagar,Mustard,5480
+Uttar Pradesh,Ambedkarnagar,Mustard Oil,14500
+Uttar Pradesh,Ambedkarnagar,Wheat,2270
+Uttar Pradesh,Auraiya,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Auraiya,Bajra(Pearl Millet/Cumbu),2350
+Uttar Pradesh,Auraiya,Bengal Gram(Gram)(Whole),5450
+Uttar Pradesh,Auraiya,Maize,1750
+Uttar Pradesh,Auraiya,Mustard,5450
+Uttar Pradesh,Auraiya,Mustard Oil,12500
+Uttar Pradesh,Auraiya,Wheat,2250
+Uttar Pradesh,Auraiya,Arhar (Tur/Red Gram)(Whole),9200
+Uttar Pradesh,Auraiya,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Auraiya,Bengal Gram Dal (Chana Dal),6180
+Uttar Pradesh,Auraiya,Bengal Gram(Gram)(Whole),5390
+Uttar Pradesh,Auraiya,Green Gram (Moong)(Whole),7250
+Uttar Pradesh,Auraiya,Mustard,5270
+Uttar Pradesh,Auraiya,Mustard Oil,12500
+Uttar Pradesh,Auraiya,Wheat,2260
+Uttar Pradesh,Azamgarh,Arhar Dal(Tur Dal),13250
+Uttar Pradesh,Azamgarh,Barley (Jau),2250
+Uttar Pradesh,Azamgarh,Bengal Gram Dal (Chana Dal),6415
+Uttar Pradesh,Azamgarh,Bengal Gram(Gram)(Whole),5725
+Uttar Pradesh,Azamgarh,Black Gram (Urd Beans)(Whole),8450
+Uttar Pradesh,Azamgarh,Black Gram Dal (Urd Dal),9525
+Uttar Pradesh,Azamgarh,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Azamgarh,Lentil (Masur)(Whole),6820
+Uttar Pradesh,Azamgarh,Wheat,2275
+Uttar Pradesh,Badaun,Bengal Gram(Gram)(Whole),5845
+Uttar Pradesh,Badaun,Lentil (Masur)(Whole),6885
+Uttar Pradesh,Badaun,Maize,1755
+Uttar Pradesh,Badaun,Wheat,2335
+Uttar Pradesh,Badaun,Maize,1780
+Uttar Pradesh,Badaun,Wheat,2270
+Uttar Pradesh,Badaun,Maize,1725
+Uttar Pradesh,Badaun,Wheat,2325
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13150
+Uttar Pradesh,Bahraich,Bengal Gram(Gram)(Whole),5620
+Uttar Pradesh,Bahraich,Black Gram (Urd Beans)(Whole),8725
+Uttar Pradesh,Bahraich,Green Gram (Moong)(Whole),8470
+Uttar Pradesh,Bahraich,Lentil (Masur)(Whole),7040
+Uttar Pradesh,Bahraich,Maize,2020
+Uttar Pradesh,Bahraich,Mustard,5475
+Uttar Pradesh,Bahraich,Mustard Oil,14250
+Uttar Pradesh,Bahraich,Wheat,2295
+Uttar Pradesh,Bahraich,Arhar Dal(Tur Dal),13150
+Uttar Pradesh,Bahraich,Bengal Gram Dal (Chana Dal),6100
+Uttar Pradesh,Bahraich,Bengal Gram(Gram)(Whole),5620
+Uttar Pradesh,Bahraich,Black Gram (Urd Beans)(Whole),8730
+Uttar Pradesh,Bahraich,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Bahraich,Lentil (Masur)(Whole),7040
+Uttar Pradesh,Bahraich,Maize,2020
+Uttar Pradesh,Bahraich,Mustard Oil,14250
+Uttar Pradesh,Bahraich,Wheat,2300
+Uttar Pradesh,Ballia,Barley (Jau),2235
+Uttar Pradesh,Ballia,Bengal Gram(Gram)(Whole),5710
+Uttar Pradesh,Ballia,Lentil (Masur)(Whole),6780
+Uttar Pradesh,Ballia,Mustard,5535
+Uttar Pradesh,Ballia,Wheat,2290
+Uttar Pradesh,Ballia,Arhar Dal(Tur Dal),13160
+Uttar Pradesh,Ballia,Barley (Jau),2230
+Uttar Pradesh,Ballia,Bengal Gram Dal (Chana Dal),6760
+Uttar Pradesh,Ballia,Bengal Gram(Gram)(Whole),5720
+Uttar Pradesh,Ballia,Green Gram (Moong)(Whole),8480
+Uttar Pradesh,Ballia,Lentil (Masur)(Whole),6760
+Uttar Pradesh,Ballia,Mustard,5520
+Uttar Pradesh,Ballia,Wheat,2270
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Balrampur,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Balrampur,Black Gram (Urd Beans)(Whole),8700
+Uttar Pradesh,Balrampur,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Balrampur,Maize,2010
+Uttar Pradesh,Balrampur,Mustard,5500
+Uttar Pradesh,Balrampur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Balrampur,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Balrampur,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Balrampur,Mustard,5485
+Uttar Pradesh,Balrampur,Paddy(Dhan)(Common),1850
+Uttar Pradesh,Balrampur,Wheat,2290
+Uttar Pradesh,Banda,Arhar Dal(Tur Dal),12150
+Uttar Pradesh,Banda,Bengal Gram(Gram)(Whole),4950
+Uttar Pradesh,Banda,Black Gram Dal (Urd Dal),8900
+Uttar Pradesh,Banda,Lentil (Masur)(Whole),5400
+Uttar Pradesh,Barabanki,Arhar Dal(Tur Dal),13120
+Uttar Pradesh,Barabanki,Bengal Gram Dal (Chana Dal),6040
+Uttar Pradesh,Barabanki,Black Gram (Urd Beans)(Whole),8750
+Uttar Pradesh,Barabanki,Lentil (Masur)(Whole),7000
+Uttar Pradesh,Barabanki,Wheat,2320
+Uttar Pradesh,Bareilly,Arhar Dal(Tur Dal),10000
+Uttar Pradesh,Bareilly,Black Gram Dal (Urd Dal),9280
+Uttar Pradesh,Bareilly,Mustard,5400
+Uttar Pradesh,Bareilly,Wheat,2345
+Uttar Pradesh,Basti,Bengal Gram(Gram)(Whole),5715
+Uttar Pradesh,Basti,Paddy(Dhan)(Common),1915
+Uttar Pradesh,Basti,Wheat,2260
+Uttar Pradesh,Bulandshahar,Maize,2110
+Uttar Pradesh,Bulandshahar,Mustard,5460
+Uttar Pradesh,Bulandshahar,Mustard Oil,12100
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3001
+Uttar Pradesh,Bulandshahar,Wheat,2220
+Uttar Pradesh,Bulandshahar,Bajra(Pearl Millet/Cumbu),1800
+Uttar Pradesh,Bulandshahar,Barley (Jau),1750
+Uttar Pradesh,Bulandshahar,Maize,1700
+Uttar Pradesh,Bulandshahar,Mustard,5500
+Uttar Pradesh,Bulandshahar,Wheat,2200
+Uttar Pradesh,Bulandshahar,Arhar Dal(Tur Dal),12800
+Uttar Pradesh,Bulandshahar,Bengal Gram Dal (Chana Dal),6570
+Uttar Pradesh,Bulandshahar,Bengal Gram(Gram)(Whole),5800
+Uttar Pradesh,Bulandshahar,Black Gram Dal (Urd Dal),9565
+Uttar Pradesh,Bulandshahar,Green Gram Dal (Moong Dal),9570
+Uttar Pradesh,Bulandshahar,Maize,2101
+Uttar Pradesh,Bulandshahar,Paddy(Dhan)(Basmati),3351
+Uttar Pradesh,Bulandshahar,Wheat,2260
+Uttar Pradesh,Chandauli,Bengal Gram(Gram)(Whole),5750
+Uttar Pradesh,Chandauli,Mustard,5475
+Uttar Pradesh,Chandauli,Wheat,2300
+Uttar Pradesh,Deoria,Arhar Dal(Tur Dal),13250
+Uttar Pradesh,Deoria,Bengal Gram(Gram)(Whole),5765
+Uttar Pradesh,Deoria,Mustard,5530
+Uttar Pradesh,Deoria,Paddy(Dhan)(Common),1910
+Uttar Pradesh,Deoria,Wheat,2260
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),1920
+Uttar Pradesh,Etah,Maize,1620
+Uttar Pradesh,Etah,Bajra(Pearl Millet/Cumbu),2220
+Uttar Pradesh,Etah,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Etah,Maize,1850
+Uttar Pradesh,Etah,Wheat,2260
+Uttar Pradesh,Etawah,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Etawah,Bengal Gram Dal (Chana Dal),6200
+Uttar Pradesh,Etawah,Bengal Gram(Gram)(Whole),5420
+Uttar Pradesh,Etawah,Maize,1750
+Uttar Pradesh,Etawah,Mustard,5450
+Uttar Pradesh,Etawah,Mustard Oil,12650
+Uttar Pradesh,Etawah,Wheat,2260
+Uttar Pradesh,Etawah,Arhar (Tur/Red Gram)(Whole),8800
+Uttar Pradesh,Etawah,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Etawah,Barley (Jau),2190
+Uttar Pradesh,Etawah,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Etawah,Green Gram Dal (Moong Dal),8860
+Uttar Pradesh,Etawah,Mustard,5455
+Uttar Pradesh,Etawah,Mustard Oil,12600
+Uttar Pradesh,Etawah,Wheat,2280
+Uttar Pradesh,Etawah,Maize,1750
+Uttar Pradesh,Faizabad,Bengal Gram(Gram)(Whole),5670
+Uttar Pradesh,Faizabad,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Faizabad,Maize,2050
+Uttar Pradesh,Faizabad,Mustard,5570
+Uttar Pradesh,Faizabad,Paddy(Dhan)(Common),1970
+Uttar Pradesh,Faizabad,Wheat,2270
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5450
+Uttar Pradesh,Farukhabad,Maize,1725
+Uttar Pradesh,Farukhabad,Mustard,5465
+Uttar Pradesh,Farukhabad,Wheat,2350
+Uttar Pradesh,Farukhabad,Maize,1810
+Uttar Pradesh,Farukhabad,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Farukhabad,Bengal Gram Dal (Chana Dal),6175
+Uttar Pradesh,Farukhabad,Bengal Gram(Gram)(Whole),5420
+Uttar Pradesh,Farukhabad,Black Gram Dal (Urd Dal),8700
+Uttar Pradesh,Farukhabad,Green Gram Dal (Moong Dal),8825
+Uttar Pradesh,Farukhabad,Maize,1750
+Uttar Pradesh,Farukhabad,Mustard,5450
+Uttar Pradesh,Farukhabad,Mustard Oil,12450
+Uttar Pradesh,Farukhabad,Wheat,2270
+Uttar Pradesh,Fatehpur,Arhar (Tur/Red Gram)(Whole),8900
+Uttar Pradesh,Fatehpur,Arhar Dal(Tur Dal),12960
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5380
+Uttar Pradesh,Fatehpur,Green Gram (Moong)(Whole),7400
+Uttar Pradesh,Fatehpur,Green Gram Dal (Moong Dal),8840
+Uttar Pradesh,Fatehpur,Mustard,5450
+Uttar Pradesh,Fatehpur,Mustard Oil,12400
+Uttar Pradesh,Fatehpur,Paddy(Dhan)(Common),2140
+Uttar Pradesh,Fatehpur,Wheat,2250
+Uttar Pradesh,Fatehpur,Arhar Dal(Tur Dal),12950
+Uttar Pradesh,Fatehpur,Bengal Gram Dal (Chana Dal),6060
+Uttar Pradesh,Fatehpur,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Fatehpur,Black Gram Dal (Urd Dal),8660
+Uttar Pradesh,Fatehpur,Green Gram Dal (Moong Dal),8865
+Uttar Pradesh,Fatehpur,Lentil (Masur)(Whole),6360
+Uttar Pradesh,Fatehpur,Mustard,5460
+Uttar Pradesh,Fatehpur,Mustard Oil,12500
+Uttar Pradesh,Fatehpur,Wheat,2255
+Uttar Pradesh,Fatehpur,Green Gram (Moong)(Whole),7500
+Uttar Pradesh,Fatehpur,Mustard,5200
+Uttar Pradesh,Fatehpur,Wheat,2240
+Uttar Pradesh,Firozabad,Maize,1600
+Uttar Pradesh,Firozabad,Bajra(Pearl Millet/Cumbu),1875
+Uttar Pradesh,Firozabad,Maize,2030
+Uttar Pradesh,Firozabad,Wheat,2275
+Uttar Pradesh,Ghaziabad,Arhar Dal(Tur Dal),12720
+Uttar Pradesh,Ghaziabad,Bengal Gram(Gram)(Whole),5770
+Uttar Pradesh,Ghaziabad,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Ghaziabad,Maize,2120
+Uttar Pradesh,Ghaziabad,Mustard,5470
+Uttar Pradesh,Ghaziabad,Mustard Oil,12000
+Uttar Pradesh,Ghaziabad,Paddy(Dhan)(Basmati),3100
+Uttar Pradesh,Ghaziabad,Wheat,2275
+Uttar Pradesh,Ghazipur,Arhar Dal(Tur Dal),13000
+Uttar Pradesh,Ghazipur,Barley (Jau),2180
+Uttar Pradesh,Ghazipur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Ghazipur,Bengal Gram(Gram)(Whole),5710
+Uttar Pradesh,Ghazipur,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Ghazipur,Lentil (Masur)(Whole),6810
+Uttar Pradesh,Ghazipur,Mustard,5470
+Uttar Pradesh,Ghazipur,Mustard Oil,13150
+Uttar Pradesh,Ghazipur,Wheat,2280
+Uttar Pradesh,Gonda,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Gonda,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Gonda,Black Gram (Urd Beans)(Whole),8700
+Uttar Pradesh,Gonda,Black Gram Dal (Urd Dal),9500
+Uttar Pradesh,Gonda,Green Gram Dal (Moong Dal),9620
+Uttar Pradesh,Gonda,Lentil (Masur)(Whole),7025
+Uttar Pradesh,Gonda,Maize,2000
+Uttar Pradesh,Gonda,Mustard,5485
+Uttar Pradesh,Gonda,Paddy(Dhan)(Common),1830
+Uttar Pradesh,Gonda,Wheat,2285
+Uttar Pradesh,Gorakhpur,Arhar Dal(Tur Dal),13200
+Uttar Pradesh,Gorakhpur,Bengal Gram(Gram)(Whole),5725
+Uttar Pradesh,Gorakhpur,Wheat,2260
+Uttar Pradesh,Hamirpur,Arhar Dal(Tur Dal),11875
+Uttar Pradesh,Hamirpur,Bengal Gram(Gram)(Whole),4400
+Uttar Pradesh,Hamirpur,Black Gram Dal (Urd Dal),8970
+Uttar Pradesh,Hamirpur,Lentil (Masur)(Whole),5500
+Uttar Pradesh,Hamirpur,Mustard,5025
+Uttar Pradesh,Hamirpur,Mustard Oil,13500
+Uttar Pradesh,Hamirpur,Bengal Gram(Gram)(Whole),5025
+Uttar Pradesh,Hamirpur,Lentil (Masur)(Whole),5530
+Uttar Pradesh,Hamirpur,Mustard,5225
+Uttar Pradesh,Hamirpur,Wheat,2225
+Uttar Pradesh,Hamirpur,Mustard,5310
+Uttar Pradesh,Hamirpur,Wheat,2150
+Uttar Pradesh,Hamirpur,Arhar (Tur/Red Gram)(Whole),8500
+Uttar Pradesh,Hamirpur,Arhar Dal(Tur Dal),11850
+Uttar Pradesh,Hamirpur,Barley (Jau),1700
+Uttar Pradesh,Hamirpur,Bengal Gram(Gram)(Whole),5150
+Uttar Pradesh,Hamirpur,Black Gram Dal (Urd Dal),8900
+Uttar Pradesh,Hamirpur,Lentil (Masur)(Whole),5500
+Uttar Pradesh,Hamirpur,Mustard,5100
+Uttar Pradesh,Hamirpur,Mustard Oil,13460
+Uttar Pradesh,Hamirpur,Wheat,2230
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5635
+Uttar Pradesh,Hardoi,Black Gram (Urd Beans)(Whole),7930
+Uttar Pradesh,Hardoi,Maize,2020
+Uttar Pradesh,Hardoi,Wheat,2275
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Hardoi,Lentil (Masur)(Whole),6800
+Uttar Pradesh,Hardoi,Maize,2035
+Uttar Pradesh,Hardoi,Mustard,5470
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2050
+Uttar Pradesh,Hardoi,Wheat,2270
+Uttar Pradesh,Hardoi,Wheat,2050
+Uttar Pradesh,Hardoi,Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Hardoi,Bengal Gram(Gram)(Whole),5630
+Uttar Pradesh,Hardoi,Maize,2030
+Uttar Pradesh,Hardoi,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Hardoi,Wheat,2260
+Uttar Pradesh,Hathras,Bajra(Pearl Millet/Cumbu),2105
+Uttar Pradesh,Hathras,Maize,1960
+Uttar Pradesh,Hathras,Mustard,5450
+Uttar Pradesh,Hathras,Wheat,2225
+Uttar Pradesh,Jalaun (Orai),Lentil (Masur)(Whole),5400
+Uttar Pradesh,Jalaun (Orai),Wheat,2160
+Uttar Pradesh,Jalaun (Orai),Wheat,2250
+Uttar Pradesh,Jalaun (Orai),Wheat,2190
+Uttar Pradesh,Jaunpur,Arhar Dal(Tur Dal),13150
+Uttar Pradesh,Jaunpur,Black Gram Dal (Urd Dal),9550
+Uttar Pradesh,Jaunpur,Green Gram Dal (Moong Dal),9550
+Uttar Pradesh,Jaunpur,Wheat,2325
+Uttar Pradesh,Jaunpur,Bengal Gram Dal (Chana Dal),6400
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5730
+Uttar Pradesh,Jaunpur,Lentil (Masur)(Whole),6785
+Uttar Pradesh,Jaunpur,Mustard,5540
+Uttar Pradesh,Jaunpur,Wheat,2310
+Uttar Pradesh,Jaunpur,Bengal Gram(Gram)(Whole),5700
+Uttar Pradesh,Jaunpur,Black Gram (Urd Beans)(Whole),8450
+Uttar Pradesh,Jaunpur,Mustard,5550
+Uttar Pradesh,Jaunpur,Wheat,2280
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Jhansi,Wheat,2320
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Jhansi,Lentil (Masur)(Whole),5500
+Uttar Pradesh,Jhansi,Bengal Gram(Gram)(Whole),5500
+Uttar Pradesh,Jhansi,Wheat,2300
+Uttar Pradesh,Kannuj,Maize,1750
+Uttar Pradesh,Kannuj,Wheat,2225
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8850
+Uttar Pradesh,Kanpur,Barley (Jau),2145
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5335
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7625
+Uttar Pradesh,Kanpur,Maize,1800
+Uttar Pradesh,Kanpur,Mustard,5385
+Uttar Pradesh,Kanpur,Wheat,2330
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8850
+Uttar Pradesh,Kanpur,Arhar Dal(Tur Dal),12900
+Uttar Pradesh,Kanpur,Barley (Jau),2165
+Uttar Pradesh,Kanpur,Bengal Gram Dal (Chana Dal),6250
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5365
+Uttar Pradesh,Kanpur,Maize,1875
+Uttar Pradesh,Kanpur,Mustard,5475
+Uttar Pradesh,Kanpur,Wheat,2285
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8800
+Uttar Pradesh,Kanpur,Bajra(Pearl Millet/Cumbu),1900
+Uttar Pradesh,Kanpur,Barley (Jau),2050
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5200
+Uttar Pradesh,Kanpur,Black Gram (Urd Beans)(Whole),7550
+Uttar Pradesh,Kanpur,Green Gram (Moong)(Whole),7530
+Uttar Pradesh,Kanpur,Jowar(Sorghum),2720
+Uttar Pradesh,Kanpur,Lentil (Masur)(Whole),6150
+Uttar Pradesh,Kanpur,Maize,1925
+Uttar Pradesh,Kanpur,Mustard,5380
+Uttar Pradesh,Kanpur,Wheat,2325
+Uttar Pradesh,Kanpur,Arhar (Tur/Red Gram)(Whole),8700
+Uttar Pradesh,Kanpur,Barley (Jau),2155
+Uttar Pradesh,Kanpur,Bengal Gram(Gram)(Whole),5350
+Uttar Pradesh,Kanpur,Maize,1800
+Uttar Pradesh,Kanpur,Mustard,5450
+Uttar Pradesh,Kanpur,Wheat,2270
+Uttar Pradesh,Khiri (Lakhimpur),Mustard Oil,14400
+Uttar Pradesh,Khiri (Lakhimpur),Paddy(Dhan)(Common),1950
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2250
+Uttar Pradesh,Khiri (Lakhimpur),Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Khiri (Lakhimpur),Black Gram Dal (Urd Dal),9020
+Uttar Pradesh,Khiri (Lakhimpur),Mustard Oil,14520
+Uttar Pradesh,Khiri (Lakhimpur),Paddy(Dhan)(Common),2000
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2275
+Uttar Pradesh,Khiri (Lakhimpur),Wheat,2250
+Uttar Pradesh,Lakhimpur,Arhar Dal(Tur Dal),12650
+Uttar Pradesh,Lakhimpur,Bengal Gram(Gram)(Whole),5650
+Uttar Pradesh,Lakhimpur,Lentil (Masur)(Whole),6820
+Uttar Pradesh,Lakhimpur,Paddy(Dhan)(Common),1990
+Uttar Pradesh,Lakhimpur,Wheat,2280
+Uttar Pradesh,Lakhimpur,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Lakhimpur,Lentil (Masur)(Whole),6840
+Uttar Pradesh,Lakhimpur,Maize,2025
+Uttar Pradesh,Lakhimpur,Mustard,5545
+Uttar Pradesh,Lakhimpur,Paddy(Dhan)(Common),1980
+Uttar Pradesh,Lakhimpur,Wheat,2270
+Uttar Pradesh,Lakhimpur,Wheat,2200
+Uttar Pradesh,Lalitpur,Barley (Jau),1670
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),4800
+Uttar Pradesh,Lalitpur,Black Gram (Urd Beans)(Whole),6310
+Uttar Pradesh,Lalitpur,Barley (Jau),2000
+Uttar Pradesh,Lalitpur,Bengal Gram(Gram)(Whole),5400
+Uttar Pradesh,Lalitpur,Lentil (Masur)(Whole),6100
+Uttar Pradesh,Lalitpur,Wheat,2200
+Uttar Pradesh,Lucknow,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Lucknow,Bengal Gram Dal (Chana Dal),6200
+Uttar Pradesh,Lucknow,Bengal Gram(Gram)(Whole),5680
+Uttar Pradesh,Lucknow,Black Gram (Urd Beans)(Whole),7900
+Uttar Pradesh,Lucknow,Black Gram Dal (Urd Dal),9050
+Uttar Pradesh,Lucknow,Green Gram (Moong)(Whole),8060
+Uttar Pradesh,Lucknow,Mustard,5500
+Uttar Pradesh,Lucknow,Wheat,2320
+Uttar Pradesh,Maharajganj,Bengal Gram(Gram)(Whole),5735
+Uttar Pradesh,Maharajganj,Paddy(Dhan)(Common),1910
+Uttar Pradesh,Maharajganj,Wheat,2240
+Uttar Pradesh,Maharajganj,Paddy(Dhan)(Common),2450
+Uttar Pradesh,Maharajganj,Wheat,2200
+Uttar Pradesh,Mainpuri,Maize,1750
+Uttar Pradesh,Mainpuri,Wheat,2210
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8630
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12750
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Mainpuri,Maize,1990
+Uttar Pradesh,Mainpuri,Wheat,2210
+Uttar Pradesh,Mainpuri,Arhar (Tur/Red Gram)(Whole),8720
+Uttar Pradesh,Mainpuri,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Mainpuri,Bengal Gram(Gram)(Whole),5560
+Uttar Pradesh,Mainpuri,Black Gram Dal (Urd Dal),9555
+Uttar Pradesh,Mainpuri,Maize,1870
+Uttar Pradesh,Mainpuri,Mustard,5460
+Uttar Pradesh,Mainpuri,Wheat,2200
+Uttar Pradesh,Mathura,Arhar (Tur/Red Gram)(Whole),8720
+Uttar Pradesh,Mathura,Arhar Dal(Tur Dal),12800
+Uttar Pradesh,Mathura,Bajra(Pearl Millet/Cumbu),1940
+Uttar Pradesh,Mathura,Barley (Jau),2110
+Uttar Pradesh,Mathura,Bengal Gram(Gram)(Whole),5580
+Uttar Pradesh,Mathura,Black Gram (Urd Beans)(Whole),7820
+Uttar Pradesh,Mathura,Black Gram Dal (Urd Dal),9600
+Uttar Pradesh,Mathura,Green Gram (Moong)(Whole),7850
+Uttar Pradesh,Mathura,Mustard,5520
+Uttar Pradesh,Mathura,Wheat,2250
+Uttar Pradesh,Mirzapur,Arhar Dal(Tur Dal),13160
+Uttar Pradesh,Mirzapur,Bengal Gram Dal (Chana Dal),6360
+Uttar Pradesh,Mirzapur,Bengal Gram(Gram)(Whole),5700
+Uttar Pradesh,Mirzapur,Mustard,5530
+Uttar Pradesh,Mirzapur,Mustard Oil,13160
+Uttar Pradesh,Mirzapur,Wheat,2310
+Uttar Pradesh,Mirzapur,Arhar (Tur/Red Gram)(Whole),7485
+Uttar Pradesh,Mirzapur,Arhar Dal(Tur Dal),13150
+Uttar Pradesh,Mirzapur,Bengal Gram Dal (Chana Dal),6315
+Uttar Pradesh,Mirzapur,Bengal Gram(Gram)(Whole),5665
+Uttar Pradesh,Mirzapur,Black Gram Dal (Urd Dal),9465
+Uttar Pradesh,Mirzapur,Lentil (Masur)(Whole),6525
+Uttar Pradesh,Mirzapur,Mustard,5535
+Uttar Pradesh,Mirzapur,Mustard Oil,13175
+Uttar Pradesh,Mirzapur,Wheat,2300
+Uttar Pradesh,Muzaffarnagar,Wheat,2100
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12750
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2245
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6575
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5785
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12200
+Uttar Pradesh,Muzaffarnagar,Wheat,2260
+Uttar Pradesh,Muzaffarnagar,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Muzaffarnagar,Barley (Jau),2245
+Uttar Pradesh,Muzaffarnagar,Bengal Gram Dal (Chana Dal),6580
+Uttar Pradesh,Muzaffarnagar,Bengal Gram(Gram)(Whole),5815
+Uttar Pradesh,Muzaffarnagar,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Muzaffarnagar,Green Gram Dal (Moong Dal),9550
+Uttar Pradesh,Muzaffarnagar,Maize,2130
+Uttar Pradesh,Muzaffarnagar,Mustard,5475
+Uttar Pradesh,Muzaffarnagar,Mustard Oil,12150
+Uttar Pradesh,Muzaffarnagar,Wheat,2270
+Uttar Pradesh,Padrauna(Kusinagar),Arhar Dal(Tur Dal),13260
+Uttar Pradesh,Padrauna(Kusinagar),Wheat,2260
+Uttar Pradesh,Pillibhit,Bengal Gram(Gram)(Whole),5860
+Uttar Pradesh,Pillibhit,Mustard Oil,14790
+Uttar Pradesh,Pillibhit,Wheat,2390
+Uttar Pradesh,Pillibhit,Bengal Gram(Gram)(Whole),5855
+Uttar Pradesh,Pillibhit,Wheat,2385
+Uttar Pradesh,Pratapgarh,Arhar Dal(Tur Dal),13100
+Uttar Pradesh,Pratapgarh,Bengal Gram Dal (Chana Dal),6120
+Uttar Pradesh,Pratapgarh,Bengal Gram(Gram)(Whole),5600
+Uttar Pradesh,Pratapgarh,Mustard Oil,14400
+Uttar Pradesh,Pratapgarh,Wheat,2290
+Uttar Pradesh,Raebarelli,Arhar Dal(Tur Dal),12400
+Uttar Pradesh,Raebarelli,Bengal Gram Dal (Chana Dal),5875
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2260
+Uttar Pradesh,Raebarelli,Wheat,2200
+Uttar Pradesh,Raebarelli,Arhar Dal(Tur Dal),12625
+Uttar Pradesh,Raebarelli,Barley (Jau),2240
+Uttar Pradesh,Raebarelli,Bengal Gram(Gram)(Whole),5480
+Uttar Pradesh,Raebarelli,Black Gram (Urd Beans)(Whole),7930
+Uttar Pradesh,Raebarelli,Mustard,5450
+Uttar Pradesh,Raebarelli,Mustard Oil,14600
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),2090
+Uttar Pradesh,Raebarelli,Wheat,2200
+Uttar Pradesh,Raebarelli,Paddy(Dhan)(Common),1985
+Uttar Pradesh,Raebarelli,Wheat,2220
+Uttar Pradesh,Rampur,Bengal Gram(Gram)(Whole),5850
+Uttar Pradesh,Rampur,Lentil (Masur)(Whole),6850
+Uttar Pradesh,Rampur,Wheat,2350
+Uttar Pradesh,Saharanpur,Arhar Dal(Tur Dal),12700
+Uttar Pradesh,Saharanpur,Barley (Jau),2240
+Uttar Pradesh,Saharanpur,Bengal Gram Dal (Chana Dal),6575
+Uttar Pradesh,Saharanpur,Bengal Gram(Gram)(Whole),5780
+Uttar Pradesh,Saharanpur,Black Gram Dal (Urd Dal),9560
+Uttar Pradesh,Saharanpur,Green Gram (Moong)(Whole),8620
+Uttar Pradesh,Saharanpur,Green Gram Dal (Moong Dal),9560
+Uttar Pradesh,Saharanpur,Lentil (Masur)(Whole),6550
+Uttar Pradesh,Saharanpur,Maize,2125
+Uttar Pradesh,Saharanpur,Mustard,5475
+Uttar Pradesh,Saharanpur,Mustard Oil,12200
+Uttar Pradesh,Saharanpur,Wheat,2260
+Uttar Pradesh,Shahjahanpur,Wheat,2340
+Uttar Pradesh,Shahjahanpur,Wheat,2340
+Uttar Pradesh,Shahjahanpur,Arhar Dal(Tur Dal),9530
+Uttar Pradesh,Shahjahanpur,Wheat,2335
+Uttar Pradesh,Siddharth Nagar,Bengal Gram(Gram)(Whole),5740
+Uttar Pradesh,Siddharth Nagar,Mustard,5550
+Uttar Pradesh,Siddharth Nagar,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Siddharth Nagar,Arhar Dal(Tur Dal),11300
+Uttar Pradesh,Siddharth Nagar,Paddy(Dhan)(Common),2040
+Uttar Pradesh,Sitapur,Wheat,2210
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12400
+Uttar Pradesh,Sitapur,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9000
+Uttar Pradesh,Sitapur,Lentil (Masur)(Whole),6820
+Uttar Pradesh,Sitapur,Mustard,5450
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),2000
+Uttar Pradesh,Sitapur,Wheat,2280
+Uttar Pradesh,Sitapur,Arhar Dal(Tur Dal),12425
+Uttar Pradesh,Sitapur,Black Gram Dal (Urd Dal),9050
+Uttar Pradesh,Sitapur,Mustard Oil,14525
+Uttar Pradesh,Sitapur,Paddy(Dhan)(Common),1975
+Uttar Pradesh,Sitapur,Wheat,2240
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5580
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6990
+Uttar Pradesh,Sultanpur,Mustard,5480
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1900
+Uttar Pradesh,Sultanpur,Wheat,2260
+Uttar Pradesh,Sultanpur,Bengal Gram(Gram)(Whole),5575
+Uttar Pradesh,Sultanpur,Black Gram (Urd Beans)(Whole),8555
+Uttar Pradesh,Sultanpur,Green Gram (Moong)(Whole),8545
+Uttar Pradesh,Sultanpur,Lentil (Masur)(Whole),6980
+Uttar Pradesh,Sultanpur,Mustard,5475
+Uttar Pradesh,Sultanpur,Paddy(Dhan)(Common),1920
+Uttar Pradesh,Sultanpur,Wheat,2265
+Uttar Pradesh,Unnao,Bengal Gram(Gram)(Whole),5640
+Uttar Pradesh,Unnao,Maize,2000
+Uttar Pradesh,Unnao,Wheat,2260
+Uttar Pradesh,Unnao,Wheat,2285
+Uttar Pradesh,Varanasi,Arhar Dal(Tur Dal),13200
+Uttar Pradesh,Varanasi,Barley (Jau),2175
+Uttar Pradesh,Varanasi,Bengal Gram Dal (Chana Dal),6300
+Uttar Pradesh,Varanasi,Bengal Gram(Gram)(Whole),5680
+Uttar Pradesh,Varanasi,Black Gram (Urd Beans)(Whole),8550
+Uttar Pradesh,Varanasi,Black Gram Dal (Urd Dal),9450
+Uttar Pradesh,Varanasi,Green Gram Dal (Moong Dal),9500
+Uttar Pradesh,Varanasi,Lentil (Masur)(Whole),6775
+Uttar Pradesh,Varanasi,Maize,2130
+Uttar Pradesh,Varanasi,Mustard,5500
+Uttar Pradesh,Varanasi,Wheat,2300
+Uttrakhand,UdhamSinghNagar,Paddy(Dhan)(Common),1750
+Uttrakhand,UdhamSinghNagar,Wheat,2150
+West Bengal,Bankura,Mustard,5600
+West Bengal,Bankura,Paddy(Dhan)(Common),2183
+West Bengal,Bankura,Mustard,5600
+West Bengal,Bankura,Wheat,2800
+West Bengal,Bankura,Paddy(Dhan)(Common),2183
+West Bengal,Bankura,Mustard,5650
+West Bengal,Bankura,Paddy(Dhan)(Common),2050
+West Bengal,Bankura,Wheat,2800
+West Bengal,Birbhum,Mustard Oil,1830
+West Bengal,Birbhum,Paddy(Dhan)(Common),1930
+West Bengal,Birbhum,Wheat,2860
+West Bengal,Birbhum,Paddy(Dhan)(Common),1930
+West Bengal,Birbhum,Wheat,2850
+West Bengal,Birbhum,Mustard,5800
+West Bengal,Birbhum,Paddy(Dhan)(Common),1960
+West Bengal,Birbhum,Paddy(Dhan)(Common),2060
+West Bengal,Birbhum,Wheat,2600
+West Bengal,Birbhum,Arhar Dal(Tur Dal),14800
+West Bengal,Birbhum,Black Gram Dal (Urd Dal),10800
+West Bengal,Birbhum,Mustard Oil,12300
+West Bengal,Birbhum,Paddy(Dhan)(Common),2150
+West Bengal,Birbhum,Paddy(Dhan)(Common),2200
+West Bengal,Birbhum,Wheat,2600
+West Bengal,Burdwan,Arhar (Tur/Red Gram)(Whole),7500
+West Bengal,Burdwan,Black Gram Dal (Urd Dal),8900
+West Bengal,Burdwan,Green Gram Dal (Moong Dal),10600
+West Bengal,Burdwan,Lentil (Masur)(Whole),9600
+West Bengal,Burdwan,Mustard,5900
+West Bengal,Burdwan,Wheat,2800
+West Bengal,Burdwan,Lentil (Masur)(Whole),9650
+West Bengal,Burdwan,Mustard,5900
+West Bengal,Burdwan,Mustard Oil,12000
+West Bengal,Burdwan,Wheat,2850
+West Bengal,Burdwan,Wheat,2700
+West Bengal,Burdwan,Mustard,5500
+West Bengal,Burdwan,Paddy(Dhan)(Common),2183
+West Bengal,Burdwan,Paddy(Dhan)(Common),2203
+West Bengal,Burdwan,Mustard,5500
+West Bengal,Burdwan,Mustard Oil,13500
+West Bengal,Burdwan,Paddy(Dhan)(Common),2183
+West Bengal,Burdwan,Paddy(Dhan)(Common),2203
+West Bengal,Hooghly,Paddy(Dhan)(Common),2183
+West Bengal,Hooghly,Paddy(Dhan)(Common),2200
+West Bengal,Howrah,Arhar Dal(Tur Dal),13500
+West Bengal,Howrah,Bengal Gram Dal (Chana Dal),7500
+West Bengal,Howrah,Green Gram Dal (Moong Dal),11000
+West Bengal,Malda,Green Gram Dal (Moong Dal),10000
+West Bengal,Malda,Lentil (Masur)(Whole),9600
+West Bengal,Medinipur(W),Paddy(Dhan)(Common),2040
+West Bengal,Medinipur(W),Mustard,5700
+West Bengal,Medinipur(W),Paddy(Dhan)(Common),2100
+West Bengal,Medinipur(W),Arhar Dal(Tur Dal),12700
+West Bengal,Medinipur(W),Bengal Gram(Gram)(Whole),6100
+West Bengal,Medinipur(W),Black Gram Dal (Urd Dal),9600
+West Bengal,Murshidabad,Mustard,5500
+West Bengal,Nadia,Mustard,5700
+West Bengal,Puruliya,Lentil (Masur)(Whole),9500
+West Bengal,Puruliya,Mustard Oil,15570
+West Bengal,Puruliya,Mustard Oil,12400
+West Bengal,Puruliya,Mustard Oil,12460
+West Bengal,Uttar Dinajpur,Wheat,2350
+West Bengal,Uttar Dinajpur,Wheat,2350
+Bihar,Madhubani,Wheat,24000
+Rajasthan,Hanumangarh,Barley (Jau),1617
+Rajasthan,Hanumangarh,Mustard,5148
+Rajasthan,Hanumangarh,Wheat,2225
+Telangana,Medak,Paddy(Dhan)(Common),2060

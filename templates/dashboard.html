@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroPulse | Farmer Dashboard</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: #1f2933;
+    }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      background: #0f172a;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #22c55e;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links span {
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    .nav-links span:hover {
+      color: #22c55e;
+    }
+
+    .active {
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    /* ============ CONTAINER ============ */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    /* ============ HEADER ============ */
+    .header {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+    }
+
+    .header p {
+      color: #475569;
+      margin-top: 8px;
+    }
+
+    /* ============ GRID ============ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    /* ============ CARD ============ */
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .stat {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #22c55e;
+    }
+
+    /* ============ SPECIAL CARDS ============ */
+    .recommend {
+      background: #ecfdf5;
+      border-left: 8px solid #22c55e;
+    }
+
+    .alert {
+      background: #fee2e2;
+      border-left: 8px solid #ef4444;
+    }
+
+    /* ============ ACTIONS ============ */
+    .actions {
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    .btn {
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      margin: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: #16a34a;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo" onclick="navigate('/')">AgroPulse</div>
+    <div class="nav-links">
+      <span onclick="navigate('/')">Home</span>
+      <span class="active">Dashboard</span>
+      <span onclick="navigate('/comparison')">Compare</span>
+      <span onclick="navigate('/prediction')">Prediction</span>
+      <span onclick="navigate('/about')">About</span>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Welcome, Farmer 🌾</h1>
+      <p>Here’s today’s smart market insight for your crops</p>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid">
+
+      <div class="card">
+        <h3>🌱 Your Crop</h3>
+        <p><strong>Wheat</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>📍 Nearest Mandi</h3>
+        <p>Indore APMC (5 km)</p>
+      </div>
+
+      <div class="card">
+        <h3>💰 Best Market Price</h3>
+        <div class="stat">₹2250</div>
+        <p>per quintal</p>
+      </div>
+
+      <div class="card">
+        <h3>📊 Markets Compared</h3>
+        <div class="stat">4</div>
+        <p>Nearby mandis</p>
+      </div>
+
+      <div class="card recommend">
+        <h3>🤖 AgroPulse Recommendation</h3>
+        <p><strong>WAIT 3 DAYS</strong></p>
+        <p>Expected gain: ₹300 / quintal</p>
+      </div>
+
+      <div class="card">
+        <h3>⏳ Price Trend</h3>
+        <p>Increasing over the next 3 days</p>
+      </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      <button class="btn" onclick="navigate('/comparison')">
+        Compare All Markets
+      </button>
+
+      <button class="btn" onclick="navigate('/prediction')">
+        Predict Future Price
+      </button>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 AgroPulse | Smart Decisions for Farmers
+  </footer>
+
+  <!-- ============ SCRIPT ============ -->
+  <script>
+    function navigate(page) {
+      window.location.assign(page);
+    }
+  </script>
+
+</body>
+</html>

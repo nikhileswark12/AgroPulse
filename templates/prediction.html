@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgroPulse | Price Prediction</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#ecfeff,#f0fdf4);
+  color:#1f2933;
+  line-height:1.6;
+
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+
+/* NAVBAR */
+.navbar{
+  background:#0f172a;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:1.6rem;
+  font-weight:bold;
+  color:#22c55e;
+  cursor:pointer;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+
+.nav-links span{
+  color:#e5e7eb;
+  cursor:pointer;
+}
+
+.nav-links span:hover{
+  color:#22c55e;
+}
+
+.active{
+  color:#22c55e;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  padding:90px 20px 60px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:2.6rem;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#475569;
+}
+
+/* CARDS */
+.search-box,
+.data-card{
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+
+.recommend-card{
+  background:#f1f5f9;
+  border-left:8px solid #22c55e;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* TEXT */
+.gain{
+  background:#dcfce7;
+  color:#166534;
+  padding:4px 10px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+/* Loading Animation */
+.loading-overlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+}
+
+.loading-content{
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  text-align:center;
+}
+
+.spinner{
+  border:4px solid #f3f4f6;
+  border-top:4px solid #22c55e;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  animation:spin 1s linear infinite;
+  margin:0 auto 20px;
+}
+
+@keyframes spin{
+  0%{ transform:rotate(0deg); }
+  100%{ transform:rotate(360deg); }
+}
+
+/* Trend & Confidence Badges */
+.badge-trend{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:0.85rem;
+  font-weight:600;
+  margin-left:10px;
+}
+
+.trend-rising{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.trend-falling{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.trend-stable{
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.badge-confidence{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:0.75rem;
+  font-weight:600;
+  margin-left:10px;
+}
+
+.confidence-high{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.confidence-medium{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.confidence-low{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:#94a3b8;
+  text-align:center;
+  padding:20px;
+  margin-top:60px;
+}
+
+/* Chart Info Text */
+.chart-info{
+  margin-top:15px;
+  text-align:center;
+  color:#64748b;
+  font-size:0.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-content">
+    <div class="spinner"></div>
+    <h5>Analyzing Market Data...</h5>
+    <p class="text-muted">Predicting prices with AI</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="navigate('/')">AgroPulse</div>
+  <div class="nav-links">
+    <span onclick="navigate('/')">Home</span>
+    <span onclick="navigate('/dashboard')">Dashboard</span>
+    <span onclick="navigate('/comparison')">Compare</span>
+    <span class="active">Prediction</span>
+    <span onclick="navigate('/about')">About</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Price Prediction & Market Intelligence</h1>
+  <p>AI-powered 7-day crop price forecasting with confidence intervals</p>
+</section>
+
+<!-- CONTENT -->
+<div class="container mb-5">
+
+  <!-- Search Box with Cascading Dropdowns -->
+  <div class="search-box mb-4">
+    <div class="row g-3">
+      <!-- State Selector -->
+      <div class="col-md-3">
+        <label class="form-label small text-muted">
+          <i class="fas fa-map-marked-alt"></i> State
+        </label>
+        <select class="form-select" id="stateSelect" onchange="filterDistricts()">
+          <option value="" disabled selected>Select State</option>
+          <option value="loading" disabled>Loading states...</option>
+        </select>
+      </div>
+
+      <!-- District Selector (Filtered by State) -->
+      <div class="col-md-3">
+        <label class="form-label small text-muted">
+          <i class="fas fa-map-marker-alt"></i> District
+        </label>
+        <select class="form-select" id="locationSelect">
+          <option value="" disabled selected>First select a state</option>
+        </select>
+      </div>
+
+      <!-- Crop Selector -->
+      <div class="col-md-4">
+        <label class="form-label small text-muted">
+          <i class="fas fa-seedling"></i> Crop
+        </label>
+        <select class="form-select" id="cropSelect">
+          <option value="" disabled selected>Select Crop</option>
+          <option value="loading" disabled>Loading crops...</option>
+        </select>
+      </div>
+
+      <!-- Analyze Button -->
+      <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-success w-100" onclick="predictPrice()">
+          <i class="fas fa-chart-line"></i> Analyze
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommendation Card -->
+  <div class="recommend-card mb-4" id="recommendCard" style="display:none;">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h4 id="recommendText">Select crop & location</h4>
+        <p class="mb-2">Expected Gain: <strong id="gainText" class="gain">-</strong></p>
+        <p class="mb-0">Best Market: <strong id="marketText">-</strong></p>
+      </div>
+      <div class="text-end">
+        <div id="trendBadge"></div>
+        <div id="confidenceBadge" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div class="data-card" id="chartCard" style="display:none;">
+    <h5 class="fw-bold mb-3">
+      <i class="fas fa-chart-area text-success"></i> 
+      7-Day Price Prediction with Confidence Intervals
+    </h5>
+    <canvas id="priceChart" height="120"></canvas>
+    <div class="chart-info">
+      <i class="fas fa-info-circle"></i> 
+      Shaded area represents confidence interval (±₹60-120 variation)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 AgroPulse | AI-Powered Decisions for Farmers
+</footer>
+
+<script>
+function navigate(page){
+  window.location.href = page;
+}
+
+let priceChart;
+const chartCanvas = document.getElementById("priceChart");
+
+// 🔥 Store all data globally for filtering
+let allStates = [];
+let allDistricts = [];
+let allCrops = [];
+let stateDistrictMapping = {}; // { "Rajasthan": ["Chittorgarh", "Jaipur", ...], ... }
+
+// Load data on page load
+window.addEventListener('DOMContentLoaded', async function() {
+  await loadAllData();
+});
+
+// 🔥 Fetch ALL data from ONE API call
+async function loadAllData() {
+  try {
+    showLoading();
+    
+    // Single API call to get everything
+    const response = await fetch('/api/predict/model-info');
+    const data = await response.json();
+    
+    hideLoading();
+    
+    if (data.success) {
+      console.log('✅ Model loaded:', data);
+      
+      // Load crops (all available)
+      if (data.supported_crops) {
+        allCrops = data.supported_crops;
+        populateCrops();
+      }
+      
+      // Load states
+      if (data.supported_states) {
+        allStates = data.supported_states;
+        populateStates();
+      }
+      
+      // Load all districts
+      if (data.supported_districts) {
+        allDistricts = data.supported_districts;
+      }
+      
+      // 🔥 Get state-district mapping directly from response
+      if (data.state_district_mapping) {
+        stateDistrictMapping = data.state_district_mapping;
+        console.log('✅ State-District mapping loaded:', Object.keys(stateDistrictMapping).length, 'states');
+      } else {
+        console.warn('⚠️ No mapping in response, using fallback');
+        createFallbackMapping();
+      }
+      
+    } else {
+      console.error('Failed to load model data');
+      loadFallbackData();
+    }
+  } catch (error) {
+    console.error('Error loading data:', error);
+    hideLoading();
+    loadFallbackData();
+  }
+}
+
+// 🔥 Create fallback mapping if API doesn't provide it
+function createFallbackMapping() {
+  // Show all districts for all states as fallback
+  allStates.forEach(state => {
+    stateDistrictMapping[state] = [...allDistricts];
+  });
+  
+  console.log('⚠️ Using fallback mapping - showing all districts for all states');
+}
+
+// Populate state dropdown
+function populateStates() {
+  const stateSelect = document.getElementById('stateSelect');
+  stateSelect.innerHTML = '<option value="" disabled selected>Select State</option>';
+  
+  allStates.sort().forEach(state => {
+    const option = document.createElement('option');
+    option.value = state;
+    option.textContent = state;
+    stateSelect.appendChild(option);
+  });
+  
+  console.log('✅ Loaded', allStates.length, 'states');
+}
+
+// Populate crop dropdown
+function populateCrops() {
+  const cropSelect = document.getElementById('cropSelect');
+  cropSelect.innerHTML = '<option value="" disabled selected>Select Crop</option>';
+  
+  allCrops.sort().forEach(crop => {
+    const option = document.createElement('option');
+    option.value = crop;
+    option.textContent = crop;
+    cropSelect.appendChild(option);
+  });
+  
+  console.log('✅ Loaded', allCrops.length, 'crops');
+}
+
+// 🔥 CASCADING: Filter districts based on selected state
+function filterDistricts() {
+  const selectedState = document.getElementById('stateSelect').value;
+  const locationSelect = document.getElementById('locationSelect');
+  
+  if (!selectedState) {
+    locationSelect.innerHTML = '<option value="" disabled selected>First select a state</option>';
+    return;
+  }
+  
+  // Get districts for this state
+  const districtsInState = stateDistrictMapping[selectedState] || [];
+  
+  // Populate district dropdown
+  locationSelect.innerHTML = '<option value="" disabled selected>Select District</option>';
+  
+  if (districtsInState.length === 0) {
+    locationSelect.innerHTML = '<option value="" disabled>No districts available</option>';
+    return;
+  }
+  
+  districtsInState.sort().forEach(district => {
+    const option = document.createElement('option');
+    option.value = district;
+    option.textContent = district;
+    locationSelect.appendChild(option);
+  });
+  
+  console.log('✅ Filtered to', districtsInState.length, 'districts for', selectedState);
+}
+
+// Fallback data if API fails
+function loadFallbackData() {
+  // States
+  allStates = [
+    "Andhra Pradesh", "Gujarat", "Karnataka", "Madhya Pradesh", "Maharashtra",
+    "Punjab", "Rajasthan", "Telangana", "Uttar Pradesh", "West Bengal"
+  ];
+  
+  // Crops
+  allCrops = [
+    "Wheat", "Rice", "Maize", "Cotton", "Bajra(Pearl Millet/Cumbu)",
+    "Paddy(Dhan)(Common)", "Bengal Gram(Gram)(Whole)", "Mustard"
+  ];
+  
+  // Districts (fallback - show some for each state)
+  stateDistrictMapping = {
+    "Madhya Pradesh": ["Indore", "Bhopal", "Ujjain", "Gwalior", "Jabalpur"],
+    "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Chittorgarh"],
+    "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Meerut"],
+    "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+    "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik"],
+    "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore"],
+    "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
+    "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
+    "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi"],
+    "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol"]
+  };
+  
+  populateStates();
+  populateCrops();
+  
+  console.log('⚠️ Using fallback data');
+}
+
+// Show/Hide Loading
+function showLoading() {
+  document.getElementById('loadingOverlay').style.display = 'flex';
+}
+
+function hideLoading() {
+  document.getElementById('loadingOverlay').style.display = 'none';
+}
+
+// Predict Price
+async function predictPrice(){
+  const crop = document.getElementById("cropSelect").value;
+  const location = document.getElementById("locationSelect").value;
+  const state = document.getElementById("stateSelect").value;
+
+  // Validation
+  if(!state){
+    alert("⚠️ Please select a State");
+    return;
+  }
+  
+  if(!location){
+    alert("⚠️ Please select a District");
+    return;
+  }
+  
+  if(!crop){
+    alert("⚠️ Please select a Crop");
+    return;
+  }
+
+  // Show loading
+  showLoading();
+  
+  // Hide previous results
+  document.getElementById('recommendCard').style.display = 'none';
+  document.getElementById('chartCard').style.display = 'none';
+
+  try{
+    const response = await fetch('/api/predict', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
+      body: JSON.stringify({ crop, location, state })
+    });
+
+    const data = await response.json();
+    
+    hideLoading();
+
+    if(!data.success){
+      alert("❌ " + (data.message || "Prediction failed"));
+      return;
+    }
+
+    // Show results
+    document.getElementById('recommendCard').style.display = 'block';
+    document.getElementById('chartCard').style.display = 'block';
+
+    // Update recommendation
+    document.getElementById("recommendText").innerText =
+      data.recommendation || "No recommendation";
+
+    document.getElementById("gainText").innerText =
+      data.expected_gain || "-";
+
+    document.getElementById("marketText").innerText =
+      data.best_market || "-";
+
+    // Update trend badge
+    const trend = data.trend || 'stable';
+    const trendIcons = {
+      'rising': 'fa-arrow-up',
+      'falling': 'fa-arrow-down',
+      'stable': 'fa-minus'
+    };
+    document.getElementById("trendBadge").innerHTML = `
+      <span class="badge-trend trend-${trend}">
+        <i class="fas ${trendIcons[trend]}"></i> ${trend.toUpperCase()}
+      </span>
+    `;
+
+    // Update confidence badge
+    const confidence = data.confidence || 'medium';
+    document.getElementById("confidenceBadge").innerHTML = `
+      <span class="badge-confidence confidence-${confidence}">
+        <i class="fas fa-check-circle"></i> ${confidence.toUpperCase()} CONFIDENCE
+      </span>
+    `;
+
+    // Destroy previous chart
+    if(priceChart) priceChart.destroy();
+
+    // Create chart with confidence intervals
+    priceChart = new Chart(chartCanvas, {
+      type: "line",
+      data: {
+        labels: ["Today","Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"],
+        datasets: [
+          {
+            label: "Predicted Price (₹/quintal)",
+            data: data.predicted_prices,
+            borderColor: "#22c55e",
+            backgroundColor: "rgba(34, 197, 94, 0.1)",
+            borderWidth: 3,
+            tension: 0.4,
+            fill: false,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            pointBackgroundColor: "#22c55e",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 2
+          },
+          {
+            label: "Upper Confidence Bound",
+            data: data.upper_bound,
+            borderColor: "rgba(34, 197, 94, 0.3)",
+            backgroundColor: "transparent",
+            borderDash: [5, 5],
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 0,
+            tension: 0.4
+          },
+          {
+            label: "Lower Confidence Bound",
+            data: data.lower_bound,
+            borderColor: "rgba(34, 197, 94, 0.3)",
+            backgroundColor: "rgba(34, 197, 94, 0.15)",
+            borderDash: [5, 5],
+            borderWidth: 2,
+            fill: "-1",
+            pointRadius: 0,
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2.5,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              usePointStyle: true,
+              padding: 15,
+              font: {
+                size: 12,
+                weight: 'bold'
+              }
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            borderColor: '#22c55e',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: true,
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                label += '₹' + context.parsed.y.toFixed(2);
+                return label;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Price (₹/quintal)',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)'
+            },
+            ticks: {
+              callback: function(value) {
+                return '₹' + value;
+              }
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Days',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            grid: {
+              display: false
+            }
+          }
+        },
+        interaction: {
+          mode: 'nearest',
+          axis: 'x',
+          intersect: false
+        }
+      }
+    });
+
+  } catch(error){
+    console.error(error);
+    hideLoading();
+    alert("❌ Server error while fetching prediction. Please try again.");
+  }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

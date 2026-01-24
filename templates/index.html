@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroPulse | Fair Crop Prices for Farmers</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f8fafc;
+  color:#1f2933;
+  line-height:1.6;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  background:#0f172a;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:1.6rem;
+  font-weight:bold;
+  color:#22c55e;
+  cursor:pointer;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-links span{
+  color:#e5e7eb;
+  font-size:0.95rem;
+  cursor:pointer;
+}
+
+.nav-links span:hover{
+  color:#22c55e;
+}
+
+.login-btn{
+  background:#22c55e;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:bold;
+  color:white;
+}
+
+.login-btn:hover{
+  background:#16a34a;
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding:90px 20px;
+  text-align:center;
+  background:linear-gradient(to right,#ecfeff,#f0fdf4);
+}
+
+.hero h1{
+  font-size:3rem;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  color:#475569;
+  margin-bottom:35px;
+}
+
+.search-box{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.search-box select,
+.search-box button{
+  padding:12px 15px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  font-size:1rem;
+}
+
+.search-box button{
+  background:#22c55e;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.search-box button:hover{
+  background:#16a34a;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  padding:80px 20px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+
+.section-title{
+  font-size:2.4rem;
+  margin-bottom:15px;
+}
+
+.section-subtitle{
+  max-width:800px;
+  margin:0 auto 60px;
+  color:#475569;
+}
+
+/* ================= PROBLEMS ================= */
+.problem-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.problem-card{
+  background:white;
+  padding:30px;
+  border-radius:14px;
+  text-align:left;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.problem-card:hover{
+  transform:translateY(-8px);
+}
+
+.problem-card .icon{
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+
+.problem-card ul{
+  list-style:none;
+  margin:15px 0;
+}
+
+.problem-card ul li{
+  margin-bottom:6px;
+  padding-left:18px;
+  position:relative;
+}
+
+.problem-card ul li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  color:#22c55e;
+}
+
+.stat{
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:8px;
+  display:inline-block;
+}
+
+.info{background:#e0f2fe;color:#0369a1;}
+.danger{background:#fee2e2;color:#b91c1c;}
+.success{background:#dcfce7;color:#166534;}
+
+.highlight{
+  border:2px solid #ef4444;
+}
+
+/* ================= SOLUTION ================= */
+.solution{
+  background:#f1f5f9;
+}
+
+.solution-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.solution-card{
+  background:white;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.solution-card .icon{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+/* ================= CTA ================= */
+.cta{
+  padding:80px 20px;
+  text-align:center;
+  background:linear-gradient(to right,#22c55e,#16a34a);
+  color:white;
+}
+
+.cta h2{
+  font-size:2.4rem;
+  margin-bottom:20px;
+}
+
+.cta button{
+  padding:14px 30px;
+  font-size:1.1rem;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:white;
+  color:#166534;
+  font-weight:bold;
+}
+
+.cta button:hover{
+  background:#ecfdf5;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#020617;
+  color:#94a3b8;
+  text-align:center;
+  padding:20px;
+  font-size:0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="navigate('/')">AgroPulse</div>
+  <div class="nav-links">
+    <span onclick="navigate('/')">Home</span>
+    <span onclick="navigate('/dashboard')">Dashboard</span>
+    <span onclick="navigate('/comparison')">Compare</span>
+    <span onclick="navigate('/prediction')">Prediction</span>
+    <span onclick="navigate('/about')">About</span>
+    <span class="login-btn" onclick="navigate('/login')">Login</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Get Fair Prices for Your Crops</h1>
+  <p>Compare market prices, predict trends, and sell at the right time.</p>
+
+  <div class="search-box">
+    <select id="indexState" onchange="filterDistricts()"></select>
+    <select id="indexLocation" onchange="filterCrops()"></select>
+    <select id="indexCrop"></select>
+
+
+    <button onclick="navigate('/comparison')">
+      Check Prices →
+    </button>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Why Farmers Lose Money</h2>
+    <p class="section-subtitle">
+      Lack of transparency, middlemen exploitation, and no price prediction
+      force farmers to sell at unfair prices.
+    </p>
+
+    <div class="problem-cards">
+
+      <div class="problem-card">
+        <div class="icon">📉</div>
+        <h3>No Market Transparency</h3>
+        <ul>
+          <li>Different prices in nearby mandis</li>
+          <li>No easy comparison</li>
+          <li>Wrong selling decisions</li>
+        </ul>
+        <div class="stat info">₹300–₹500 loss</div>
+      </div>
+
+      <div class="problem-card highlight">
+        <div class="icon">🧑‍💼</div>
+        <h3>Middlemen Exploitation</h3>
+        <ul>
+          <li>15–30% lower prices</li>
+          <li>False urgency</li>
+          <li>No bargaining power</li>
+        </ul>
+        <div class="stat danger">15–30% income loss</div>
+      </div>
+
+      <div class="problem-card">
+        <div class="icon">⏳</div>
+        <h3>No Sell-Time Insight</h3>
+        <ul>
+          <li>No trend prediction</li>
+          <li>No wait/sell advice</li>
+          <li>Missed peak prices</li>
+        </ul>
+        <div class="stat success">₹450 missed gain</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section solution">
+  <div class="container">
+    <h2 class="section-title">How AgroPulse Helps</h2>
+
+    <div class="solution-cards">
+      <div class="solution-card">
+        <div class="icon">📊</div>
+        <h3>Compare Prices</h3>
+        <p>Instantly compare prices across mandis and buyers.</p>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon">📈</div>
+        <h3>Predict Trends</h3>
+        <p>ML-based 7-day price prediction with confidence.</p>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon">🤖</div>
+        <h3>Smart Advice</h3>
+        <p>Clear guidance on when to sell or wait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Make Smarter Selling Decisions Today</h2>
+  <button onclick="navigate('/dashboard')">Try Dashboard</button>
+</section>
+
+<footer>
+  © 2026 AgroPulse | Helping Farmers Earn Fair Prices
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+function navigate(page){
+  window.location.assign(page);
+}
+
+/* ================= GLOBAL DATA ================= */
+let allStates = [];
+let allCrops = [];
+let stateDistrictMapping = {};
+let districtCropMapping = {};
+
+/* ================= FALLBACK DATA ================= */
+function loadFallbackData() {
+
+  allStates = [
+    "Andhra Pradesh","Gujarat","Karnataka","Madhya Pradesh","Maharashtra",
+    "Punjab","Rajasthan","Telangana","Uttar Pradesh","West Bengal"
+  ];
+
+  allCrops = [
+    "Wheat","Maize","Cotton","Paddy(Dhan)(Common)",
+    "Bajra(Pearl Millet/Cumbu)","Bengal Gram(Gram)(Whole)",
+    "Mustard","Jowar(Sorghum)"
+  ];
+
+  stateDistrictMapping = {
+    "Madhya Pradesh":["Indore","Bhopal","Ujjain","Gwalior","Jabalpur"],
+    "Rajasthan":["Jaipur","Jodhpur","Udaipur","Kota","Chittorgarh"],
+    "Uttar Pradesh":["Lucknow","Kanpur","Agra","Varanasi","Meerut"],
+    "Gujarat":["Ahmedabad","Surat","Vadodara","Rajkot"],
+    "Maharashtra":["Pune","Nagpur","Nashik","Aurangabad"],
+    "Andhra Pradesh":["Guntur","Kurnool","East Godavari","Nellore"],
+    "Telangana":["Hyderabad","Warangal","Nizamabad","Karimnagar"],
+    "Punjab":["Ludhiana","Amritsar","Jalandhar","Patiala"],
+    "Karnataka":["Bengaluru","Mysuru","Mangaluru","Hubballi"],
+    "West Bengal":["Kolkata","Howrah","Durgapur","Asansol"]
+  };
+
+  districtCropMapping = {
+    "Indore":["Wheat","Soybean","Maize"],
+    "Ujjain":["Wheat","Gram","Mustard"],
+    "Chittorgarh":["Wheat","Maize","Mustard"],
+    "Guntur":["Paddy(Dhan)(Common)","Cotton"],
+    "Kurnool":["Maize","Jowar(Sorghum)","Bengal Gram(Gram)(Whole)"]
+  };
+
+  populateStates();
+}
+
+/* ================= POPULATE ================= */
+function populateStates(){
+  const stateSel = document.getElementById("indexState");
+  stateSel.innerHTML = `<option disabled selected>Select State</option>`;
+  allStates.forEach(s => {
+    stateSel.innerHTML += `<option value="${s}">${s}</option>`;
+  });
+}
+
+function filterDistricts(){
+  const state = indexState.value;
+  indexLocation.innerHTML = `<option disabled selected>Select District</option>`;
+
+  (stateDistrictMapping[state] || []).forEach(d => {
+    indexLocation.innerHTML += `<option value="${d}">${d}</option>`;
+  });
+
+  indexCrop.innerHTML = `<option disabled selected>Select Crop</option>`;
+}
+
+function filterCrops(){
+  const district = indexLocation.value;
+  indexCrop.innerHTML = `<option disabled selected>Select Crop</option>`;
+
+  (districtCropMapping[district] || allCrops).forEach(c => {
+    indexCrop.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+}
+
+/* ================= INIT ================= */
+window.onload = loadFallbackData;
+</script>
+
+
+</body>
+</html>
