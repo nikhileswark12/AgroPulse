@@ -1,86 +1,159 @@
 # AgroPulse
 
-AgroPulse is a Flask-based agricultural market prediction dashboard. It provides price and mandi analytics, prediction results, and user-facing pages powered by a MongoDB backend.
+AgroPulse is an open-source Flask application that provides market insights, price forecasting, and recommendation utilities for Indian agricultural commodity markets (mandis). The app combines historical mandi price data, lightweight ML models, and an interactive dashboard to help farmers, traders, and analysts explore price trends and generate short-term forecasts.
 
-## Project structure
+Key goals:
+- Make mandi price data and model predictions accessible via a clean web UI and a small REST API.
+- Enable reproducible model training and lightweight inference for quick local experiments.
+- Provide clear developer workflows for extending models and data ingestion.
 
-- `app.py` - Flask application entrypoint.
-- `routes/` - API and frontend routes.
-- `services/` - Business logic for predictions, pricing, and recommendations.
-- `ml/` - Machine learning helper scripts and dataset.
-- `templates/` - HTML templates.
-- `static/` - CSS and JavaScript assets.
-- `utils/` - shared helpers and database connection logic.
+Features
+--------
+- Interactive dashboard with historical price charts and comparison views.
+- Prediction endpoint and visualization for short-term price forecasts.
+- Recommendation utilities for basic market insights.
+- Simple ML training scripts and a reproducible data layout under `ml/`.
 
-## Prerequisites
+Tech stack
+----------
+- Python 3.10+ (tested on 3.10–3.11)
+- Flask for the web server and routing
+- MongoDB for lightweight data storage
+- Pandas / scikit-learn (or lightweight alternatives) for model training
 
-- Python 3.14
-- MongoDB running locally or remotely
+Quick start (development)
+-------------------------
+Prerequisites:
+- Python 3.10 or newer
+- MongoDB (local or hosted)
 - Git
 
-## Setup
+1. Create and activate a virtual environment:
 
-1. Create a virtual environment:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1
-   ```
+2. Install Python dependencies:
 
-2. Install dependencies:
+```powershell
+pip install -r requirements.txt
+```
 
-   ```powershell
-   pip install -r requirements.txt
-   ```
+3. Create a `.env` file in the project root with these minimum values:
 
-3. Create a `.env` file in the project root with at least these values:
+```env
+SECRET_KEY=your-secret-key
+MONGO_URI=mongodb://localhost:27017/agropulse
+FLASK_ENV=development
+```
 
-   ```env
-   SECRET_KEY=replace-with-your-secret
-   MONGO_URI=mongodb://localhost:27017/
-   ```
+4. Ensure the sample dataset exists:
 
-4. Keep the dataset in place:
+- `ml/data/mandi_prices.csv` (a small sample is included in the repo)
 
-   - `ml/data/mandi_prices.csv`
-
-## Run the app
+5. Run the app locally:
 
 ```powershell
 python app.py
 ```
 
-Open `http://localhost:5000` in your browser.
+Then open http://localhost:5000 in your browser.
 
-## Notes
+Configuration
+-------------
+- Environment variables are read from `.env` (see `config.py` for keys used).
+- `MONGO_URI` points to your MongoDB server/database.
+- `SECRET_KEY` is used by Flask for session signing.
 
-- The repository ignores generated Python caches, logs, and ML model artifacts.
-- If you need to retrain models, use the scripts in `ml/`.
-- `app.py` initializes MongoDB and registers API blueprints.
+Project structure (important files)
+----------------------------------
+- `app.py` — application entrypoint and blueprint registration
+- `config.py` — configuration loader (env / defaults)
+- `routes/` — Flask blueprints that serve pages and API endpoints
+   - `prediction_routes.py`, `price_routes.py`, `market_routes.py`, `auth_routes.py`
+- `services/` — business logic (prediction, price lookup, recommendations)
+- `ml/` — ML helper scripts
+   - `train_model.py` — training pipeline
+   - `predict.py` — model inference
+   - `feature_engineering.py` — feature transforms
+- `models/` — packaged model loaders / helper wrappers
+- `utils/` — DB connection, helpers, and validators
 
-## Git ignore behavior
+Dataset & ML
+------------
+- The project includes a small CSV of mandi prices at `ml/data/mandi_prices.csv`.
+- To retrain models locally:
 
-The `.gitignore` file is configured to keep source code committed while excluding:
+```powershell
+python ml/train_model.py --data ml/data/mandi_prices.csv --out models/latest_model.pkl
+```
 
-- Python caches: `__pycache__/`, `*.pyc`
-- log files: `logs/`
-- environment files: `.env`
-- generated ML artifacts: `ml/*.pkl`, `ml/*.png`, and `ml/ml/`
+- To run a single prediction from the CLI:
 
-## Project pages
+```powershell
+python ml/predict.py --model models/latest_model.pkl --input '{"district":"xyz","commodity":"wheat","days":7}'
+```
 
-- `/` - home
-- `/login` - login page
-- `/dashboard` - dashboard
-- `/prediction` - prediction page
-- `/comparison` - comparison page
-- `/about` - about page
+API reference (selected endpoints)
+---------------------------------
+- `GET /` — Home page (dashboard)
+- `GET /prediction` — Prediction UI page
+- `POST /api/predict` — Run a prediction (JSON body, returns forecast)
+- `GET /api/predict/history` — Retrieve stored prediction history
 
-## API endpoints
+Example: POST a prediction request (JSON)
 
-- `POST /api/predict` - prediction endpoint
-- `GET /api/predict/history` - prediction history
+```http
+POST /api/predict HTTP/1.1
+Content-Type: application/json
 
----
+{
+   "district": "Indore",
+   "commodity": "Wheat",
+   "horizon": 7
+}
+```
 
-If you want, I can also add a small script to rebuild the ignored ML artifacts.
+Response (example):
+
+```json
+{
+   "commodity": "Wheat",
+   "district": "Indore",
+   "horizon": 7,
+   "predictions": [ ... ],
+   "meta": { "model_version": "v1", "generated_at": "2026-06-14T12:00:00Z" }
+}
+```
+
+Development notes
+-----------------
+- Database: sample data uses MongoDB; use `utils/db_connection.py` to inspect connection handling.
+- Frontend: templates are in `templates/` and static assets in `static/`.
+- Tests: no automated test suite included; consider adding unit tests for `services/` and `ml/` scripts.
+
+Contribution
+------------
+- Fork the repository, create a feature branch, and open a PR with a clear description.
+- Keep changes focused and add unit tests where appropriate.
+
+Troubleshooting
+---------------
+- If the app cannot connect to MongoDB, verify `MONGO_URI` and that MongoDB is running.
+- If model inference fails, ensure `models/latest_model.pkl` exists and the model version matches code expectations.
+
+Next steps
+----------
+- Add unit tests for core services and ML helpers.
+- Add a small Dockerfile / docker-compose for local development if desired.
+
+License
+-------
+This project is provided under the terms of the MIT license. See the `LICENSE` file for details.
+
+Contact
+-------
+If you need help, open an issue or contact the maintainers via the repository.
+
