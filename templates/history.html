@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AgroPulse | History</title>
+  <link rel="stylesheet" href="/static/css/site.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="navigate('/')">AgroPulse</div>
+    <div class="nav-links">
+      <span onclick="navigate('/')">Home</span>
+      <span onclick="navigate('/dashboard')">Dashboard</span>
+      <span onclick="navigate('/comparison')">Compare</span>
+      <span onclick="navigate('/prediction')">Prediction</span>
+      <span onclick="navigate('/about')">About</span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Prediction History</h2>
+      <p class="text-muted">Your recent prediction requests will appear here after you log in and generate predictions.</p>
+      <div id="historyList">
+        <!-- client will populate via /api/predict/history -->
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 AgroPulse | Helping Farmers Earn Fair Prices</footer>
+  <script src="/static/js/site.js"></script>
+</body>
+</html>

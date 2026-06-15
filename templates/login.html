@@ -163,29 +163,10 @@ body{
 
 </div>
 
+<script src="/static/js/site.js"></script>
 <script>
-function navigate(page){
-  window.location.href = page;
-}
-
 function signup(){
   alert("Signup page coming soon!");
-}
-
-function showAlert(msg, type){
-  const box = document.getElementById("alertBox");
-  box.textContent = msg;
-  box.className = `alert ${type}`;
-  box.style.display = "block";
-  setTimeout(() => box.style.display = "none", 4000);
-}
-
-function setLoading(state){
-  const btn = document.getElementById("loginBtn");
-  btn.disabled = state;
-  btn.innerHTML = state
-    ? '<span class="spinner"></span>Logging in...'
-    : 'Login';
 }
 
 async function loginUser(e){
@@ -199,7 +180,7 @@ async function loginUser(e){
     return;
   }
 
-  setLoading(true);
+  setLoading('loginBtn', true);
 
   try{
     const res = await fetch('/api/auth/login', {
@@ -215,23 +196,17 @@ async function loginUser(e){
       showAlert("Login successful! Redirecting...", "success");
       setTimeout(() => {
         window.location.href = '/dashboard';
-      }, 1000);
+      }, 800);
     }else{
       showAlert(data.message || "Invalid credentials", "error");
-      setLoading(false);
+      setLoading('loginBtn', false);
     }
   }catch(err){
     console.error(err);
     showAlert("Server error. Try again.", "error");
-    setLoading(false);
+    setLoading('loginBtn', false);
   }
 }
-
-/*
-🔥 IMPORTANT
-NO auth-check on login page.
-Auth check must exist ONLY on protected pages.
-*/
 </script>
 
 </body>
