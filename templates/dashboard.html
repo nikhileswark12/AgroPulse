@@ -228,7 +228,16 @@
   </footer>
 
   <!-- ============ SCRIPTS ============ -->
+  <script src="/static/js/utils.js"></script>
   <script src="/static/js/site.js"></script>
+  <script>
+    window.ready(async function() {
+      const isAuth = await window.checkAuth();
+      if (!isAuth) {
+        window.location.href = '/login?returnTo=' + encodeURIComponent(window.location.pathname);
+      }
+    });
+  </script>
 
 </body>
 </html>

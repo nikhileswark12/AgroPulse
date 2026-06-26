@@ -141,7 +141,18 @@ def create_app(config_name=None):
 
     @app.route('/login')
     def login():
-        return render_template('login.html')
+        return_to = request.args.get('returnTo', '/dashboard')
+        if not return_to.startswith('/') or return_to.startswith('//'):
+            return_to = '/dashboard'
+        return render_template('login.html', return_to=return_to)
+
+    @app.route('/forgot-password')
+    def forgot_password():
+        return render_template('forgot_password.html')
+
+    @app.route('/password-reset/<token>')
+    def password_reset(token):
+        return render_template('reset_password.html', token=token)
 
     @app.route('/dashboard')
     def dashboard():

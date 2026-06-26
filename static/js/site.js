@@ -27,4 +27,13 @@
     if(document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn);
   }
 
+  window.checkAuth = async function(){
+    try {
+      const data = await window.fetchJSON('/api/auth/check');
+      return data.authenticated === true;
+    } catch(e) {
+      return false;
+    }
+  }
+
 })();

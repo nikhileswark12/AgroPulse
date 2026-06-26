@@ -35,3 +35,19 @@ To retrain the machine learning model, run the training script:
 python ml/train_model.py
 ```
 This will update the `trained_model.pkl` and encoders in the `ml/` directory. Be sure to rebuild or restart the container to pick up changes.
+
+## Updating Market Data
+To update `mandi_prices.csv` with fresh data without manual replacement:
+1. Download a new CSV from [AGMARKNET](https://agmarknet.gov.in) manually.
+2. Run the update script providing the path to your downloaded CSV:
+   ```bash
+   make update-data PATH=path/to/new_data.csv
+   ```
+3. Run the retrain command to train the model on the updated data:
+   ```bash
+   make retrain
+   ```
+4. Redeploy with the retrained model:
+   ```bash
+   make build && make up
+   ```

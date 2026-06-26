@@ -1,4 +1,4 @@
-.PHONY: setup dev build up down logs shell health indexes
+.PHONY: setup dev build up down logs shell health indexes update-data retrain
 
 setup:
 	@if [ ! -f .env ]; then \
@@ -32,3 +32,9 @@ health:
 
 indexes:
 	python scripts/create_indexes.py
+
+update-data:
+	python scripts/update_mandi_data.py --source file --path $(PATH)
+
+retrain:
+	python ml/data_pipeline.py && python ml/train_model.py --retrain
