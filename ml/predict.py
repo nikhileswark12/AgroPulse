@@ -48,10 +48,6 @@ def load_model():
         logger.error(f"❌ Failed to load ML model: {e}")
         return False
 
-
-# ============================================================
-# FUZZY MATCH FOR ENCODERS
-# ============================================================
 def encode_value(value, encoder):
     try:
         return encoder.transform([value])[0]
@@ -63,9 +59,6 @@ def encode_value(value, encoder):
         return 0  # safe fallback
 
 
-# ============================================================
-# 🔮 MAIN PREDICTION FUNCTION (THIS IS WHAT FLASK IMPORTS)
-# ============================================================
 def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
     """
     Predict crop price using trained ML model
