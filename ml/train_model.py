@@ -45,30 +45,31 @@ print(f"   - Total Records: {len(df):,}")
 print(f"   - Columns: {list(df.columns)}")
 print(f"   - Shape: {df.shape}")
 
-# Check for missing values
-missing = df.isnull().sum()
+# Check for missing values in required columns
+required_cols = ['state', 'district', 'crop', 'modal_price']
+missing = df[required_cols].isnull().sum()
 if missing.any():
-    print(f"\n   ⚠️  Missing values detected:")
+    print(f"\n   ⚠️  Missing values detected in required columns:")
     for col, count in missing[missing > 0].items():
         print(f"   - {col}: {count} missing")
     
     print(f"\n   🧹 Cleaning data...")
     original_len = len(df)
-    df = df.dropna()
+    df = df.dropna(subset=required_cols)
     print(f"   - Removed {original_len - len(df):,} rows with missing values")
     print(f"   - New dataset size: {len(df):,} records")
 
 # Show data distribution
 print(f"\n   📈 Data Distribution:")
-print(f"   - Unique States: {df['State'].nunique()}")
-print(f"   - Unique Districts: {df['District'].nunique()}")
-print(f"   - Unique Crops: {df['Crops'].nunique()}")
+print(f"   - Unique States: {df['state'].nunique()}")
+print(f"   - Unique Districts: {df['district'].nunique()}")
+print(f"   - Unique Crops: {df['crop'].nunique()}")
 print(f"\n   Top 5 States:")
-for state, count in df['State'].value_counts().head(5).items():
+for state, count in df['state'].value_counts().head(5).items():
     print(f"   - {state}: {count} records")
 
 print(f"\n   Top 10 Crops:")
-for crop, count in df['Crops'].value_counts().head(10).items():
+for crop, count in df['crop'].value_counts().head(10).items():
     print(f"   - {crop}: {count} records")
 
 # ============================================================
@@ -82,9 +83,9 @@ district_enc = LabelEncoder()
 crop_enc = LabelEncoder()
 
 # Encode categorical features
-df["state_enc"] = state_enc.fit_transform(df["State"])
-df["district_enc"] = district_enc.fit_transform(df["District"])
-df["crop_enc"] = crop_enc.fit_transform(df["Crops"])
+df["state_enc"] = state_enc.fit_transform(df["state"])
+df["district_enc"] = district_enc.fit_transform(df["district"])
+df["crop_enc"] = crop_enc.fit_transform(df["crop"])
 
 print(f"   ✅ Encoded categorical features")
 print(f"   - States encoded: {len(state_enc.classes_)}")
@@ -100,7 +101,7 @@ feature_cols = ["state_enc", "district_enc", "crop_enc"]
 print("\n📊 Preparing training data...")
 
 X = df[feature_cols]
-y = df["Modal Price"]
+y = df["modal_price"]
 
 print(f"   Features: {feature_cols}")
 print(f"   Target: Modal Price")
@@ -222,9 +223,9 @@ for idx in sample_indices:
     
     # Get original values
     orig_idx = X_test.index[idx]
-    state = df.loc[orig_idx, 'State']
-    district = df.loc[orig_idx, 'District']
-    crop = df.loc[orig_idx, 'Crops']
+    state = df.loc[orig_idx, 'state']
+    district = df.loc[orig_idx, 'district']
+    crop = df.loc[orig_idx, 'crop']
     
     print(f"   {crop[:30]:<30} | {district[:15]:<15}")
     print(f"   Actual: ₹{actual:>7.2f} | Predicted: ₹{predicted:>7.2f} | Error: ₹{error:.2f}")
@@ -265,9 +266,9 @@ print("   ✅ Feature columns saved: ml/feature_cols.pkl")
 metadata = {
     'train_date': datetime.now().isoformat(),
     'n_samples': len(df),
-    'n_states': df['State'].nunique(),
-    'n_districts': df['District'].nunique(),
-    'n_crops': df['Crops'].nunique(),
+    'n_states': df['state'].nunique(),
+    'n_districts': df['district'].nunique(),
+    'n_crops': df['crop'].nunique(),
     'feature_cols': feature_cols,
     'test_mae': float(test_mae),
     'test_rmse': float(test_rmse),
