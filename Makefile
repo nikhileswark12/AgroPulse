@@ -1,4 +1,4 @@
-.PHONY: setup dev build up down logs shell health
+.PHONY: setup dev build up down logs shell health indexes
 
 setup:
 	@if [ ! -f .env ]; then \
@@ -29,3 +29,6 @@ shell:
 
 health:
 	curl -s localhost:8000/health | python -m json.tool
+
+indexes:
+	python scripts/create_indexes.py

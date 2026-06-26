@@ -2,9 +2,9 @@ from models.price import PriceModel
 from models.predict import PredictionModel
 from ml.predict import predict_price
 from config import Config
-import logging
+from utils.logger import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger('prediction_service')
 
 class PredictionService:
     """Business logic for price predictions"""
@@ -27,7 +27,10 @@ class PredictionService:
             prediction = predict_price(crop, location)
             
             if not prediction or not prediction.get('success'):
+                logger.warning(f"Prediction fallback triggered or failed for crop={crop}, location={location}")
                 return None
+                
+            logger.info(f"Model inference succeeded: crop={crop}, location={location}")
             
             # Save prediction
             prediction_data = {
@@ -45,7 +48,7 @@ class PredictionService:
             return prediction
         
         except Exception as e:
-            logger.error(f"Error in get_prediction: {e}")
+            logger.warning(f"Prediction exception (InsufficientHistoryError or fallback): {e}")
             return None
     
     def format_prediction(self, prediction_doc):

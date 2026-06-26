@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify, session, current_app
 from datetime import datetime
-import logging
+from utils.logger import get_logger
 from app import limiter
 from config import Config
 
 prediction_bp = Blueprint("prediction", __name__)
-logger = logging.getLogger(__name__)
+logger = get_logger("prediction")
 
 # ML IMPORT
 try:
@@ -58,6 +58,13 @@ def predict():
         location = data.get("location")
         state = data.get("state", "Madhya Pradesh")
         quantity = data.get("quantity", 100)
+        district = data.get("district", location)
+
+        user_id = session.get("user_id")
+        log_msg = f"Prediction request: crop={crop}, state={state}, district={district}"
+        if user_id:
+            log_msg += f", user_id={user_id}"
+        logger.info(log_msg)
 
         if not crop or not location:
             return jsonify({
@@ -75,9 +82,10 @@ def predict():
                     quantity=quantity
                 )
             except Exception as e:
-                logger.error(f"ML prediction failed: {e}")
+                logger.warning(f"ML prediction failed, falling back: {e}")
                 result = fallback_prediction(crop, location, state)
         else:
+            logger.warning("ML not available, using fallback prediction")
             result = fallback_prediction(crop, location, state)
 
         # SAVE HISTORY
@@ -85,23 +93,23 @@ def predict():
             try:
                 db = get_db()
                 db[Config.PREDICTION_HISTORY_COLLECTION].insert_one({
-                    "user_id": session["user_id"],
+                    "user_id": session.get("user_id"),
                     "crop": crop,
-                    "location": location,
                     "state": state,
-                    "quantity": quantity,
-                    "predicted_prices": result["predicted_prices"],
-                    "upper_bound": result["upper_bound"],
-                    "lower_bound": result["lower_bound"],
-                    "recommendation": result["recommendation"],
-                    "expected_gain": result["expected_gain"],
-                    "best_market": result["best_market"],
-                    "confidence": result["confidence"],
-                    "trend": result["trend"],
+                    "district": data.get("district", location),
+                    "quantity": data.get("quantity"),
+                    "predicted_prices": result.get("predicted_prices", []),
+                    "upper_bound": result.get("upper_bound", []),
+                    "lower_bound": result.get("lower_bound", []),
+                    "recommendation": result.get("recommendation"),
+                    "expected_gain": result.get("expected_gain"),
+                    "best_market": result.get("best_market"),
+                    "confidence": result.get("confidence"),
+                    "trend": result.get("trend"),
                     "created_at": datetime.utcnow()
                 })
             except Exception as e:
-                logger.error(f"Failed to save prediction history: {e}")
+                logger.warning(f"Failed to save prediction history: {e}")
 
         return jsonify(result), 200
 

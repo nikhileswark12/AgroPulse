@@ -28,11 +28,33 @@ def create_app(config_name=None):
     except Exception:
         app.config.from_object('config.Config')
 
+    from utils.logger import configure_logging, get_logger
+    configure_logging(app)
+    logger = get_logger('startup')
+    logger.info(f"Starting application in {os.environ.get('FLASK_ENV', 'development')} mode")
+
+    model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
+    logger.info(f"ML model file found: {model_loaded}")
+
     # Initialize PyMongo
     mongo_uri = app.config.get('MONGO_URI', os.environ.get('MONGO_URI', 'mongodb://localhost:27017/'))
-    mongo_client = MongoClient(mongo_uri)
+    try:
+        mongo_client = MongoClient(mongo_uri)
+        mongo_client.admin.command('ping')
+        logger.info("MongoDB connected successfully")
+    except Exception as e:
+        logger.warning(f"MongoDB connection failed on startup: {e}")
+        mongo_client = MongoClient(mongo_uri)
+        
     db = mongo_client[app.config.get('DATABASE_NAME', 'agropulse')]
     app.config['MONGO_DB'] = db
+
+    # Initialize indexes
+    try:
+        from scripts.create_indexes import create_indexes
+        create_indexes()
+    except Exception as e:
+        logger.warning(f"Failed to verify indexes during startup: {e}")
 
     # Flask-CORS
     cors_origins = app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',')

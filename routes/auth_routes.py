@@ -1,14 +1,14 @@
 import re
 import bcrypt
-import logging
 from datetime import datetime
 from flask import Blueprint, request, jsonify, session, current_app, redirect
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 from flask_mail import Message
+from utils.logger import get_logger
 from app import limiter
 
 auth_bp = Blueprint('auth', __name__)
-logger = logging.getLogger(__name__)
+logger = get_logger('auth')
 
 def get_db():
     return current_app.config['MONGO_DB']
@@ -52,6 +52,7 @@ def login():
         user = db.users.find_one({'email': email})
 
         if not user:
+            logger.warning(f"Failed login attempt: email={email}, ip={request.remote_addr}")
             return jsonify({'success': False, 'message': 'Invalid email or password'}), 401
 
         # Check password
@@ -60,9 +61,11 @@ def login():
             stored_hash = stored_hash.encode('utf-8')
             
         if not bcrypt.checkpw(password.encode('utf-8'), stored_hash):
+            logger.warning(f"Failed login attempt: email={email}, ip={request.remote_addr}")
             return jsonify({'success': False, 'message': 'Invalid email or password'}), 401
 
         if not user.get('verified', False):
+            logger.warning(f"Failed login attempt (unverified): email={email}, ip={request.remote_addr}")
             return jsonify({'success': False, 'message': 'Please verify your email before logging in'}), 401
 
         session.clear()
@@ -70,6 +73,8 @@ def login():
         session['email'] = user['email']
         session['name'] = user.get('name', '')
         session.permanent = True
+        
+        logger.info(f"Successful login: email={email}, ip={request.remote_addr}")
 
         return jsonify({
             'success': True,
@@ -125,6 +130,8 @@ def register():
         token = serializer.dumps(email, salt='email-verify')
         
         send_verification_email(email, token)
+        
+        logger.info(f"Successful registration: email={email}")
 
         return jsonify({'success': True, 'message': 'Registration successful. Please verify your email.'}), 201
 
@@ -184,7 +191,9 @@ def resend_verification():
 # ===================== LOGOUT =====================
 @auth_bp.route('/auth/logout', methods=['POST'])
 def logout():
+    email = session.get('email', 'unknown')
     session.clear()
+    logger.info(f"Successful logout: email={email}")
     return jsonify({'success': True, 'message': 'Logged out'}), 200
 
 
