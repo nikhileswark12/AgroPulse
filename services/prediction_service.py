@@ -1,6 +1,6 @@
 from models.price import PriceModel
 from models.predict import PredictionModel
-from ml.predict import PricePredictor
+from ml.predict import predict_price
 from config import Config
 import logging
 
@@ -12,7 +12,6 @@ class PredictionService:
     def __init__(self):
         self.price_model = PriceModel()
         self.prediction_model = PredictionModel()
-        self.predictor = PricePredictor()
     
     def get_prediction(self, crop, location, days=7):
         """Get price prediction"""
@@ -24,30 +23,21 @@ class PredictionService:
                 logger.info("Using cached prediction")
                 return self.format_prediction(recent)
             
-            # Get historical data
-            historical = self.price_model.get_historical_prices(
-                crop, location, days=Config.HISTORICAL_DAYS
-            )
-            
-            if len(historical) < 10:
-                logger.warning(f"Insufficient data for {crop} in {location}")
-                return None
-            
             # Make prediction
-            prediction = self.predictor.predict(historical, days)
+            prediction = predict_price(crop, location)
             
-            if not prediction:
+            if not prediction or not prediction.get('success'):
                 return None
             
             # Save prediction
             prediction_data = {
                 'crop': crop,
                 'location': location,
-                'predicted_prices': prediction['predictedPrices'],
-                'trend': prediction['trend'],
-                'optimal_day': prediction['optimalDay'],
-                'confidence': prediction['confidence'],
-                'current_price': prediction['current_price']
+                'predicted_prices': prediction.get('predicted_prices', []),
+                'trend': prediction.get('trend', 'stable'),
+                'optimal_day': 1,
+                'confidence': prediction.get('confidence', 'medium'),
+                'current_price': prediction.get('predicted_price', 0)
             }
             
             self.prediction_model.save_prediction(prediction_data)

@@ -26,3 +26,8 @@ requests==2.31.0
 
 # Utilities
 Werkzeug==3.0.1
+Flask-Limiter==3.5.0
+bcrypt
+flask-mail
+itsdangerous
+gunicorn

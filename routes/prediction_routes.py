@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify, session, current_app
 from datetime import datetime
 import logging
+from app import limiter
+from config import Config
 
 prediction_bp = Blueprint("prediction", __name__)
 logger = logging.getLogger(__name__)
@@ -48,6 +50,7 @@ def fallback_prediction(crop, location, state="Madhya Pradesh"):
 
 # MAIN PREDICTION API
 @prediction_bp.route("/predict", methods=["POST"])
+@limiter.limit('30 per hour')
 def predict():
     try:
         data = request.get_json()
@@ -81,7 +84,7 @@ def predict():
         if result.get("success") and "user_id" in session:
             try:
                 db = get_db()
-                db.prediction_history.insert_one({
+                db[Config.PREDICTION_HISTORY_COLLECTION].insert_one({
                     "user_id": session["user_id"],
                     "crop": crop,
                     "location": location,
@@ -116,7 +119,7 @@ def prediction_history():
     limit = request.args.get("limit", 10, type=int)
 
     history = list(
-        db.prediction_history
+        db[Config.PREDICTION_HISTORY_COLLECTION]
         .find({"user_id": session["user_id"]})
         .sort("created_at", -1)
         .limit(limit)
@@ -137,7 +140,7 @@ def delete_prediction(history_id):
     from bson import ObjectId
     db = get_db()
 
-    result = db.prediction_history.delete_one({
+    result = db[Config.PREDICTION_HISTORY_COLLECTION].delete_one({
         "_id": ObjectId(history_id),
         "user_id": session["user_id"]
     })
@@ -149,6 +152,7 @@ def delete_prediction(history_id):
 
 # MODEL INFO
 @prediction_bp.route("/predict/model-info", methods=["GET"])
+@prediction_bp.route('/predict/metadata', methods=['GET'])
 def model_info():
     try:
         import pandas as pd

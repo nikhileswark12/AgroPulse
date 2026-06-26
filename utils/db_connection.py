@@ -21,7 +21,7 @@ class Database:
         """Establish connection to MongoDB"""
         try:
             if self._client is None:
-                self._client = MongoClient(Config.MONGODB_URI)
+                self._client = MongoClient(Config.MONGO_URI)
                 self._db = self._client[Config.DATABASE_NAME]
                 
                 # Test connection

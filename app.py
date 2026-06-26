@@ -1,120 +1,149 @@
-from flask import Flask, render_template
-from pymongo import MongoClient
 import os
+from flask import Flask, render_template, jsonify, request
+from pymongo import MongoClient
+from pymongo.errors import ConnectionFailure
 from dotenv import load_dotenv
+from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
-# ============================================================
-# LOAD ENVIRONMENT VARIABLES
-# ============================================================
-
-load_dotenv()
-
-# ============================================================
-# INITIALIZE FLASK APP
-# ============================================================
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv(
-    'SECRET_KEY',
-    'your-secret-key-change-in-production'
+# Initialize limiter globally so it can be imported in routes
+limiter = Limiter(
+    key_func=get_remote_address,
+    default_limits=['200 per hour']
 )
 
-# ============================================================
-# INITIALIZE MONGODB
-# ============================================================
+def create_app(config_name=None):
+    if config_name is None:
+        config_name = os.environ.get('FLASK_ENV', 'development')
 
-mongo_uri = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')
-mongo_client = MongoClient(mongo_uri)
-db = mongo_client['agropulse']
+    load_dotenv()
 
-# 🔥 Store DB in app config (avoids circular imports)
-app.config['MONGO_DB'] = db
+    app = Flask(__name__)
+    
+    # Load config based on config_name
+    config_module = f"config.{config_name.capitalize()}Config"
+    try:
+        app.config.from_object(config_module)
+    except Exception:
+        app.config.from_object('config.Config')
 
-# ============================================================
-# REGISTER BLUEPRINTS (AFTER DB INIT)
-# ============================================================
+    # Initialize PyMongo
+    mongo_uri = app.config.get('MONGO_URI', os.environ.get('MONGO_URI', 'mongodb://localhost:27017/'))
+    mongo_client = MongoClient(mongo_uri)
+    db = mongo_client[app.config.get('DATABASE_NAME', 'agropulse')]
+    app.config['MONGO_DB'] = db
 
-from routes.prediction_routes import prediction_bp
-from routes.auth_routes import auth_bp
+    # Flask-CORS
+    cors_origins = app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',')
+    CORS(app, origins=cors_origins, supports_credentials=True)
 
-app.register_blueprint(prediction_bp, url_prefix='/api')
-app.register_blueprint(auth_bp, url_prefix='/api')
+    # Flask-Limiter
+    app.config['RATELIMIT_STORAGE_URI'] = app.config.get('REDIS_URL', 'memory://')
+    limiter.init_app(app)
+    
+    # Flask-Mail
+    from flask_mail import Mail
+    mail = Mail(app)
+    app.config['MAIL'] = mail
 
+    # Session security flags
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+    app.config['SESSION_COOKIE_SECURE'] = app.config.get('FLASK_ENV') == 'production'
 
-from routes.mandi_routes import mandi_bp
-app.register_blueprint(mandi_bp, url_prefix="/api")
+    # Register blueprints
+    from routes.auth_routes import auth_bp
+    from routes.prediction_routes import prediction_bp
+    from routes.mandi_routes import mandi_bp
+    from routes.price_routes import price_bp
+    from routes.market_routes import market_bp
 
+    app.register_blueprint(auth_bp, url_prefix='/api')
+    app.register_blueprint(prediction_bp, url_prefix='/api')
+    app.register_blueprint(mandi_bp, url_prefix='/api')
+    app.register_blueprint(price_bp, url_prefix='/api')
+    app.register_blueprint(market_bp, url_prefix='/api')
 
-# ============================================================
-# PAGE ROUTES
-# ============================================================
+    # Global error handlers
+    def render_error(error, code):
+        if request.path.startswith('/api'):
+            return jsonify({"error": str(error)}), code
+        try:
+            return render_template(f'{code}.html', error=error), code
+        except Exception:
+            return f"<h1>{code} - {error.name if hasattr(error, 'name') else 'Error'}</h1>", code
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    @app.errorhandler(400)
+    def bad_request(error):
+        return render_error(error, 400)
 
+    @app.errorhandler(401)
+    def unauthorized(error):
+        return render_error(error, 401)
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+    @app.errorhandler(404)
+    def not_found(error):
+        return render_error(error, 404)
 
+    @app.errorhandler(429)
+    def too_many_requests(error):
+        return render_error(error, 429)
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
+    @app.errorhandler(500)
+    def internal_error(error):
+        return render_error(error, 500)
 
+    # Health check route
+    @app.route('/health')
+    @limiter.exempt
+    def health_check():
+        model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
+        db_connected = False
+        try:
+            mongo_client.admin.command('ping')
+            db_connected = True
+        except ConnectionFailure:
+            pass
+            
+        return jsonify({
+            "status": "ok",
+            "model_loaded": model_loaded,
+            "db_connected": db_connected
+        })
 
-@app.route('/prediction')
-def prediction():
-    return render_template('prediction.html')
+    # Page Routes
+    @app.route('/')
+    def index():
+        return render_template('index.html')
 
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
 
-@app.route('/history')
-def history():
-    return render_template('history.html')
+    @app.route('/dashboard')
+    def dashboard():
+        return render_template('dashboard.html')
 
+    @app.route('/prediction')
+    def prediction():
+        return render_template('prediction.html')
 
-@app.route('/comparison')
-def comparison():
-    return render_template('comparison.html')
+    @app.route('/history')
+    def history():
+        return render_template('history.html')
 
+    @app.route('/comparison')
+    def comparison():
+        return render_template('comparison.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
 
+    return app
 
-# ============================================================
-# ERROR HANDLERS
-# ============================================================
-
-@app.errorhandler(404)
-def not_found(error):
-    return "<h1>404 - Page Not Found</h1>", 404
-
-
-@app.errorhandler(500)
-def internal_error(error):
-    return "<h1>500 - Internal Server Error</h1>", 500
-
-
-# ============================================================
-# RUN SERVER
-# ============================================================
 
 if __name__ == '__main__':
-    print("=" * 60)
-    print("🌾 AgroPulse Server Starting...")
-    print("=" * 60)
-    print("📊 MongoDB: Connected")
-    print("🚀 Server: http://localhost:5000")
-    print("📍 Prediction API: http://localhost:5000/api/predict")
-    print("📜 History API: http://localhost:5000/api/predict/history")
-    print("=" * 60)
-
-    app.run(
-        host='0.0.0.0',
-        port=5000,
-        debug=True,
-        use_reloader=False
-    )
+    app = create_app()
+    app.run(debug=os.environ.get('FLASK_ENV') == 'development')
