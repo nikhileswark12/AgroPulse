@@ -12,7 +12,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
@@ -203,7 +203,7 @@ footer{
   color:#94a3b8;
   text-align:center;
   padding:20px;
-  margin-top:60px;
+  margin-top:auto;
 }
 
 /* Chart Info Text */
@@ -233,94 +233,97 @@ footer{
   <div class="logo" onclick="navigate('/')">AgroPulse</div>
   <div class="nav-links">
     <span onclick="navigate('/')">Home</span>
-    <span onclick="navigate('/dashboard')">Dashboard</span>
     <span onclick="navigate('/comparison')">Compare</span>
     <span class="active">Prediction</span>
     <span onclick="navigate('/about')">About</span>
+    <span onclick="navigate('/dashboard')">Dashboard</span>
+    <span class="login-btn" onclick="navigate('/login')">Login</span>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <h1>Price Prediction & Market Intelligence</h1>
-  <p>AI-powered 7-day crop price forecasting with confidence intervals</p>
-</section>
+<div class="flex-grow-1">
+  <section class="hero">
+    <h1>Price Prediction & Market Intelligence</h1>
+    <p>AI-powered 7-day crop price forecasting with confidence intervals</p>
+  </section>
 
-<!-- CONTENT -->
-<div class="container mb-5">
+  <!-- CONTENT -->
+  <div class="container mb-5">
 
-  <!-- Search Box with Cascading Dropdowns -->
-  <div class="search-box mb-4">
-    <div class="row g-3">
-      <!-- State Selector -->
-      <div class="col-md-3">
-        <label class="form-label small text-muted">
-          <i class="fas fa-map-marked-alt"></i> State
-        </label>
-        <select class="form-select" id="stateSelect" onchange="filterDistricts()">
-          <option value="" disabled selected>Select State</option>
-          <option value="loading" disabled>Loading states...</option>
-        </select>
-      </div>
+    <!-- Search Box with Cascading Dropdowns -->
+    <div class="search-box mb-4">
+      <div class="row g-3">
+        <!-- State Selector -->
+        <div class="col-md-3">
+          <label class="form-label small text-muted">
+            <i class="fas fa-map-marked-alt"></i> State
+          </label>
+          <select class="form-select" id="stateSelect" onchange="filterDistricts()">
+            <option value="" disabled selected>Select State</option>
+            <option value="loading" disabled>Loading states...</option>
+          </select>
+        </div>
 
-      <!-- District Selector (Filtered by State) -->
-      <div class="col-md-3">
-        <label class="form-label small text-muted">
-          <i class="fas fa-map-marker-alt"></i> District
-        </label>
-        <select class="form-select" id="locationSelect">
-          <option value="" disabled selected>First select a state</option>
-        </select>
-      </div>
+        <!-- District Selector (Filtered by State) -->
+        <div class="col-md-3">
+          <label class="form-label small text-muted">
+            <i class="fas fa-map-marker-alt"></i> District
+          </label>
+          <select class="form-select" id="locationSelect">
+            <option value="" disabled selected>First select a state</option>
+          </select>
+        </div>
 
-      <!-- Crop Selector -->
-      <div class="col-md-4">
-        <label class="form-label small text-muted">
-          <i class="fas fa-seedling"></i> Crop
-        </label>
-        <select class="form-select" id="cropSelect">
-          <option value="" disabled selected>Select Crop</option>
-          <option value="loading" disabled>Loading crops...</option>
-        </select>
-      </div>
+        <!-- Crop Selector -->
+        <div class="col-md-4">
+          <label class="form-label small text-muted">
+            <i class="fas fa-seedling"></i> Crop
+          </label>
+          <select class="form-select" id="cropSelect">
+            <option value="" disabled selected>Select Crop</option>
+            <option value="loading" disabled>Loading crops...</option>
+          </select>
+        </div>
 
-      <!-- Analyze Button -->
-      <div class="col-md-2 d-flex align-items-end">
-        <button class="btn btn-success w-100" onclick="predictPrice()">
-          <i class="fas fa-chart-line"></i> Analyze
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Recommendation Card -->
-  <div class="recommend-card mb-4" id="recommendCard" style="display:none;">
-    <div class="d-flex justify-content-between align-items-start">
-      <div>
-        <h4 id="recommendText">Select crop & location</h4>
-        <p class="mb-2">Expected Gain: <strong id="gainText" class="gain">-</strong></p>
-        <p class="mb-0">Best Market: <strong id="marketText">-</strong></p>
-      </div>
-      <div class="text-end">
-        <div id="trendBadge"></div>
-        <div id="confidenceBadge" class="mt-2"></div>
+        <!-- Analyze Button -->
+        <div class="col-md-2 d-flex align-items-end">
+          <button class="btn btn-success w-100" onclick="predictPrice()">
+            <i class="fas fa-chart-line"></i> Analyze
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Chart -->
-  <div class="data-card" id="chartCard" style="display:none;">
-    <h5 class="fw-bold mb-3">
-      <i class="fas fa-chart-area text-success"></i> 
-      7-Day Price Prediction with Confidence Intervals
-    </h5>
-    <canvas id="priceChart" height="120" aria-label="7-day price forecast chart"></canvas>
-    <div class="chart-info">
-      <i class="fas fa-info-circle"></i> 
-      Shaded area represents confidence interval (±₹60-120 variation)
+    <!-- Recommendation Card -->
+    <div class="recommend-card mb-4" id="recommendCard" style="display:none;">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <h4 id="recommendText">Select crop & location</h4>
+          <p class="mb-2">Expected Gain: <strong id="gainText" class="gain">-</strong></p>
+          <p class="mb-0">Best Market: <strong id="marketText">-</strong></p>
+        </div>
+        <div class="text-end">
+          <div id="trendBadge"></div>
+          <div id="confidenceBadge" class="mt-2"></div>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <!-- Chart -->
+    <div class="data-card" id="chartCard" style="display:none;">
+      <h5 class="fw-bold mb-3">
+        <i class="fas fa-chart-area text-success"></i> 
+        7-Day Price Prediction with Confidence Intervals
+      </h5>
+      <canvas id="priceChart" height="120" aria-label="7-day price forecast chart"></canvas>
+      <div class="chart-info">
+        <i class="fas fa-info-circle"></i> 
+        Shaded area represents confidence interval (±₹60-120 variation)
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
@@ -328,7 +331,6 @@ footer{
 </footer>
 <script src="/static/js/utils.js"></script>
 <script src="/static/js/site.js"></script>
-<script src="/static/js/prediction_metadata.js"></script>
 <script>
 let priceChart;
 const chartCanvas = document.getElementById("priceChart");
@@ -364,9 +366,8 @@ async function loadAllData() {
         populateCrops();
       }
       
-      // Load states
+      // Load states (Keep all 28 states from fallback)
       if (data.supported_states) {
-        allStates = data.supported_states;
         populateStates();
       }
       
@@ -377,7 +378,7 @@ async function loadAllData() {
       
       // 🔥 Get state-district mapping directly from response
       if (data.state_district_mapping) {
-        stateDistrictMapping = data.state_district_mapping;
+        stateDistrictMapping = { ...stateDistrictMapping, ...data.state_district_mapping };
         console.log('✅ State-District mapping loaded:', Object.keys(stateDistrictMapping).length, 'states');
       } else {
         console.warn('⚠️ No mapping in response, using fallback');
@@ -470,8 +471,11 @@ function filterDistricts() {
 function loadFallbackData() {
   // States
   allStates = [
-    "Andhra Pradesh", "Gujarat", "Karnataka", "Madhya Pradesh", "Maharashtra",
-    "Punjab", "Rajasthan", "Telangana", "Uttar Pradesh", "West Bengal"
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+    "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
   ];
   
   // Crops
@@ -482,16 +486,34 @@ function loadFallbackData() {
   
   // Districts (fallback - show some for each state)
   stateDistrictMapping = {
-    "Madhya Pradesh": ["Indore", "Bhopal", "Ujjain", "Gwalior", "Jabalpur"],
-    "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Chittorgarh"],
-    "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Meerut"],
-    "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
-    "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik"],
-    "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore"],
-    "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
-    "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
-    "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi"],
-    "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol"]
+    "Andhra Pradesh": ["Guntur", "Krishna", "Kurnool", "Nellore", "East Godavari", "West Godavari", "Visakhapatnam", "Chittoor", "Kadapa", "Srikakulam"],
+    "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro", "Pasighat"],
+    "Assam": ["Guwahati", "Dibrugarh", "Jorhat", "Silchar", "Tezpur", "Nagaon"],
+    "Bihar": ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga", "Purnia", "Arrah", "Begusarai"],
+    "Chhattisgarh": ["Raipur", "Bilaspur", "Durg", "Korba", "Rajnandgaon", "Jagdalpur"],
+    "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa"],
+    "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar", "Anand", "Mehsana"],
+    "Haryana": ["Gurugram", "Faridabad", "Hisar", "Rohtak", "Karnal", "Ambala", "Panipat", "Sonipat", "Sirsa"],
+    "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan", "Kullu", "Hamirpur"],
+    "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh", "Deoghar"],
+    "Karnataka": ["Bengaluru", "Mysuru", "Hubli", "Mangaluru", "Belagavi", "Davanagere", "Ballari", "Tumakuru", "Kalaburagi"],
+    "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Palakkad", "Alappuzha", "Kannur"],
+    "Madhya Pradesh": ["Indore", "Bhopal", "Ujjain", "Gwalior", "Jabalpur", "Sagar", "Rewa", "Satna", "Chhindwara"],
+    "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Kolhapur", "Amravati", "Latur"],
+    "Manipur": ["Imphal", "Thoubal", "Bishnupur", "Churachandpur"],
+    "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh"],
+    "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Serchhip"],
+    "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang"],
+    "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Puri", "Sambalpur", "Berhampur", "Balasore", "Baripada"],
+    "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Gurdaspur", "Firozpur"],
+    "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer", "Chittorgarh", "Alwar", "Bikaner", "Bharatpur"],
+    "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan"],
+    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Salem", "Tiruchirappalli", "Tirunelveli", "Vellore", "Erode", "Thanjavur"],
+    "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Mahbubnagar", "Nalgonda"],
+    "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar"],
+    "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Meerut", "Allahabad", "Ghaziabad", "Bareilly", "Aligarh", "Moradabad"],
+    "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Nainital", "Rishikesh"],
+    "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri", "Bardhaman", "Malda", "Murshidabad"]
   };
   
   populateStates();
@@ -726,6 +748,6 @@ async function predictPrice(){
 }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

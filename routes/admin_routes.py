@@ -9,6 +9,17 @@ logger = logging.getLogger('startup')
 @admin_bp.route("/admin/reload-mandi-data", methods=["POST"])
 @csrf.exempt
 def reload_mandi_data():
+    from flask import request
+    
+    admin_key = current_app.config.get('ADMIN_KEY', '')
+    req_key = request.headers.get('X-Admin-Key')
+    
+    if not admin_key or req_key != admin_key:
+        return jsonify({
+            "error": "Forbidden", 
+            "message": "Invalid or missing admin key"
+        }), 403
+        
     try:
         df = pd.read_csv('ml/data/mandi_prices.csv')
         df.columns = [c.lower().strip() for c in df.columns]

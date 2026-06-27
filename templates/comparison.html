@@ -166,10 +166,11 @@
   <div class="logo" onclick="navigate('/')">AgroPulse</div>
   <div class="nav-links">
     <span onclick="navigate('/')">Home</span>
-    <span onclick="navigate('/dashboard')">Dashboard</span>
     <span class="active">Compare</span>
     <span onclick="navigate('/prediction')">Prediction</span>
     <span onclick="navigate('/about')">About</span>
+    <span onclick="navigate('/dashboard')">Dashboard</span>
+    <span class="login-btn" onclick="navigate('/login')">Login</span>
   </div>
 </nav>
 
@@ -177,6 +178,7 @@
   <label><strong>Select Crop:</strong></label>
   <select id="compareCrop"></select>
   <button class="primary-btn" onclick="updateCrop()">Show Prices</button>
+  <button class="secondary-btn" id="useLocationBtn" onclick="initGeolocation()">Use My Location</button>
   <div id="locationNote" style="margin-top: 10px; font-size: 0.9rem; color: #64748b;">📍 Enable location for distance calculation</div>
 </div>
 
@@ -240,8 +242,8 @@
 </footer>
 
 <!-- SCRIPTS -->
+<script src="/static/js/utils.js"></script>
 <script src="/static/js/site.js"></script>
-<script src="/static/js/prediction_metadata.js"></script>
 <script>
 
 const crops = [
@@ -280,15 +282,35 @@ function initGeolocation() {
   }
 }
 
-function loadCrops(){
+async function loadCrops(){
   const select = document.getElementById("compareCrop");
   select.innerHTML = `<option disabled selected>Select Crop</option>`;
-  crops.forEach(crop=>{
-    const opt = document.createElement("option");
-    opt.value = crop;
-    opt.textContent = crop;
-    select.appendChild(opt);
-  });
+  try {
+    const data = await window.fetchJSON('/api/v1/predict/metadata', { noRedirectOn401: true });
+    if (data && data.success && data.supported_crops) {
+      data.supported_crops.forEach(crop => {
+        const opt = document.createElement("option");
+        opt.value = crop;
+        opt.textContent = crop;
+        select.appendChild(opt);
+      });
+    } else {
+      crops.forEach(crop => {
+        const opt = document.createElement("option");
+        opt.value = crop;
+        opt.textContent = crop;
+        select.appendChild(opt);
+      });
+    }
+  } catch (err) {
+    console.error("Failed to load crops:", err);
+    crops.forEach(crop => {
+      const opt = document.createElement("option");
+      opt.value = crop;
+      opt.textContent = crop;
+      select.appendChild(opt);
+    });
+  }
 }
 
 async function updateCrop(){
@@ -386,11 +408,10 @@ function highlightBest(){
   }
 }
 
-window.onload = function(){
+document.addEventListener("DOMContentLoaded", () => {
   loadCrops();
-  initGeolocation();
   document.querySelector("#priceTable tbody").innerHTML = `<tr><td colspan="6">Select a crop to compare prices</td></tr>`;
-};
+});
 </script>
 
 </body>

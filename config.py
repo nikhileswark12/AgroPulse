@@ -10,6 +10,7 @@ class BaseConfig:
     
     # Flask Configuration
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-change-in-production')
+    ADMIN_KEY = os.environ.get('ADMIN_KEY', '')
     WTF_CSRF_ENABLED = True
     WTF_CSRF_TIME_LIMIT = 3600
     

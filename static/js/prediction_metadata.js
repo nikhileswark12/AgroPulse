@@ -6,18 +6,10 @@ async function loadPredictionMetadata() {
 
     window.PREDICTION_META = data;
 
-    // Index
-    populateIfExists("indexCrop", data.supported_crops);
-    populateIfExists("indexLocation", data.supported_districts);
-
-    // Prediction
-    populateIfExists("cropSelect", data.supported_crops);
-    populateIfExists("stateSelect", data.supported_states);
-    populateIfExists("districtSelect", data.supported_districts);
-
-    // Comparison
-    populateIfExists("compareCrop", data.supported_crops);
-    populateIfExists("compareLocation", data.supported_districts);
+    // Prediction - Keep the metadata in window.PREDICTION_META but DO NOT blindly 
+    // populate select elements here since index.html, prediction.html and comparison.html
+    // have their own dynamic cascading dropdown logic.
+    // We only populate if the specific elements are completely empty or unmanaged.
 
   } catch (err) {
     console.error("Failed to load prediction metadata", err);
