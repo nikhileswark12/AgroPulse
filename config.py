@@ -10,6 +10,8 @@ class BaseConfig:
     
     # Flask Configuration
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-change-in-production')
+    WTF_CSRF_ENABLED = True
+    WTF_CSRF_TIME_LIMIT = 3600
     
     # MongoDB Configuration
     MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/')

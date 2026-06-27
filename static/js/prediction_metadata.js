@@ -1,6 +1,6 @@
 async function loadPredictionMetadata() {
   try {
-    const data = await window.fetchJSON('/api/predict/metadata', { noRedirectOn401: true });
+    const data = await window.fetchJSON('/api/v1/predict/metadata', { noRedirectOn401: true });
 
     if (!data.success) return;
 

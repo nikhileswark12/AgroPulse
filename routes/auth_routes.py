@@ -5,13 +5,11 @@ from flask import Blueprint, request, jsonify, session, current_app, redirect
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 from flask_mail import Message
 from utils.logger import get_logger
-from app import limiter
+from app import limiter, csrf
+from utils.db_connection import get_db
 
 auth_bp = Blueprint('auth', __name__)
 logger = get_logger('auth')
-
-def get_db():
-    return current_app.config['MONGO_DB']
 
 def send_verification_email(email, token):
     try:
@@ -38,6 +36,7 @@ def send_verification_email(email, token):
 
 # ===================== LOGIN =====================
 @auth_bp.route('/auth/login', methods=['POST'])
+@csrf.exempt
 @limiter.limit('10 per hour')
 def login():
     try:
@@ -92,6 +91,7 @@ def login():
 
 # ===================== REGISTER =====================
 @auth_bp.route('/auth/register', methods=['POST'])
+@csrf.exempt
 @limiter.limit('5 per hour')
 def register():
     try:
@@ -164,6 +164,7 @@ def verify_email(token):
 
 # ===================== RESEND VERIFICATION =====================
 @auth_bp.route('/auth/resend-verification', methods=['POST'])
+@csrf.exempt
 @limiter.limit('3 per hour')
 def resend_verification():
     try:
@@ -190,6 +191,7 @@ def resend_verification():
 
 # ===================== LOGOUT =====================
 @auth_bp.route('/auth/logout', methods=['POST'])
+@csrf.exempt
 def logout():
     email = session.get('email', 'unknown')
     session.clear()
@@ -199,6 +201,7 @@ def logout():
 
 # ===================== FORGOT PASSWORD =====================
 @auth_bp.route('/auth/forgot-password', methods=['POST'])
+@csrf.exempt
 @limiter.limit('3 per hour')
 def forgot_password():
     try:
@@ -246,6 +249,7 @@ def forgot_password():
 
 # ===================== RESET PASSWORD =====================
 @auth_bp.route('/auth/reset-password', methods=['POST'])
+@csrf.exempt
 def reset_password():
     try:
         data = request.get_json()

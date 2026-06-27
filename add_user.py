@@ -1,9 +1,8 @@
 from werkzeug.security import generate_password_hash
-from pymongo import MongoClient
+from utils.db_connection import get_db
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
-db = client['agropulse']
+db = get_db()
 users_collection = db['users']
 
 # Create test user

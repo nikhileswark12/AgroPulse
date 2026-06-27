@@ -1,15 +1,14 @@
 import requests
 import re
 import time
-from pymongo import MongoClient
+from utils.db_connection import get_db
 
 BASE_URL = "http://localhost:5000/api"
 EMAIL = "test@example.com"
 
 def run_test():
     # Setup test user using pymongo
-    client = MongoClient("mongodb://localhost:27017/")
-    db = client.agropulse
+    db = get_db()
     user = db.users.find_one({"email": EMAIL})
     if not user:
         print("User not found, registering...")

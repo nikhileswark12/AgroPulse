@@ -165,6 +165,7 @@ def main():
     merged_df.to_csv(CSV_PATH, index=False)
     logger.info("mandi_prices.csv updated successfully")
     print("Run 'make retrain' to retrain the model on the updated data")
+    print("To reflect these changes in the running app immediately, make a POST request to /api/v1/admin/reload-mandi-data")
 
 if __name__ == '__main__':
     main()

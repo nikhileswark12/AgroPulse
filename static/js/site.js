@@ -29,7 +29,7 @@
 
   window.checkAuth = async function(){
     try {
-      const data = await window.fetchJSON('/api/auth/check');
+      const data = await window.fetchJSON('/api/v1/auth/check');
       return data.authenticated === true;
     } catch(e) {
       return false;

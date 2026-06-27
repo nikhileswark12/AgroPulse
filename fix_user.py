@@ -1,7 +1,7 @@
 import bcrypt
-from pymongo import MongoClient
+from utils.db_connection import get_db
 
-db = MongoClient('mongodb://localhost:27017/').agropulse
+db = get_db()
 hashed = bcrypt.hashpw(b'newpassword123', bcrypt.gensalt())
 db.users.update_one({'email': 'test@example.com'}, {'$set': {'password': hashed, 'verified': True}})
 print('Updated password to valid bcrypt hash')

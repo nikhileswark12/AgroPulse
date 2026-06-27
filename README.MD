@@ -1,5 +1,7 @@
 # AgroPulse
 
+![CI](https://github.com/nikhileswark12/AgroPulse/actions/workflows/ci.yml/badge.svg)
+
 AgroPulse is an open-source Flask application that provides market insights, price forecasting, and recommendation utilities for Indian agricultural commodity markets (mandis). The app combines historical mandi price data, lightweight ML models, and an interactive dashboard to help farmers, traders, and analysts explore price trends and generate short-term forecasts.
 
 Key goals:
@@ -98,15 +100,17 @@ python ml/predict.py --model models/latest_model.pkl --input '{"district":"xyz",
 
 API reference (selected endpoints)
 ---------------------------------
+> **Note**: For backward compatibility, legacy `/api/*` endpoints remain supported and will return a `308 Permanent Redirect` to their corresponding `/api/v1/*` endpoints.
+
 - `GET /` — Home page (dashboard)
 - `GET /prediction` — Prediction UI page
-- `POST /api/predict` — Run a prediction (JSON body, returns forecast)
-- `GET /api/predict/history` — Retrieve stored prediction history
+- `POST /api/v1/predict` — Run a prediction (JSON body, returns forecast)
+- `GET /api/v1/predict/history` — Retrieve stored prediction history
 
 Example: POST a prediction request (JSON)
 
 ```http
-POST /api/predict HTTP/1.1
+POST /api/v1/predict HTTP/1.1
 Content-Type: application/json
 
 {

@@ -3,6 +3,7 @@ from datetime import datetime
 from utils.logger import get_logger
 from app import limiter
 from config import Config
+from app import csrf
 
 prediction_bp = Blueprint("prediction", __name__)
 logger = get_logger("prediction")
@@ -11,14 +12,12 @@ logger = get_logger("prediction")
 try:
     import ml.predict as ml_predict
     ML_AVAILABLE = True
-    logger.info("✅ ML model available")
+    logger.info("ML model available")
 except Exception as e:
     ML_AVAILABLE = False
-    logger.error(f"❌ ML model import failed: {e}")
+    logger.error(f"ML model import failed: {e}")
 
-# DB ACCESS
-def get_db():
-    return current_app.config["MONGO_DB"]
+from utils.db_connection import get_db
 
 # FALLBACK PREDICTION
 def fallback_prediction(crop, location, state="Madhya Pradesh"):
@@ -50,6 +49,7 @@ def fallback_prediction(crop, location, state="Madhya Pradesh"):
 
 # MAIN PREDICTION API
 @prediction_bp.route("/predict", methods=["POST"])
+@csrf.exempt
 @limiter.limit('30 per hour')
 def predict():
     try:
@@ -123,24 +123,37 @@ def prediction_history():
     if "user_id" not in session:
         return jsonify({"success": False, "message": "Unauthorized"}), 401
 
+    from utils.helpers import get_page, paginated_response
     db = get_db()
-    limit = request.args.get("limit", 10, type=int)
+    
+    page_info = get_page(request.args)
+    
+    filter_query = {"user_id": session["user_id"]}
+    total = db[Config.PREDICTION_HISTORY_COLLECTION].count_documents(filter_query)
+    
+    projection = {
+        '_id': 1, 'crop': 1, 'state': 1, 'district': 1,
+        'predicted_prices': 1, 'recommendation': 1,
+        'confidence': 1, 'trend': 1, 'created_at': 1
+    }
 
     history = list(
         db[Config.PREDICTION_HISTORY_COLLECTION]
-        .find({"user_id": session["user_id"]})
+        .find(filter_query, projection)
         .sort("created_at", -1)
-        .limit(limit)
+        .skip(page_info['skip'])
+        .limit(page_info['limit'])
     )
 
     for h in history:
         h["_id"] = str(h["_id"])
         h["created_at"] = h["created_at"].isoformat()
 
-    return jsonify({"success": True, "count": len(history), "history": history}), 200
+    return jsonify(paginated_response(history, total, page_info['page'], page_info['per_page'])), 200
 
 # DELETE HISTORY
 @prediction_bp.route("/predict/history/<history_id>", methods=["DELETE"])
+@csrf.exempt
 def delete_prediction(history_id):
     if "user_id" not in session:
         return jsonify({"success": False, "message": "Unauthorized"}), 401
@@ -174,13 +187,13 @@ def model_info():
             df = pd.read_csv(csv_path)
             df.columns = df.columns.str.strip()
             
-            all_states = sorted(df['State'].unique().tolist())
-            all_districts = sorted(df['District'].unique().tolist())
-            all_crops = sorted(df['Crops'].unique().tolist())
+            all_states = sorted(df['state'].unique().tolist())
+            all_districts = sorted(df['district'].unique().tolist())
+            all_crops = sorted(df['crop'].unique().tolist())
             
             state_district_mapping = {}
             for state in all_states:
-                districts = df[df['State'] == state]['District'].unique().tolist()
+                districts = df[df['state'] == state]['district'].unique().tolist()
                 state_district_mapping[state] = sorted(districts)
             
             logger.info(f"✅ Loaded {len(all_states)} states, {len(all_districts)} districts, {len(all_crops)} crops")

@@ -5,6 +5,7 @@ from services.recommendation_service import RecommendationService
 from utils.validators import validate_price_request
 from utils.helpers import format_response
 import logging
+from app import csrf
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +16,7 @@ prediction_service = PredictionService()
 recommendation_service = RecommendationService()
 
 @price_bp.route('/prices', methods=['POST'])
+@csrf.exempt
 def get_prices():
     """Get current prices, prediction, and recommendation"""
     try:
@@ -85,10 +87,36 @@ def get_current_prices_only():
                 False,
                 errors=["Crop and location are required"]
             )), 400
+        from utils.helpers import get_page, paginated_response
+        page_info = get_page(request.args)
         
-        prices = price_service.get_current_prices(crop, location)
+        filter_query = {'crop': {'$regex': f'^{crop}$', '$options': 'i'}}
+        if location:
+            filter_query['district'] = {'$regex': f'^{location}$', '$options': 'i'}
+            
+        total = price_service.price_model.collection.count_documents(filter_query)
         
-        return jsonify(format_response(True, data={'prices': prices}))
+        projection = {
+            'crop': 1, 'mandi_name': 1, 'district': 1, 'state': 1, 
+            'modal_price': 1, 'min_price': 1, 'max_price': 1, 'date': 1, '_id': 0
+        }
+        
+        prices_cursor = price_service.price_model.collection.find(filter_query, projection).sort('date', -1).skip(page_info['skip']).limit(page_info['limit'])
+        
+        formatted_prices = []
+        for price in prices_cursor:
+            formatted_prices.append({
+                'mandi': price.get('mandi_name', 'Unknown'),
+                'price': price.get('modal_price', 0),
+                'district': price.get('district', location),
+                'state': price.get('state', ''),
+                'date': price.get('date', ''),
+                'min_price': price.get('min_price', 0),
+                'max_price': price.get('max_price', 0),
+                'crop': price.get('crop', crop)
+            })
+        
+        return jsonify(paginated_response(formatted_prices, total, page_info['page'], page_info['per_page']))
     
     except Exception as e:
         logger.error(f"Error in get_current_prices_only: {e}")
