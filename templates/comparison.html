@@ -173,11 +173,11 @@
   </div>
 </nav>
 
-<!-- CROP SELECT -->
 <div class="container crop-section">
   <label><strong>Select Crop:</strong></label>
   <select id="compareCrop"></select>
   <button class="primary-btn" onclick="updateCrop()">Show Prices</button>
+  <div id="locationNote" style="margin-top: 10px; font-size: 0.9rem; color: #64748b;">📍 Enable location for distance calculation</div>
 </div>
 
 <!-- TABLE -->
@@ -255,6 +255,31 @@ const crops = [
   "Bengal Gram(Gram)(Whole)"
 ];
 
+window.userLat = null;
+window.userLon = null;
+
+function initGeolocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        window.userLat = pos.coords.latitude;
+        window.userLon = pos.coords.longitude;
+        document.getElementById("locationNote").innerText = "📍 Distances shown from your location";
+        // Auto-refresh data if a crop was already selected
+        const crop = document.getElementById("compareCrop").value;
+        if (crop && crop !== "Select Crop") {
+          updateCrop();
+        }
+      },
+      err => {
+        window.userLat = null;
+        window.userLon = null;
+        document.getElementById("locationNote").innerText = "📍 Enable location for distance calculation";
+      }
+    );
+  }
+}
+
 function loadCrops(){
   const select = document.getElementById("compareCrop");
   select.innerHTML = `<option disabled selected>Select Crop</option>`;
@@ -266,27 +291,68 @@ function loadCrops(){
   });
 }
 
-function updateCrop(){
+async function updateCrop(){
   const crop = document.getElementById("compareCrop").value;
   if(!crop){
     alert("Please select a crop");
     return;
   }
 
-  document.querySelectorAll("#priceTable tbody tr")
-    .forEach(row => row.cells[0].innerText = crop);
+  const params = new URLSearchParams({ crop: crop });
+  if (window.userLat && window.userLon) {
+    params.append('lat', window.userLat);
+    params.append('lon', window.userLon);
+  }
 
-  highlightBest();
+  try {
+    const data = await window.fetchJSON(`/api/v1/mandi/compare?${params.toString()}`);
+    if (data && data.success) {
+      const tbody = document.querySelector("#priceTable tbody");
+      tbody.innerHTML = "";
+      if (!data.markets || data.markets.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6">No market prices found for ${crop}</td></tr>`;
+        return;
+      }
+      data.markets.forEach(m => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${crop}</td>
+          <td>${m.market}</td>
+          <td>₹${m.price}</td>
+          <td>${m.distance}</td>
+          <td>${m.type}</td>
+          <td></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      highlightBest();
+    } else {
+      alert("Failed to load compared prices: " + (data ? data.message : "unknown error"));
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error fetching compared prices.");
+  }
 }
 
 function sortTable(col){
   const tbody = document.querySelector("#priceTable tbody");
   const rows = Array.from(tbody.rows);
+  if (rows.length === 0 || rows[0].cells.length < 6) return;
 
   rows.sort((a,b)=>{
-    const A = Number(a.cells[col].innerText.replace(/[^0-9]/g,""));
-    const B = Number(b.cells[col].innerText.replace(/[^0-9]/g,""));
-    return A - B;
+    let A_val = a.cells[col].innerText;
+    let B_val = b.cells[col].innerText;
+
+    if (col === 3) { // Distance column
+      let A_dist = A_val.includes("km") ? parseFloat(A_val.replace(" km", "")) : Infinity;
+      let B_dist = B_val.includes("km") ? parseFloat(B_val.replace(" km", "")) : Infinity;
+      return A_dist - B_dist;
+    } else {
+      const A = Number(A_val.replace(/[^0-9.-]/g,"")) || 0;
+      const B = Number(B_val.replace(/[^0-9.-]/g,"")) || 0;
+      return A - B;
+    }
   });
 
   rows.forEach(r=>tbody.appendChild(r));
@@ -295,29 +361,35 @@ function sortTable(col){
 
 function highlightBest(){
   const rows = document.querySelectorAll("#priceTable tbody tr");
+  if (rows.length === 0 || rows[0].cells.length < 6) return;
   rows.forEach(r=>{
     r.classList.remove("best-row");
-    r.cells[5].innerHTML="";
+    if (r.cells[5]) r.cells[5].innerHTML="";
   });
 
   let best = rows[0];
-  let max = Number(rows[0].cells[2].innerText.replace(/[^0-9]/g,""));
+  let max = Number(rows[0].cells[2].innerText.replace(/[^0-9]/g,"")) || 0;
 
   rows.forEach(r=>{
-    const price = Number(r.cells[2].innerText.replace(/[^0-9]/g,""));
-    if(price>max){
-      max=price;
-      best=r;
+    if (r.cells[2]) {
+      const price = Number(r.cells[2].innerText.replace(/[^0-9]/g,"")) || 0;
+      if(price>max){
+        max=price;
+        best=r;
+      }
     }
   });
 
-  best.classList.add("best-row");
-  best.cells[5].innerHTML = "<span class='badge-best'>Best</span>";
+  if (best && best.cells[5] && max > 0) {
+    best.classList.add("best-row");
+    best.cells[5].innerHTML = "<span class='badge-best'>Best</span>";
+  }
 }
 
 window.onload = function(){
   loadCrops();
-  highlightBest();
+  initGeolocation();
+  document.querySelector("#priceTable tbody").innerHTML = `<tr><td colspan="6">Select a crop to compare prices</td></tr>`;
 };
 </script>
 

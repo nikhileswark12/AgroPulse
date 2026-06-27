@@ -65,6 +65,18 @@ def create_app(config_name=None):
         app.mandi_data = None
         logger.warning(f"Failed to load mandi data: {e}")
 
+    # Load district coordinates
+    import json
+    coords_path = os.path.join(app.static_folder, 'data', 'district_coords.json')
+    try:
+        with open(coords_path, 'r') as f:
+            app.district_coords = json.load(f)
+        logger.info("Loaded district coordinates mapping")
+    except Exception as e:
+        app.district_coords = {}
+        logger.warning(f"district_coords.json not found: {e}")
+
+
     # Initialize indexes
     try:
         from scripts.create_indexes import create_indexes

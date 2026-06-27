@@ -1,16 +1,16 @@
-from flask import Blueprint, request, jsonify
-import pandas as pd
+from flask import Blueprint, request, jsonify, current_app
+from utils.helpers import calculate_distance
 import os
 
 mandi_bp = Blueprint("mandi", __name__)
 
-# Path to SAME CSV used for ML training
-CSV_PATH = os.path.join(
-    os.path.dirname(__file__),
-    "..",
-    "data",
-    "mandi_prices.csv"
-)
+def get_user_coords(req):
+    try:
+        lat = req.args.get('lat', type=float)
+        lon = req.args.get('lon', type=float)
+        return lat, lon
+    except:
+        return None, None
 
 @mandi_bp.route("/mandi/compare", methods=["GET"])
 def compare_mandi_prices():
@@ -23,12 +23,13 @@ def compare_mandi_prices():
         }), 400
 
     try:
-        # Load CSV
-        df = pd.read_csv(CSV_PATH)
-
-        # Expected columns (adjust names if needed)
-        # crop, district, modal_price, market_type
-        df.columns = [c.lower().strip() for c in df.columns]
+        df = current_app.mandi_data
+        
+        if df is None:
+            return jsonify({
+                "success": False, 
+                "error": "Market data unavailable"
+            }), 503
 
         # Filter by crop
         crop_df = df[df["crop"].str.lower() == crop.lower()]
@@ -39,14 +40,23 @@ def compare_mandi_prices():
                 "markets": []
             })
 
+        user_lat, user_lon = get_user_coords(request)
         markets = []
 
         for _, row in crop_df.iterrows():
+            dist_val = "—"
+            district = row.get("district", "").strip().title()
+            if user_lat is not None and user_lon is not None and hasattr(current_app, 'district_coords'):
+                coords = current_app.district_coords.get(district)
+                if coords and 'lat' in coords and 'lon' in coords:
+                    dist_km = calculate_distance(user_lat, user_lon, coords['lat'], coords['lon'])
+                    dist_val = f"{dist_km} km"
+
             markets.append({
                 "market": row.get("district", "Unknown"),
                 "price": int(row.get("modal_price", 0)),
                 "type": row.get("market_type", "APMC"),
-                "distance": "—"  # optional enhancement later
+                "distance": dist_val
             })
 
         return jsonify({
