@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="AgroPulse - Smart crop price intelligence and forecasts">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AgroPulse | History</title>
@@ -23,7 +24,7 @@
       <h2>Prediction History</h2>
       <p class="text-muted">Your recent prediction requests will appear here after you log in and generate predictions.</p>
       <div id="historyList">
-        <!-- client will populate via /api/predict/history -->
+        <!-- client will populate via /api/v1/predict/history -->
       </div>
     </div>
   </div>
@@ -36,8 +37,59 @@
       const isAuth = await window.checkAuth();
       if (!isAuth) {
         window.location.href = '/login?returnTo=' + encodeURIComponent(window.location.pathname);
+      } else {
+        loadHistory(1);
       }
     });
+
+    let currentPage = 1;
+    let totalPages = 1;
+
+    async function loadHistory(page) {
+      try {
+        const data = await window.fetchJSON(`/api/v1/predict/history?page=${page}&per_page=5`);
+        if (data.success) {
+          currentPage = data.page || 1;
+          totalPages = data.pages || 1;
+          renderHistory(data.data || data.history || []);
+          renderPagination();
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderHistory(items) {
+      const container = document.getElementById('historyList');
+      if (!items || items.length === 0) {
+        container.innerHTML = '<p>No history found.</p>';
+        return;
+      }
+      container.innerHTML = items.map(item => `
+        <div class="history-item" style="border: 1px solid #eee; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
+          <h4>${item.crop} in ${item.district}, ${item.state}</h4>
+          <p><strong>Predicted:</strong> ₹${item.predicted_prices ? item.predicted_prices[0] : 'N/A'}</p>
+          <p><strong>Recommendation:</strong> ${item.recommendation || 'N/A'}</p>
+          <p><strong>Date:</strong> ${new Date(item.created_at).toLocaleString()}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderPagination() {
+      let pagContainer = document.getElementById('paginationControls');
+      if (!pagContainer) {
+        pagContainer = document.createElement('div');
+        pagContainer.id = 'paginationControls';
+        pagContainer.style = 'margin-top: 20px; display: flex; justify-content: space-between; align-items: center;';
+        document.getElementById('historyList').after(pagContainer);
+      }
+
+      pagContainer.innerHTML = `
+        <button onclick="loadHistory(${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''} style="padding: 5px 10px; cursor: pointer;">Previous</button>
+        <span>Page ${currentPage} of ${totalPages}</span>
+        <button onclick="loadHistory(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''} style="padding: 5px 10px; cursor: pointer;">Next</button>
+      `;
+    }
   </script>
 </body>
 </html>

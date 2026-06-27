@@ -136,9 +136,12 @@ def create_app(config_name=None):
         )
 
     @app.after_request
-    def add_api_version_header(response):
+    def add_security_headers(response):
         if request.path.startswith('/api/v1/'):
             response.headers['API-Version'] = 'v1'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+        response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
         return response
 
     from utils.helpers import validate_origin
@@ -243,6 +246,11 @@ def create_app(config_name=None):
     @app.route('/about')
     def about():
         return render_template('about.html')
+
+    @app.route('/robots.txt')
+    def robots():
+        from flask import send_from_directory
+        return send_from_directory(app.static_folder, 'robots.txt')
 
     return app
 

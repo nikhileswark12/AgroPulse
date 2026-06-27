@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="AgroPulse - Smart crop price intelligence and forecasts">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>AgroPulse | Login</title>
 
 <style>
@@ -143,6 +145,7 @@ body{
   <div id="alertBox" class="alert"></div>
 
   <form onsubmit="loginUser(event)">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
       <label>Email</label>
       <input type="email" id="email" required>
@@ -184,9 +187,12 @@ async function loginUser(e){
   setLoading('loginBtn', true);
 
   try{
-    const res = await fetch('/api/auth/login', {
+    const res = await fetch('/api/v1/auth/login', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').content
+      },
       credentials: 'include',
       body: JSON.stringify({ email, password })
     });
