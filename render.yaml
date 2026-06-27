@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: agropulse-web
+    env: python
+    buildCommand: pip install -r requirements.txt && python ml/data_pipeline.py && python ml/train_model.py && python scripts/create_indexes.py
+    startCommand: gunicorn --workers 3 --bind 0.0.0.0:$PORT --timeout 120 "app:create_app()"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: DATABASE_NAME
+        value: agropulse
+      - key: CORS_ORIGINS
+        sync: false
+      - key: BASE_URL
+        sync: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: MAIL_SERVER
+        sync: false
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_DEFAULT_SENDER
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ADMIN_KEY
+        generateValue: true
