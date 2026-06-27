@@ -1,1027 +1,1036 @@
 # AgroPulse - Complete Project Documentation
 
-Generated from source inspection of the repository.
+This documentation provides an exhaustive, source-mapped blueprint of the AgroPulse repository. All details are extracted directly from the code files and scripts in the workspace.
+
+---
 
 ## 1. Executive Summary
 
-- Project name: AgroPulse
-- Purpose: AgroPulse is a Flask-based web application for Indian agricultural commodity market intelligence. It helps users explore mandi prices, compare market opportunities, and obtain short-term crop price predictions.
-- Main features:
-  - Landing page and dashboard experience
-  - Price comparison views
-  - AI-assisted price prediction with confidence intervals
-  - User authentication and password reset flow
-  - Prediction history for authenticated users
-  - MongoDB-backed persistence for prices, markets, users, and prediction history
-- Target users:
-  - Farmers seeking better selling decisions
-  - Traders monitoring market conditions
-  - Analysts and developers experimenting with price prediction
-- Business workflow:
-  1. User browses the landing page or logs in.
-  2. User selects a crop, district, and state.
-  3. The application retrieves market data and runs a prediction workflow.
-  4. The system returns recommendations and future price ranges.
-  5. Authenticated users can save and view prediction history.
-- Technology stack:
-  - Backend: Flask, Flask-CORS, Flask-Limiter, Flask-Mail, Python
-  - Database: MongoDB via PyMongo
-  - ML: scikit-learn, pandas, numpy, joblib
-  - Frontend: server-rendered HTML templates, vanilla JavaScript, CSS, Chart.js
-  - Deployment: Docker, Docker Compose, Gunicorn
+- **Project Name**: AgroPulse
+- **Purpose**: AgroPulse is a market intelligence and predictive analysis platform tailored for Indian agricultural commodities. It aims to eliminate information asymmetry and help farmers make informed decisions about when and where to sell their crops.
+- **Main Features**:
+  - **Landing Page**: Marketing, problem statement breakdown, and public crop lookup.
+  - **Farmer Dashboard**: Summarized cards tracking a user's primary crop, nearest mandi, best prices, and quick recommendations.
+  - **Price comparison**: A dynamic list comparing prices across multiple mandis.
+  - **AI-assisted price prediction**: A 7-day crop price forecast with upper and lower confidence intervals using a trained Random Forest regression model.
+  - **User Authentication**: Secure session-based signup, login, email verification, and password reset flows.
+  - **Prediction History**: A user-specific log of past price forecast queries.
+  - **Mandi Data Update Service**: Script-based ingestion to merge fresh commodity pricing records into the core CSV database without service disruption.
+  - **Centralized Database Connection**: Singleton client manager to prevent duplicate connection sockets.
+- **Target Users**:
+  - **Farmers**: Seeking optimization of crop sale timing and mandi selection.
+  - **FPOs (Farmer Producer Organizations)**: Aggregators comparing prices across regions.
+  - **Traders/Analysts**: Monitoring price trends and predicting commodity movements.
+- **Business Workflow**:
+  ```text
+  User -> Lands on Homepage -> Logs in / Registers (with Email Verification)
+        -> Accesses Dashboard -> Selects Crop, State, & District
+        -> System runs ML Inference (falls back to CSV stats if model is absent)
+        -> Renders 7-day Price Forecast (Chart.js) and recommendations (Sell/Wait)
+        -> Saves query to history -> User reviews history or compares other mandis
+  ```
+- **Technology Stack**:
+  - **Backend**: Flask 3.0.0, Flask-CORS 4.0.0, Flask-Limiter 3.5.0, Flask-Mail, itsdangerous, Werkzeug, bcrypt, gunicorn (documented in [requirements.txt](file:///f:/GitHub/AgroPulse/requirements.txt)).
+  - **Database**: MongoDB (via PyMongo 4.6.0) and Redis (optional, for rate-limiting storage).
+  - **Machine Learning**: scikit-learn >= 1.4.0, pandas >= 2.2.0, numpy >= 1.26.0, joblib >= 1.3.0.
+  - **Frontend**: HTML5, Vanilla JavaScript, CSS, Chart.js (v3/v4 CDN), Bootstrap (v5.3.2 CDN).
+
+---
 
 ## 2. Repository Structure
 
-### Folder tree
-
+### Complete Folder Tree
 ```text
 AgroPulse/
-├── app.py
-├── config.py
-├── requirements.txt
-├── README.MD
-├── DEPLOY.md
-├── Dockerfile
-├── docker-compose.yml
-├── Makefile
-├── .env.example
-├── add_user.py
-├── create_test_user.py
-├── fix_user.py
-├── logs/
-├── ml/
+├── app.py                    # Flask Application Factory and Page Routing
+├── config.py                 # Configuration Map and Application Constraints
+├── requirements.txt          # Python Dependency Declarations
+├── README.MD                 # High-Level Usage Overview
+├── DEPLOY.md                 # Production Setup and Configuration Manual
+├── Dockerfile                # Gunicorn-backed Container Build Steps
+├── docker-compose.yml        # Development Stack (Flask, MongoDB, Redis)
+├── Makefile                  # Automation Scripts (run, test, retrain, db)
+├── .env.example              # Template Environment Variables
+├── logs/                     # Application Logs directory
+│   └── agropulse.log         # Rotated logs (max 5MB, backupCount=3)
+├── ml/                       # Machine Learning Code, Data & Model Pickles
 │   ├── data/
-│   │   └── mandi_prices.csv
-│   ├── feature_engineering.py
-│   ├── predict.py
-│   ├── train_model.py
-│   └── ... model artifact files (if present in runtime)
-├── models/
-│   ├── market.py
-│   ├── predict.py
-│   ├── price.py
-│   └── __init__.py
-├── routes/
-│   ├── auth_routes.py
-│   ├── mandi_routes.py
-│   ├── market_routes.py
-│   ├── prediction_routes.py
-│   ├── price_routes.py
-│   └── __init__.py
-├── scripts/
-│   ├── create_indexes.py
-│   └── populate_db.py
-├── services/
-│   ├── prediction_service.py
-│   ├── price_service.py
-│   ├── recommendation_service.py
-│   └── __init__.py
-├── static/
+│   │   ├── mandi_prices.csv      # Raw CSV Dataset (Primary Source of truth)
+│   │   ├── processed_prices.csv  # Cleansed and engineered dataset
+│   │   ├── train.csv             # Train split (70%)
+│   │   ├── val.csv               # Validation split (15%)
+│   │   └── test.csv              # Test split (15%)
+│   ├── trained_model.pkl         # Trained Random Forest Regressor Pickle
+│   ├── model_metadata.pkl        # Accuracy metrics (MAE, RMSE, R2) and mappings
+│   ├── crop_encoder.pkl          # LabelEncoder for Crop column
+│   ├── state_encoder.pkl         # LabelEncoder for State column
+│   ├── district_encoder.pkl      # LabelEncoder for District column
+│   ├── feature_cols.pkl          # List of active training feature keys
+│   ├── feature_engineering.py    # Temporal, lag, roll, and cyclical engineering
+│   ├── predict.py                # Runtime Model Inference & Fallback logic
+│   └── train_model.py            # Training pipeline with evaluation & cv
+├── models/                   # Database Collection Entities (Denormalized)
+│   ├── __init__.py
+│   ├── market.py             # Markets Collection Access Methods
+│   ├── predict.py            # Predictions Cache Collection Access Methods
+│   └── price.py              # Prices Collection Access Methods
+├── routes/                   # Flask Blueprint Route Managers (API prefixes /v1)
+│   ├── __init__.py
+│   ├── auth_routes.py        # Login, Register, Verify, Reset APIs
+│   ├── mandi_routes.py       # CSV-Backed comparison API
+│   ├── market_routes.py      # MongoDB Market Queries API
+│   ├── prediction_routes.py  # Prediction inference & history CRUD APIs
+│   └── price_routes.py       # MongoDB Price statistics & current pricing APIs
+├── scripts/                  # DB Ingestion, Update & Index Scripts
+│   ├── create_indexes.py     # MongoDB unique, compound & single index creation
+│   ├── populate_db.py        # Sample data populator for local testing
+│   └── update_mandi_data.py  # Clean, validate, deduplicate, and ingest mandi CSV
+├── static/                   # Shared CSS and JavaScript Assets
 │   ├── css/
+│   │   ├── site.css          # Core Shared Layout and Element Styles
+│   │   ├── style.css         # Placeholder (Not used)
+│   │   └── responsive.css    # Placeholder (Not used)
 │   └── js/
-├── templates/
-├── tests/
-├── utils/
-│   ├── db_connection.py
-│   ├── helpers.py
-│   ├── logger.py
-│   └── validators.py
+│       ├── charts.js         # Placeholder (Not used)
+│       ├── main.js           # Placeholder (Not used)
+│       ├── site.js           # Global Nav, Alert, and Button Spin helpers
+│       ├── utils.js          # Fetch wrapper, 401 redirect, and error handles
+│       └── prediction_metadata.js # Dynamic select-dropdown populator from API
+├── templates/                # Server-rendered HTML Layout Pages
+│   ├── index.html            # Landing / Marketing Page
+│   ├── login.html            # User authentication form page
+│   ├── forgot_password.html  # Forgot password email request page
+│   ├── reset_password.html   # Password reset token completion page
+│   ├── dashboard.html        # Farmer overview dashboard page
+│   ├── prediction.html       # ML Interactive Prediction & Chart.js graph
+│   ├── comparison.html       # Mandi list and price comparison page
+│   ├── history.html          # Saved predictions listing and pager
+│   └── about.html            # Core FAQ and Contact Form page
+├── utils/                    # Application Utilities and Global Helpers
+│   ├── __init__.py
+│   ├── db_connection.py      # Singleton MongoDB connection wrapper
+│   ├── helpers.py            # Date ranges, distance, formatters, and pagination
+│   ├── logger.py             # Dual Stream/Rotating file log configuration
+│   └── validators.py         # Form request payload input validations
+└── test_reset_flow.py        # Integration test for password reset flow
 ```
 
-### Purpose of each major folder
+### Architecture Overview
 
-- [app.py](app.py): Application factory and route registration.
-- [config.py](config.py): Environment-driven configuration and supported crop/state constants.
-- [routes/](routes): Flask blueprints for auth, prediction, mandi, price, and market endpoints.
-- [services/](services): Business logic wrappers for price access, predictions, and recommendations.
-- [models/](models): Persistence abstractions for MongoDB collections.
-- [utils/](utils): Shared helpers for database access, logging, validation, and formatting.
-- [ml/](ml): Training, feature engineering, and inference logic for the prediction model.
-- [templates/](templates): Server-rendered HTML pages for the UI.
-- [static/](static): CSS and JavaScript assets shared across pages.
-- [scripts/](scripts): Database index creation and sample data population scripts.
-- [logs/](logs): Runtime log output directory.
-
-### Important files and purposes
-
-- [README.MD](README.MD): User-facing overview, quick start, and basic API reference.
-- [requirements.txt](requirements.txt): Python dependencies.
-- [DEPLOY.md](DEPLOY.md): Deployment instructions.
-- [Dockerfile](Dockerfile): Production container definition.
-- [docker-compose.yml](docker-compose.yml): Local stack for web, MongoDB, and Redis.
-- [Makefile](Makefile): Local development and Docker helpers.
-- [.env.example](.env.example): Expected environment variables.
-- [routes/auth_routes.py](routes/auth_routes.py): Registration, login, email verification, password reset, logout.
-- [routes/prediction_routes.py](routes/prediction_routes.py): Prediction requests, history, model metadata.
-- [routes/price_routes.py](routes/price_routes.py): Price retrieval endpoints with validation and formatting.
-- [routes/market_routes.py](routes/market_routes.py): Market list endpoints.
-- [routes/mandi_routes.py](routes/mandi_routes.py): CSV-backed mandi comparison endpoint.
-- [services/price_service.py](services/price_service.py): Current price retrieval and price statistics.
-- [services/prediction_service.py](services/prediction_service.py): Prediction orchestration and caching.
-- [services/recommendation_service.py](services/recommendation_service.py): Recommendation logic.
-- [models/price.py](models/price.py): Price collection access.
-- [models/market.py](models/market.py): Market collection access.
-- [models/predict.py](models/predict.py): Prediction persistence.
-- [scripts/create_indexes.py](scripts/create_indexes.py): MongoDB collection index management.
-- [scripts/populate_db.py](scripts/populate_db.py): Sample data generation for development.
-- [ml/train_model.py](ml/train_model.py): Training pipeline for the price model.
-- [ml/predict.py](ml/predict.py): Runtime inference entry point.
-- [ml/feature_engineering.py](ml/feature_engineering.py): Feature preparation for ML experiments.
-- [templates/](templates): UI templates for marketing, dashboard, prediction, comparison, auth, history, and about pages.
-- [static/js/site.js](static/js/site.js): Shared browser helpers for navigation, alerts, auth checks.
-- [static/js/utils.js](static/js/utils.js): Fetch and error handling helpers.
-- [static/js/prediction_metadata.js](static/js/prediction_metadata.js): Metadata loading for prediction UI.
-
-### Architecture overview
-
-The system follows a lightweight layered architecture:
-
+AgroPulse uses a layered architecture, splitting operations across specific boundaries:
 ```mermaid
-flowchart LR
-    A[Browser / User] --> B[Flask App]
-    B --> C[Blueprint Routes]
-    C --> D[Services]
-    D --> E[Models]
-    E --> F[MongoDB]
-    D --> G[ML Predictor]
-    G --> H[Pickle Model Artifacts]
+flowchart TD
+    Client[Browser UI] <-->|Fetch API calls| FlaskApp[Flask Application Factory app.py]
+    FlaskApp <-->|URL Mapping & Limiting| Blueprints[Routes Layer routes/*]
+    Blueprints <-->|Data Coercion & Validations| Validators[Validators Layer utils/validators.py]
+    Blueprints <-->|Business Logic & Recommendations| Services[Services Layer services/*]
+    Services <-->|Model Pickles / Inference| ML[ML Predictor ml/predict.py]
+    ML <-->|Feature Construction| FE[Feature Engineer ml/feature_engineering.py]
+    Services <-->|Query abstraction| Models[Models Layer models/*]
+    Models <-->|Singleton MongoClient| DB[Database Handler utils/db_connection.py]
+    DB <-->|Read / Write| MongoDB[(MongoDB Collections)]
 ```
 
-### Dependency map
+### Dependency Map
 
-- [app.py](app.py) creates the Flask app and wires blueprints.
-- [routes/auth_routes.py](routes/auth_routes.py) imports [utils/logger.py](utils/logger.py) and uses [app.py](app.py) limiter.
-- [routes/prediction_routes.py](routes/prediction_routes.py) calls [ml/predict.py](ml/predict.py) for predictions and stores history via [models/predict.py](models/predict.py).
-- [routes/price_routes.py](routes/price_routes.py) depends on [services/price_service.py](services/price_service.py), [services/prediction_service.py](services/prediction_service.py), [services/recommendation_service.py](services/recommendation_service.py), and [utils/validators.py](utils/validators.py).
-- [models/price.py](models/price.py), [models/market.py](models/market.py), and [models/predict.py](models/predict.py) all depend on [utils/db_connection.py](utils/db_connection.py).
-- [scripts/create_indexes.py](scripts/create_indexes.py) depends on [utils/db_connection.py](utils/db_connection.py) and [config.py](config.py).
+- [app.py](file:///f:/GitHub/AgroPulse/app.py) registers all blueprints from `routes/` under the `/api/v1` prefix and configures Flask-CORS, Flask-Limiter, Flask-Mail, logging, and global HTTP error pages.
+- [routes/auth_routes.py](file:///f:/GitHub/AgroPulse/routes/auth_routes.py) handles authentication, verifying passwords with `bcrypt` and sending timed reset tokens using `itsdangerous`. It uses the centralized connection in [utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py) to manage the `users` collection.
+- [routes/prediction_routes.py](file:///f:/GitHub/AgroPulse/routes/prediction_routes.py) imports [ml/predict.py](file:///f:/GitHub/AgroPulse/ml/predict.py) to run price prediction models, saving query records to the `prediction_history` collection.
+- [routes/price_routes.py](file:///f:/GitHub/AgroPulse/routes/price_routes.py) calls services from `services/` to fetch live prices and generate advice, utilizing validations from [utils/validators.py](file:///f:/GitHub/AgroPulse/utils/validators.py).
+- [routes/mandi_routes.py](file:///f:/GitHub/AgroPulse/routes/mandi_routes.py) reads directly from the dataset file `ml/data/mandi_prices.csv` to output compared prices.
+- [services/price_service.py](file:///f:/GitHub/AgroPulse/services/price_service.py) communicates with [models/price.py](file:///f:/GitHub/AgroPulse/models/price.py) and [models/market.py](file:///f:/GitHub/AgroPulse/models/market.py) to calculate price statistics and locate nearby mandis.
+- [services/prediction_service.py](file:///f:/GitHub/AgroPulse/services/prediction_service.py) coordinates calls to [ml/predict.py](file:///f:/GitHub/AgroPulse/ml/predict.py) and uses [models/predict.py](file:///f:/GitHub/AgroPulse/models/predict.py) to save and fetch cached predictions.
+- [services/recommendation_service.py](file:///f:/GitHub/AgroPulse/services/recommendation_service.py) accepts current pricing data and future forecasts to calculate potential profit gains and format wait/sell advice.
+- [models/market.py](file:///f:/GitHub/AgroPulse/models/market.py), [models/price.py](file:///f:/GitHub/AgroPulse/models/price.py), and [models/predict.py](file:///f:/GitHub/AgroPulse/models/predict.py) fetch their collections via `get_collection()` inside [utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py).
+- [scripts/create_indexes.py](file:///f:/GitHub/AgroPulse/scripts/create_indexes.py) imports `get_db` from [utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py) to setup unique indexes on email and descending index lookups.
+
+---
 
 ## 3. Frontend Analysis
 
-### 3.1 Frontend architecture
+### 3.1 Frontend Architecture
+- **Framework Used**: Server-rendered HTML templates utilizing Flask's Jinja2 engine. Responsive design is structured via bootstrap components (v5.3.2) in predictions and raw CSS flexbox in other templates.
+- **State Management**: Browser state is maintained through DOM values, session identifiers in cookie storage, and client-side memory bindings (e.g., `window.PREDICTION_META` in [static/js/prediction_metadata.js](file:///f:/GitHub/AgroPulse/static/js/prediction_metadata.js)).
+- **Routing Structure**: Served via Flask routes in [app.py](file:///f:/GitHub/AgroPulse/app.py). Pages handle redirection by checking authorization checks client-side using `window.checkAuth()` from [static/js/site.js](file:///f:/GitHub/AgroPulse/static/js/site.js) and [static/js/utils.js](file:///f:/GitHub/AgroPulse/static/js/utils.js).
+- **Component Hierarchy**:
+  - `Navbar`: Repeated navigation header in all pages.
+  - `Footer`: Repeated copyright signature in all pages.
+  - `Card Groups`: Metrics display boxes used on Dashboard, Prediction, and Comparison pages.
+  - `Alerts`: Container elements displaying error or success banners.
+- **Design Patterns**:
+  - Progressive enhancement of form elements.
+  - Asynchronous AJAX fetch commands through a global utility wrapper (`window.fetchJSON`).
+  - Cascading dropdown parameters where District lists load based on the chosen State.
 
-- Framework used: No SPA framework is used. The UI is server-rendered HTML with Flask templates and lightweight vanilla JavaScript.
-- State management: Minimal state is managed in the browser DOM and session cookies. There is no dedicated state store.
-- Routing structure: Server-side routes in [app.py](app.py) render pages; client-side navigation uses simple URL changes and `window.location.assign` from [static/js/site.js](static/js/site.js).
-- Component hierarchy: Pages are mostly standalone templates, with shared navbar/footer patterns and common CSS/JS helpers.
-- Reusable components:
-  - Navigation bar and footer repeated across templates
-  - Shared alert/loading helpers in [static/js/site.js](static/js/site.js)
-  - Shared CSS variables and utility classes in [static/css/site.css](static/css/site.css)
-- Design patterns:
-  - Server-rendered templates with progressive enhancement via JavaScript
-  - Inline page-specific CSS for each template, plus shared styles
-  - Fetch-based client requests for APIs
+### 3.2 Screens & Pages
 
-### 3.2 Screens and pages
-
-| Page | Route | Purpose | Main user actions | Components used | Data sources |
+| Page Name | Route | Purpose | User Actions | Components Used | Data Sources |
 |---|---|---|---|---|---|
-| Home | `/` | Marketing and introduction | Browse product overview, navigate to login/dashboard | Navbar, hero section, cards, CTA | Static content |
-| Login | `/login` | Authentication entry point | Enter credentials, submit login | Form, alerts, spinner | [routes/auth_routes.py](routes/auth_routes.py) |
-| Forgot password | `/forgot-password` | Reset initiation | Submit email | Form and alert | [routes/auth_routes.py](routes/auth_routes.py) |
-| Reset password | `/password-reset/<token>` | Password update | Enter new password | Form and alert | [routes/auth_routes.py](routes/auth_routes.py) |
-| Dashboard | `/dashboard` | Main authenticated view | Review recommendations and useful summary info | Cards and buttons | Static placeholder content currently |
-| Prediction | `/prediction` | Price forecast UI | Select state, district, crop; analyze price forecast | Cascading dropdowns, chart, recommendation card | [routes/prediction_routes.py](routes/prediction_routes.py) |
-| History | `/history` | View saved predictions | Review prior prediction requests | Card container | [routes/prediction_routes.py](routes/prediction_routes.py) |
-| Comparison | `/comparison` | Compare crop market prices | Select crop, view market table | Table and sort controls | [routes/mandi_routes.py](routes/mandi_routes.py) and static sample data |
-| About | `/about` | Product and FAQ information | Read product information and contact details | FAQ/statements/form | Static content |
+| **Landing** | `GET /` | Marketing & product entry | Lookup crop, navigate to signup or login | Navbar, hero banner, search box, CTAs | Static templates, public metadata |
+| **Login** | `GET /login` | User authentication | Submit email/password, navigate to forgot-password | Card, text inputs, error alert, submit spinner | `/api/v1/auth/login` |
+| **Forgot Password** | `GET /forgot-password` | Request password reset | Enter email, submit request | Card, input, alert, login link | `/api/v1/auth/forgot-password` |
+| **Reset Password** | `GET /password-reset/<token>` | Perform password reset | Enter and confirm new password, submit form | Card, inputs, alert, redirect timer | `/api/v1/auth/reset-password` |
+| **Dashboard** | `GET /dashboard` | Authenticated overview | Navigate to predictions or comparison screens | Cards, welcome header, action buttons | Local placeholder info, `checkAuth()` |
+| **Prediction** | `GET /prediction` | Dynamic crop forecasts | Select State, District, and Crop; click analyze | Dropdowns, Chart.js canvas, advice banner | `/api/v1/predict`, `/api/v1/predict/metadata` |
+| **Comparison** | `GET /comparison` | Mandi prices lookup | Select crop, sort by price or distance | Dropdown, HTML tables, sort buttons | `/api/v1/mandi/compare?crop=crop_name` |
+| **History** | `GET /history` | Historical logs | Paging navigation (previous/next), delete logs | Cards, list rows, pager buttons | `/api/v1/predict/history` |
+| **About** | `GET /about` | FAQ & Contact Form | Submit feedback message, expand FAQ items | Accordion, contact form inputs, submit button | Static templates |
+
+---
 
 ### 3.3 Wireframes
 
-#### Home page
-
+#### Landing/Home Page (`templates/index.html`)
 ```text
-------------------------------------------------
-Header: AgroPulse | Home | Dashboard | Compare |
-------------------------------------------------
-Hero banner with headline and CTA
-Two-column/three-card solution overview
+--------------------------------------------------------------------------------
+Navbar: AgroPulse                                    Home | Compare | Login(Btn)
+--------------------------------------------------------------------------------
+Hero:
+        🌾 AgroPulse - Fair Crop Prices for Farmers
+        Empowering farmers with AI-driven commodity price intelligence.
+
+        [ Select State (Select) ] [ Select District (Select) ] [ Analyze (Btn) ]
+--------------------------------------------------------------------------------
+Section: Problems We Solve
+  [ Card: Lack of Info ]    [ Card: Unfair Middlemen ]    [ Card: No Forecasts ]
+--------------------------------------------------------------------------------
+Footer: © 2026 AgroPulse | Smart Decisions for Farmers
+--------------------------------------------------------------------------------
+```
+
+#### Login Page (`templates/login.html`)
+```text
+--------------------------------------------------------------------------------
+                               [ Centered Card ]
+                                  AgroPulse
+                             Login to your account
+
+                             [ Alert Area (Hidden) ]
+
+                             Email
+                             [ Input: Email ]
+
+                             Password
+                             [ Input: Password ]
+
+                             [ Login (Button) ]
+
+                             Forgot Password?
+                             Don't have an account? Sign up
+                             ← Back to Home
+--------------------------------------------------------------------------------
+```
+
+#### Dashboard Page (`templates/dashboard.html`)
+```text
+--------------------------------------------------------------------------------
+Navbar: AgroPulse                            Home | Dashboard | Compare | About
+--------------------------------------------------------------------------------
+Welcome, Farmer 🌾
+Here’s today’s smart market insight for your crops
+
+[ Card: Crop ]            [ Card: Nearest Mandi ]      [ Card: Best Market Price ]
+Wheat                     Indore APMC (5 km)           ₹2250 / quintal
+
+[ Card: Compared ]        [ Card: Recommendation ]     [ Card: Price Trend ]
+4 Nearby Mandis           WAIT 3 DAYS (Gain ₹300)      Increasing (3 Days)
+
+                      [ Compare All Markets (Btn) ]  [ Predict Future Price (Btn) ]
+--------------------------------------------------------------------------------
 Footer
-------------------------------------------------
+--------------------------------------------------------------------------------
 ```
 
-#### Login page
-
+#### Prediction Page (`templates/prediction.html`)
 ```text
-------------------------------------------------
-Centered card
-Title: AgroPulse
-Subtitle: Login to your account
-Email input
-Password input
-Login button
-Forgot password / Sign up links
-------------------------------------------------
-```
+--------------------------------------------------------------------------------
+Navbar: AgroPulse                             Home | Dashboard | Compare | About
+--------------------------------------------------------------------------------
+🌾 AI Crop Price Prediction
+Get 7-day future price forecasts and smart advice.
 
-#### Dashboard page
+[ State: MP v ] [ District: Indore v ] [ Crop: Wheat v ] [ Analyze (Btn) ]
 
-```text
-------------------------------------------------
-Header
-Welcome banner
-Card grid:
-- Crop
-- Nearest Mandi
-- Best Market Price
-- Markets Compared
-- Recommendation
-- Trend
-Action buttons
+========================== Prediction Output ==========================
+[ Recommendation Card ]
+Advice: WAIT 3 DAYS
+Expected Gain: ₹120/quintal  |  Best Market: Indore APMC
+Trend: RISING                |  Confidence: HIGH
+
+[ Chart Card ]
+  Price (₹)
+   |                .---. (Upper Bound)
+   |           .---'
+   |      .---*---. (Prediction Line)
+   | .---'   /
+   |________/________ (Lower Bound)
+   +------------------------------ Days
+     Today  D1  D2  D3  D4  D5  D6  D7
+======================================================================
+--------------------------------------------------------------------------------
 Footer
-------------------------------------------------
+--------------------------------------------------------------------------------
 ```
 
-#### Prediction page
-
+#### Comparison Page (`templates/comparison.html`)
 ```text
-------------------------------------------------
-Header
-Hero title and description
-Filter card:
-- State dropdown
-- District dropdown
-- Crop dropdown
-- Analyze button
-Recommendation card
-Chart card with 7-day forecast and confidence area
+--------------------------------------------------------------------------------
+Navbar: AgroPulse                             Home | Dashboard | Compare | About
+--------------------------------------------------------------------------------
+Select Crop: [ Wheat v ]  [ Show Prices (Btn) ]
+
+-----------------------------------------------------------------------
+Crop  | Mandi Name   | Price (₹/quintal) | Distance | Type | Status
+-----------------------------------------------------------------------
+Wheat | Dewas APMC   | ₹2250             | 18 km    | APMC | Best (Badge)
+Wheat | Indore APMC  | ₹2100             | 5 km     | APMC |
+Wheat | Ujjain FPO   | ₹2050             | 32 km    | FPO  |
+Wheat | Bhopal APMC  | ₹2000             | 45 km    | APMC |
+-----------------------------------------------------------------------
+
+                       [ Sort by Price (Btn) ] [ Sort by Distance (Btn) ]
+--------------------------------------------------------------------------------
 Footer
-------------------------------------------------
+--------------------------------------------------------------------------------
 ```
 
-#### Comparison page
+---
 
-```text
-------------------------------------------------
-Header
-Crop selector
-Table with columns:
-- Crop
-- Market
-- Price
-- Distance
-- Type
-- Status
-Sort buttons
-Footer
-------------------------------------------------
-```
+### 3.4 UI/UX Analysis
+- **User Flow Diagram**:
+  ```mermaid
+  flowchart TD
+      A[Guest Access] --> B{Choose Action}
+      B -->|Public Lookup| C[Landing / About]
+      B -->|Login Required| D[Login Page]
+      D -->|Forgot Password| E[Forgot Password Page]
+      E -->|Email Link| F[Reset Password Page]
+      F --> D
+      D -->|Auth Success| G[Farmer Dashboard]
+      G -->|Check Forecast| H[Prediction UI]
+      G -->|Check Mandis| I[Comparison UI]
+      H -->|Authenticated| J[Save Query to DB]
+      J --> K[History UI]
+  ```
+- **Navigation Flow**:
+  - Global navigation toolbar exists at the header of all views, using the class `navbar`. Active pages are highlighted with the class `active`.
+  - Unauthenticated calls are intercepted by [static/js/utils.js](file:///f:/GitHub/AgroPulse/static/js/utils.js), which redirects users back to `/login?returnTo=currentPath` upon receiving a 401 code.
+- **Information Architecture**:
+  - Shallow navigation hierarchy. All key features (Dashboard, Compare, Prediction, History, About) are accessible within a single click from the navigation header.
+- **UX Strengths**:
+  - Distinct color-coded visual indicator badges (green for rising/high, amber for medium, red for falling/low) simplify raw numbers.
+  - Dropdown values populate dynamically using the dataset to prevent queries for invalid state/district configurations.
+- **UX Weaknesses**:
+  - The SignUp link on the login page triggers a browser alert box instead of rendering a registration screen.
+  - The distance value in the comparison table is hardcoded to static values.
 
-#### History page
+---
 
-```text
-------------------------------------------------
-Header
-Card with heading and empty/loaded history list
-Footer
-------------------------------------------------
-```
-
-#### About page
-
-```text
-------------------------------------------------
-Header
-Hero section
-Content sections with bullet points and FAQ
-Contact form
-Footer
-------------------------------------------------
-```
-
-### 3.4 UI/UX analysis
-
-- User flow:
-
-```mermaid
-flowchart TD
-    A[Landing page] --> B{Authenticated?}
-    B -- No --> C[Login]
-    C --> D[Dashboard / Prediction]
-    B -- Yes --> D
-    D --> E[Price Prediction]
-    D --> F[Market Comparison]
-    E --> G[Save history]
-```
-
-- Navigation flow:
-  - Top navigation links are present across templates and route to the main app areas.
-  - Auth flow redirects unauthenticated users to the login page via [static/js/utils.js](static/js/utils.js).
-- Information architecture:
-  - It uses a shallow structure with a few core pages and a small number of API endpoints.
-  - Pages are mostly task-oriented rather than deeply nested.
-- UX strengths:
-  - Clear visual hierarchy with bold green brand accents.
-  - Simple layout for non-technical users.
-  - Prediction experience is guided by dropdown selections and immediate feedback.
-- UX weaknesses:
-  - Some screens appear to be static placeholders rather than fully data-driven.
-  - There is no registration page in the UI despite backend support.
-  - The app uses several inline styles instead of a single maintainable design system.
-
-### 3.5 Design system
+### 3.5 Design System
 
 #### Colors
-
-| Role | Value | RGB | Usage |
-|---|---|---|---|
-| Primary green | #22c55e | 34,197,94 | Buttons, active links, success states |
-| Dark green | #16a34a | 22,163,74 | Hover state for primary buttons |
-| Navigation background | #0f172a | 15,23,42 | Header/nav bar |
-| Page background | #f1f5f9 | 241,245,249 | Overall page background |
-| Card background | #ffffff | 255,255,255 | Cards and panels |
-| Muted text | #64748b | 100,116,139 | Secondary text |
-| Error/red | #fee2e2 / #dc2626 | 254,226,226 / 220,38,38 | Error states |
-| Success light | #dcfce7 | 220,252,231 | Success state |
+- **Primary**: Green (`#22c55e` / `rgb(34,197,94)`) - Used for primary actions, navigation active states, success cards, and rising trends.
+- **Dark Primary**: Dark Green (`#16a34a` / `rgb(22,163,74)`) - Button hover backgrounds.
+- **Base Background**: Slate Gray (`#f1f5f9` / `rgb(241,245,249)`) - Page content panels.
+- **Neutral Dark**: Dark Blue (`#0f172a` / `rgb(15,23,42)`) - Header navigation bar background.
+- **Text Color**: Dark Charcoal (`#1f2933` / `rgb(31,41,51)`) - Body typography.
+- **Muted text**: Slate Blue (`#64748b` / `rgb(100,116,139)`) - Secondary text descriptions.
+- **Alert Success**: Light Green background (`#dcfce7`), Dark Green border (`#16a34a`).
+- **Alert Danger**: Light Red background (`#fee2e2`), Dark Red border (`#dc2626`).
 
 #### Typography
+- **Font Family**: `Arial, Helvetica, sans-serif` globally.
+- **Sizes**:
+  - Page Titles (`h1`): `2.2rem` to `3rem`
+  - Section Titles (`h2`): `2.4rem`
+  - Card Titles (`h3` / `h4`): `1.2rem` to `1.5rem`
+  - Standard Body: `1rem`
+  - Badges/Metadata: `0.85rem`
+- **Line Heights**: `1.6` globally.
+- **Font Weights**: Normal (`400`), Medium (`600`), Bold (`700`).
 
-- Font family: Arial, Helvetica, sans-serif in most templates.
-- Heading size examples:
-  - Hero heading: 2.6rem to 3rem
-  - Section titles: 2.4rem
-  - Card titles: around 1.5rem to 2rem
-- Font weights: normal, bold, 700.
-- Line heights: around 1.6.
-
-#### Spacing system
-
-- Standard padding: 8px, 12px, 15px, 20px, 25px, 30px, 40px.
-- Border radius: 6px, 8px, 10px, 14px, 16px.
-- Box shadows: used consistently for card elevation.
-- Grid: CSS grid and flexbox are used for layout, with responsive fit patterns.
+#### Spacing System
+- **Margins**: `10px`, `18px`, `20px`, `30px`, `35px`, `40px`.
+- **Paddings**: `8px`, `10px`, `12px`, `15px`, `20px`, `22px`, `25px`, `30px`, `40px`.
+- **Card Borders**: Border radius values are `6px`, `8px`, `10px`, `14px`, and `16px`.
 
 #### Components
+- **Buttons**:
+  - Class `.login-btn` / `.btn` / `.primary-btn`: Full-width or inline rounded rectangles, padded (`10px` to `14px`), background `#22c55e`, white text. Transitions to `#16a34a` on hover.
+  - Class `.secondary-btn`: Rounded borders, identical coloring.
+- **Inputs**: Rounded borders (`8px`), padded (`12px`), borders `#cbd5e1`. Outline transitions to `#22c55e` on focus.
+- **Cards**: Class `.card`: Background white, padded (`25px`), rounded corners (`16px`), drop shadow `0 10px 25px rgba(0,0,0,0.08)`.
+- **Tables**: Standard HTML layout, `#22c55e` solid green background header row, padded cells (`12px`), alternating white/slate borders.
+- **Alert Box**: Element ID `#alertBox`: Rounded border (`8px`), padded (`12px`), displays error or success based on response class list.
 
-- Buttons: green filled buttons with hover transition; used for primary actions.
-- Inputs: rounded fields with border and focus color using the green brand.
-- Cards: white background with subtle shadow and rounded corners.
-- Tables: simple bordered table with alternating hover highlight.
-- Navigation: top bar with links and active-state highlighting.
-- Alerts: success/error banners in auth pages.
+#### Responsive Design
+- Form elements scale to `width: 100%` on screens smaller than `768px`.
+- CSS Grid layouts are configured with the pattern `repeat(auto-fit, minmax(260px, 1fr))` to shift cards into single columns on mobile displays.
 
-#### Responsive design
+### 3.6 Design Recreation Guide
+To replicate the AgroPulse interface layout:
+1. Wrap all pages in a global container using body background `#f1f5f9` (except login pages, which use a gradient `linear-gradient(to right, #ecfeff, #f0fdf4)`).
+2. Construct header nav elements with height `#0f172a` and padding `15px 40px`, displaying the text logo on the left and inline routes on the right.
+3. Draw card containers with white backgrounds, border radius `16px`, and drop shadows `rgba(0,0,0,0.08)`.
+4. Style primary buttons using background color `#22c55e` with white font.
+5. Create status badges with rounded borders (`20px`) and color themes matching the current trend (green/red/blue).
 
-- Breakpoints: Not formally defined in a framework; responsive behavior is achieved with flex/grid and `max-width` containers.
-- Mobile: stacked forms and full-width buttons.
-- Tablet: responsive card grids adapt to available width.
-- Desktop: wider containers and multi-column card grids.
-
-### 3.6 Design recreation guide
-
-A designer could recreate the UI from scratch by using:
-
-- The green palette defined in [static/css/site.css](static/css/site.css).
-- The reusable navbar structure used in [templates/index.html](templates/index.html) and [templates/dashboard.html](templates/dashboard.html).
-- The centered auth-card style from [templates/login.html](templates/login.html).
-- The prediction page layout and chart card from [templates/prediction.html](templates/prediction.html).
-- The comparison table layout from [templates/comparison.html](templates/comparison.html).
+---
 
 ## 4. Backend Analysis
 
-### 4.1 Backend architecture
+### 4.1 Backend Architecture
+The backend is powered by Flask (configured in [app.py](file:///f:/GitHub/AgroPulse/app.py)), structured around the following layers:
+- **Routes Layer** ([routes/](file:///f:/GitHub/AgroPulse/routes)): Receives incoming client HTTP API requests.
+- **Service Layer** ([services/](file:///f:/GitHub/AgroPulse/services)): Business logic implementations (calculating recommendations and querying predictions cache).
+- **Model Layer** ([models/](file:///f:/GitHub/AgroPulse/models)): MongoDB abstract collections interface.
+- **Database Connector** ([utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py)): Manages Singleton socket connections to avoid socket leaks.
+- **Validator Layer** ([utils/validators.py](file:///f:/GitHub/AgroPulse/utils/validators.py)): Coerces request payloads and returns format errors.
 
-- Framework: Flask.
-- Layered architecture:
-  - Routes layer: [routes/](routes)
-  - Service layer: [services/](services)
-  - Model layer: [models/](models)
-  - Data access utilities: [utils/db_connection.py](utils/db_connection.py)
-- Services:
-  - [services/price_service.py](services/price_service.py)
-  - [services/prediction_service.py](services/prediction_service.py)
-  - [services/recommendation_service.py](services/recommendation_service.py)
-- Controllers: Flask route handlers in [routes/](routes)
-- Middleware: Flask-Limiter and CORS are initialized in [app.py](app.py).
-- Utilities:
-  - [utils/helpers.py](utils/helpers.py)
-  - [utils/validators.py](utils/validators.py)
-  - [utils/logger.py](utils/logger.py)
-
-### 4.2 Request flow
-
+### 4.2 Request Flow
 ```text
-Client
-→ Route handler in routes/
-→ Flask middleware / limiter / session / CORS
-→ Service logic in services/
-→ Model layer in models/
-→ MongoDB or ML model artifact
-→ JSON/HTML response
+Client Browser HTTP Request
+  │
+  ▼
+Routes Layer (e.g. routes/prediction_routes.py)
+  │
+  ▼
+Limiter & Session Check Middleware (app.py)
+  │
+  ▼
+Request Body Validation (utils/validators.py)
+  │
+  ▼
+Service Layer Logic (services/prediction_service.py)
+  │
+  ├─► Predictions Cache Lookup (models/predict.py)
+  │
+  └─► [Cache Miss] ML Model Inference (ml/predict.py)
+        │
+        ▼
+  Singleton Database Connection Client (utils/db_connection.py)
+        │
+        ▼
+  MongoDB Server Query
+        │
+        ▼
+Response JSON Serialization (utils/helpers.py)
 ```
 
-### 4.3 API documentation
+---
 
-#### Health
+### 4.3 API Documentation
 
-- GET /health
-- Purpose: Health check and readiness report.
-- Authentication: None.
-- Response: status, model_loaded, db_connected.
+All routes reside under the `/api/v1` namespace. Legacy routes `/api/*` are redirected to `/api/v1/*` using 308 redirects.
 
-#### Page routes
+#### Authentication Endpoints
 
-- GET /
-- GET /login
-- GET /forgot-password
-- GET /password-reset/<token>
-- GET /dashboard
-- GET /prediction
-- GET /history
-- GET /comparison
-- GET /about
-- Purpose: Render HTML templates.
-- Authentication: Some pages require login client-side.
+##### 1. Login
+- **Endpoint**: `POST /api/v1/auth/login`
+- **Authentication**: None
+- **Rate Limit**: 10 requests per hour
+- **Request Body**:
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "Password123"
+  }
+  ```
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "message": "Login successful",
+    "user": {
+      "email": "user@example.com",
+      "name": "John Doe"
+    }
+  }
+  ```
+- **Errors**:
+  - `400 Bad Request`: Email/password missing.
+  - `401 Unauthorized`: Invalid credentials, or email is unverified.
+  - `500 Server Error`: DB or internal error.
 
-#### Authentication endpoints
+##### 2. Register
+- **Endpoint**: `POST /api/v1/auth/register`
+- **Authentication**: None
+- **Rate Limit**: 5 requests per hour
+- **Request Body**:
+  ```json
+  {
+    "name": "John Doe",
+    "email": "user@example.com",
+    "password": "Password123"
+  }
+  ```
+- **Response (201 Created)**:
+  ```json
+  {
+    "success": true,
+    "message": "Registration successful. Please verify your email."
+  }
+  ```
+- **Errors**:
+  - `400 Bad Request`: Fields missing, invalid email format, or password too short (< 8 chars).
+  - `409 Conflict`: Email already registered.
 
-- POST /api/auth/login
-  - Purpose: Authenticate user and create session.
-  - Request body: email, password.
-  - Response: success, message, user.
-  - Errors: 400, 401, 500.
+##### 3. Verify Email
+- **Endpoint**: `GET /api/v1/auth/verify/<token>`
+- **Authentication**: None
+- **Response (302 Redirect)**: Redirects browser to `/login?verified=1`
+- **Errors**:
+  - `400 Bad Request`: Expired verification link (valid for 24 hours), or invalid signature.
+  - `404 Not Found`: Registered email not matching token.
 
-- POST /api/auth/register
-  - Purpose: Create a user and send verification email.
-  - Request body: name, email, password.
-  - Response: success, message.
-  - Errors: 400, 409, 500.
+##### 4. Forgot Password
+- **Endpoint**: `POST /api/v1/auth/forgot-password`
+- **Authentication**: None
+- **Rate Limit**: 3 requests per hour
+- **Request Body**:
+  ```json
+  {
+    "email": "user@example.com"
+  }
+  ```
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "message": "If that email is registered you will receive a reset link"
+  }
+  ```
 
-- GET /api/auth/verify/<token>
-  - Purpose: Mark a user as verified.
-  - Authentication: None.
-  - Response: redirect to /login?verified=1.
+##### 5. Reset Password
+- **Endpoint**: `POST /api/v1/auth/reset-password`
+- **Authentication**: None
+- **Request Body**:
+  ```json
+  {
+    "token": "serialized_token_here",
+    "new_password": "NewPassword123",
+    "confirm_password": "NewPassword123"
+  }
+  ```
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "message": "Password reset successfully"
+  }
+  ```
+- **Errors**:
+  - `400 Bad Request`: Passwords do not match, password too short (< 8 chars), token has expired (valid for 1 hour) or has already been used.
 
-- POST /api/auth/resend-verification
-  - Purpose: Resend verification email.
-  - Request body: email.
+---
 
-- POST /api/auth/logout
-  - Purpose: Clear session.
+#### Prediction Endpoints
 
-- POST /api/auth/forgot-password
-  - Purpose: Send a password reset email.
-  - Request body: email.
+##### 1. Create Prediction
+- **Endpoint**: `POST /api/v1/predict`
+- **Authentication**: None (saves search data to history if logged in)
+- **Rate Limit**: 30 requests per hour
+- **Request Body**:
+  ```json
+  {
+    "crop": "Wheat",
+    "location": "Indore",
+    "state": "Madhya Pradesh",
+    "quantity": 100
+  }
+  ```
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "predicted_price": 2150.00,
+    "predicted_prices": [2150.00, 2170.00, 2185.00, 2200.00, 2210.00, 2225.00, 2240.00],
+    "upper_bound": [2230.00, 2250.00, 2265.00, 2280.00, 2290.00, 2305.00, 2320.00],
+    "lower_bound": [2070.00, 2090.00, 2105.00, 2120.00, 2130.00, 2145.00, 2160.00],
+    "recommendation": "WAIT 3 DAYS",
+    "expected_gain": "₹90 / quintal",
+    "best_market": "Indore APMC",
+    "trend": "rising",
+    "confidence": "high",
+    "model_type": "machine_learning",
+    "matched_crop": "Wheat",
+    "matched_district": "Indore",
+    "matched_state": "Madhya Pradesh"
+  }
+  ```
 
-- POST /api/auth/reset-password
-  - Purpose: Reset password using a signed token.
-  - Request body: token, new_password, confirm_password.
+##### 2. Get Prediction History
+- **Endpoint**: `GET /api/v1/predict/history?page=1&per_page=5`
+- **Authentication**: Required (via Session Cookie)
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "data": [
+      {
+        "_id": "60c72b2f9b1d8e2b8c8b4567",
+        "crop": "Wheat",
+        "state": "Madhya Pradesh",
+        "district": "Indore",
+        "predicted_prices": [2150, 2170, 2185, 2200, 2210, 2225, 2240],
+        "recommendation": "WAIT 3 DAYS",
+        "confidence": "high",
+        "trend": "rising",
+        "created_at": "2026-06-26T18:30:00Z"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "per_page": 5,
+    "pages": 1
+  }
+  ```
 
-- GET /api/auth/check
-  - Purpose: Return current authentication status.
+##### 3. Delete Prediction Entry
+- **Endpoint**: `DELETE /api/v1/predict/history/<history_id>`
+- **Authentication**: Required
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true
+  }
+  ```
 
-#### Prediction endpoints
+##### 4. Metadata Dropdowns
+- **Endpoint**: `GET /api/v1/predict/metadata` (or `/api/v1/predict/model-info`)
+- **Authentication**: None
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "ml_available": true,
+    "supported_states": ["Madhya Pradesh", "Rajasthan"],
+    "supported_districts": ["Indore", "Jaipur", "Chittorgarh"],
+    "supported_crops": ["Wheat", "Rice", "Cotton"],
+    "state_district_mapping": {
+      "Madhya Pradesh": ["Indore", "Bhopal"],
+      "Rajasthan": ["Jaipur", "Chittorgarh"]
+    }
+  }
+  ```
 
-- POST /api/predict
-  - Purpose: Run prediction and optionally save history.
-  - Request body: crop, location, state, quantity, district.
-  - Response: prediction payload with predicted prices, upper/lower bounds, recommendation, gain, market, trend, confidence.
+---
 
-- GET /api/predict/history
-  - Purpose: Return prediction history for the authenticated user.
-  - Authentication: Required.
+#### Price & Market Endpoints
 
-- DELETE /api/predict/history/<history_id>
-  - Purpose: Delete one prediction history record.
-  - Authentication: Required.
+##### 1. Fetch Price Statistics
+- **Endpoint**: `POST /api/v1/prices`
+- **Request Body**:
+  ```json
+  {
+    "crop": "Wheat",
+    "location": "Indore",
+    "quantity": 100
+  }
+  ```
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "data": {
+      "currentPrices": [
+        {
+          "mandi": "Indore APMC",
+          "price": 2250.00,
+          "district": "Indore",
+          "state": "Madhya Pradesh",
+          "date": "2026-06-26",
+          "min_price": 2200,
+          "max_price": 2300,
+          "type": "APMC"
+        }
+      ],
+      "prediction": {
+        "predictedPrices": [2250.00, 2260.00, 2280.00, 2300.00, 2310.00, 2320.00, 2330.00],
+        "trend": "rising",
+        "optimalDay": 3,
+        "confidence": 0.88,
+        "current_price": 2250.00
+      },
+      "recommendation": {
+        "action": "WAIT",
+        "message": "Wait 3 days. Price expected to rise by ₹50 (2.2%)",
+        "confidence": "MEDIUM",
+        "expectedGain": 50.00,
+        "gainPercent": 2.22,
+        "bestMarket": "Indore APMC",
+        "bestPrice": 2250,
+        "optimalDay": 3,
+        "totalGain": {
+          "perQuintal": 50.00,
+          "total": 5000.00,
+          "quantity": 100.0
+        }
+      },
+      "statistics": {
+        "average": 2250.00,
+        "minimum": 2200,
+        "maximum": 2300,
+        "change_percent": 1.25
+      }
+    }
+  }
+  ```
 
-- GET /api/predict/model-info
-- GET /api/predict/metadata
-  - Purpose: Return supported states, districts, crops, and mapping metadata.
-  - Authentication: None.
+##### 2. Mandi Compare (CSV Backed)
+- **Endpoint**: `GET /api/v1/mandi/compare?crop=wheat`
+- **Authentication**: None
+- **Response (200 OK)**:
+  ```json
+  {
+    "success": true,
+    "markets": [
+      {
+        "market": "Indore",
+        "price": 2250,
+        "type": "APMC",
+        "distance": "—"
+      }
+    ]
+  }
+  ```
 
-#### Price endpoints
+---
 
-- POST /api/prices
-  - Purpose: Get current prices, prediction, recommendation, and statistics.
-  - Request body: crop, location, quantity.
+### 4.4 Business Logic
+- **Predictions Cache Policy**:
+  When a prediction request is received, [services/prediction_service.py](file:///f:/GitHub/AgroPulse/services/prediction_service.py) first checks the `predictions` collection for an entry matching the requested crop and district updated within the **last 2 hours**. If a cached record is found, it returns the stored forecast instead of executing model inference.
+- **Model Fallback**:
+  If the machine learning model files are missing or inference encounters an error, the backend routes fall back to a random distribution centered around `₹2000` (min/max bounds computed with hardcoded deviations).
+- **Data Validation Rules** (implemented in [utils/validators.py](file:///f:/GitHub/AgroPulse/utils/validators.py)):
+  - Crop selections must belong to the approved crop lists in [config.py](file:///f:/GitHub/AgroPulse/config.py).
+  - Quantity parameters must reside between `0` and `10,000` quintals.
 
-- GET /api/prices/current
-  - Purpose: Return current prices for a crop and location.
+---
 
-- GET /api/prices/statistics
-  - Purpose: Return price statistics for a crop and location.
+### 4.5 Security Review
+- **Authentication**: Core authentication relies on securely hashed passwords using `bcrypt`. Verification links expire after 24 hours.
+- **Session Security**: Session tokens are encrypted and stored in cookies configured with the parameters `HttpOnly` and `SameSite=Lax`.
+- **Limiting**: Flask-Limiter blocks brute force login attempts (restricted to 10 requests per hour).
+- **Vulnerabilities**:
+  - `SECRET_KEY` is fallback set to a hardcoded string in development configurations.
+  - The API does not enforce CSRF tokens on state-changing JSON POST payloads.
 
-#### Market endpoints
-
-- GET /api/markets
-  - Purpose: List markets with optional district/type filters.
-
-- GET /api/markets/<district>
-  - Purpose: List markets within a district.
-
-#### Mandi endpoint
-
-- GET /api/mandi/compare
-  - Purpose: Return comparison-style mandi prices from CSV data.
-  - Query parameter: crop.
-
-### 4.4 Business logic
-
-- Core workflows:
-  - Prediction workflow: select crop and location → call ML inference or fallback → return recommendation → optionally store history.
-  - Price workflow: validate request → fetch current prices → fetch prediction → generate recommendation → return enhanced response.
-  - Auth workflow: register → verify email → login → session → password reset.
-- Validation rules:
-  - Crop values are validated against [config.py](config.py) supported crops.
-  - Passwords must be at least 8 characters.
-  - Quantity must be positive and under 10,000 in [utils/validators.py](utils/validators.py).
-- Permissions:
-  - Prediction history is protected by session-based auth.
-  - Unauthenticated requests receive 401 responses.
-- Authorization:
-  - No role-based roles or permission matrix are present; auth is effectively a single-user or any-verified-user model.
-- Background jobs:
-  - Not Found. No scheduled jobs or Celery workers were discovered.
-- Event processing:
-  - Email sending on registration/reset; no event bus or queue is implemented.
-
-### 4.5 Security review
-
-- Authentication: session-based, backed by Flask sessions and MongoDB user records.
-- Authorization: simple session presence check; no RBAC.
-- JWT/session flow: Flask session cookies are used, not JWT.
-- Security strengths:
-  - Passwords are hashed with bcrypt.
-  - Email verification is enforced for login.
-  - Limiter is configured in [app.py](app.py).
-- Security concerns / recommended improvements:
-  - CSRF protection is not explicitly implemented for state-changing forms.
-  - The app uses a default development secret in [config.py](config.py) unless overridden.
-  - Mail credentials and secrets must be configured via environment variables.
-  - CORS origins are permissive by default and may need tightening.
-  - No explicit rate-limit strategy beyond Flask-Limiter and no Redis-backed storage in development.
+---
 
 ## 5. Database Analysis
 
-### 5.1 Database overview
+### 5.1 Database Overview
+- **Database Engine**: MongoDB.
+- **ORM / Driver**: PyMongo 4.6.0 (No schema mapper/ODM is used; raw JSON query dictionaries are passed directly).
+- **Connection Strategy**: Singleton class wrapper defined in [utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py).
 
-- Database type: MongoDB.
-- ORM used: None; PyMongo is used directly.
-- Connection strategy: Singleton connection manager in [utils/db_connection.py](utils/db_connection.py); app also creates a Mongo client in [app.py](app.py).
-
-### 5.2 Entity relationship diagram
-
+### 5.2 Entity Relationship Diagram
 ```mermaid
 erDiagram
-    USER ||--o{ PREDICTION_HISTORY : creates
-    USER ||--o{ USER_SESSION : has
-    PRICE_COLLECTION ||--o{ MARKET_COLLECTION : relates
+    USERS ||--o{ PREDICTION_HISTORY : saves
+    MARKETS ||--o{ PRICES : hosts
+    PRICES }|--|| PREDICTIONS : cached_from
 ```
 
-### 5.3 Collections / entities
-
-#### users
-
-- Purpose: Stores user profile, password hash, verification status, and password reset version.
-- Key fields observed: name, email, password, verified, created_at, password_reset_version.
-
-#### prices
-
-- Purpose: Historical price records for crops, districts, mandis, and dates.
-- Typical fields observed: crop, mandi_name, district, state, modal_price, min_price, max_price, date, arrival_quantity, type, created_at.
-
-#### markets
-
-- Purpose: Market metadata such as district, location, type, crops accepted, and contact info.
-- Typical fields observed: mandi_name, district, state, type, location, contact, crops_accepted, timings, facilities.
-
-#### predictions
-
-- Purpose: Stores machine-learning prediction records for recent requests.
-- Typical fields observed: crop, location, predicted_prices, trend, optimal_day, confidence, current_price, created_at.
-
-#### prediction_history
-
-- Purpose: Stores history of predictions made by authenticated users.
-- Typical fields observed: user_id, crop, state, district, quantity, predicted_prices, upper_bound, lower_bound, recommendation, expected_gain, best_market, confidence, trend, created_at.
-
-### 5.4 Data flow
-
-- Prediction request flow:
-  1. User submits crop, state, district, and optional quantity from `/prediction`.
-  2. Browser sends POST to `/api/predict`.
-  3. `routes/prediction_routes.py` validates the payload and calls `ml/predict.py`.
-  4. If the trained model is available, it returns a 7-day forecast and confidence band.
-  5. If the user is authenticated, the prediction is also persisted in `prediction_history`.
-  6. The frontend renders the result into the recommendation card and chart.
-
-- Price request flow:
-  1. The user requests current prices or uses a price comparison page.
-  2. If the browser uses `/api/prices`, `routes/price_routes.py` validates the request.
-  3. `services.price_service.PriceService` retrieves current price documents from `models.price.PriceModel`.
-  4. `services.prediction_service.PredictionService` may fetch or compute a prediction.
-  5. `services.recommendation_service.RecommendationService` generates a sell/wait recommendation.
-  6. Response is returned with combined current prices, prediction, recommendation, and statistics.
-
-- Mandi comparison flow:
-  1. Browser requests `/api/mandi/compare?crop=<crop>`.
-  2. `routes/mandi_routes.py` reads `ml/data/mandi_prices.csv` and filters by crop.
-  3. Results are returned as serialized market rows.
-
-- Metadata flow:
-  1. `/api/predict/model-info` and `/api/predict/metadata` provide supported crops, states, and district mappings.
-  2. The prediction UI consumes this metadata to populate dropdowns.
-
-### 5.5 Migrations and schema maintenance
-
-- There is no formal migration framework or versioned schema migration file set in the repository.
-- `scripts/create_indexes.py` is the only schema maintenance helper and can be used to create collection indexes.
-- The `Makefile` references `ml/data_pipeline.py`, but that file is not present in the repository. This indicates an incomplete setup or a missing data ingestion artifact.
-
-## 6. Authentication & Authorization
-
-### Login flow
-
-- Endpoint: `POST /api/auth/login`
-- Validates user credentials via the `users` collection.
-- Uses `bcrypt` to compare password hashes.
-- Requires email verification before success.
-- On success, sets `session['user_id']`, `session['email']`, and `session['name']`.
-
-### Registration flow
-
-- Endpoint: `POST /api/auth/register`
-- Validates name, email, and password length.
-- Creates a new `users` document with `verified: False`.
-- Generates an email verification token and sends it via Flask-Mail or logs it if mail service is unavailable.
-
-### Password reset flow
-
-- Endpoint: `POST /api/auth/forgot-password`
-- Generates and sends a reset token to the user email if the account exists.
-- Endpoint: `POST /api/auth/reset-password`
-- Validates the token and resets the password after confirming the new password.
-- Uses a versioned token strategy with `password_reset_version` to invalidate old tokens.
-
-### Session handling
-
-- Session cookies are configured with `HttpOnly` and `SameSite='Lax'`.
-- `SESSION_COOKIE_SECURE` is enabled in production mode.
-- Auth state is determined by the existence of `session['user_id']`.
-
-### Authorization model
-
-- No role management or authorization beyond authenticated sessions is implemented.
-- Protected endpoints:
-  - `GET /api/predict/history`
-  - `DELETE /api/predict/history/<history_id>`
-- Public endpoints include predictions, prices, markets, and mandi comparison.
-
-### Permission matrix
-
-| Endpoint | Auth required | Notes |
-|---|---|---|
-| `POST /api/auth/register` | No | open registration |
-| `POST /api/auth/login` | No | login |
-| `POST /api/auth/logout` | Yes | clears session |
-| `POST /api/auth/forgot-password` | No | request reset |
-| `POST /api/auth/reset-password` | No | reset with token |
-| `GET /api/auth/check` | No | auth status |
-| `POST /api/predict` | No | public prediction |
-| `GET /api/predict/history` | Yes | history retrieval |
-| `DELETE /api/predict/history/<id>` | Yes | delete history item |
-| `GET /api/markets` | No | public market list |
-| `GET /api/mandi/compare` | No | public CSV-backed comparison |
-
-## 7. Third-Party Integrations
-
-- MongoDB: primary datastore, configured via `MONGO_URI`.
-- Redis: used optionally by Flask-Limiter if `REDIS_URL` is provided; otherwise fallback to in-memory rate limiting.
-- Flask-Mail: email delivery for verification and password reset.
-- Chart.js: client-side chart rendering in prediction UI.
-- Bootstrap CDN: layout and responsive utilities in the prediction page.
-- Font Awesome CDN: iconography on the prediction page.
-- requests: used in `scripts/update_mandi_data.py` and test scripts.
-
-## 8. Deployment Architecture
-
-### Environment variables
-
-- `SECRET_KEY`
-- `MONGO_URI`
-- `DATABASE_NAME`
-- `CORS_ORIGINS`
-- `REDIS_URL`
-- `BASE_URL`
-- `LOG_LEVEL`
-- `MAIL_SERVER`
-- `MAIL_PORT`
-- `MAIL_USERNAME`
-- `MAIL_PASSWORD`
-- `MAIL_DEFAULT_SENDER`
-- `FLASK_ENV`
-- `MONGO_URI_TEST`
-
-### Build and run
-
-- Local development: create a Python virtual environment and install dependencies from `requirements.txt`.
-- Docker: build with `docker build -t agropulse .`.
-- Docker Compose: start all services with `docker compose up --build`.
-
-### Container architecture
-
-- `web`: Flask application served by Gunicorn.
-- `mongo`: MongoDB database.
-- `redis`: Redis cache for rate limiting.
-
-### Production readiness
-
-- A Docker-based deployment is supported via `Dockerfile` and `docker-compose.yml`.
-- No CI/CD pipeline definitions were found in the repository.
-- No cloud infrastructure templates exist.
-
-## 9. Code Quality Review
-
-### Observations
-
-- Several static asset files are present but empty or mostly placeholder:
-  - `static/js/main.js`
-  - `static/js/charts.js`
-  - `static/css/style.css`
-  - `static/css/responsive.css`
-- `ml/predict.py` has a critical import bug: `from turtle import pd` instead of `import pandas as pd`.
-- `Makefile` references `ml/data_pipeline.py`, which is missing.
-- Some UI pages are implemented with static placeholder content rather than dynamic API-driven data.
-- The application does not use a centralized template layout for repeated navbar/footer content.
-- Error handling is inconsistent across routes and sometimes returns raw exceptions.
-
-### Technical debt
-
-- No test framework integration; tests are raw Python scripts in the repository root.
-- Lack of explicit mobile responsiveness in CSS.
-- No schema migration tool for MongoDB beyond index creation.
-- Limited security hardening on form endpoints and CSRF protection.
-- Absence of monitoring/observability beyond basic logging.
-
-### Performance concerns
-
-- `routes/mandi_routes.py` may read the CSV file on each request, which can be expensive.
-- Prediction metadata endpoints may load data and recompute mappings on demand.
-- Stateful Flask sessions may hinder horizontal scaling without shared session storage.
-
-### Scalability concerns
-
-- MongoDB is deployed as a single container in compose with no replication.
-- Redis is optional, so rate limiting may use an in-memory store in some environments.
-- No async workers or background job processing for email or heavy model work.
-
-### Refactoring opportunities
-
-- Consolidate repeated HTML and CSS into shared templates and styles.
-- Move client-side form validation into common shared scripts.
-- Add a dedicated API response helper and error formatter.
-- Extract ML model loading and prediction into a service class with testable boundaries.
-- Introduce a migration strategy or schema versioning for MongoDB.
-
-## 10. Rebuild Guide
-
-### Frontend
-
-- Use Flask templates for page rendering.
-- Create a shared base template for navbar, footer, and asset links.
-- Build the prediction page around a metadata-driven form and Chart.js chart.
-- Keep authentication pages simple and route form submissions to the API.
-
-### Backend
-
-- Use `app.py` as the entrypoint and register blueprints for auth, prediction, price, market, and mandi.
-- Configure CORS, rate limiting, and mail at app startup.
-- Use environment configuration in `config.py`.
-- Implement shared validation and helper utilities in `utils/`.
-
-### Database
-
-- Use MongoDB with collections for users, prices, markets, predictions, and prediction_history.
-- Create indexes with `scripts/create_indexes.py`.
-- Keep documents denormalized for fast read performance.
-
-### APIs
-
-- Support auth, prediction, price, market, and mandi endpoints as documented above.
-- Use session-based auth for protected routes.
-- Expose metadata endpoints for frontend dropdowns.
-
-### User flows
-
-- Visitor landing page → prediction or comparison.
-- Registered user login → dashboard → prediction → history.
-- Password reset via email token.
-
-### Infrastructure
-
-- Containerize with Docker.
-- Use MongoDB and Redis services in compose.
-- Configure secrets through `.env`.
-- Run the Flask app under Gunicorn in production.
-
-## 11. Missing Documentation and Gaps
-
-- Missing or incomplete documentation exists for:
-  - `scripts/update_mandi_data.py` usage.
-  - `scripts/populate_db.py` sample commands.
-  - The ML model training artifact shape and required model files.
-- Gaps found in the repository:
-  - `ml/data_pipeline.py` is referenced in the `Makefile` but not included.
-  - `ml/predict.py` import bug likely breaks ML inference.
-  - Several UI/data-binding pages are partially implemented or use hard-coded placeholders.
-  - No CI/CD, infrastructure-as-code, or cloud deployment documentation.
-  - No formal database migration or versioning guidance.
-
-## 12. Conclusion
-
-This repository implements a functioning Flask-based agricultural pricing application with prediction, pricing, and auth workflows. The architecture is lightweight and straightforward, but the codebase contains several incomplete artifacts and documentation gaps.
-
-Key recommendations:
-- Fix `ml/predict.py` and verify the prediction model pipeline.
-- Add missing `ml/data_pipeline.py` or remove the `Makefile` reference.
-- Complete frontend API bindings and shared template layout.
-- Add formal tests using a framework like `pytest`.
-- Harden security by adding CSRF protection and improving error handling.
-- Document deployment and data pipeline steps clearly.
-
-> This documentation is derived from a direct source review of the repository and includes explicit notes on missing files and incomplete implementation areas.
-
-
-- User input from the UI is posted to the Flask API.
-- The backend validates the request and calls the relevant service.
-- Price and market data are read from MongoDB collections.
-- Prediction results are generated by [ml/predict.py](ml/predict.py) or the fallback logic.
-- Authenticated requests save prediction data into the history collection.
+---
+
+### 5.3 Collections
+
+#### 1. Collection Name: `users`
+- **Purpose**: Stores registered user details, credentials, and verification state.
+- **Schema**:
+
+| Column Name | BSON Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `_id` | ObjectId | No | Auto Generated | Unique Identifier |
+| `name` | String | No | None | User name |
+| `email` | String | No | None | Primary email login (Unique Index) |
+| `password` | Binary/String | No | None | Bcrypt hashed string |
+| `verified` | Boolean | No | `False` | Email verification flag |
+| `created_at` | Date | No | `datetime.utcnow()` | Registration date |
+| `password_reset_version` | Int32 | Yes | `0` | Invalidation token version tracker |
+
+- **Indexes**:
+  - `email` (Ascending), Unique.
+
+---
+
+#### 2. Collection Name: `prices`
+- **Purpose**: Stores actual historical commodity prices reported by local mandis.
+- **Schema**:
+
+| Column Name | BSON Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `_id` | ObjectId | No | Auto Generated | Unique Identifier |
+| `crop` | String | No | None | Commodity name |
+| `mandi_name` | String | No | None | Market branch name |
+| `district` | String | No | None | Market district location |
+| `state` | String | No | None | Market state location |
+| `modal_price` | Double / Int32 | No | None | Most common transaction price |
+| `min_price` | Double / Int32 | No | None | Lowest price registered |
+| `max_price` | Double / Int32 | No | None | Highest price registered |
+| `date` | String | No | None | Record date format `YYYY-MM-DD` |
+| `arrival_quantity` | Double / Int32 | Yes | None | Volume traded |
+| `type` | String | Yes | `"APMC"` | Market category (APMC/FPO) |
+| `created_at` | Date | No | `datetime.now()` | Record creation date |
+
+- **Indexes**:
+  - Compound Index: `crop` (Ascending), `district` (Ascending), `state` (Ascending).
+  - Single Index: `date` (Descending).
+  - Compound Index: `crop` (Ascending), `date` (Descending).
+
+---
+
+#### 3. Collection Name: `markets`
+- **Purpose**: Stores contact and facility metadata for various agricultural trading hubs.
+- **Schema**:
+
+| Column Name | BSON Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `_id` | ObjectId | No | Auto Generated | Unique Identifier |
+| `mandi_name` | String | No | None | Unique Mandi Name |
+| `district` | String | No | None | Mandi district |
+| `state` | String | No | None | Mandi state |
+| `type` | String | No | `"APMC"` | Category tag |
+| `location` | Document | Yes | None | GeoJSON Point `[longitude, latitude]` |
+| `contact` | Document | Yes | None | Phone and email info |
+| `crops_accepted` | Array (String) | Yes | None | List of crops allowed |
+| `timings` | String | Yes | None | Operational hours |
+| `facilities` | Array (String) | Yes | None | Services (e.g. storage, testing) |
+
+- **Indexes**:
+  - Single Index: `district` (Ascending).
+  - Single Index: `state` (Ascending).
+
+---
+
+#### 4. Collection Name: `predictions`
+- **Purpose**: Implements cache storage to reduce model calculation overhead.
+- **Schema**:
+
+| Column Name | BSON Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `_id` | ObjectId | No | Auto Generated | Unique Identifier |
+| `crop` | String | No | None | Commodity name |
+| `location` | String | No | None | District name |
+| `predicted_prices` | Array (Double) | No | None | 7-day predicted values |
+| `trend` | String | No | `"stable"` | Price trajectory label |
+| `optimal_day` | Int32 | No | `1` | Day showing maximum profit |
+| `confidence` | String | No | `"medium"` | Model validation metrics score |
+| `current_price` | Double | No | None | Anchor price today |
+| `created_at` | Date | No | `datetime.now()` | Prediction date |
+
+- **Indexes**:
+  - Compound Index: `crop` (Ascending), `location` (Ascending), `created_at` (Descending).
+
+---
+
+#### 5. Collection Name: `prediction_history`
+- **Purpose**: Stores historical prediction records queried by verified users.
+- **Schema**:
+
+| Column Name | BSON Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `_id` | ObjectId | No | Auto Generated | Unique Identifier |
+| `user_id` | String / ObjectId| No | None | Owner user ID reference |
+| `crop` | String | No | None | Commodity name |
+| `state` | String | No | None | State name |
+| `district` | String | No | None | District name |
+| `quantity` | Double | Yes | None | Volume parameter |
+| `predicted_prices` | Array (Double) | No | None | Forecast values array |
+| `upper_bound` | Array (Double) | No | None | Upper MAE boundary array |
+| `lower_bound` | Array (Double) | No | None | Lower MAE boundary array |
+| `recommendation` | String | Yes | None | Action advice string |
+| `expected_gain` | String | Yes | None | Calculated profit difference |
+| `best_market` | String | Yes | None | Recommended market |
+| `confidence` | String | Yes | None | High/Medium/Low label |
+| `trend` | String | Yes | None | Trajectory direction label |
+| `created_at` | Date | No | `datetime.utcnow()`| Record timestamp |
+
+- **Indexes**:
+  - Single Index: `user_id` (Ascending).
+  - Compound Index: `user_id` (Ascending), `created_at` (Descending).
+  - Single Index: `created_at` (Descending).
+
+### 5.4 Data Flow
+Data flows through the system as follows:
+```text
+Ingestion: Input CSV/Agmarknet API -> scripts/update_mandi_data.py -> ml/data/mandi_prices.csv
+Training: CSV Dataset -> ml/data_pipeline.py (Standardize & clean) -> ml/train_model.py -> Model Pickles (.pkl)
+Execution: API Post -> routes/prediction_routes.py -> predict_price() -> Random Forest Predict -> MongoDB history
+```
 
 ### 5.5 Migrations
+AgroPulse does not use a formal migration tool like Alembic. Collections are created implicitly when the application inserts documents. Indexes are verified and created on startup by calling `create_indexes()` inside [scripts/create_indexes.py](file:///f:/GitHub/AgroPulse/scripts/create_indexes.py).
 
-- Migrations: Not Found.
-- Schema evolution is handled implicitly through MongoDB documents and scripts rather than formal schema migrations.
-- Index creation is performed by [scripts/create_indexes.py](scripts/create_indexes.py).
+---
 
 ## 6. Authentication & Authorization
 
-- Login flow:
-  1. User submits email/password to [routes/auth_routes.py](routes/auth_routes.py).
-  2. The app looks up the user in MongoDB.
-  3. Password is verified with bcrypt.
-  4. The user must be verified.
-  5. A Flask session is created.
-- Registration flow:
-  1. User submits name/email/password.
-  2. Basic validation is applied.
-  3. A new document is created in the users collection.
-  4. A signed verification token is created and emailed.
-- Password reset:
-  1. User requests reset via email.
-  2. A signed token is generated and sent.
-  3. The reset endpoint validates the token and updates the password.
-- Session handling:
-  - Flask session cookie is used.
-  - Session data includes user_id, email, name.
-- Role management:
-  - Not Found. The current implementation does not implement roles or permissions beyond authenticated vs unauthenticated.
-- Permission matrix:
-  - Authenticated user: can view prediction history and submit predictions.
-  - Unauthenticated user: can view public pages and can submit prediction endpoints without auth, but history is restricted.
+### Login Flow
+1. Client POSTs credentials to `/api/v1/auth/login`.
+2. Backend queries `users` by email.
+3. Passwords are checked using `bcrypt.checkpw()`.
+4. User must have `verified == True`; otherwise, login fails.
+5. On success, the session variables `user_id`, `email`, and `name` are set.
+
+### Registration Flow
+1. Client POSTs registration payload to `/api/v1/auth/register`.
+2. Input format, email validation, and password length are verified.
+3. Password is hashed using `bcrypt.hashpw(password, bcrypt.gensalt())`.
+4. User document is inserted into MongoDB with `verified = False`.
+5. Verification token is generated via `URLSafeTimedSerializer(SECRET_KEY).dumps(email, salt='email-verify')`.
+6. Verification link is emailed to the user (or logged as warning if SMTP details are missing).
+
+### Password Reset Flow
+1. Client POSTs email to `/api/v1/auth/forgot-password`.
+2. If the user document exists and is verified, the system generates a timed token mapping `{email, version}`.
+3. Email containing the reset link (`/password-reset/<token>`) is dispatched.
+4. User navigates to the reset page and POSTs the new password to `/api/v1/auth/reset-password`.
+5. The backend verifies the token and version. Upon validation, the password is updated, and the version field is incremented by 1 to invalidate old links.
+
+### Session Handling
+Sessions are handled via signed HTTP cookies (`session['user_id']`). Session lifetime defaults to 7 days (`PERMANENT_SESSION_LIFETIME = timedelta(days=7)`).
+
+### Permission Matrix
+
+| Route Endpoint | Authenticated | Unauthenticated | Admin/Roles |
+|---|---|---|---|
+| `POST /api/v1/auth/login` | Allowed | Allowed | N/A |
+| `POST /api/v1/auth/register` | Allowed | Allowed | N/A |
+| `POST /api/v1/predict` | Saves history | Runs predictions only | N/A |
+| `GET /api/v1/predict/history` | Returns logs | Blocks (401 Redirect) | N/A |
+| `DELETE /api/v1/predict/history/<id>` | Deletes log | Blocks (401 Redirect) | N/A |
+| `GET /api/v1/prices/current` | Allowed | Allowed | N/A |
+| `GET /api/v1/mandi/compare` | Allowed | Allowed | N/A |
+
+---
 
 ## 7. Third-Party Integrations
 
-| Integration | Purpose | Configuration | Usage | Failure handling |
-|---|---|---|---|---|
-| MongoDB | Primary data store | [config.py](config.py), [.env.example](.env.example) | Stores users, prices, markets, predictions | Startup logs warning; app still starts with fallback behaviors |
-| Flask-Mail | Email delivery | MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD, MAIL_DEFAULT_SENDER | Verification and password reset emails | Falls back to logging the link if mail is not configured |
-| Chart.js | Frontend charts | Loaded in [templates/prediction.html](templates/prediction.html) | Visualizes 7-day forecasts | Graceful fallback via no chart if script fails |
-| Bootstrap | UI styling | Loaded in [templates/prediction.html](templates/prediction.html) | Form and layout styling | Not required for core app function |
-| Redis | Rate-limit storage | REDIS_URL in [config.py](config.py) | Optional limiter backend | Defaults to in-memory storage |
+### MongoDB
+- **Purpose**: Centralized storage for user profiles, historical prices, and prediction logs.
+- **Config**: Configured using `MONGO_URI` and `DATABASE_NAME` in config profiles.
+- **Failures**: Handled via startup exceptions inside [utils/db_connection.py](file:///f:/GitHub/AgroPulse/utils/db_connection.py).
+
+### Redis
+- **Purpose**: Flask-Limiter backend storage.
+- **Config**: Configured via `REDIS_URL`. Defaults to local in-memory storage (`memory://`) if Redis is unavailable.
+
+### Flask-Mail
+- **Purpose**: Email delivery for registration and password resets.
+- **Config**: Configured via SMTP settings.
+- **Failures**: If sending fails, the system logs the link in `agropulse.log` so the user can verify accounts locally.
+
+### CDNs (Content Delivery Networks)
+- **Bootstrap v5.3.2**: CSS and JS layout libraries.
+- **Chart.js**: Graph generation libraries in predictions.
+- **FontAwesome v6.4.0**: Icons.
+
+---
 
 ## 8. Deployment Architecture
 
-### Environment variables
+### Environment Variables
+- `SECRET_KEY`: Flask encryption key.
+- `MONGO_URI` / `DATABASE_NAME`: Database target.
+- `REDIS_URL`: Optional caching layer.
+- `BASE_URL`: Used to build absolute token links.
+- `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_DEFAULT_SENDER`: Mail server credentials.
+- `FLASK_ENV`: Deployment mode (`development`, `testing`, `production`).
 
-The application reads configuration from [config.py](config.py) and [.env.example](.env.example). Key variables include:
-
-- FLASK_ENV
-- SECRET_KEY
-- MONGO_URI
-- DATABASE_NAME
-- CORS_ORIGINS
-- REDIS_URL
-- BASE_URL
-- LOG_LEVEL
-- MAIL_SERVER
-- MAIL_PORT
-- MAIL_USERNAME
-- MAIL_PASSWORD
-- MAIL_DEFAULT_SENDER
-
-### Build process
-
-- Python dependencies are installed from [requirements.txt](requirements.txt).
-- The app is served by Gunicorn in [Dockerfile](Dockerfile).
-
-### CI/CD
-
-- Not Found. There is no GitHub Actions or pipeline configuration in the repository.
-
-### Docker setup
+### Build Process & Docker Setup
+The project is containerized using `Dockerfile` and `docker-compose.yml`. Gunicorn serves the Flask application.
 
 ```mermaid
 flowchart TD
-    A[Docker Compose] --> B[web container]
-    A --> C[mongo container]
-    A --> D[redis container]
-    B --> E[Flask app on port 8000]
-    C --> F[MongoDB volume]
-    D --> G[Redis]
+    Ingress[Internet / Port 80] -->|HTTP Proxy| WebContainer[Web Container: Gunicorn App Port 8000]
+    WebContainer <-->|Internal network| MongoContainer[Mongo Container: MongoDB Port 27017]
+    WebContainer <-->|Rate limiting checks| RedisContainer[Redis Container: Cache Port 6379]
+    MongoContainer -->|Persistent Volume| DBVolume[(MongoDB Data Volume)]
 ```
 
-### Production architecture
+### GitHub Actions CI/CD
+We have integrated two GitHub Actions workflows under `.github/workflows/`:
+1. **CI Pipeline (`ci.yml`)**: Triggered on push to `main` and `develop` and on pull requests to `main`. It sets up a Python 3.11 environment, handles dependency caching, spins up a MongoDB 7.0 service container for testing, runs the `pytest` test suite, and uploads test log artifacts.
+2. **Deploy Check (`deploy-check.yml`)**: Triggered on push to `main`. It tests the Dockerfile build, verifies the existence of the `/health` endpoint in `app.py`, and checks if `.env.example` contains all required variables.
 
-- The web service runs behind Gunicorn in a container.
-- MongoDB and Redis run as separate services.
-- The application is designed for stateless web workers with externalized persistence.
+### Render.com Deployment
+The application is pre-configured for Render.com deployment using `render.yaml` and `runtime.txt` (targeting python-3.11.0). The configuration:
+- Runs a build command that installs dependencies, cleans the data, retrains the ML models dynamically to prevent losing model pickles due to Render's ephemeral filesystem, and sets up database indexes.
+- Runs a dynamic port-binding start command with Gunicorn (`gunicorn --workers 3 --bind 0.0.0.0:$PORT "app:create_app()"`).
+
+
+---
 
 ## 9. Code Quality Review
 
-- Code smells:
-  - Some modules mix route logic, validation, and persistence concerns.
-  - The app uses a mixture of direct Flask route handlers and service/model layers, which sometimes causes duplication.
-  - A few scripts rely on hard-coded defaults and local assumptions.
-- Technical debt:
-  - No formal test framework configuration beyond ad-hoc scripts.
-  - Frontend uses a lot of inline styles and duplicated CSS patterns.
-  - The prediction UI and backend are partially decoupled, with some hard-coded UI data.
-- Performance issues:
-  - The ML inference path depends on model artifact files being present.
-  - The app currently falls back to random values if the model or data are unavailable.
-  - Some routes read CSV data directly rather than relying on MongoDB-backed data.
-- Scalability concerns:
-  - MongoDB access is straightforward but there is no sharding or advanced indexing strategy beyond basic indexes.
-  - Session-based auth is fine for small deployments but not ideal for distributed scale-out without shared session storage.
-- Refactoring opportunities:
-  - Introduce a more explicit service/controller separation.
-  - Move shared frontend styling into a dedicated, maintainable design system.
-  - Add automated unit and integration tests.
-  - Replace runtime CSV access with a consistent data pipeline.
+- **Code Smells**:
+  - Model loading is handled at the file import step in [routes/prediction_routes.py](file:///f:/GitHub/AgroPulse/routes/prediction_routes.py). If model pickles are missing, import failures are caught using broad exceptions.
+- **Technical Debt**:
+  - Dynamic page elements (like distances on the comparison screen) use hardcoded values instead of location services.
+- **Performance Concerns**:
+  - Previously, `routes/mandi_routes.py` read the CSV dataset from disk on every query. This has been optimized by loading it into memory once at application startup (`app.mandi_data`), eliminating dynamic file I/O latency.
+- **Refactoring Opportunities**:
+  - Standardize API output responses using the `format_response` helper from [utils/helpers.py](file:///f:/GitHub/AgroPulse/utils/helpers.py).
+  - Migrate CSV datasets into the MongoDB `prices` collection and index them properly.
+
+---
 
 ## 10. Rebuild Guide
 
-### Frontend architecture
+To recreate the AgroPulse project from scratch:
 
-- The UI is built from Flask templates under [templates/](templates).
-- Shared style is in [static/css/site.css](static/css/site.css).
-- Shared JS helpers are in [static/js/site.js](static/js/site.js) and [static/js/utils.js](static/js/utils.js).
+### 1. Database Initialization
+1. Spin up MongoDB and Redis containers.
+2. Run [scripts/create_indexes.py](file:///f:/GitHub/AgroPulse/scripts/create_indexes.py) to set up indexes on `users`, `prices`, `markets`, and `predictions`.
+3. Ingest sample data using [scripts/populate_db.py](file:///f:/GitHub/AgroPulse/scripts/populate_db.py).
 
-### Backend architecture
+### 2. Machine Learning Pipeline
+1. Standardize and split dataset inputs using [ml/data_pipeline.py](file:///f:/GitHub/AgroPulse/ml/data_pipeline.py).
+2. Train the Random Forest Regressor model by executing [ml/train_model.py](file:///f:/GitHub/AgroPulse/ml/train_model.py). This saves the model pickles to the `ml/` directory.
 
-- Start the app with [app.py](app.py).
-- Register new routes through the appropriate blueprint in [routes/](routes).
-- Implement business logic in [services/](services).
-- Persist data through [models/](models).
+### 3. Backend & Core APIs
+1. Initialize the Flask application factory. Set up session security flags and register the routing blueprints under the `/api/v1` namespace.
+2. Set up password hashing using `bcrypt` and build the authentication flow. Use `URLSafeTimedSerializer` for token security.
+3. Configure prediction caching using a 2-hour sliding window query on the `predictions` collection.
 
-### Database schema
+### 4. Frontend Recreation
+1. Implement the UI using server-rendered templates. Load dynamic dropdown values from `/api/v1/predict/metadata`.
+2. Connect front-end forms to the API using `window.fetchJSON()`.
+3. Render prediction charts using Chart.js, plotting the prediction line along with the confidence interval bounds.
 
-- Use MongoDB collections for users, prices, markets, predictions, and prediction_history.
-- Initialize indexes using [scripts/create_indexes.py](scripts/create_indexes.py).
+### 5. Automated Tests Setup
+1. Define test fixtures in `tests/conftest.py` covering application context, DB drop/cleanup, and authenticating test user headers.
+2. Implement specific endpoint assertions in `tests/test_auth.py`, `tests/test_prediction.py`, `tests/test_mandi.py`, and `tests/test_health.py`.
+3. Configure `pytest.ini` and execute locally using `$env:FLASK_ENV="testing"; python -m pytest tests/ -v`.
 
-### APIs
+---
 
-- Refer to the route definitions in [routes/](routes) for endpoint contracts.
-- Client usage examples are available in the templates and tests.
+## 11. Missing Documentation & Risks
 
-### User flows
+- **Missing Documentation**:
+  - The API does not have Swagger/OpenAPI interactive documentation. This project documentation serves as the primary technical specification.
+- **Assumptions**:
+  - The application assumes the database is pre-populated with prices. If empty, statistical operations return `None` or trigger fallbacks.
+  - ML inference assumes the model pickle files match the shape of the features encoded during training.
+- **Risks**:
+  - JSON POST APIs are exempted from standard form CSRF checks (session auth validation is supplemented with strict CORS origin verification). Ensure origins match `CORS_ORIGINS` exactly.
 
-- Public flows: landing page → login → dashboard/prediction/comparison.
-- Authenticated flows: login → prediction → historical view.
-
-### Design system
-
-- Recreate the visual language from [static/css/site.css](static/css/site.css) and the page templates.
-
-### Infrastructure
-
-- Use [Dockerfile](Dockerfile), [docker-compose.yml](docker-compose.yml), and [Makefile](Makefile) for local deployment.
-
-## 11. Missing Documentation
-
-- Undocumented features: None of the frontend pages are documented in a separate product spec; this report serves as that documentation.
-- Hidden dependencies:
-  - The prediction flow depends on model artifact files such as [ml/predict.py](ml/predict.py) model pickles being present.
-  - Some pages render static placeholders and do not fully reflect live data.
-- Assumptions:
-  - The repo assumes a running MongoDB instance and a valid environment configuration.
-  - The `ml/data/mandi_prices.csv` file is treated as the source for the model training data and the mandi compare endpoint.
-- Risks:
-  - Missing or incompatible model artifacts may cause prediction fallback behavior.
-  - The app is not yet production-hardened with full RBAC, CI/CD, and end-to-end tests.
+---
 
 ## 12. Final Deliverables
 
-1. Full Technical Specification: This document.
-2. Product Requirement Document (PRD): The product purpose and feature scope are derived from [README.MD](README.MD), [templates/index.html](templates/index.html), and [templates/about.html](templates/about.html).
-3. System Design Document: Covered in Sections 2, 4, 5, and 8.
-4. API Documentation: Covered in Section 4.3.
-5. Database Documentation: Covered in Section 5.
-6. Design System Documentation: Covered in Section 3.5.
-7. Mermaid Architecture Diagrams: Included in Sections 2, 3.4, and 8.
-8. ERD Diagrams: Included in Section 5.2.
-9. User Flow Diagrams: Included in Section 3.4.
-10. Feature Inventory: Covered throughout Sections 1, 3, 4, and 6.
+This documentation report covers the 10 requested deliverables as follows:
+
+1. **Full Technical Specification**: Covered throughout sections 2, 4, 5, and 6.
+2. **Product Requirement Document (PRD)**: Described in Section 1 (Executive Summary) and Section 3 (Screens & Wireframes).
+3. **System Design Document**: Covered in Section 2 (Architecture Flow) and Section 8 (Deployment Architecture).
+4. **API Documentation**: Detailed endpoint specifications provided in Section 4.3.
+5. **Database Documentation**: Schemas, types, and index parameters detailed in Section 5.
+6. **Design System Documentation**: Colors, typography, spacing, and styles detailed in Section 3.5.
+7. **Mermaid Architecture Diagrams**: Included in Section 2 and Section 8.
+8. **ERD Diagrams**: Database collection relationships detailed in Section 5.2.
+9. **User Flow Diagrams**: Navigation flow charted in Section 3.4.
+10. **Feature Inventory**: Categorized in Section 1, Section 3.2, and Section 6.
