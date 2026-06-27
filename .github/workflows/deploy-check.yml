@@ -1,0 +1,25 @@
+name: Deploy Check
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Dockerfile builds
+        run: docker build -t agropulse-test .
+
+      - name: Verify health endpoint exists
+        run: |
+          grep -r "/health" app.py && echo "Health endpoint found" || exit 1
+
+      - name: Verify environment template is complete
+        run: |
+          required_vars=(SECRET_KEY MONGO_URI DATABASE_NAME CORS_ORIGINS BASE_URL MAIL_SERVER MAIL_PORT MAIL_USERNAME MAIL_PASSWORD FLASK_ENV)
+          for var in "${required_vars[@]}"; do
+            grep -q "^${var}" .env.example && echo "OK: $var" || (echo "MISSING: $var in .env.example" && exit 1)
+          done

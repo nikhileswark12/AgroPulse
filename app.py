@@ -1,17 +1,22 @@
 import os
+import sys
+if __name__ == '__main__':
+    sys.modules['app'] = sys.modules[__name__]
 from flask import Flask, render_template, jsonify, request
-from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure
 from dotenv import load_dotenv
 from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+import pandas as pd
 
 # Initialize limiter globally so it can be imported in routes
 limiter = Limiter(
     key_func=get_remote_address,
     default_limits=['200 per hour']
 )
+
+from flask_wtf.csrf import CSRFProtect, CSRFError
+csrf = CSRFProtect()
 
 def create_app(config_name=None):
     if config_name is None:
@@ -36,18 +41,29 @@ def create_app(config_name=None):
     model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
     logger.info(f"ML model file found: {model_loaded}")
 
-    # Initialize PyMongo
-    mongo_uri = app.config.get('MONGO_URI', os.environ.get('MONGO_URI', 'mongodb://localhost:27017/'))
+    # Initialize PyMongo via central db_connection
+    from utils.db_connection import db, get_db
     try:
-        mongo_client = MongoClient(mongo_uri)
-        mongo_client.admin.command('ping')
+        db.connect()
         logger.info("MongoDB connected successfully")
     except Exception as e:
         logger.warning(f"MongoDB connection failed on startup: {e}")
-        mongo_client = MongoClient(mongo_uri)
-        
-    db = mongo_client[app.config.get('DATABASE_NAME', 'agropulse')]
-    app.config['MONGO_DB'] = db
+
+    # Load Mandi Data into memory
+    try:
+        df = pd.read_csv('ml/data/mandi_prices.csv')
+        df.columns = [c.lower().strip() for c in df.columns]
+        if 'crop' in df.columns:
+            df['crop'] = df['crop'].astype(str).str.strip().str.title()
+        if 'district' in df.columns:
+            df['district'] = df['district'].astype(str).str.strip().str.title()
+        if 'state' in df.columns:
+            df['state'] = df['state'].astype(str).str.strip().str.title()
+        app.mandi_data = df
+        logger.info(f"Mandi data loaded: {len(df)} rows")
+    except Exception as e:
+        app.mandi_data = None
+        logger.warning(f"Failed to load mandi data: {e}")
 
     # Initialize indexes
     try:
@@ -63,6 +79,9 @@ def create_app(config_name=None):
     # Flask-Limiter
     app.config['RATELIMIT_STORAGE_URI'] = app.config.get('REDIS_URL', 'memory://')
     limiter.init_app(app)
+
+    # Flask-WTF CSRF
+    csrf.init_app(app)
     
     # Flask-Mail
     from flask_mail import Mail
@@ -80,12 +99,58 @@ def create_app(config_name=None):
     from routes.mandi_routes import mandi_bp
     from routes.price_routes import price_bp
     from routes.market_routes import market_bp
+    from routes.admin_routes import admin_bp
 
-    app.register_blueprint(auth_bp, url_prefix='/api')
-    app.register_blueprint(prediction_bp, url_prefix='/api')
-    app.register_blueprint(mandi_bp, url_prefix='/api')
-    app.register_blueprint(price_bp, url_prefix='/api')
-    app.register_blueprint(market_bp, url_prefix='/api')
+    app.register_blueprint(auth_bp, url_prefix='/api/v1')
+    app.register_blueprint(prediction_bp, url_prefix='/api/v1')
+    app.register_blueprint(mandi_bp, url_prefix='/api/v1')
+    app.register_blueprint(price_bp, url_prefix='/api/v1')
+    app.register_blueprint(market_bp, url_prefix='/api/v1')
+    app.register_blueprint(admin_bp, url_prefix='/api/v1')
+
+    # Backward compatible redirects
+    from flask import redirect
+    def redirect_to_v1(*args, **kwargs):
+        # request.full_path includes query params if they exist
+        new_path = request.path.replace('/api/', '/api/v1/', 1)
+        if request.query_string:
+            new_path = f"{new_path}?{request.query_string.decode('utf-8')}"
+        return redirect(new_path, code=308)
+
+    legacy_routes = [
+        '/api/auth/login', '/api/auth/register', '/api/auth/verify/<token>',
+        '/api/auth/logout', '/api/auth/check', '/api/auth/forgot-password',
+        '/api/auth/reset-password', '/api/auth/resend-verification',
+        '/api/predict', '/api/predict/history', '/api/predict/history/<history_id>',
+        '/api/predict/model-info', '/api/predict/metadata',
+        '/api/prices', '/api/prices/current', '/api/prices/statistics',
+        '/api/markets', '/api/markets/<district>', '/api/mandi/compare'
+    ]
+    
+    for idx, route in enumerate(legacy_routes):
+        app.add_url_rule(
+            route, 
+            endpoint=f"legacy_{idx}", 
+            view_func=redirect_to_v1, 
+            methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
+        )
+
+    @app.after_request
+    def add_api_version_header(response):
+        if request.path.startswith('/api/v1/'):
+            response.headers['API-Version'] = 'v1'
+        return response
+
+    from utils.helpers import validate_origin
+    @app.before_request
+    def validate_api_origin():
+        if request.path.startswith('/api/v1/') and request.method in ['POST', 'DELETE', 'PUT', 'PATCH']:
+            if app.testing or (app.config.get('FLASK_ENV') == 'development' and request.remote_addr == '127.0.0.1'):
+                return
+            
+            allowed_origins = app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',')
+            if not validate_origin(request, allowed_origins):
+                return jsonify({"error": "Forbidden", "message": "Invalid request origin"}), 403
 
     # Global error handlers
     def render_error(error, code):
@@ -115,17 +180,22 @@ def create_app(config_name=None):
     @app.errorhandler(500)
     def internal_error(error):
         return render_error(error, 500)
+        
+    @app.errorhandler(CSRFError)
+    def handle_csrf_error(e):
+        return jsonify({"error": "CSRF validation failed", "message": "Please refresh the page and try again"}), 400
 
-    # Health check route
     @app.route('/health')
     @limiter.exempt
     def health_check():
         model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
         db_connected = False
         try:
-            mongo_client.admin.command('ping')
-            db_connected = True
-        except ConnectionFailure:
+            from utils.db_connection import db
+            if db._client:
+                db._client.admin.command('ping')
+                db_connected = True
+        except Exception:
             pass
             
         return jsonify({

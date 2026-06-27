@@ -1,4 +1,4 @@
-.PHONY: setup dev build up down logs shell health indexes update-data retrain
+.PHONY: setup dev build up down logs shell health indexes update-data retrain test test-cov
 
 setup:
 	@if [ ! -f .env ]; then \
@@ -38,3 +38,9 @@ update-data:
 
 retrain:
 	python ml/data_pipeline.py && python ml/train_model.py --retrain
+
+test:
+	FLASK_ENV=testing pytest tests/ -v
+
+test-cov:
+	FLASK_ENV=testing pytest tests/ -v --cov=. --cov-report=term-missing
