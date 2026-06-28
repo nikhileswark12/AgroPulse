@@ -16,7 +16,7 @@ This documentation provides an exhaustive, source-mapped technical specification
     *   **User Authentication**: Secure session-based signup, login, email verification, and password reset flows.
     *   **Prediction History**: A user-specific log of past price forecast queries.
     *   **Mandi Data Ingestion Service**: Script-based ingestion to clean, validate, and merge fresh commodity pricing records into the core CSV database.
-    *   **Admin Reload capability**: Endpoint to reload the updated CSV dataset into memory without service disruption.
+    *   **Admin Reload capability**: Endpoint to reload the updated CSV dataset into memory without service disruption, secured by `X-Admin-Key` header verification.
     *   **Centralized Database Connector**: Singleton client manager to prevent duplicate connection sockets to MongoDB.
 *   **Target Users**:
     *   **Farmers**: Seeking optimization of crop sale timing and mandi selection.
@@ -83,12 +83,8 @@ AgroPulse/
 │   └── update_mandi_data.py  # Clean, validate, deduplicate, and ingest mandi CSV
 ├── static/                   # Shared CSS and JavaScript Assets
 │   ├── css/
-│   │   ├── site.css          # Core Shared Layout and Element Styles
-│   │   ├── style.css         # Placeholder
-│   │   └── responsive.css    # Placeholder
+│   │   └── site.css          # Core Shared Layout and Element Styles
 │   └── js/
-│       ├── charts.js         # Placeholder
-│       ├── main.js           # Placeholder
 │       ├── site.js           # Global Nav, Alert, and Button Spin helpers
 │       ├── utils.js          # Fetch wrapper, 401 redirect, and error handles
 │       └── prediction_metadata.js # Dynamic select-dropdown populator from API
@@ -118,8 +114,7 @@ AgroPulse/
 ├── config.py                 # Configuration Map and Application Constraints
 ├── requirements.txt          # Python Dependency Declarations
 ├── requirements-dev.txt      # Development Tools dependencies
-├── README.MD                 # High-Level Usage Overview
-├── DEPLOY.md                 # Production Setup and Configuration Manual
+├── README.MD                 # High-Level Usage Overview and Deployment Guide
 ├── Dockerfile                # Gunicorn-backed Container Build Steps
 ├── docker-compose.yml        # Development Stack (Flask, MongoDB, Redis)
 └── Makefile                  # Automation Scripts (run, test, retrain, db)
@@ -837,7 +832,9 @@ All endpoints are registered under the `/api/v1` blueprint prefix namespace. Leg
 
 #### 19. POST /api/v1/admin/reload-mandi-data
 *   **Purpose**: Force backend to reload updated `mandi_prices.csv` dataset in-memory cache.
-*   **Authentication**: CSRF Exempt
+*   **Authentication**: Admin (requires `X-Admin-Key` header matching the environment `ADMIN_KEY`)
+*   **Request Headers**:
+    *   `X-Admin-Key`: `<secret_admin_key>`
 *   **Response (200 OK)**:
     ```json
     {
@@ -846,6 +843,8 @@ All endpoints are registered under the `/api/v1` blueprint prefix namespace. Leg
       "rows": 1284
     }
     ```
+*   **Error Responses**:
+    *   `403 Forbidden`: `{"error": "Forbidden", "message": "Invalid or missing admin key"}` (Returned when `X-Admin-Key` header is missing, incorrect, or `ADMIN_KEY` config is unset)
 
 #### 20. GET /health
 *   **Purpose**: Verify server connection status, model loaders, and DB ping.
@@ -1057,6 +1056,7 @@ Sessions are handled via signed HTTP cookies (`session['user_id']`). Session lif
 | `DELETE /api/v1/predict/history/<id>` | Deletes log | Blocks (401 Redirect) | N/A |
 | `GET /api/v1/prices/current` | Allowed | Allowed | N/A |
 | `GET /api/v1/mandi/compare` | Allowed | Allowed | N/A |
+| `POST /api/v1/admin/reload-mandi-data` | Blocks (403 Forbidden) | Blocks (403 Forbidden) | Allowed (Requires valid `X-Admin-Key` header) |
 
 ---
 
@@ -1176,8 +1176,8 @@ To recreate the AgroPulse project from scratch:
 ## 11. Missing Documentation & Risks
 
 *   **Undocumented Features**:
-    *   **Admin Reload API**: The endpoint `POST /api/v1/admin/reload-mandi-data` is not exposed in public documentations. It allows administrators to refresh the in-memory cache with updated CSV data.
-    *   **Unused Configs**: The deployment variable `ADMIN_KEY` defined in `render.yaml` is not used in the application.
+    *   **Admin Reload API**: The endpoint `POST /api/v1/admin/reload-mandi-data` is not exposed in public documentations. It allows administrators to refresh the in-memory cache with updated CSV data, secured with a custom header key.
+    *   **Admin Key Config**: The deployment variable `ADMIN_KEY` defined in `render.yaml` and `.env` is loaded by the application config and validates all reload endpoints requests.
 *   **Assumptions**:
     *   Statistical operations assume the MongoDB database is pre-populated with historical records.
     *   ML features must match the shape of encoders built during training.
