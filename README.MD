@@ -2,206 +2,449 @@
 
 ![CI](https://github.com/nikhileswark12/AgroPulse/actions/workflows/ci.yml/badge.svg)
 
-AgroPulse is an open-source Flask application that provides market insights, price forecasting, and recommendation utilities for Indian agricultural commodity markets (mandis). The app combines historical mandi price data, lightweight ML models, and an interactive dashboard to help farmers, traders, and analysts explore price trends and generate short-term forecasts.
+## Intelligent Agricultural Market Intelligence & Price Forecasting Platform
 
-Key goals:
-- Make mandi price data and model predictions accessible via a clean web UI and a structured REST API.
-- Enable reproducible model training and lightweight inference for quick local experiments.
-- Provide clear developer workflows for extending models and data ingestion.
+AgroPulse is an intelligent agricultural market intelligence platform designed to empower farmers, traders, researchers, and agricultural organizations with data-driven insights into commodity markets. By combining historical mandi price data, predictive machine learning, and interactive visualization, the platform enables users to analyze market trends, compare prices across regions, and generate reliable short-term forecasts that support informed agricultural decision-making.
 
----
+Agricultural commodity prices are influenced by numerous dynamic factors, including seasonal production, weather conditions, regional demand, transportation costs, government policies, and market volatility. Access to accurate and timely market intelligence remains a significant challenge, often forcing stakeholders to rely on fragmented information and manual analysis before making critical decisions. AgroPulse addresses this challenge by providing a unified platform that transforms raw agricultural market data into meaningful insights through modern web technologies and predictive analytics.
 
-## Features
-- **Interactive Dashboard**: Client-side dashboard with historical price charts, comparison tables, and quick action recommendations.
-- **AI-Assisted Price Prediction**: Generates 7-day crop price forecasts with upper and lower confidence intervals using a Random Forest regression model.
-- **Price Comparison**: Compares live prices across regional mandis, with client-side sorting by price or distance.
-- **User Authentication**: Secure session-based signup, login, email verification, and password reset flows.
-- **Admin Ingestion Services**: Force-reload commodity datasets in-memory and update records from AGMARKNET CSV inputs or dynamic data.gov.in API keys.
+Designed with scalability and maintainability in mind, AgroPulse combines a modular Flask backend, machine learning pipelines, and an interactive web interface to create a comprehensive agricultural analytics ecosystem. The platform serves both end users seeking actionable market intelligence and developers interested in extending its data ingestion, forecasting, and analytical capabilities.
 
 ---
 
-## Tech Stack
-- **Backend**: Python 3.11, Flask 3.0.0, Gunicorn, Flask-Limiter, Flask-Mail, bcrypt, itsdangerous
-- **Database**: MongoDB 7.0 (via PyMongo 4.6.0) & optional Redis (for rate-limit caching)
-- **Machine Learning**: scikit-learn >= 1.4.0, pandas >= 2.2.0, numpy >= 1.26.0
-- **Frontend**: HTML5, Jinja2 Templates, Vanilla JavaScript, CSS, Chart.js, Bootstrap v5.3.2
+## Vision
+
+To build a scalable and intelligent agricultural market intelligence platform that enables proactive, data-driven decision-making through predictive analytics, machine learning, and real-time commodity market insights.
+
+---
+
+## Problem Statement
+
+Agriculture remains one of the most important sectors of the economy, yet access to reliable market intelligence continues to be limited for many stakeholders. Commodity prices fluctuate daily due to changes in supply, demand, transportation, climate, and regional economic conditions. While large volumes of market data are published through government agencies and agricultural organizations, this information is often fragmented, difficult to interpret, and inaccessible to users without technical expertise.
+
+As a result, farmers frequently make selling decisions without understanding historical pricing trends or expected market movements, while traders and analysts spend significant time collecting and comparing information from multiple sources before making purchasing decisions.
+
+Some of the primary challenges include:
+
+* Limited accessibility to organized mandi price information.
+* Difficulty analyzing historical commodity price trends.
+* Absence of reliable short-term price forecasting tools.
+* Manual comparison of prices across multiple agricultural markets.
+* Lack of centralized analytical platforms for agricultural intelligence.
+* Limited adoption of machine learning for agricultural decision support.
+
+AgroPulse addresses these challenges by integrating historical market analysis, predictive machine learning models, visualization tools, and intelligent recommendation capabilities into a unified platform that simplifies agricultural market analysis and supports informed decision-making.
+
+---
+
+## Core Features
+
+AgroPulse provides a comprehensive collection of tools for agricultural market analysis and predictive intelligence, including:
+
+* Interactive dashboard for exploring historical commodity price trends.
+* AI-powered commodity price forecasting using machine learning models.
+* Seven-day price prediction with confidence intervals.
+* Historical market analytics through interactive charts and visualizations.
+* Commodity price comparison across multiple regional mandis.
+* User authentication with email verification and password recovery.
+* Administrative tools for automated dataset ingestion and market data updates.
+* RESTful API for accessing market information and prediction services.
+* Reproducible machine learning training and inference workflows.
+* Modular architecture designed for scalability and future enhancements.
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Python 3.11
+* Flask
+* Gunicorn
+* Flask-Limiter
+* Flask-Mail
+* bcrypt
+* itsdangerous
+
+### Machine Learning
+
+* Scikit-learn
+* Pandas
+* NumPy
+
+### Database
+
+* MongoDB
+* Redis (Optional)
+
+### Frontend
+
+* HTML5
+* Jinja2 Templates
+* Vanilla JavaScript
+* Bootstrap
+* Chart.js
+* CSS
+
+---
+
+## System Architecture
+
+AgroPulse follows a modular, service-oriented architecture that separates presentation, business logic, data processing, and machine learning into independent layers.
+
+The frontend delivers an interactive user experience for exploring agricultural market data through dynamic dashboards, comparison tools, and prediction interfaces. Requests are processed by a Flask backend responsible for authentication, business logic, REST API endpoints, and administrative operations.
+
+Historical market information is stored within MongoDB, while Redis can optionally provide caching and rate-limiting support. Machine learning functionality is implemented through an independent prediction pipeline, allowing models to be retrained as new market data becomes available without affecting the primary application.
+
+The platform is designed around modular components that simplify maintenance, encourage extensibility, and support deployment across local development environments as well as cloud infrastructure.
+
+---
+
+## Design Principles
+
+AgroPulse is developed around several key architectural principles:
+
+* Modular application architecture.
+* Clean separation between business logic and presentation.
+* Reproducible machine learning workflows.
+* Secure authentication and user management.
+* Scalable and maintainable backend services.
+* Lightweight deployment with minimal infrastructure requirements.
+* Extensible architecture for future agricultural intelligence capabilities.
+* Reliable and transparent data-driven decision support.
+
+---
+
+## Future Scope
+
+AgroPulse is designed as a continuously evolving agricultural intelligence platform. Future enhancements include integration with live government market APIs, weather-aware forecasting models, deep learning-based price prediction, geospatial visualization of mandi locations, multilingual support for regional users, personalized crop recommendations, mobile applications, advanced reporting dashboards, and intelligent recommendation systems for crop planning and market optimization.
+
+The long-term objective is to transform AgroPulse into a comprehensive agricultural decision-support ecosystem that combines historical market intelligence, predictive analytics, and real-time data integration to improve efficiency, profitability, and sustainability across the agricultural supply chain.
 
 ---
 
 ## Quick Start (Local Development)
 
-### Prerequisites:
-- Python 3.10 or newer
-- MongoDB (local instance or MongoDB Atlas)
-- Docker & Docker Compose (optional, for containerized run)
-- Git
+### Prerequisites
 
-### 1. Create and Activate Virtual Environment:
+* Python 3.10 or newer
+* MongoDB (Local Instance or MongoDB Atlas)
+* Docker & Docker Compose (Optional)
+* Git
+### Installation
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/nikhileswark12/AgroPulse.git
+cd AgroPulse
+```
+
+#### 2. Create and Activate a Virtual Environment
+
 ```bash
 python -m venv .venv
-# On Windows (PowerShell):
+```
+
+**Windows (PowerShell)**
+
+```powershell
 .\.venv\Scripts\Activate.ps1
-# On Linux/macOS:
+```
+
+**Linux / macOS**
+
+```bash
 source .venv/bin/activate
 ```
 
-### 2. Install Python Dependencies:
+---
+
+#### 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
-pip install -r requirements-dev.txt  # for testing tools
+pip install -r requirements-dev.txt
 ```
 
-### 3. Setup Configuration:
-Create a `.env` file in the project root:
+---
+
+#### 4. Configure Environment Variables
+
+Create a `.env` file in the project root and configure the required application settings.
+
 ```env
 FLASK_ENV=development
-SECRET_KEY=your-secret-key-here # Generate with: python -c "import secrets; print(secrets.token_hex(32))"
+
+SECRET_KEY=your-secret-key
+
 MONGO_URI=mongodb://localhost:27017/
+
 DATABASE_NAME=agropulse
-ADMIN_KEY=your-admin-reload-key # Generate with: python -c "import secrets; print(secrets.token_hex(32))"
-DATA_GOV_API_KEY=optional_data_gov_key_here
+
+ADMIN_KEY=your-admin-key
+
+DATA_GOV_API_KEY=optional_api_key
 ```
 
-### 4. Initialize Database and ML Model:
-Make sure you build indexes and process/train models before starting:
+Generate secure values for `SECRET_KEY` and `ADMIN_KEY` before running the application in production.
+
+---
+
+#### 5. Initialize the Database and Machine Learning Pipeline
+
+Before starting the application, initialize the database, prepare the dataset, and train the prediction model.
+
 ```bash
-# Run database index initializer
 python scripts/create_indexes.py
 
-# Ingest sample prices
 python scripts/populate_db.py
 
-# Clean and split raw data
 python ml/data_pipeline.py
 
-# Train the prediction model
 python ml/train_model.py
 ```
 
-### 5. Run the Application:
+---
+
+#### 6. Run the Application
+
 ```bash
 python app.py
 ```
-Open [http://localhost:5000](http://localhost:5000) in your browser.
 
----
+The application will be available at:
 
-## Docker & Docker Compose Setup
-Alternatively, spin up the entire application stack (Flask web app, MongoDB, and Redis) locally with Docker:
-
-1. **Initialize Setup**:
-   ```bash
-   make setup
-   ```
-2. **Build and Start containers**:
-   ```bash
-   make build
-   make up
-   ```
-3. **Verify running containers**:
-   ```bash
-   make health
-   ```
-4. **Shutdown container stack**:
-   ```bash
-   make down
-   ```
-
----
-
-## Running Automated Tests
-The project features a comprehensive `pytest` test suite covering authentication, API health, predictions, and history collections:
-```bash
-# Run all tests locally
-FLASK_ENV=testing pytest tests/ -v
+```
+http://localhost:5000
 ```
 
 ---
 
-## Dataset, Ingestion & ML Pipeline
+# Docker Deployment
 
-### Updating Mandi Prices:
-To refresh the local `ml/data/mandi_prices.csv` dataset:
-1. Download a fresh CSV from [AGMARKNET](https://agmarknet.gov.in) manually.
-2. Run the update script specifying the CSV path:
-   ```bash
-   make update-data PATH=path/to/new_data.csv
-   ```
-3. Retrain the model on the updated data:
-   ```bash
-   make retrain
-   ```
-4. Rebuild/restart containers to apply the fresh model:
-   ```bash
-   make build && make up
-   ```
+AgroPulse can also be deployed using Docker Compose, allowing the entire application stack—including Flask, MongoDB, and Redis—to run in isolated containers.
 
-### Command Line Model Operations:
-- **Model Training**:
-  ```bash
-  python ml/train_model.py --data ml/data/mandi_prices.csv
-  ```
-- **CLI-Based Model Inference**:
-  ```bash
-  python ml/predict.py --input '{"crop":"Wheat","location":"Indore","state":"Madhya Pradesh","quantity":100}'
-  ```
+### Initial Setup
 
----
+```bash
+make setup
+```
 
-## Production Deployment Guide
+### Build the Containers
 
-### Deploying to Render.com:
-1. Push your repository to GitHub.
-2. Log in to [Render](https://render.com) and click **New > Web Service**.
-3. Link your GitHub repository.
-4. Render automatically applies configurations defined in [render.yaml](file:///f:/GitHub/AgroPulse/render.yaml).
-5. Set these required configuration environment variables manually in the Render dashboard:
-   - `MONGO_URI`: MongoDB Atlas production connection string.
-   - `CORS_ORIGINS`: `https://your-app-name.onrender.com`
-   - `BASE_URL`: `https://your-app-name.onrender.com`
-   - `ADMIN_KEY`: A secure generated token to run administrative endpoints.
-   - `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_DEFAULT_SENDER` (SMTP server details).
-   - `REDIS_URL` (optional, leave blank to default to in-memory rate limiting).
-6. Click **Deploy**.
-7. Confirm deployment by sending a request to the health checker endpoint: `https://your-app-name.onrender.com/health`.
+```bash
+make build
+```
 
-### MongoDB Atlas Setup (Production):
-1. Sign up on [MongoDB Atlas](https://cloud.mongodb.com).
-2. Create a free M0 tier cluster database.
-3. Add a database user with read/write permissions.
-4. Set IP Access Whitelist to `0.0.0.0/0` (Render uses dynamic IP blocks).
-5. Extract your connection string and supply it as `MONGO_URI` in the Render environment variables.
+### Start the Application Stack
+
+```bash
+make up
+```
+
+### Verify Container Health
+
+```bash
+make health
+```
+
+### Stop the Containers
+
+```bash
+make down
+```
+
+Containerized deployment provides a reproducible development environment and closely mirrors production infrastructure.
 
 ---
 
-## Project Structure
-- [app.py](file:///f:/GitHub/AgroPulse/app.py) — Application factory initialization and UI rendering routes.
-- [config.py](file:///f:/GitHub/AgroPulse/config.py) — Configuration presets for development, testing, and production.
-- `routes/` — Flask blueprints serving JSON REST API endpoints under `/api/v1/`.
-  - [auth_routes.py](file:///f:/GitHub/AgroPulse/routes/auth_routes.py) — Auth operations (session, reset token flows).
-  - [admin_routes.py](file:///f:/GitHub/AgroPulse/routes/admin_routes.py) — In-memory reloading services, validated by `X-Admin-Key` headers.
-  - [prediction_routes.py](file:///f:/GitHub/AgroPulse/routes/prediction_routes.py) — Inference and predictions log routing.
-  - [price_routes.py](file:///f:/GitHub/AgroPulse/routes/price_routes.py) — Market price analytics.
-- `services/` — Business logic implementations (ML predictions, calculations, recommendation strategies).
-- `ml/` — Machine learning scripts and pipelines.
-- `utils/` — Common helpers, DB singleton connector, validations.
+# Testing
+
+AgroPulse includes a comprehensive automated test suite covering authentication, prediction services, API endpoints, and application health checks.
+
+Execute the complete test suite using:
+
+```bash
+FLASK_ENV=testing pytest tests/ -v
+```
+
+Running automated tests before deployment helps ensure application stability and prevents regressions as new features are introduced.
 
 ---
 
-## Pre-deployment Checklist
-- [ ] Running `make test` or `pytest tests/` succeeds locally.
-- [ ] Health check response returns `model_loaded: true` locally.
-- [ ] `MONGO_URI` is mapped to MongoDB Atlas production instance.
-- [ ] `SECRET_KEY` is configured to a secure, random value.
-- [ ] `CORS_ORIGINS` and `BASE_URL` exactly match the production deployment address.
+# Dataset & Machine Learning Pipeline
+
+The prediction engine relies on historical agricultural market data for model training and inference.
+
+### Updating the Dataset
+
+1. Download the latest commodity price dataset from **AGMARKNET**.
+
+2. Update the local dataset.
+
+```bash
+make update-data PATH=path/to/new_dataset.csv
+```
+
+3. Retrain the prediction model.
+
+```bash
+make retrain
+```
+
+4. Rebuild and restart the application.
+
+```bash
+make build
+make up
+```
 
 ---
 
-## Troubleshooting
-- **MongoDB Connection Error**: Check your connection credentials and verify the MongoDB server is up. On Atlas, ensure `0.0.0.0/0` is whitelisted.
-- **Model Inference Failures**: Ensure model pickle files have been trained/generated (run `python ml/train_model.py` to regenerate pickles).
+### Training the Prediction Model
+
+Models can also be trained directly from the command line.
+
+```bash
+python ml/train_model.py --data ml/data/mandi_prices.csv
+```
 
 ---
 
-## License
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+### Running Predictions
+
+Generate predictions using the command-line inference utility.
+
+```bash
+python ml/predict.py --input '{"crop":"Wheat","location":"Indore","state":"Madhya Pradesh","quantity":100}'
+```
+
+The prediction pipeline has been designed to be reproducible, allowing models to be retrained whenever new agricultural market data becomes available.
+
+---
+
+# Production Deployment
+
+AgroPulse is deployment-ready and can be hosted on cloud platforms such as Render.
+
+### Deployment Workflow
+
+1. Push the repository to GitHub.
+2. Create a new Render Web Service.
+3. Connect the GitHub repository.
+4. Render automatically detects the application configuration through `render.yaml`.
+5. Configure the required environment variables.
+6. Deploy the application.
+7. Verify deployment through the health endpoint.
+
+---
+
+### Required Environment Variables
+
+```text
+SECRET_KEY
+MONGO_URI
+DATABASE_NAME
+BASE_URL
+CORS_ORIGINS
+ADMIN_KEY
+MAIL_SERVER
+MAIL_PORT
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_DEFAULT_SENDER
+REDIS_URL (Optional)
+```
+
+---
+
+### MongoDB Atlas
+
+For production deployments, MongoDB Atlas is recommended.
+
+Basic setup involves:
+
+* Creating a MongoDB Atlas cluster.
+* Creating a database user.
+* Configuring network access.
+* Obtaining the MongoDB connection string.
+* Assigning the connection string to `MONGO_URI`.
+
+---
+
+# Project Structure
+
+```
+AgroPulse/
+│
+├── ml/
+│   ├── data/
+│   ├── models/
+│   ├── train_model.py
+│   ├── predict.py
+│   └── data_pipeline.py
+│
+├── routes/
+│
+├── services/
+│
+├── scripts/
+│
+├── templates/
+│
+├── static/
+│
+├── tests/
+│
+├── utils/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+├── requirements-dev.txt
+└── render.yaml
+```
+
+The project follows a modular structure that separates routing, business logic, machine learning, utility functions, and presentation components, making the application easier to maintain and extend.
+
+---
+
+# Troubleshooting
+
+### MongoDB Connection Issues
+
+* Verify that MongoDB is running locally.
+* Confirm that `MONGO_URI` is correctly configured.
+* For MongoDB Atlas, ensure that network access rules permit incoming connections.
+
+---
+
+### Machine Learning Model Errors
+
+If prediction requests fail, retrain the model.
+
+```bash
+python ml/train_model.py
+```
+
+This regenerates the serialized model files required for inference.
+
+---
+
+### Docker Issues
+
+If containers fail to start, rebuild the application images.
+
+```bash
+make build
+make up
+```
+
+Also verify that Docker Engine and Docker Compose are installed and running correctly.
+
+---
+
+# License
+
+This project is licensed under the MIT License. See the `LICENSE` file for additional information.
