@@ -27,12 +27,12 @@ AgroPulse centralizes agricultural market intelligence into a single platform by
 
 | Category | Technologies |
 |:---------|:-------------|
-| **Languages** | <img src="https://skillicons.dev/icons?i=python,js" /> |
-| **Frontend** | <img src="https://skillicons.dev/icons?i=html,css,bootstrap" /> |
-| **Backend** | <img src="https://skillicons.dev/icons?i=flask" /> |
-| **Database** | <img src="https://skillicons.dev/icons?i=mongodb,redis" /> |
-| **Machine Learning** | <img src="https://skillicons.dev/icons?i=tensorflow" /> |
-| **Tools** | <img src="https://skillicons.dev/icons?i=git,github,vscode,docker,postman" /> |
+| **Languages** | <img src="https://skillicons.dev/icons?i=python,js,html,css" /> |
+| **Frontend** | HTML5, Jinja2 Templates, Vanilla JavaScript, CSS, Bootstrap 5.3.2, Chart.js |
+| **Backend** | <img src="https://skillicons.dev/icons?i=flask" /> Flask 3.0.0, Flask-CORS 4.0.0, Flask-Limiter 3.5.0, Flask-Mail, itsdangerous, Werkzeug, bcrypt, Gunicorn |
+| **Database** | <img src="https://skillicons.dev/icons?i=mongodb,redis" /> MongoDB (PyMongo 4.6.0), Redis (Optional) |
+| **Machine Learning** | Scikit-learn ≥ 1.4.0, Pandas ≥ 2.2.0, NumPy ≥ 1.26.0, Joblib ≥ 1.3.0 |
+| **Tools** | <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,docker" /> |
 
 ## System Architecture
 
