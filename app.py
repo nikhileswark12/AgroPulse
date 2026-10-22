@@ -26,12 +26,11 @@ def create_app(config_name=None):
 
     app = Flask(__name__)
     
-    # Load config based on config_name
-    config_module = f"config.{config_name.capitalize()}Config"
-    try:
-        app.config.from_object(config_module)
-    except Exception:
-        app.config.from_object('config.Config')
+    from config import config_map
+    config_class = config_map.get(str(config_name).lower(), config_map["default"])
+    app.config.from_object(config_class)
+    if config_class is config_map["production"]:
+        config_class.validate()
 
     from utils.logger import configure_logging, get_logger
     configure_logging(app)
