@@ -49,14 +49,13 @@ def load_model():
         return False
 
 def encode_value(value, encoder):
-    try:
-        return encoder.transform([value])[0]
-    except ValueError:
-        value = value.lower()
-        for idx, cls in enumerate(encoder.classes_):
-            if value in cls.lower() or cls.lower() in value:
-                return idx
-        return 0  # safe fallback
+    normalized = str(value).strip().casefold()
+    for idx, category in enumerate(encoder.classes_):
+        if normalized == str(category).strip().casefold():
+            return idx
+
+    supported = ", ".join(str(category) for category in encoder.classes_)
+    raise ValueError(f"Unsupported value '{value}'. Supported values: {supported}")
 
 
 def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
@@ -116,24 +115,26 @@ def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
         trend = 0.005
 
     for i in range(1, 8):
-        noise = np.random.uniform(-0.02, 0.02)
-        future_price = base_price * (1 + trend * i + noise)
+        future_price = base_price * (1 + trend * i)
         predicted_prices.append(round(future_price, 2))
 
     # ----------------------------
     # CONFIDENCE INTERVALS (MAE-BASED)
     # ----------------------------
-    mae = _METADATA.get("test_mae", 80)
-    margin = min(120, max(60, mae * 0.5))
-
-    upper = [round(p + margin, 2) for p in predicted_prices]
-    lower = [round(max(0, p - margin), 2) for p in predicted_prices]
+    mae = _METADATA.get("test_mae")
+    if isinstance(mae, (int, float)) and np.isfinite(mae) and mae >= 0:
+        margin = min(120, max(60, mae * 0.5))
+        upper = [round(p + margin, 2) for p in predicted_prices]
+        lower = [round(max(0, p - margin), 2) for p in predicted_prices]
+    else:
+        upper = []
+        lower = []
 
     # ----------------------------
     # RECOMMENDATION LOGIC
     # ----------------------------
     diff = predicted_prices[-1] - predicted_prices[0]
-    pct = (diff / predicted_prices[0]) * 100
+    pct = (diff / predicted_prices[0]) * 100 if predicted_prices[0] > 0 else 0
 
     if diff > 150 or pct > 7:
         recommendation = "WAIT 5-7 DAYS"
@@ -151,8 +152,8 @@ def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
     # ----------------------------
     # CONFIDENCE LABEL
     # ----------------------------
-    r2 = _METADATA.get("test_r2", 0.7)
-    confidence = "high" if r2 > 0.85 else "medium" if r2 > 0.7 else "low"
+    r2 = _METADATA.get("test_r2")
+    confidence = "high" if isinstance(r2, (int, float)) and r2 > 0.85 else "medium" if isinstance(r2, (int, float)) and r2 > 0.7 else "low"
 
     # ----------------------------
     # FINAL RESPONSE
@@ -168,7 +169,7 @@ def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
         "best_market": f"{matched_district} APMC",
         "trend": trend_label,
         "confidence": confidence,
-        "model_type": "machine_learning",
+        "model_type": "machine_learning_heuristic_projection",
         "matched_crop": matched_crop,
         "matched_district": matched_district,
         "matched_state": matched_state

@@ -89,10 +89,18 @@ class ProductionConfig(BaseConfig):
     
     @classmethod
     def validate(cls):
-        if cls.SECRET_KEY == 'dev-secret-change-in-production':
-            raise RuntimeError("SECRET_KEY must be changed in production")
-        if 'localhost' in cls.MONGO_URI or '127.0.0.1' in cls.MONGO_URI:
-            raise RuntimeError("MONGO_URI cannot be localhost in production")
+        secret_key = cls.SECRET_KEY or ""
+        if secret_key == "dev-secret-change-in-production" or len(secret_key) < 32:
+            raise RuntimeError("Production SECRET_KEY must be explicitly configured and at least 32 characters long")
+
+        from urllib.parse import urlparse
+
+        mongo_uri = cls.MONGO_URI or ""
+        parsed_uri = urlparse(mongo_uri)
+        if parsed_uri.scheme not in {"mongodb", "mongodb+srv"} or not parsed_uri.hostname:
+            raise RuntimeError("Production MONGO_URI must be a valid MongoDB URI")
+        if parsed_uri.hostname.lower() in {"localhost", "127.0.0.1", "::1"}:
+            raise RuntimeError("MONGO_URI cannot point to localhost in production")
 
 
 config_map = {

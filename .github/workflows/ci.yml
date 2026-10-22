@@ -54,7 +54,7 @@ jobs:
           CORS_ORIGINS: http://localhost:5000
           LOG_LEVEL: WARNING
         run: |
-          pytest tests/ -v --tb=short
+          PYTHONPATH=. pytest tests/ -v --tb=short
 
       - name: Upload test results
         if: always()

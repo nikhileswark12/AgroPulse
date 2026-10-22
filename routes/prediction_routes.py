@@ -19,41 +19,20 @@ except Exception as e:
 
 from utils.db_connection import get_db
 
-# FALLBACK PREDICTION
-def fallback_prediction(crop, location, state="Madhya Pradesh"):
-    import numpy as np
-
-    base_price = 2000 + np.random.randint(-200, 200)
-    predicted_prices = [
-        round(base_price + np.random.randint(-40, 120) * i, 2)
-        for i in range(1, 8)
-    ]
-
-    confidence_margin = 80
-    upper = [p + confidence_margin for p in predicted_prices]
-    lower = [p - confidence_margin for p in predicted_prices]
-
-    return {
-        "success": True,
-        "predicted_price": predicted_prices[0],
-        "predicted_prices": predicted_prices,
-        "upper_bound": upper,
-        "lower_bound": lower,
-        "recommendation": "WAIT 3 DAYS",
-        "expected_gain": f"₹{predicted_prices[-1] - predicted_prices[0]:.0f} / quintal",
-        "best_market": f"{location} APMC",
-        "trend": "stable",
-        "confidence": "medium",
-        "model_type": "fallback"
-    }
-
 # MAIN PREDICTION API
 @prediction_bp.route("/predict", methods=["POST"])
 @csrf.exempt
 @limiter.limit('30 per hour')
 def predict():
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
+            return jsonify({
+                "success": False,
+                "error": "invalid_request",
+                "message": "A JSON object is required"
+            }), 400
+
         crop = data.get("crop")
         location = data.get("location")
         state = data.get("state", "Madhya Pradesh")
@@ -72,21 +51,42 @@ def predict():
                 "message": "Crop and location are required"
             }), 400
 
-        # ML PREDICTION
-        if ML_AVAILABLE:
-            try:
-                result = ml_predict.predict_price(
-                    crop=crop,
-                    location=location,
-                    state=state,
-                    quantity=quantity
-                )
-            except Exception as e:
-                logger.warning(f"ML prediction failed, falling back: {e}")
-                result = fallback_prediction(crop, location, state)
-        else:
-            logger.warning("ML not available, using fallback prediction")
-            result = fallback_prediction(crop, location, state)
+        if not ML_AVAILABLE:
+            logger.error("Prediction request rejected because the ML model module is unavailable")
+            return jsonify({
+                "success": False,
+                "error": "model_unavailable",
+                "message": "Price forecasting is temporarily unavailable because the model is not loaded."
+            }), 503
+
+        try:
+            result = ml_predict.predict_price(
+                crop=crop,
+                location=location,
+                state=state,
+                quantity=quantity
+            )
+        except ValueError:
+            return jsonify({
+                "success": False,
+                "error": "unsupported_model_input",
+                "message": "The selected crop, state, or district is not supported by the trained model."
+            }), 422
+        except Exception as e:
+            logger.error(f"ML prediction failed: {e}", exc_info=True)
+            return jsonify({
+                "success": False,
+                "error": "model_unavailable",
+                "message": "Price forecasting is temporarily unavailable. Please try again later."
+            }), 503
+
+        if not isinstance(result, dict) or not result.get("success") or not result.get("predicted_prices"):
+            logger.error("ML prediction returned an invalid or incomplete result")
+            return jsonify({
+                "success": False,
+                "error": "invalid_model_response",
+                "message": "Price forecasting is temporarily unavailable. Please try again later."
+            }), 503
 
         # SAVE HISTORY
         if result.get("success") and "user_id" in session:
