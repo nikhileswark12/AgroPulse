@@ -48,7 +48,7 @@ def test_login_success(client, clean_db, app):
     from utils.db_connection import get_db
     with app.app_context():
         db = get_db()
-        db.users.update_one({"email": "new@example.com"}, {"$set": {"verified": True}})
+        db.users.update_one({"email_normalized": "new@example.com"}, {"$set": {"verified": True}})
         
     res = client.post('/api/v1/auth/login', json={
         "email": "new@example.com",
@@ -80,3 +80,25 @@ def test_logout(client, auth_headers):
     
     check_res = client.get('/api/v1/auth/check')
     assert check_res.json.get("authenticated") == False
+
+
+
+def test_register_normalizes_email_and_rejects_case_insensitive_duplicate(client, clean_db):
+    first = client.post("/api/v1/auth/register", json={
+        "name": "New User",
+        "email": " New@Example.com ",
+        "password": "Password123!"
+    })
+    second = client.post("/api/v1/auth/register", json={
+        "name": "Another User",
+        "email": "new@example.com",
+        "password": "Password123!"
+    })
+    assert first.status_code == 201
+    assert second.status_code == 409
+
+
+def test_auth_rejects_malformed_json_with_client_error(client, clean_db):
+    response = client.post("/api/v1/auth/register", data="{", content_type="application/json")
+    assert response.status_code == 400
+    assert response.json["message"] == "A JSON object is required"

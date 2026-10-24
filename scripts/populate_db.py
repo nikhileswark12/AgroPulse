@@ -8,6 +8,7 @@ from utils.db_connection import get_collection, db
 from config import Config
 from datetime import datetime, timedelta
 import random
+from pymongo import UpdateOne
 
 def generate_sample_prices():
     """Generate sample price data for testing"""
@@ -67,7 +68,8 @@ def generate_sample_prices():
                     'date': date.strftime('%Y-%m-%d'),
                     'arrival_quantity': random.randint(100, 1000),
                     'type': 'FPO' if 'FPO' in market['name'] else 'APMC',
-                    'created_at': datetime.now()
+                    'created_at': datetime.now(),
+                    'sample_data': True
                 }
                 
                 prices.append(price_doc)
@@ -79,6 +81,7 @@ def generate_sample_markets():
     
     markets = [
         {
+            'sample_data': True,
             'mandi_name': 'Indore APMC',
             'district': 'Indore',
             'state': 'Madhya Pradesh',
@@ -96,6 +99,7 @@ def generate_sample_markets():
             'facilities': ['Storage', 'Quality Testing', 'Digital Payment']
         },
         {
+            'sample_data': True,
             'mandi_name': 'Dewas APMC',
             'district': 'Dewas',
             'state': 'Madhya Pradesh',
@@ -113,6 +117,7 @@ def generate_sample_markets():
             'facilities': ['Storage', 'Quality Testing', 'Digital Payment']
         },
         {
+            'sample_data': True,
             'mandi_name': 'Ujjain FPO',
             'district': 'Ujjain',
             'state': 'Madhya Pradesh',
@@ -130,6 +135,7 @@ def generate_sample_markets():
             'facilities': ['Quality Testing']
         },
         {
+            'sample_data': True,
             'mandi_name': 'Bhopal APMC',
             'district': 'Bhopal',
             'state': 'Madhya Pradesh',
@@ -147,6 +153,7 @@ def generate_sample_markets():
             'facilities': ['Storage', 'Quality Testing', 'Digital Payment', 'Cold Storage']
         },
         {
+            'sample_data': True,
             'mandi_name': 'Jabalpur Mandi',
             'district': 'Jabalpur',
             'state': 'Madhya Pradesh',
@@ -168,53 +175,36 @@ def generate_sample_markets():
     return markets
 
 def populate_database():
-    """Populate database with sample data"""
-    
-    print("=" * 60)
-    print("🌾 AgroPulse Database Population")
-    print("=" * 60)
-    print("\nConnecting to MongoDB...")
-    
-    # Connect to database first
-    db.connect()
-    
-    prices_collection = get_collection(Config.PRICES_COLLECTION)
-    markets_collection = get_collection(Config.MARKETS_COLLECTION)
-    
-    # Clear existing data
-    print("Clearing existing data...")
-    prices_collection.delete_many({})
-    markets_collection.delete_many({})
-    
-    # Generate and insert prices
-    print("\nGenerating sample price data...")
-    prices = generate_sample_prices()
-    print(f"Generated {len(prices)} price records")
-    
-    print("Inserting price records into MongoDB...")
-    prices_collection.insert_many(prices)
-    print(f"✅ Inserted {len(prices)} price records")
-    
-    # Generate and insert markets
-    print("\nGenerating sample market data...")
-    markets = generate_sample_markets()
-    print(f"Generated {len(markets)} market records")
-    
-    print("Inserting market records into MongoDB...")
-    markets_collection.insert_many(markets)
-    print(f"✅ Inserted {len(markets)} market records")
-    
-    print("\n" + "=" * 60)
-    print("✅ Database populated successfully!")
-    print("=" * 60)
-    print(f"\n📊 Data Summary:")
-    print(f"   - Price records: {prices_collection.count_documents({})}")
-    print(f"   - Market records: {markets_collection.count_documents({})}")
-    print(f"   - Crops: Wheat, Rice, Soybean, Cotton, Corn")
-    print(f"   - Districts: Indore, Dewas, Ujjain, Bhopal, Jabalpur")
-    print(f"   - Date range: Last 90 days")
-    print("\n🚀 Ready to run: python app.py")
-    print("=" * 60)
+    from app import create_app
+    app = create_app(os.environ.get("FLASK_ENV", "development"))
+    with app.app_context():
+        prices_collection = get_collection(app.config.get("PRICES_COLLECTION", "prices"))
+        markets_collection = get_collection(app.config.get("MARKETS_COLLECTION", "markets"))
+        prices = generate_sample_prices()
+        markets = generate_sample_markets()
+        price_operations = [
+            UpdateOne(
+                {"sample_data": True, "crop": item["crop"], "mandi_name": item["mandi_name"], "date": item["date"]},
+                {"$set": item},
+                upsert=True
+            )
+            for item in prices
+        ]
+        market_operations = [
+            UpdateOne(
+                {"sample_data": True, "mandi_name": item["mandi_name"]},
+                {"$set": item},
+                upsert=True
+            )
+            for item in markets
+        ]
+        if price_operations:
+            prices_collection.bulk_write(price_operations, ordered=False)
+        if market_operations:
+            markets_collection.bulk_write(market_operations, ordered=False)
+        print(f"Upserted {len(prices)} tagged sample price records")
+        print(f"Upserted {len(markets)} tagged sample market records")
+        print("Existing non-sample records were left unchanged")
 
 if __name__ == '__main__':
     try:

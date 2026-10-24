@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from urllib.parse import urlsplit
 import math
 
 def get_date_range(days_back=90):
@@ -114,16 +115,33 @@ def paginated_response(data, total, page, per_page):
     }
 
 def validate_origin(request, allowed_origins):
-    """Validate Origin or Referer header against allowed origins"""
-    origin = request.headers.get('Origin')
-    referer = request.headers.get('Referer')
-    
-    check_url = origin or referer
-    if not check_url:
+    origin = request.headers.get("Origin")
+    referer = request.headers.get("Referer")
+    candidate = origin if origin is not None else referer
+    if not candidate:
         return False
-        
+
+    def normalized_origin(value):
+        try:
+            parsed = urlsplit(value.strip())
+            if parsed.scheme.lower() not in {"http", "https"} or not parsed.hostname:
+                return None
+            if parsed.username is not None or parsed.password is not None:
+                return None
+            if value == origin and (parsed.path or parsed.query or parsed.fragment):
+                return None
+            port = parsed.port
+            if port is None:
+                port = 443 if parsed.scheme.lower() == "https" else 80
+            return parsed.scheme.lower(), parsed.hostname.rstrip(".").lower(), port
+        except (ValueError, AttributeError):
+            return None
+
+    candidate_origin = normalized_origin(candidate)
+    if candidate_origin is None:
+        return False
     for allowed in allowed_origins:
-        if check_url.startswith(allowed):
+        allowed_origin = normalized_origin(allowed.strip())
+        if allowed_origin is not None and candidate_origin == allowed_origin:
             return True
-            
     return False

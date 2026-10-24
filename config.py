@@ -70,6 +70,9 @@ class BaseConfig:
     
     # Session
     PERMANENT_SESSION_LIFETIME = timedelta(days=7)
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', '').lower() == 'true'
 
 
 class DevelopmentConfig(BaseConfig):
@@ -80,12 +83,14 @@ class DevelopmentConfig(BaseConfig):
 class TestingConfig(BaseConfig):
     DEBUG = True
     TESTING = True
-    MONGO_URI = os.environ.get('MONGO_URI_TEST', 'mongodb://localhost:27017/agropulse_test')
+    MONGO_URI = os.environ.get('MONGO_URI_TEST', 'mongodb://localhost:27017/')
+    DATABASE_NAME = os.environ.get('DATABASE_NAME_TEST', 'agropulse_test')
 
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
     TESTING = False
+    SESSION_COOKIE_SECURE = True
     
     @classmethod
     def validate(cls):

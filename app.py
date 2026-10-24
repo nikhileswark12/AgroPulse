@@ -43,10 +43,10 @@ def create_app(config_name=None):
     # Initialize PyMongo via central db_connection
     from utils.db_connection import db, get_db
     try:
-        db.connect()
+        db.connect(app.config)
         logger.info("MongoDB connected successfully")
     except Exception as e:
-        logger.warning(f"MongoDB connection failed on startup: {e}")
+        logger.error("MongoDB connection failed on startup: %s", e)
 
     # Load Mandi Data into memory
     try:
@@ -79,9 +79,10 @@ def create_app(config_name=None):
     # Initialize indexes
     try:
         from scripts.create_indexes import create_indexes
-        create_indexes()
+        with app.app_context():
+            create_indexes()
     except Exception as e:
-        logger.warning(f"Failed to verify indexes during startup: {e}")
+        logger.error("Failed to verify database indexes during startup: %s", e)
 
     # Flask-CORS
     cors_origins = app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',')
@@ -102,7 +103,6 @@ def create_app(config_name=None):
     # Session security flags
     app.config['SESSION_COOKIE_HTTPONLY'] = True
     app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-    app.config['SESSION_COOKIE_SECURE'] = app.config.get('FLASK_ENV') == 'production'
 
     # Register blueprints
     from routes.auth_routes import auth_bp
@@ -162,7 +162,7 @@ def create_app(config_name=None):
             if app.testing or (app.config.get('FLASK_ENV') == 'development' and request.remote_addr == '127.0.0.1'):
                 return
             
-            allowed_origins = app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',')
+            allowed_origins = [origin.strip() for origin in app.config.get('CORS_ORIGINS', 'http://localhost:5000').split(',') if origin.strip()]
             if not validate_origin(request, allowed_origins):
                 return jsonify({"error": "Forbidden", "message": "Invalid request origin"}), 403
 
