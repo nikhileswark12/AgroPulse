@@ -37,7 +37,8 @@ def create_app(config_name=None):
     logger = get_logger('startup')
     logger.info(f"Starting application in {os.environ.get('FLASK_ENV', 'development')} mode")
 
-    model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
+    model_path = os.environ.get('AGROPULSE_MODEL_PATH', os.path.join(os.path.dirname(__file__), 'ml', 'model_bundle.joblib'))
+    model_loaded = os.path.isfile(model_path)
     logger.info(f"ML model file found: {model_loaded}")
 
     # Initialize PyMongo via central db_connection
@@ -202,7 +203,8 @@ def create_app(config_name=None):
     @app.route('/health')
     @limiter.exempt
     def health_check():
-        model_loaded = os.path.exists('ml/trained_model.pkl') or os.path.exists('ml/models/price_model.pkl')
+        model_path = os.environ.get('AGROPULSE_MODEL_PATH', os.path.join(os.path.dirname(__file__), 'ml', 'model_bundle.joblib'))
+        model_loaded = os.path.isfile(model_path)
         db_connected = False
         try:
             from utils.db_connection import db

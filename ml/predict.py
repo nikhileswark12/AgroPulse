@@ -1,190 +1,132 @@
-import pickle
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-import os
 import logging
+import os
+from datetime import date, datetime, timedelta
+
+import joblib
+import numpy as np
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
-# ============================================================
-# GLOBAL CACHED OBJECTS
-# ============================================================
 _MODEL = None
 _STATE_ENC = None
 _DISTRICT_ENC = None
 _CROP_ENC = None
-_METADATA = None
+_METADATA = {}
 _MODEL_LOADED = False
+_MODEL_PATH_LOADED = None
+_MODEL_MTIME = None
 
 
-# ============================================================
-# LOAD MODEL & ENCODERS (ONCE)
-# ============================================================
+def _model_path():
+    configured_path = os.environ.get("AGROPULSE_MODEL_PATH")
+    if configured_path:
+        return os.path.abspath(configured_path)
+    return os.path.join(os.path.dirname(__file__), "model_bundle.joblib")
+
+
 def load_model():
-    global _MODEL, _STATE_ENC, _DISTRICT_ENC, _CROP_ENC, _METADATA, _MODEL_LOADED
+    global _MODEL, _STATE_ENC, _DISTRICT_ENC, _CROP_ENC
+    global _METADATA, _MODEL_LOADED, _MODEL_PATH_LOADED, _MODEL_MTIME
 
-    if _MODEL_LOADED:
-        return True
-
+    path = _model_path()
     try:
-        base = os.path.dirname(__file__)
-
-        _MODEL = pickle.load(open(os.path.join(base, "trained_model.pkl"), "rb"))
-        _STATE_ENC = pickle.load(open(os.path.join(base, "state_encoder.pkl"), "rb"))
-        _DISTRICT_ENC = pickle.load(open(os.path.join(base, "district_encoder.pkl"), "rb"))
-        _CROP_ENC = pickle.load(open(os.path.join(base, "crop_encoder.pkl"), "rb"))
-
-        try:
-            _METADATA = pickle.load(open(os.path.join(base, "model_metadata.pkl"), "rb"))
-        except Exception:
-            _METADATA = {}
-
+        modified = os.path.getmtime(path)
+        if _MODEL_LOADED and _MODEL_PATH_LOADED == path and _MODEL_MTIME == modified:
+            return True
+        bundle = joblib.load(path)
+        if not isinstance(bundle, dict) or bundle.get("format_version") != 1:
+            raise ValueError("Unsupported model bundle format")
+        model = bundle.get("model")
+        encoders = bundle.get("encoders")
+        feature_cols = bundle.get("feature_cols")
+        metadata = bundle.get("metadata")
+        if not model or not isinstance(encoders, dict) or not isinstance(metadata, dict):
+            raise ValueError("Model bundle is incomplete")
+        if feature_cols != ["state_enc", "district_enc", "crop_enc"]:
+            raise ValueError("Model feature schema is unsupported")
+        if not all(key in encoders for key in ("state", "district", "crop")):
+            raise ValueError("Model category encoders are missing")
+        _MODEL = model
+        _STATE_ENC = encoders["state"]
+        _DISTRICT_ENC = encoders["district"]
+        _CROP_ENC = encoders["crop"]
+        _METADATA = metadata
         _MODEL_LOADED = True
-        logger.info("✅ ML model loaded successfully")
+        _MODEL_PATH_LOADED = path
+        _MODEL_MTIME = modified
+        logger.info("AgroPulse model bundle loaded")
         return True
+    except FileNotFoundError:
+        logger.warning("AgroPulse model bundle is missing at %s", path)
+    except Exception as exc:
+        logger.error("AgroPulse model bundle could not be loaded: %s", exc)
+    _MODEL_LOADED = False
+    _MODEL = None
+    _STATE_ENC = None
+    _DISTRICT_ENC = None
+    _CROP_ENC = None
+    _METADATA = {}
+    return False
 
-    except Exception as e:
-        logger.error(f"❌ Failed to load ML model: {e}")
-        return False
 
 def encode_value(value, encoder):
-    normalized = str(value).strip().casefold()
-    for idx, category in enumerate(encoder.classes_):
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("Crop, district, and state must be non-empty strings")
+    normalized = value.strip().casefold()
+    for index, category in enumerate(encoder.classes_):
         if normalized == str(category).strip().casefold():
-            return idx
-
-    supported = ", ".join(str(category) for category in encoder.classes_)
-    raise ValueError(f"Unsupported value '{value}'. Supported values: {supported}")
+            return index
+    raise ValueError(f"Unsupported category: {value}")
 
 
 def predict_price(crop, location, state="Madhya Pradesh", quantity=100):
-    """
-    Predict crop price using trained ML model
-    """
-
     if not load_model():
-        raise RuntimeError("ML model not available")
+        raise RuntimeError("ML model bundle is not available")
 
-    # ----------------------------
-    # CLEAN INPUTS
-    # ----------------------------
-    crop = crop.strip()
-    district = location.strip()
-    state = state.strip()
-
-    # ----------------------------
-    # ENCODE INPUTS
-    # ----------------------------
     state_enc = encode_value(state, _STATE_ENC)
-    district_enc = encode_value(district, _DISTRICT_ENC)
+    district_enc = encode_value(location, _DISTRICT_ENC)
     crop_enc = encode_value(crop, _CROP_ENC)
-
-    matched_state = _STATE_ENC.classes_[state_enc]
-    matched_district = _DISTRICT_ENC.classes_[district_enc]
-    matched_crop = _CROP_ENC.classes_[crop_enc]
-
-    logger.info(
-        f"ML Match → State={matched_state}, District={matched_district}, Crop={matched_crop}"
-    )
-
-    # ----------------------------
-    # BASE PRICE PREDICTION
-    # ----------------------------
-    import pandas as pd
-
-    X = pd.DataFrame(
+    features = pd.DataFrame(
         [[state_enc, district_enc, crop_enc]],
         columns=["state_enc", "district_enc", "crop_enc"]
     )
+    base_price = float(_MODEL.predict(features)[0])
+    if not np.isfinite(base_price) or base_price <= 0:
+        raise RuntimeError("Model returned an invalid price estimate")
 
-    base_price = float(_MODEL.predict(X)[0])
+    today = date.today()
+    forecast_dates = [(today + timedelta(days=offset)).isoformat() for offset in range(1, 8)]
+    predicted_prices = [round(base_price, 2)] * 7
 
-    # ----------------------------
-    # 7-DAY FORECAST
-    # ----------------------------
-    today = datetime.utcnow()
-    predicted_prices = []
-
-    month = today.month
-    if month in [10, 11, 12, 1]:
-        trend = -0.01
-    elif month in [4, 5, 6]:
-        trend = 0.015
-    else:
-        trend = 0.005
-
-    for i in range(1, 8):
-        future_price = base_price * (1 + trend * i)
-        predicted_prices.append(round(future_price, 2))
-
-    # ----------------------------
-    # CONFIDENCE INTERVALS (MAE-BASED)
-    # ----------------------------
     mae = _METADATA.get("test_mae")
     if isinstance(mae, (int, float)) and np.isfinite(mae) and mae >= 0:
-        margin = min(120, max(60, mae * 0.5))
-        upper = [round(p + margin, 2) for p in predicted_prices]
-        lower = [round(max(0, p - margin), 2) for p in predicted_prices]
+        upper = [round(base_price + float(mae), 2)] * 7
+        lower = [round(max(0, base_price - float(mae)), 2)] * 7
     else:
         upper = []
         lower = []
 
-    # ----------------------------
-    # RECOMMENDATION LOGIC
-    # ----------------------------
-    diff = predicted_prices[-1] - predicted_prices[0]
-    pct = (diff / predicted_prices[0]) * 100 if predicted_prices[0] > 0 else 0
-
-    if diff > 150 or pct > 7:
-        recommendation = "WAIT 5-7 DAYS"
-        trend_label = "rising"
-    elif diff > 75 or pct > 3:
-        recommendation = "WAIT 3 DAYS"
-        trend_label = "rising"
-    elif diff < -75:
-        recommendation = "SELL IMMEDIATELY"
-        trend_label = "falling"
-    else:
-        recommendation = "SELL NOW"
-        trend_label = "stable"
-
-    # ----------------------------
-    # CONFIDENCE LABEL
-    # ----------------------------
-    r2 = _METADATA.get("test_r2")
-    confidence = "high" if isinstance(r2, (int, float)) and r2 > 0.85 else "medium" if isinstance(r2, (int, float)) and r2 > 0.7 else "low"
-
-    # ----------------------------
-    # FINAL RESPONSE
-    # ----------------------------
     return {
         "success": True,
         "predicted_price": round(base_price, 2),
         "predicted_prices": predicted_prices,
+        "forecast_dates": forecast_dates,
         "upper_bound": upper,
         "lower_bound": lower,
-        "recommendation": recommendation,
-        "expected_gain": f"₹{abs(diff):.0f} / quintal",
-        "best_market": f"{matched_district} APMC",
-        "trend": trend_label,
-        "confidence": confidence,
-        "model_type": "machine_learning_heuristic_projection",
-        "matched_crop": matched_crop,
-        "matched_district": matched_district,
-        "matched_state": matched_state
+        "recommendation": "INSUFFICIENT TEMPORAL DATA",
+        "expected_gain": "Unavailable",
+        "best_market": f"{location.strip()} APMC",
+        "trend": "unknown",
+        "confidence": "low",
+        "model_type": "cross_sectional_price_baseline_not_time_series_forecast",
+        "temporal_forecast_supported": False,
+        "matched_crop": str(_CROP_ENC.classes_[crop_enc]),
+        "matched_district": str(_DISTRICT_ENC.classes_[district_enc]),
+        "matched_state": str(_STATE_ENC.classes_[state_enc])
     }
 
 
-# ============================================================
-# QUICK LOCAL TEST
-# ============================================================
 if __name__ == "__main__":
-    print("🧪 Testing predict_price()...\n")
-    res = predict_price(
-        crop="Wheat",
-        location="Chittorgarh",
-        state="Rajasthan"
-    )
-    for k, v in res.items():
-        print(f"{k}: {v}")
+    print("Testing the AgroPulse model bundle")
+    print(predict_price(crop="Wheat", location="Chittorgarh", state="Rajasthan"))

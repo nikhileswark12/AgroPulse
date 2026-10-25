@@ -177,6 +177,8 @@ def delete_prediction(history_id):
 def model_info():
     try:
         import pandas as pd
+        model_loaded = ML_AVAILABLE and ml_predict.load_model()
+        model_metadata = ml_predict._METADATA if model_loaded else {}
         import os
         
         csv_path = os.path.join(
@@ -200,7 +202,10 @@ def model_info():
             
             return jsonify({
                 "success": True,
-                "ml_available": ML_AVAILABLE,
+                "ml_available": model_loaded,
+                "model_type": "cross_sectional_price_baseline_not_time_series_forecast" if model_loaded else None,
+                "temporal_forecast_supported": bool(model_metadata.get("temporal_forecast_supported", False)),
+                "model_metadata": model_metadata,
                 "n_states": len(all_states),
                 "n_districts": len(all_districts),
                 "n_crops": len(all_crops),
@@ -222,7 +227,9 @@ def model_info():
             
             return jsonify({
                 "success": True,
-                "ml_available": False,
+                "ml_available": model_loaded,
+                "model_type": "cross_sectional_price_baseline_not_time_series_forecast" if model_loaded else None,
+                "temporal_forecast_supported": bool(model_metadata.get("temporal_forecast_supported", False)),
                 "state_district_mapping": fallback_mapping,
                 "supported_states": list(fallback_mapping.keys()),
                 "supported_crops": ["Wheat", "Rice"]

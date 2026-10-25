@@ -19,6 +19,7 @@ logs/
 *.log
 
 # Machine learning artifacts and generated output
+ml/*.joblib
 ml/*.pkl
 *.pkl
 ml/*.png
